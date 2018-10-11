@@ -1,0 +1,246 @@
+<html><head>
+	<link rel='stylesheet' type='text/css' href='../css/stylesTorah.css'>
+<script src='../js/myScript.js'></script>				
+
+	</head>
+				<body class='theBody' onload='initClassesBasedOnCookies()'>
+			<div id='mySidenav' class='sidenav'>
+
+		 <span class='trads'>
+		<span type='button' id='passukEnHa'  onClick="hideShow('passukEnHa',this)" class='button'>EN</span>
+		<span type='button' id='passukFrHa'  onClick="hideShow('passukFrHa',this)" class='button'>FR</span>					
+		</span>
+		<span class='pirushim'>
+			<span type='button' id='rashiHa' onClick="hideShow('rashiHa',this)" class='button'>רש"י</span><span type='button' id='mezudatDavid' onClick="hideShow('mezudatDavid',this)" class='button'>מצודת דוד</span><span type='button' id='mezudatZion' onClick="hideShow('mezudatZion',this)" class='button'>מצודת ציון</span><span type='button' id='ralbag' onClick="hideShow('ralbag',this)" class='button'>רלב"ג</span><span type='button' id='malbim' onClick="hideShow('malbim',this)" class='button'>מלבי"ם</span>
+		</span>
+
+		</div>
+<span id='buttonNav' style='font-size:35px;cursor:pointer; position:fixed' onclick='openNav()'>&#9776;</span>
+
+			<div class='theContent' onclick='closeNav()'><div class='newParasha'><span class='parashaTitle'><a href='../index.html'>תורה
+</a></span><span class='parashaTitle'><a href='1.html'>וארא
+</a></span><div class='alyot'><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html' class='parshiotTitle'>6</a></span><span class='parshiotTitle'><a href='7.html'>7</a></span><span class='parshiotTitle'><a class='linkSelected' href='8.html'>הפטרה</a></span></div></div>
+
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{כה}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">כֹּֽה-אָמַר&#1454; אֲדֹנָ&#1443;י יְהוִה&#1426; בְּקַבְּצִ&#1443;י | אֶת-בֵּ&#1443;ית יִשְׂרָאֵ&#1431;ל מִן-הָֽעַמִּים&#1433; אֲשֶׁ&#1443;ר נָפֹ&#1443;צוּ בָ&#1428;ם וְנִקְדַּ&#1445;שְׁתִּי בָ&#1430;ם לְעֵינֵ&#1443;י הַגּוֹיִ&#1425;ם וְיָֽשְׁבוּ&#1433; עַל-אַדְמָתָ&#1428;ם אֲשֶׁ&#1445;ר נָתַ&#1430;תִּי לְעַבְדִּ&#1445;י לְיַעֲקֹֽב:</span>
+	</div><div class='passukFrHa'> Ainsi parle le Seigneur Dieu: &quot;Quand je rassemblerai la maison d&rsquo;Isra&euml;l d&rsquo;entre les peuples chez qui ils ont &eacute;t&eacute; dispers&eacute;s, je me sanctifierai par eux aux yeux des nations, et ils demeureront sur le territoire que j&rsquo;ai donn&eacute; &agrave; mon serviteur Jacob.
+	</div><div class='passukEnHa'>Thus saith the Lord God: When I shall have gathered the house of Israel from the peoples among whom they are scattered, and shall be sanctified in them in the sight of the nations, then shall they dwell in their own land which I gave to My servant Jacob. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>לעבדי ליעקב.</b> כמו שנתנה ליעקב נחלה בלא מצרי' ופרצת ימה וקדמה צפונה ונגבה (בראשית כח) : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ונקדשתי בם.</b> אהיה מקודש על ידיהם בהאותות ומופתים שאעשה אז עמהם : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>נפוצו.</b> ענין פזור : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>כה אמר ה'</b> ר''ל בל תשאל הלא עתה ישראל בגולה מפוזרים בין העמים ואינם שכנים לצידון, משיב שזה יהיה בעת שאקבץ אותם וישבו על אדמתם בעת שנתן להם כורש רשות לשוב לא''י :<small>(מלבי"ם באור הענין)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{כו}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וְיָשְׁב&#1443;וּ עָלֶיהָ&#1454; לָבֶטַח&#1426; וּבָנ&#1444;וּ בָתִּים&#1433; וְנָטְע&#1443;וּ כְרָמִ&#1428;ים וְיָשְׁב&#1430;וּ לָבֶ&#1425;טַח בַּעֲשׂוֹתִ&#1443;י שְׁפָטִ&#1431;ים בְּכֹ&#1448;ל הַשָּׁאטִ&#1444;ים אֹתָם&#1433; מִסְּבִ&#1443;יבוֹתָ&#1428;ם וְיָ&#1443;דְע&#1428;וּ כִּ&#1435;י אֲנִ&#1445;י יְהוָ&#1430;ה אֱלֹהֵיהֶֽם:</span> <b>(פ)</b>
+	</div><div class='passukFrHa'> Ils y demeureront en s&eacute;curit&eacute;, ils b&acirc;tiront des maisons, planteront des vignes et demeureront en s&eacute;curit&eacute;, parce que je ferai justice de tous leurs contempteurs d&rsquo;alentour, et ils reconna&icirc;tront que moi, l&rsquo;&Eacute;ternel, je suis leur Dieu.&quot;
+	</div><div class='passukEnHa'>And they shall dwell safely therein, and shall build houses, and plant vineyards; yea, they shall dwell safely; when I have executed judgments upon all those that have them in disdain round about them; and they shall know that I am the Lord their God.'
+	</div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בעשותי.</b> בסבת עשותי שפטים בכל המבזים אותם מסביבותם ישבו לבטח כי לא ימצא עוד מי ירע להם ואז ידעו שאני ה' אלהיכם העושה משפטם מיד הבבלים : <small>(מצודת דוד)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>וישבו עליה לבטח</b> כי בתחלת חזירתם היה להם שונאים ומעיקים כמבואר בעזרא ונחמיה, ואח''כ <b>ובנו בתים וישבו לבטח</b> שתתרבה ישיבת א''י, וזה יהיה <b>בעשות שפטים בכל השאטים</b> ואז <b>ידעו כי אני ה' אלהיהם</b> המשגיח עליהם בהשגחה פרטית מיוחדת אליהם :<small>(מלבי"ם באור הענין)</small></div></div>
+	
+
+
+	<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{א}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">בַּשָּׁנָה&#1433; הָעֲשִׂירִ&#1428;ית בָּעֲשִׂרִ&#1429;י בִּשְׁנֵ&#1445;ים עָשָׂ&#1430;ר לַחֹ&#1425;דֶשׁ הָיָ&#1445;ה דְבַר-יְהוָ&#1430;ה אֵלַ&#1445;י לֵאמֹֽר:</span>
+		</div><div class='passukFrHa'> Dans la dixi&egrave;me ann&eacute;e, le dixi&egrave;me mois, le douze du mois, la parole de l&rsquo;&Eacute;ternel me fut adress&eacute;e en ces termes:
+		</div><div class='passukEnHa'>In the tenth year, in the tenth month, in the twelfth day of the month, the word of the Lord came unto me, saying: </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>בשנה העשירית.</b> בעשירי בשנים עשר לחדש היה דבר ה' אלי לאמר : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בשנה העשירית.</b> לגלות יהויכין ומלכות צדקיה : <b>בעשירי.</b> בחדש העשירי : <small>(מצודת דוד)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>בשנה העשירית, </b> מפלת צור נבא בשנה י''א שהוא אחר נבואה זאת, והטעם שהקדימה, מפני שעל פרעה נבא גם בשנה י''א ובשנה י''ב ובשנה עשרים ושבע לכן הקדים נבואת צור, וסמך נבואות מצרים זל''ז, וגם שמצרים נחרבה פעמים הרבה וחורבן האחרון היה אחר צור (כמ''ש (פ' י''ח) נבוכדנצר העביד את חילו וכו' הנני נותן לו את ארץ מצרים) לכן סדר נבואה זאת אחר נבואת צור :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ב}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">בֶּן-אָדָ&#1429;ם שִׂ&#1443;ים פָּנֶ&#1428;יךָ עַל-פַּרְעֹ&#1430;ה מֶ&#1443;לֶךְ מִצְרָ&#1425;יִם וְהִנָּבֵ&#1443;א עָלָ&#1428;יו וְעַל-מִצְרַ&#1430;יִם כֻּלָּֽהּ:</span>
+		</div><div class='passukFrHa'> &quot;Fils de l&rsquo;homme, dirige ta face contre Pharaon, roi d&rsquo;&Eacute;gypte, et proph&eacute;tise sur lui et sur l&rsquo;&Eacute;gypte enti&egrave;re.
+		</div><div class='passukEnHa'>'Son of man, set thy face against Pharaoh king of Egypt, and prophesy against him, and against all Egypt; </div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>שים פניך על פרעה</b> מפני שפרעה עשה א''ע אלהי ומשל ממשל רב והיה מפלתו מפלת האומה בכלל, לכן צוהו ליחד השקפת חזיונו עליו, ועל ידו על כל מצרים :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ג}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">דַּבֵּ&#1448;ר וְאָמַרְתָּ&#1436; כֹּֽה-אָמַ&#1443;ר | אֲדֹנָ&#1443;י יְהוִ&#1431;ה הִנְנִ&#1444;י עָלֶ&#1433;יךָ&#1433; פַּרְעֹ&#1443;ה מֶֽלֶךְ-מִצְרַ&#1428;יִם הַתַּנִּים&#1433; הַגָּד&#1428;וֹל הָרֹבֵ&#1430;ץ בְּת&#1443;וֹךְ יְאֹרָ&#1425;יו אֲשֶׁ&#1445;ר אָמַ&#1435;ר לִ&#1445;י יְאֹרִ&#1430;י וַאֲנִ&#1445;י עֲשִׂיתִֽנִי:</span>
+		</div><div class='passukFrHa'> Prononce ces paroles: Ainsi parle le Seigneur Dieu: Voici, je m&rsquo;en prends &agrave; toi, Pharaon, roi d&rsquo;&Eacute;gypte, grand crocodile, couch&eacute; au milieu de tes fleuves, toi qui dis: &quot;Mon fleuve est &agrave; moi, c&rsquo;est moi qui me le suis fait!&quot;
+		</div><div class='passukEnHa'>speak, and say: Thus saith the Lord God:
+		
+		Behold, I am against thee, Pharaoh
+		King of Egypt, 
+		The great dragon that lieth
+		In the midst of his rivers,
+		That hath said: My river is mine own,
+		And I have made it for myself.
+		</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>התנים הגדול.</b> לפי שכל גדולתה של מצרים וכל שובע שבה על ידי יאורי נילוס הוא לפיכך הנביא ממשל את מלכה לתנין ואת עמה לדגת יאור : <b>לי יאורי.</b> איני צריך לעליונים כי יש לי יאורי מספיק כל צרכי : <b>ואני עשיתני.</b> בגבורתי ובחכמתי הגדלתי גדולתי וממשלתי : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>הנני עליך.</b> הנה אני אלחם עמך : <b>התנים הגדול.</b> לפי שכל שבח מצרים היה במה שהיאור השקה שדותיהם מבלי מטר השמים לכן המשיל מלכה לתנין ועמה לשאר דגים : <b>לי יאורי.</b> היאור הוא לי להשקות שדותי ואין לי צורך במטר השמים : <b>ואני עשיתני.</b> אני גדלתי ורוממתי את עצמי בחכמתי ובפועל ידי : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>התנים.</b> כמו התנין בנו''ן וכן נקרא מין דג הדומה לנחש במראיתו וכן את התנינים הגדולים (בראשית א) : <b>הרובץ.</b> ענין השכיבה לנוח : <b>יאוריו.</b> נחל מצרים נקרא יאור לפי שהמשיכו ממנו בריכות הרבה להשקות הארץ לכן אמר יאוריו בלשון רבים : <b>עשיתני.</b> ענין גדולה ורוממות כמו ישמח ישראל בעושיו (תהלים קמט) : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>התנים הגדול, </b> המצרים היו מאמינים שהיאור נילוס הוא קדוש ושהתנינים הגדולים שבו יש בהם אלהות, ושיש תנים אחד הגדול מכולם שהוא מושל על כולם והוא ברא את עצמו ואת היאור, והמשיל אליו את פרעה בכחו, שהוא י''ל בארץ הכח עצמו שיש להתנים ביאור, וע''כ קראו בשם <b>התנים הגדול, שהוא רובץ בתוך יאוריו</b> שהיאורים כולם ומה שבם שייך אליו, והוא מתפאר <b>שהיאור הוא שלו</b> כי הוא בראו, וכן <b>שעשה א''ע</b> עם היאור שבו תלוי אושר ארץ מצרים :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ד}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וְנָתַתִּ&#1444;י (חחיים) חַחִים&#1433; בִּלְחָיֶ&#1428;יךָ וְהִדְבַּקְתִּ&#1445;י דְגַת-יְאֹרֶ&#1430;יךָ בְּקַשְׂקְשֹׂתֶ&#1425;יךָ וְהַעֲלִיתִ&#1433;יךָ&#1433; מִתּ&#1443;וֹךְ יְאֹרֶ&#1428;יךָ וְאֵת&#1433; כָּל-דְּגַ&#1443;ת יְאֹרֶ&#1428;יךָ בְּקַשְׂקְשֹׂתֶ&#1430;יךָ תִּדְבָּֽק:</span>
+		</div><div class='passukFrHa'> Je passerai des crochets &agrave; tes m&acirc;choires, je collerai &agrave; tes &eacute;cailles les poissons de tes fleuves. Je te tirerai du milieu de tes fleuves, et tous les poissons de tes fleuves adh&eacute;reront &agrave; tes &eacute;cailles.
+		</div><div class='passukEnHa'>And I will put hooks in thy jaws, and I will cause the fish of thy rivers to stick unto thy scales; and I will bring thee up out of the midst of thy rivers, and all the fish of thy rivers shall stick unto thy scales. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>חחים.</b> כמין טבעות ברזל איינ''ש בלע''ז : <b>דגת יאוריך בקשקשתיך.</b> אינטישאיקראטי''ש בלע''ז כלומר אתן בלב כל גבוריך לצאת עמך למלחמה ויפלו כולם : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ונתתי חחים.</b> לפי שהמשילו לתנין שהוא דג אמר בו לשון הנופל בצדיית הדג שמשימין חחים בלחייו להעלותו מן המים : <b>והדבקתי.</b> אדבק בקשקשתיך את דגת היאור : <b>והעליתיך.</b> אעלה אותך מתוך היאור ועם כל דגת יאוריך אשר תדבק בקשקשתיך כי כולם יהיו נמשכים אחריך ור''ל בנפול השר יפול כל העם : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>חחים.</b> הוא מכלי צדיה ובו נוקבים לחיי הדג להעלותו מן המים וכן ובחוח תקוב לחיו (איוב מ) : <b>בלחייך.</b> הוא החלק שאצל הפה : <b>והדבקתי.</b> מל' דבוק וחבור : <b>בקשקשתיך.</b> הם הדבוקים בדג על בשרו כעין לבוש כמו סנפיר וקשקשת (ויקרא יא) : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>ונתתי</b> הנה מצרים נחרבה כמה פעמים ופרעה היה מושל תחלה עד נהר פרת, והכהו נבוכדנצר במלוך יהויכין (כמ''ש במ''ב כ''ד) וכן בשנה הרביעית ליהוקים, הכהו בכרכמיש (כמ''ש בירמיה מ''ו), ואח''כ יצא שלישית בעת שצרו על ירושלים ושב לארצו (ירמיהו ל''ז), וכל זה היה חוץ לארצו, וע''ז אמר במשל <b>שיתן חחים בלחייו</b> כמו שמושכים הדק הגדול בחחים שלא ברצונו כי אז יצא ממצרים בהכרח ע''פ גזרת ה' להענישו, והמשיל <b>שידביק בקשקשותיו כל דגת יאוריו, </b> היינו שריו וגבוריו, <b>יעלהו מתוך יאוריו, </b> ר''ל שיצאו חוץ לארצו שבארץ היה בטוח משא''כ כוץ לארצו נדמה כדג בעלותו מן היבשה שהוא חלוש ורפה כח, וכן (<b>אעלה</b>) <b>דגת יאוריך</b> (<b>אשר</b>) <b>בקשקשתיך תדבק</b> :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ה}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וּנְטַשְׁתִּ&#1443;יךָ הַמִּדְבָּ&#1431;רָה אוֹתְךָ&#1433; וְאֵת&#1433; כָּל-דְּגַ&#1443;ת יְאֹרֶ&#1428;יךָ עַל-פְּנֵ&#1444;י הַשָּׂדֶה&#1433; תִּפּ&#1428;וֹל לֹ&#1445;א תֵאָסֵ&#1430;ף וְלֹ&#1443;א תִקָּבֵ&#1425;ץ לְחַיַּ&#1445;ת הָאָ&#1435;רֶץ וּלְע&#1445;וֹף הַשָּׁמַ&#1430;יִם נְתַתִּ&#1445;יךָ לְאָכְלָֽה:</span>
+		</div><div class='passukFrHa'> Et je te jetterai dans le d&eacute;sert, toi et tous les poissons de tes fleuves; tu tomberas sur la surface des champs, tu ne seras ni ramass&eacute; ni recueilli. Aux b&ecirc;tes de la terre et aux oiseaux du ciel, je t&rsquo;ai donn&eacute; en p&acirc;ture.
+		</div><div class='passukEnHa'>And I will cast thee into the wilderness,
+		
+		Thee and all the fish of thy rivers;
+		Thou shalt fall upon the open field;
+		Thou shalt not be brought together, nor gathered;
+		To the beasts of the earth and to the fowls of the heaven
+		Have I given thee for food.
+		</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ונטשתיך המדברה.</b> זו היא אובדנן של דגים כיון שנטשו על פני היבשה מתים א''י אטינדר''י טו''י בלע''ז : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ונטשתיך.</b> אפזר אותך במדבר ואמר לשון הנופל באבדן הדגים שהמה כשבאים על היבשה ור''ל שיכלה אותו ואת עמו מן העולם : <b>על פני השדה תפול.</b> בעת המלחמה ולא תאסף אל הקבר : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ונטשתיך.</b> ענין פזור כמו וינטשו בלחי (שופטים טו) : <b>תאסף.</b> ענין הכנסה : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>ונטשתיך המדברה, </b> שם יפוזר חילו, <b>ושם יפול על פני השדה, </b> כי לא ילחם בעיר ובמבצר, <b>לא תאסף</b> במשל הדגים תחלה מקבצים אותם ואח''כ אוספים אותם הביתה, אמר <b>לא תאסף</b> הביתה, ויותר מזה כי גם <b>לא תקבץ</b> כי יאכלוהו חיה ועוף :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ו}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וְיָֽדְעוּ&#1433; כָּל-יֹשְׁבֵ&#1443;י מִצְרַ&#1428;יִם כִּ&#1430;י אֲנִ&#1443;י יְהוָ&#1425;ה יַ&#1447;עַן הֱיוֹתָ&#1435;ם מִשְׁעֶ&#1445;נֶת קָנֶ&#1430;ה לְבֵ&#1445;ית יִשְׂרָאֵֽל:</span>
+		</div><div class='passukFrHa'> Tous les habitants d&rsquo;&Eacute;gypte sauront alors que c&rsquo;est moi l&rsquo;&Eacute;ternel, parce qu&rsquo;ils avaient pr&ecirc;t&eacute; un appui de roseau &agrave; la maison d&rsquo;Isra&euml;l.
+		</div><div class='passukEnHa'>And all the inhabitants of Egypt shall know
+		That I am the Lord,
+		Because they have been a staff of reed
+		To the house of Israel.
+		</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>משענת קנה.</b> כמה פעמים סמכו עליהם בימי סנחריב ובימי נבוכדנצר ולא הועיל להם בקנה זה שהוא רך ואינו סומך את הנשען עליו : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>כי אני ה'.</b> הנאמן לשלם גמול : <b>יען.</b> על כי היו לבית ישראל כמו ההשענה שעל הקנה שאין בו די להשעין את השוען כי בקל ישבר ויתרוצץ : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>משענת.</b> ענין סעד : <b>קנה.</b> מטה חלול וכן קנה וסוף קמלו (ישעיה יט) : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>וידעו</b> ובזה ארויח <b>שכל יושבי מצרים יכירו כי אני ה'</b> כי ידעו שהיה לו עונש מה' המשגיא לגוים ויאבדם אחר כ''ז בא עליו מלחמה בארצו שבא נבוכדנצר לגבול מצרים והכהו בארצו, והיה זה כמה פעמים, באר פה המלחמה הראשונה, ובאר סבתה שהיה בעונש <b>יען היותם משענת קנה לבית ישראל</b>. שישראל סמכו עליהם שיעזרום והם לא עזרום רק גרמו להם החורבן והנפילה שע''י בטחונם הסירו לבם מה' ולא שמעו לקול ירמיה בשם ה' :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ז}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">בְּתָפְשָׂ&#1448;ם בְּךָ&#1444; (בכפך) בַכַּף&#1433; תֵּר&#1428;וֹץ וּבָקַעְתָּ&#1445; לָהֶ&#1430;ם כָּל-כָּתֵ&#1425;ף וּבְהִֽשָּׁעֲנָ&#1444;ם עָלֶ&#1433;יךָ&#1433; תִּשָּׁבֵ&#1428;ר וְהַעֲמַדְתָּ&#1445; לָהֶ&#1430;ם כָּל-מָתְנָֽיִם:</span> <b>(ס)</b>
+		</div><div class='passukFrHa'> Lorsqu&rsquo;ils te saisissent par la main, tu te romps et tu leur transperces toutes les &eacute;paules; lorsqu&rsquo;ils s&rsquo;appuient sur toi, tu te brises, et tu leur paralyses tous les reins.
+		</div><div class='passukEnHa'>When they take hold of thee with the hand, thou dost break,
+		And rend all their shoulders;
+		And when they lean upon thee, thou breakest,
+		And makest all their loins to be at a stand.
+		</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>בתפשם בך בכפך.</b> בכף קרי כאדם המהלך ונשען על מקלו : <b>תרוץ.</b> תירצץ : <b>ובקעת להם כל כתף.</b> כתפיהם כאדם הנסמך על קנה ונשבר והאדם נופל עליו והקרומיות נכנסות לו בכתיפיו : <b>והעמדת להם כל מתנים.</b> מאחר שתשבר יצטרכו לחזק את מתניהם ולעמוד עליהם והרי אתה כאדם שחבירו נשען עליו והוא חלש ואומר לו התחזק על מתניך כי לא תסמוך עוד עלי וכן ת''י ולא תהא להון לבי' סומכוון ויש מחליפין והעמדת להם לוהמעדת ואיני רואה את דבריהן, ומנחם חברו עם מעמד רגלים כמוני : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בתפשם בך.</b> בעת אחזו בך בכף נשברת וחדודי השברים נכנסו בכתף ובקעו אותו : <b>והעמדת להם.</b> כי בהשען האדם על המשענת הוא כפוף מעט ולכן אמר כאשר נשברת העמדת כל המתנים להיות עומדים זקופים כדרך עמידה בלי משענת ולפי שהמשילו למשענת אמר לשון הנופל בו ור''ל הנה הבטחת להם עזרה מול האויב ולא עזרת להם והיה א''כ הבטחתך להם לרעה כי עי''ז הוסיף האויב לחרות בהם : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>בתפשם.</b> ענין אחיזה : <b>תרוץ.</b> מל' רציצה ושבירה : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>בתפשם, </b> דמה אותם לקנה רצוץ שבעת <b>יתפשנו אדם בכפו</b> להפחיד בו את חברו כאילו בו יכנו, <b>יתרוצץ ויבקיע כתפיו, </b> ובעת <b>ישען עליו</b> ישבר לגמרי, <b>והמתנים יעמודו, </b> כי בעת ילך האדם על רגליו כח הכובד הוא בין רגליו, ע''י מתניו שמעמידים את הגוף, ואם ישען על מטה, כח הכובד והפלס הוא באמצע בין הגוף והמשענת ולא יעמוד על מתניו כי כח הכובד הוא בין גופו להמשענת ובעת ישבר המטה יפול אם לא יעמוד על מתניו, וכן בנמשל בתחלה שרצו להפחיד את אויביהם ע''י פרעה כמו בעת צר מלך בבל על ירושלים ושמעו כי חיל פרעה יצא ממצרים ונסתלק ועי''ז נבקע להם הכתף, כי הוצרכו לתת ממונם שוחד למלך מצרים כמ''ש (ישעיה ל') ישאו על כתף עירים חיליהם וכו' לא לאזר וכו' כי לבושת וכו', ואח''כ נשענו עליו והוצרכו לעמוד על מתניהם ולהלחם בעצמם, ורגליהם כבר נועפו ונכשלו :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ח}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">לָכֵ&#1431;ן כֹּ&#1444;ה אָמַר&#1433; אֲדֹנָ&#1443;י יְהוִ&#1428;ה הִנְנִ&#1435;י מֵבִ&#1445;יא עָלַ&#1430;יִךְ חָ&#1425;רֶב וְהִכְרַתִּ&#1445;י מִמֵּ&#1430;ךְ אָדָ&#1445;ם וּבְהֵמָֽה:</span>
+		</div><div class='passukFrHa'> C&rsquo;est pourquoi, ainsi parle le Seigneur Dieu, voici, je vais susciter contre toi l&rsquo;&eacute;p&eacute;e et retrancher de toi hommes et b&ecirc;tes:
+		</div><div class='passukEnHa'>Therefore thus saith the Lord God: Behold, I will bring a sword upon thee, and will cut off from thee man and beast. </div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>לכן, </b> עי''כ בא עליהם נבוכדנצר אל ארצם, וזה היה אחר החורבן, ועז''א <b>הנני מביא עליך חרב, </b> ועי''כ.<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{ט}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וְהָיְתָ&#1444;ה אֶֽרֶץ-מִצְרַ&#1433;יִם&#1433; לִשְׁמָמָ&#1443;ה וְחָרְבָּ&#1428;ה וְיָדְע&#1430;וּ כִּֽי-אֲנִ&#1443;י יְהוָ&#1425;ה יַ&#1447;עַן אָמַ&#1435;ר יְאֹ&#1445;ר לִ&#1430;י וַאֲנִ&#1445;י עָשִֽׂיתִי:</span>
+		</div><div class='passukFrHa'> Le pays d&rsquo;&Eacute;gypte deviendra une solitude et une ruine, et l&rsquo;on saura que c&rsquo;est moi l&rsquo;&Eacute;ternel parce qu&rsquo;il a dit: &quot;Le fleuve est &agrave; moi, et c&rsquo;est moi qui l&rsquo;ai fait.&quot;
+		</div><div class='passukEnHa'>And the land of Egypt shall be desolate and waste, and they shall know that I am the Lord; because he hath said: The river is mine, and I have made it. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>כי אני ה'.</b> הנאמן לשלם גמול : <b>יאור לי.</b> היאור הוא לצרכי להשקות שדותי ואין לי צורך במטר השמים : <b>ואני עשיתי.</b> אני גדלתי ורוממתי את עצמי בחכמתי ובפועל ידי : <small>(מצודת דוד)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>תהיה ארץ מצרים לשממה וחרבה, וידעו כי אני ה'</b> בזה יכירו אלהותי ביותר במה שהבאתי המחריב אל ארצם, עתה באר חורבן שלישי כללי שיהיה למצרים שזה היה בשנת כ''ז למלכות נבוכדנצר, שמונה שנה אחר החורבן שכבר נשא עונו מה שלא עזר לבני ישראל. רק היה מסבה אחרת <b>יען אמר יאור לי ואני עשיתי</b> שעדיין היה מיחס כל כחו אל היאור ואל עצמו שאמר שיש בו כח אלהות, כי גם אחר המכה הנזכר שהחריב קצת מארצו עדיין לא נבטלה מלכות מצרים מכל וכל :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{י}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">לָכֵ&#1435;ן הִנְנִ&#1445;י אֵלֶ&#1430;יךָ וְאֶל-יְאֹרֶ&#1425;יךָ וְנָתַתִּ&#1438;י אֶת-אֶ&#1443;רֶץ מִצְרַ&#1431;יִם לְחָרְבוֹת&#1433; חֹ&#1443;רֶב שְׁמָמָ&#1428;ה מִמִּגְדֹּ&#1445;ל סְוֵנֵ&#1430;ה וְעַד-גְּב&#1445;וּל כּֽוּשׁ:</span>
+		</div><div class='passukFrHa'> Oui, certes, je m&rsquo;en prends &agrave; toi et &agrave; tes fleuves et je ferai du pays d&rsquo;&Eacute;gypte des ruines d&eacute;sol&eacute;es et solitaires, de Migdol &agrave; Sy&egrave;ne et aux confins de l&rsquo;Ethiopie.
+		</div><div class='passukEnHa'>Therefore, behold, I am against thee, and against thy rivers, and I will make the land of Egypt utterly waste and desolate, from Migdol to Syene even unto the border of Ethiopia. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>הנני אליך.</b> הנה אני אלחם עמך ועם יאוריך ר''ל אחריב מימיה ותסור טובתך : <b>לחרבות.</b> להיות חרבה ולתוספ' ביאור אמר שתהיה חרבן של שממון : <b>ממגדל סונה.</b> הוא התחלת גבול מצרים : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>לחרבות.</b> מלשון חורבן : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>לכן הנני אליך, </b> בא עליו חורבן החלטי כללי בשנת כ''ז לנבוכדנצר, ואמר בזה <b>לחרבות חורב שממה, </b> שהוא חורבן גדול מאד, יותר ממ''ש למעלה שממה וחרבה, וכן יהיה כולל כל הארץ <b>ממגדל סונה עד גבול כוש</b> :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{יא}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">לֹ&#1444;א תַעֲבָר-בָּהּ&#1433; רֶ&#1443;גֶל אָדָ&#1428;ם וְרֶ&#1445;גֶל בְּהֵמָ&#1430;ה לֹ&#1443;א תַעֲבָר-בָּ&#1425;הּ וְלֹ&#1445;א תֵשֵׁ&#1430;ב אַרְבָּעִ&#1445;ים שָׁנָֽה:</span>
+		</div><div class='passukFrHa'> Nul pied d&rsquo;homme ne la foulera, nul animal n&rsquo;y portera ses pas: il ne sera plus habit&eacute; pendant quarante ann&eacute;es.
+		</div><div class='passukEnHa'>No foot of man shall pass through it, nor foot of beast shall pass through it, neither shall it be inhabited forty years. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ולא תשב ארבעים שנה.</b> ארבעים ושתים שני רעבון נגזרו בחלום פרעה כנגד שלשה פעמים שנכתב החלום שבע פרות ושבע שבלים רעות (בראשית מא) ראה וספרו ליוסף הרי שני פעמים ויוסף אמר לו שבע הפרות הרקות והרעות וז' השבלים הרקות (שם) הרי ארבעים ושתים לרעב ולא היה להם אלא שתים שנאמר כי זה שנתי' הרעב (שם מ''ה) ומשירד יעקב למצרים פסק הרעב שהרי בשנה השלישית זרעו שנאמר ותן זרע ונחיה וגו' (שם מז) והארבעים נפרעו להם עכשיו : <b>תשב ארבעים שנה.</b> תשב שר''א אשיגיא''ה בלע''ז : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>לא תעבר בה.</b> מגודל השממון : <b>ולא תשב.</b> לא תהיה מיושבת באנשים : <small>(מצודת דוד)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>לא</b> וכן יהיה חורבן אמתי עד <b>שלא תעבר בה רגל אדם ורגל בהמה, </b> כי תהיה כמדבר ציה, עד שגם מרעה לעדרים לא יהיה שם, וכן ימשך זמן רב כי לא <b>תשב ארבעים שנה</b> :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{יב}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וְנָתַתִּ&#1443;י אֶת-אֶרֶץ&#1449; מִצְרַ&#1448;יִם שְׁמָמָ&#1436;ה בְּת&#1443;וֹךְ | אֲרָצ&#1443;וֹת נְשַׁמּ&#1431;וֹת וְעָרֶ&#1433;יהָ&#1433; בְּת&#1448;וֹךְ עָרִ&#1444;ים מָֽחֳרָבוֹת&#1433; תִּֽהְיֶ&#1443;יןָ שְׁמָמָ&#1428;ה אַרְבָּעִ&#1430;ים שָׁנָ&#1425;ה וַהֲפִצֹתִ&#1444;י אֶת-מִצְרַ&#1433;יִם&#1433; בַּגּוֹיִ&#1428;ם וְֽזֵרִיתִ&#1430;ים בָּאֲרָצֽוֹת:</span> <b>(ס)</b>
+		</div><div class='passukFrHa'> Je rendrai le pays d&rsquo;&Eacute;gypte d&eacute;sol&eacute; entre les pays d&eacute;sol&eacute;s, et ses villes, parmi les villes ruin&eacute;es, seront une solitude durant quarante ann&eacute;es; je disperserai les &Eacute;gyptiens parmi les peuples, je les diss&eacute;minerai dans les pays.
+		</div><div class='passukEnHa'>And I will make the land of Egypt desolate in the midst of the countries that are desolate, and her cities among the cities that are laid waste shall be desolate forty years; and I will scatter the Egyptians among the nations, and will disperse them through the countries.
+		</div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בתוך ארצות.</b> ר''ל דומה לשאר ארצות נשמות : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>נשמות.</b> שוממות : <b>מחרבות.</b> מלשון חורבה : <b>והפיצותי.</b> וזריתים. שניהם ענין פזור : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>ונתתי, </b> וחוץ מזה יהיה חורבן גם בסביבות מצרים עד <b>שתהיה שממה בתוך ארצות נשמות</b> שגם הארצות סביבותיה תהיינה נשמות, ולפעמים תהיה הארץ נשמה והערים אינם חרבות כמו שגם במדבריות ימצא באמצע מקום מושב כאיים בתוך הים, לז''א שגם <b>הערים יהיו חרבות</b> וגם יהיו <b>בתוך ערים מחרבות</b> של השכנים, באופן שא''א שתבנה ותתיישב מן השכנים סביבה, ומוסיף שבכ''ז תגדל חורבן מצרים יותר מחורבן שכניה עד <b>שבתוך ארצות נשמות תהיה היא שממה</b> בערכן, כי תגדל שוממותה עד שיאמרו שבערכה הם אינם נשמות, ובתוכם תהיה היא הארץ הנשמה, וזה ימשך <b>ארבעים שנה, </b> וחוץ מזה הפלטים ושרידים משם לא יתישבו במקום אחד במדינה אחרת רק <b>יפוצו בין הגוים</b> :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{יג}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">כִּ&#1435;י כֹּ&#1445;ה אָמַ&#1430;ר אֲדֹנָ&#1443;י יְהוִ&#1425;ה מִקֵּ&#1438;ץ אַרְבָּעִ&#1444;ים שָׁנָה&#1433; אֲקַבֵּ&#1443;ץ אֶת-מִצְרַ&#1428;יִם מִן-הָעַמִּ&#1430;ים אֲשֶׁר-נָפֹ&#1445;צוּ שָֽׁמָּה:</span>
+		</div><div class='passukFrHa'> Oui, ainsi parle le Seigneur Dieu, au bout de quarante ann&eacute;es, je rassemblerai les &Eacute;gyptiens du milieu des nations o&ugrave; ils auront &eacute;t&eacute; dispers&eacute;s.
+		</div><div class='passukEnHa'>For thus saith the Lord God: At the end of forty years will I gather the Egyptians from the peoples whither they were scattered; </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>מקץ וגו'.</b> ר''ל מסוף מ' שנה אקבצם ולא בתוך הזמן : <small>(מצודת דוד)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>מקץ ארבעים שנה, </b> כי מצרים נחרבה בשנת כ''ז לנבוכדנצר והוא מלך חמשה וארבעים שנה נשארו י''ח למלכותו, ואחריו מלך אויל מרודך כ''ב שנה, הם ארבעים שנה, כי בשנת א' לבלשצר נאמרה נבואת פרס לדניאל ומאז התחילו הגולים לשוב בימי מלך פרס, והתחילו להתקבץ :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{יד}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וְשַׁבְתִּי&#1433; אֶת-שְׁב&#1443;וּת מִצְרַ&#1428;יִם וַהֲשִׁבֹתִ&#1444;י אֹתָם&#1433; אֶ&#1443;רֶץ פַּתְר&#1428;וֹס עַל-אֶ&#1430;רֶץ מְכֽוּרָתָ&#1425;ם וְהָ&#1445;יוּ שָׁ&#1430;ם מַמְלָכָ&#1445;ה שְׁפָלָֽה:</span>
+		</div><div class='passukFrHa'> Je ram&egrave;nerai les captifs &eacute;gyptiens et je les r&eacute;tablirai sur la terre de Pathros, leur pays d&rsquo;origine; mais ils n&rsquo;y formeront qu&rsquo;un humble royaume.
+		</div><div class='passukEnHa'>and I will turn the captivity of Egypt, and will cause them to return into the land of Pathros, into the land of their origin; and they shall be there a lowly kingdom. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מכורתם.</b> מגורתם ל''א כמו תולדותם וכן חברו מנחם : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ושבתי.</b> אשיב בני השבי של מצרים ואשיב אותם לארץ פתרוס לארץ מגורתם : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ושבתי.</b> מלשון השבה : <b>שבות.</b> מלשון שבי : <b>פתרוס.</b> הוא מארץ מצרים : <b>מכורתם.</b> כמו מגורתם וכן מכורותיך ומולדותיך (לעיל טז) : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>ושבתי</b> ואז יקרא להם דרור לשוב לארצם ברשיון מלך פרס, <b>וישובו לארץ פתרוס</b> ששם גרו תחלה בהיותם לגוים בהתחלה, אבל שם <b>יהיו ממלכה שפלה</b> :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{טו}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">מִן-הַמַּמְלָכוֹת&#1433; תִּהְיֶ&#1443;ה שְׁפָלָ&#1428;ה וְלֹֽא-תִתְנַשֵּׂ&#1445;א ע&#1430;וֹד עַל-הַגּוֹיִ&#1425;ם וְהִ&#1448;מְעַטְתִּ&#1428;ים לְבִלְתִּ&#1430;י רְד&#1445;וֹת בַּגּוֹיִֽם:</span>
+		</div><div class='passukFrHa'> Plus que les [autres] royaumes, il sera humble, et il ne s&rsquo;&eacute;l&egrave;vera plus au-dessus des peuples. Je veux les diminuer pour qu&rsquo;ils ne dominent plus les peuples.
+		</div><div class='passukEnHa'>It shall be the lowliest of the kingdoms, neither shall it any more lift itself up above the nations; and I will diminish them, that they shall no more rule over the nations. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>לבלתי רדות בגוים.</b> לשון ממשלה כמו ורדו בדגת הים (שם א) : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>מן הממלכות.</b> משאר הממלכות תהיה שפלה ולא תתנשא עוד על הגוים למשול בהם : <b>והמעטתים.</b> אמעיט אנשיה לבל תמשול בגוים ביד חזקה בכח מרבית אנשי מלחמה : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>רדות.</b> ענין ממשלה כמו ורדו בכם (ויקרא כו) : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>מן הממלכות, </b> בל תחשוב שתהיה שפלה בערך הקדום לבד, שלא תגדל כבודה כראשונה ובכ''ז תגדל כממלכות אחרות שיהיו ג''כ שפלים בזמן ההוא, אומר <b>מן הממלכות תהיה שפלה</b> שכולם ירימו ראש נגדה, ולא תאמר שהגם שתהיה תחת ממלכות אחרות בכ''ז תתנשא על הקיבוצים שאין להם מלך, אומר <b>ולא תתנשא עוד על הגוים</b> (שגדר שם גוי הוא העם הפחות שא''ל מלכות) וזה יהיה ע''י <b>שאמעט אותם כדי שלא יוכלו רדות בגוים, </b> ר''ל זה יהיה לשתי תכליות, <u><b>א.</b></u> כדי שלא ירדו בגוים למשול בם בפרך כי כבר הסיר ה' עול הגוים :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{טז}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וְלֹ&#1443;א יִֽהְיֶה-עוֹד&#1449; לְבֵ&#1448;ית יִשְׂרָאֵ&#1444;ל לְמִבְטָח&#1433; מַזְכִּ&#1443;יר עָוֹ&#1428;ן בִּפְנוֹתָ&#1430;ם אַחֲרֵיהֶ&#1425;ם וְיָ&#1443;דְע&#1428;וּ כִּ&#1445;י אֲנִ&#1430;י אֲדֹנָ&#1445;י יְהוִֽה:</span> <b>(פ)</b>
+		</div><div class='passukFrHa'> Et il ne sera plus pour la maison d&rsquo;Isra&euml;l un sujet&rsquo; de confiance, ravivant le souvenir de la faute [commise] quand ils se tournaient vers eux, et on saura alors que c&rsquo;est moi le Seigneur Dieu.&quot;
+		</div><div class='passukEnHa'>And it shall be no more the confidence of the house of Israel, bringing iniquity to remembrance, when they turn after them; and they shall know that I am the Lord God.'
+		</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ולא יהיה.</b> מצרים לבית ישראל עוד למבטח המזכיר להם עון שאמר להם הקב''ה לא תוסיפו לראותם עוד (שמות יד) : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ולא יהיה עוד.</b> מעתה לא יבטחו בו ישראל כי לא יהיה לאל ידו להיו' לעזר : <b>למבטח וגו'.</b> לבטחון המזכיר עון ישראל במה שהם פונים אחריהם ואינם בוטחים בה' : <b>וידעו.</b> אז ידעו הכל שאני ה' והכל בידי : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>בפנותם.</b> מלשון הפנה וסבוב : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<u><b>ב.</b></u> <b>כדי שלא יהיה לבית ישראל למבטח, </b> שלא יבטחו עוד על מצרים שהמבטח הזה <b>מזכיר עון</b>, ע''י שהם פונים אחריהם ולומדים מעשיהם ומסירים לבם מה', והתכלית הג' <b>וידעו כי אני ה'</b> שעי''כ יכור אלהותו שעושה עם מלכי הארץ כרצונו :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{יז}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">וַיְהִ&#1431;י בְּעֶשְׂרִ&#1444;ים וָשֶׁ&#1433;בַע&#1433; שָׁנָ&#1428;ה בָּֽרִאשׁ&#1430;וֹן בְּאֶחָ&#1443;ד לַחֹ&#1425;דֶשׁ הָיָ&#1445;ה דְבַר-יְהוָ&#1430;ה אֵלַ&#1445;י לֵאמֹֽר:</span>
+		</div><div class='passukFrHa'> Il advint, dans la vingt-septi&egrave;me ann&eacute;e, le premier du premier mois, que la parole de l&rsquo;&Eacute;ternel me fut adress&eacute;e en ces termes:
+		</div><div class='passukEnHa'>And it came to pass in the seven and twentieth year, in the first month, in the first day of the month, the word of the Lord came unto me, saying: </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ויהי בעשרים ושבע שנה.</b> למלכות נבוכדנצר, אותה שנה נתנה מצרים בידו כך שנינו בסדר עולם ויש בספר הזה הרבה נבואות כתובות מוקדם ומאוחר : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בעשרים ושבע שנה.</b> למלכות נ''נ כ''כ בס''ע : <b>בראשון.</b> בחדש הראשון : <small>(מצודת דוד)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>ויהי בעשרים ושבע, </b> כבר כתב בסדר עולם שבשנת כ''ז למלכות נבוכדנצר כבש את ארץ מצרים, ופי' בעשרים ושבע למלכות נבוכדנצר, וכתב מהרי''א שלכן לא תפס בכאן החשבון לגלות יהויכין כמו שחשב בכ''מ לפי שזכר למעלה שימשך חורבנה ארבעים שנה ולא ידענו מאין התחילו אותם ארבעים שנה, לכן הודיע הכתוב שבכ''ז למלכות נבוכדנצר היה חרב מצרים, ומשם יצא לנו שבמות אויל מרודך נשלם החשבון כנ''ל :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{יח}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">בֶּן-אָדָ&#1431;ם נְבוּכַדְרֶאצַּ&#1443;ר מֶֽלֶךְ-בָּ&#1440;בֶל הֶעֱבִ&#1448;יד אֶת-חֵיל&#1436;וֹ עֲבֹדָ&#1444;ה גְדֹלָה&#1433; אֶל-צֹ&#1428;ר כָּל-רֹ&#1443;אשׁ מֻקְרָ&#1428;ח וְכָל-כָּתֵ&#1430;ף מְרוּטָ&#1425;ה וְ&#1440;שָׂכָר לֹא-הָ&#1448;יָה ל&#1444;וֹ וּלְחֵילוֹ&#1433; מִצֹּ&#1428;ר עַל-הָעֲבֹדָ&#1430;ה אֲשֶׁר-עָבַ&#1445;ד עָלֶֽיהָ:</span> <b>(ס)</b>
+		</div><div class='passukFrHa'> &quot;Fils de l&rsquo;homme, Nabuchodonosor, roi de Babylone, a fait faire &agrave; son arm&eacute;e une rude besogne contre Tyr; toutes les t&ecirc;tes en sont devenues chauves, toutes les &eacute;paules sont meurtries. Or, lut ni son arm&eacute;e n&rsquo;ont recueilli de salaire de Tyr pour la besogne qu&rsquo;il a faite contre elle.
+		</div><div class='passukEnHa'>'Son of man, Nebuchadrezzar king of Babylon caused his army to serve a great service against Tyre; every head was made bald, and every shoulder was peeled; yet had he no wages, nor his army, from Tyre, for the service that he had served against it; </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>העביד את חילו.</b> על צור עבודה גדולה : <b>כל ראש.</b> אנשי חיילותיו : <b>מוקרח וכל כתף מרוטה.</b> כדרך הצרים על העיר ימים רבים וטורחים ויגיעים בשאת משאות עצים ואבנים והוא לכד את צור בעשרים ושלש למלכותו כמו שמצינו בסדר עולם, מוקרח קאלב''ו בלע''ז : <b>מרוט'.</b> פלי''אה בלע''ז : <b>ושכר לא היה לו.</b> לאחר ששללו שללה עלה הים ושטף מהם לפי שנגזר עליה ועל שללה ליאבד בים : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>העביד את חילו.</b> הכריח את חילו לעבוד עבודה גדולה על צור לצור עליה ימים רבים וכל ראש מהם היה מוקרח וכו' מטורח משא האבנים שנשאו על הראש ועל הכתף לבנות דיק וכדומה : <b>ושכר.</b> לא היה להם שכר משל צור על העבודה וכו' ר''ל לא מצאו בה בערך שווי העבודה : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>אל צור.</b> על צור : <b>מוקרח.</b> ענין חלק מבלי שער כמו קרח הוא (שם יג) : <b>מרוטה.</b> ענין תלישת העור מן הבשר ודומה לו כי ימרט ראשו (שם) האמור על תלישת השער : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>בן אדם</b> מצייר כי נבוכדנצר הוא שלוחו של ה' ושבט אפו להחריב הארץ וראוי שישלם לו שכר, וכל שהעבודה יותר גדולה ראוי לשכר יותר, והנה <b>אל צר העביד את חילו עבודה גדולה, עד שכל ראש מקרח</b> מרוב נשיאת המשאות אבי המצור ואבני קלע על הראש והכתף ונמרטו שערות הראש, והעור שעל הכתף, ובכל זאת <b>שכר לא היה לו ולחילו, </b> כי שכר החיל הוא השלל והבזה שיבוזו בכבוש העיר, ושכר המלך הוא, או הארץ הנכבשת שימלוך עליה או אם יחריב הארץ שכרו הוא הכבוד שיהיה לו להפיל חתתו על מלכי ארץ, ושיניהם לא קבלו שכר כי אחרי שעמל בה ימים רבים נחרבה מעצמה ע''י הים שהציף אותה ושטף את השלל, וימח את כל היקום :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{יט}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">לָכֵ&#1431;ן כֹּ&#1444;ה אָמַר&#1433; אֲדֹנָ&#1443;י יְהוִ&#1428;ה הִנְנִ&#1445;י נֹתֵ&#1435;ן לִנְבוּכַדְרֶאצַּ&#1445;ר מֶֽלֶךְ-בָּבֶ&#1430;ל אֶת-אֶ&#1443;רֶץ מִצְרָ&#1425;יִם וְנָשָׂ&#1448;א הֲמֹנָ&#1436;הּ וְשָׁלַ&#1444;ל שְׁלָלָהּ&#1433; וּבָזַ&#1443;ז בִּזָּ&#1428;הּ וְהָיְתָ&#1445;ה שָׂכָ&#1430;ר לְחֵילֽוֹ:</span>
+		</div><div class='passukFrHa'> Donc, ainsi parle le Seigneur Dieu, voici, je vais livrer &agrave; Nabuchodonosor, roi de Babylone, le pays d&rsquo;&Eacute;gypte, pour qu&rsquo;il puisse en emporter les richesses, en prendre le butin et le mettre au pillage: ce sera le salaire de son arm&eacute;e.
+		</div><div class='passukEnHa'>Therefore thus saith the Lord God: Behold, I will give the land of Egypt unto Nebuchadrezzar king of Babylon; and he shall carry off her abundance, and take her spoil, and take her prey; and it shall be the wages for his army. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ונשא המונה.</b> יקח המון עמם בשבי וכו' וזה יהיה לשכר על עבודת צור : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ונשא.</b> ענין לקיחה : <b>המונה.</b> מרבית עמה : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>לכן יתן לו את ארץ מצרים, ונשא המונה</b> לעבדים ולשפחות, <b>ושלל שללה, </b> וזה יהיה שכר החיל כי את כל הרכוש יתן מתנה להחיל :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{כ}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">פְּעֻלָּתוֹ&#1433; אֲשֶׁר-עָ&#1443;בַד בָּ&#1428;הּ נָתַ&#1445;תִּי ל&#1430;וֹ אֶת-אֶ&#1443;רֶץ מִצְרָ&#1425;יִם אֲשֶׁר&#1433; עָ&#1443;שׂוּ לִ&#1428;י נְאֻ&#1430;ם אֲדֹנָ&#1445;י יְהוִֽה:</span>
+		</div><div class='passukFrHa'> Comme prix de son labeur, qu&rsquo;il a accompli contre Tyr, je lui donne le pays d&rsquo;&Eacute;gypte, parce qu&rsquo;ils ont travaill&eacute; pour moi, dit le Seigneur Dieu.
+		</div><div class='passukEnHa'>I have given him the land of Egypt as his hire for which he served,  because they wrought for Me, saith the Lord God.
+		</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>פעולתו אשר עבד בה.</b> שכר פעולה אשר עבד במצותי בצור אתן לו את ארץ מצרים : <b>אשר עשו לי.</b> מצרים רעה במשענתם שהבטיחו את עמי בעזרתם הבל : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>פעולתו.</b> שכר פעולתו אשר עבד בצור אתן לו את ארץ מצרים : <b>אשר עשו לי.</b> כאומר אולם לא על חנם תפול מצרים כ''א בגמול אשר עשו לי שהיו משענת קנה לבית ישראל כמ''ש למעלה : <small>(מצודת דוד)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>פעלתו, </b> ופעולתו שהיתה כוונתו בעבור הפעולה לא בעבור השכר ר''ל שהפעולה עצמה יקרה בעיניו לעשות לו שם תפארת, ע''ז <b>נתתי לו את ארץ מצרים, </b> שהגם שלא יהיה לו שכר כי תחרב לגמרי ולא תהיה ממלכה עוד, בכ''ז הפעולה תגדל שהחריב ממלכה גדולה כזו, ולמה לא אתן לו ארץ מצרים לשכר, היינו שלא יחריבה רק תשאר ממלכה תחתיו והיו שכרו, מפני <b>אשר עשו לי</b> שמרד בה' כמ''ש למעלה אשר אמר לי יאורי, ואשר היה משענת קנה לבית ישראל :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+		
+		<div class='newPassuk'><div class='passukIvrit'>
+		<b><span style="color:RGB(47,109,187);">{כא}</span></b>&nbsp;</span>
+		<span >
+		<span style="font-family:Ezra SIL SR;">בַּיּ&#1443;וֹם הַה&#1431;וּא אַצְמִ&#1444;יחַ קֶ&#1433;רֶן&#1433; לְבֵ&#1443;ית יִשְׂרָאֵ&#1428;ל וּלְךָ&#1435; אֶתֵּ&#1445;ן פִּתְחֽוֹן-פֶּ&#1430;ה בְּתוֹכָ&#1425;ם וְיָדְע&#1430;וּ כִּי-אֲנִ&#1445;י יְהוָֽה:</span> <b>(פ)</b>
+		</div><div class='passukFrHa'> Ce jour-l&agrave;, je rel&egrave;verai la puissance de la maison d&rsquo;Isra&euml;l. Quant &agrave; toi, je justifierai pleinement tes paroles au milieu d&rsquo;eux, et ils sauront que c&rsquo;est moi l&rsquo;&Eacute;ternel.&quot;
+		</div><div class='passukEnHa'>In that day will I cause a horn to shoot up unto the house of Israel, and I will give thee the opening of the mouth in the midst of them; and they shall know that I am the Lord.'
+		</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ביום ההוא אצמיח קרן.</b> לא שמעתי ולא מצאתי פי' מקרא זה מה הוא צמח קרנם של ישראל במפלת מצרים שהרי ישראל גלו שמונה שנים לפני מפלת מצרים ואומר אני ביום ההוא מוסב על פרשה של מעלה מקץ ארבעים שנה אקבץ את מצרים ואותו חשבון כלה בשנה שמלך בלשאצר ומצינו בדניאל שבאותה שנה התחילו מלכי פרס להתחזק ונגזרה מפלה על בבל שנאמר (דניאל ז) בשנת חדא לבלשאצר דניאל חלם חזה וגו' קדמיתא כאריה היא בבל (שם) וכתיב (שם) חזה הוית עד די מריטו גפה וגומר וארו חיוה אוחרי תנינא דמיא לדוב היא פרס וכתיב וכן אמרין לה קומי אכולי בשר שגיא, כלומר תפשי המלוכה ומלכות פרס היא צמיחת קרן לישראל שנאמר בכורש הוא יבנה עירי וגלותי ישלח (ישעיה מ''ה) ומניין שארבעים שנה של מצרי' כלו באותו הפרק מצרים נתנה ביד נבוכדנצר בכ''ז לנבוכדנצר בשנה שנאמר' נבוא' זו ליחזקאל הוסיף ארבעים שנה הרי ששים ושבע צא מהם ארבעים וחמש לנבוכדנצר ועשרים ושלש לאויל מרודך כדאמרינן במסכת מגלה ושנה אחת מהם עלתה לזה ולזה כדאמרינן התם שנים מקוטעו' היו : <b>ולך אתן פתחון פה בתוכם.</b> לך יחזקאל יהא פתחון פה כשיראו נבואתך מתקיימת : <small>(רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ביום ההוא.</b> מוסב על מה שאמר למעלה מקץ ארבעים שנה אקבץ את מצרים ואמר ביום ההוא אצמיח קרן ממשלה לבית ישראל כי מ' שנה נשלמו בשנת מלוך בלשצר כי נ''נ מלך מ''ה שנה ובנ''ז למלכו כבש את מצרים א''כ נשארו משנותיו ח''י שנים אויל מרודך בנו מלך כ''ג שנים אלא שנבלע שנה אחת במלכות אביו כי השנה הראשונה עלתה לזה ולזה הרי נשלמו מ' שנה ביום שמת אויל מרודך ומלך בלשאצר ואז נאמרה לדניאל נבואת נצחון פרס כמ''ש בשנת חדא לבלשאצר וכו' וארו וכו' דמיא לדוב (דניאל ז) ועל פרס יאמר ונבואת ביאת פרס על בבל היתה צמיחת קרן לבית ישראל כי ע''י נצחון פרס יצאו חפשי מתחת יד בבל : <b>ולך אתן.</b> ר''ל אז תוכל לפתוח פיך להוכיחם גם מלבך כי אז ישמעו לך בראותם שנבואתך מתקיימת : <b>וידעו.</b> ואז ידעו שאני ה' נאמן במאמרו : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>קרן.</b> כינה את הממשלה בשם קרן על כי בעלי הקרנים יתחזקו בהן בהלחמם עם מי : <small>(מצודת ציון)</small></div><div class='malbim'><b><small>&nbsp;מלבי"ם - באור הענין&nbsp;</small></b>&nbsp;<b>ביום ההוא</b> המפ' נלחצו בזה מאד רש''י ז''ל פי' ביום ההוא אחר מ' שנה. ובאמת בעת ההיא לא נאמרו מן המ' שנה, שזה נבא בשנה העשירית. ? ועוד מז''ש ולך אתן פתחון פה והלא יחזקאל מת בימי נבוכדצר. ? ולדעתי אחרי שכבש מצרים שהיה גמר מלחמותיו עבד את הצלם בבקעת דורא ואז היה הנס מן חנניה מישאל ועזריה שנתקדש השם ואז הרים קרן ישראל שראו כי שם ה' נקרא על קדושיהם, וחז''ל קבלו שבעת שהיה המעשה של חמו''ע החיה יחזקאל המתים בבבקעת דורא ובאו העצמות וטפחו על פניו של נבוכדנצר ואמרו לו חבריהם של אלו מחיה מתים בבקעת דורא שהיה סימן אל הגאולה העתידה ותחה''מ. וזה <b>הפתחון פה שנתן לו בתוכם</b> על שהכירו את ה', כמ''ש <b>וידעו כי אני ה'</b> :<small>(מלבי"ם באור הענין)</small></div></div>
+		
+			
+
+
+
+
+<div class="alyot"><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html' class='parshiotTitle'>6</a></span><span class='parshiotTitle'><a href='7.html'>7</a></span><span class='parshiotTitle'><a class='linkSelected' href='8.html'>הפטרה</a></span></div>
+
+
+</div></div></body></html>

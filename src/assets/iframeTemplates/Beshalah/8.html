@@ -1,0 +1,568 @@
+<html><head>
+	<link rel='stylesheet' type='text/css' href='../css/stylesTorah.css'>
+<script src='../js/myScript.js'></script>				
+
+	</head>
+				<body class='theBody' onload='initClassesBasedOnCookies()'>
+			<div id='mySidenav' class='sidenav'>
+
+		 <span class='trads'>
+		<span type='button' id='passukEnHa'  onClick="hideShow('passukEnHa',this)" class='button'>EN</span>
+		<span type='button' id='passukFrHa'  onClick="hideShow('passukFrHa',this)" class='button'>FR</span>					
+		</span>
+		<span class='pirushim'>
+			<span type='button' id='rashiHa' onClick="hideShow('rashiHa',this)" class='button'>רש"י</span><span type='button' id='mezudatDavid' onClick="hideShow('mezudatDavid',this)" class='button'>מצודת דוד</span><span type='button' id='mezudatZion' onClick="hideShow('mezudatZion',this)" class='button'>מצודת ציון</span><span type='button' id='ralbag' onClick="hideShow('ralbag',this)" class='button'>רלב"ג</span><span type='button' id='malbim' onClick="hideShow('malbim',this)" class='button'>מלבי"ם</span>
+		</span>
+
+		</div>
+<span id='buttonNav' style='font-size:35px;cursor:pointer; position:fixed' onclick='openNav()'>&#9776;</span>
+
+			<div class='theContent' onclick='closeNav()'><div class='newParasha'><span class='parashaTitle'><a href='../index.html'>תורה
+</a></span><span class='parashaTitle'><a href='1.html'>בשלח
+</a></span><div class='alyot'><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html' class='parshiotTitle'>6</a></span><span class='parshiotTitle'><a href='7.html'>7</a></span><span class='parshiotTitle'><a class='linkSelected' href='8.html'>הפטרה</a></span></div></div>
+
+
+<div class='community'>האשכנזים מתחילים כאן:</div>
+
+<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{ד}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וּדְבוֹרָה&#1433; אִשָּׁ&#1443;ה נְבִיאָ&#1428;ה אֵ&#1430;שֶׁת לַפִּיד&#1425;וֹת הִ&#1435;יא שֹׁפְטָ&#1445;ה אֶת-יִשְׂרָאֵ&#1430;ל בָּעֵ&#1445;ת הַהִֽיא:</span>
+	</div><div class='passukFrHa'> Or D&eacute;bora, une proph&eacute;tesse, femme de Lappidoth, gouvernait Isra&euml;l &agrave; cette &eacute;poque.
+	</div><div class='passukEnHa'>Now Deborah, a prophetess, the wife of Lappidoth, she judged Israel at that time. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אשת לפידות.</b> שהיתה עושה פתילות למקדש: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>אשת לפידות.</b> רצה לומר, אשת חיל, זריזה במעשיה כלפיד אש, והוא ענין מליצה, וכאשר יאמרו הבריות : <b>היא שפטה.</b> בעבור שהיתה נביאה וזריזה במעשיה, בא לה המעלה הזאת להיות שופטת את ישראל : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{ה}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וְ&#1440;הִיא יוֹשֶׁ&#1448;בֶת תַּֽחַת-תֹּ&#1436;מֶר דְּבוֹרָ&#1431;ה בֵּ&#1447;ין הָרָמָ&#1435;ה וּבֵ&#1445;ין בֵּֽית-אֵ&#1430;ל בְּהַ&#1443;ר אֶפְרָ&#1425;יִם וַיַּעֲל&#1445;וּ אֵלֶ&#1435;יהָ בְּנֵ&#1445;י יִשְׂרָאֵ&#1430;ל לַמִּשְׁפָּֽט:</span>
+	</div><div class='passukFrHa'> Elle si&eacute;geait au pied du &quot;Palmier de D&eacute;bora&quot;, entre Rama et B&eacute;thel, dans la montagne d&rsquo;Ephra&iuml;m; et c&rsquo;est &agrave; elle que les Isra&eacute;lites s&rsquo;adressaient pour obtenir justice.
+	</div><div class='passukEnHa'>And she sat under the palm-tree of Deborah between Ramah and Beth-el in the hill-country of Ephraim; and the children of Israel came up to her for judgment. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>תחת תומר.</b> תמרים היו לה ביריחו: <b>בין הרמה ובין בית אל בהר אפרים.</b> לפי תרגומו של יונתן יש ללמוד שאין מקרא זה כמשמעו, ואין אלו סימני מקום ישיבתה, אלא למדנו שאשה עשירה היתה ומן המקומות האלו היתה פרנסתה, והיא יושבת בעירה, עטרות שמה: <b>תחת תומר.</b> תמרים היו לה ביריחו, וכרמים ברמה, וזיתים בבקעת בית אל, שהוא מקום שמן, ועפר חיוור בהר אפרים, (תרגום:) 'בטור מלכא', אומר אני שמוכרין אותה ליוצרי חרש. ויש פותרין: 'עפר חיוור', שדה זרע, כמו (שביעית ב א): שדה הלבן: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>תחת תמר.</b> לבל תתיחד עם האנשים הבאים אליה למשפט, קבעה ישיבתה תחת אילן תמר, שאין שם מקום ייחוד (מגילה יד א) : <b>דבורה בין הרמה וגו'.</b> רצה לומר, ותמיד היתה דבורה בין הרמה וכו' : <b>ויעלו אליה.</b> אל המקום ההוא : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{ו}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַתִּשְׁלַ&#1431;ח וַתִּקְרָא&#1433; לְבָרָ&#1443;ק בֶּן-אֲבִינֹ&#1428;עַם מִקֶּ&#1430;דֶשׁ נַפְתָּלִ&#1425;י וַתֹּ&#1448;אמֶר אֵלָ&#1436;יו הֲלֹ&#1445;א צִוָּ&#1443;ה | יְהוָ&#1443;ה אֱלֹהֵֽי-יִשְׂרָאֵ&#1431;ל לֵ&#1444;ךְ וּמָֽשַׁכְתָּ&#1433; בְּהַ&#1443;ר תָּב&#1428;וֹר וְלָקַחְתָּ&#1443; עִמְּךָ&#1431; עֲשֶׂ&#1444;רֶת אֲלָפִים&#1433; אִ&#1428;ישׁ מִבְּנֵ&#1445;י נַפְתָּלִ&#1430;י וּמִבְּנֵ&#1445;י זְבֻלֽוּן:</span>
+	</div><div class='passukFrHa'> Elle envoya qu&eacute;rir Barak, fils d&rsquo;Abinoam, de K&eacute;dech-en-Nephtali, et lui dit: &quot;Voici l&rsquo;ordre de l&rsquo;&Eacute;ternel, Dieu d&rsquo;Isra&euml;l: Va d&eacute;ployer une arm&eacute;e sur le mont Thabor, apr&egrave;s avoir pris, avec toi, dix mille hommes des tribus de Nephtali et de Zabulon;
+	</div><div class='passukEnHa'>And she sent and called Barak the son of Abinoam out of Kedesh-naphtali, and said unto him: 'Hath not the Lord, the God of Israel, commanded, saying: Go and draw toward mount Tabor, and take with thee ten thousand men of the children of Naphtali and of the children of Zebulun? </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>הלא צוה.</b> ביד משה (דברים כ יז): כי החרם תחרימם, כך שנויה במכילתא (בא יב): <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>הלא צוה ה'.</b> באמת צוה ה', כי בנבואה נאמר לה, ועם שלא נזכר : <b>לך ומשכת.</b> משוך לבות בני ישראל לפתותם לבא עמך בהר תבור להלחם בסיסרא, כי מאד פחדו מחילו הרב : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>מקדש נפתלי.</b> שם מקום בנחלת נפתלי : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{ז}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וּמָשַׁכְתִּ&#1448;י אֵלֶ&#1436;יךָ אֶל-נַ&#1443;חַל קִישׁ&#1431;וֹן אֶת-סִֽיסְרָא&#1433; שַׂר-צְבָ&#1443;א יָבִ&#1428;ין וְאֶת-רִכְבּ&#1430;וֹ וְאֶת-הֲמוֹנ&#1425;וֹ וּנְתַתִּ&#1430;יהוּ בְּיָדֶֽךָ:</span>
+	</div><div class='passukFrHa'> moi, je ferai avancer de ton c&ocirc;t&eacute;, vers le torrent de Kison, Sisara, commandant de l&rsquo;arm&eacute;e de Jabin, avec ses chariots et sa multitude, et je le livrerai en ta main.&quot;
+	</div><div class='passukEnHa'>And I will draw unto thee to the brook Kishon Sisera, the captain of Jabin's army, with his chariots and his multitude; and I will deliver him into thy hand. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ומשכתי וגו'.</b> רצה לומר, אתן בלבו ללכת אל נחל קישון : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>המונו.</b> הוא ענין עם רב, על שם שקול המייתם רבה : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{ח}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיֹּ&#1444;אמֶר אֵלֶ&#1433;יהָ&#1433; בָּרָ&#1428;ק אִם-תֵּלְכִ&#1445;י עִמִּ&#1430;י וְהָלָ&#1425;כְתִּי וְאִם-לֹ&#1445;א תֵלְכִ&#1435;י עִמִּ&#1430;י לֹ&#1445;א אֵלֵֽךְ:</span>
+	</div><div class='passukFrHa'> Barak lui r&eacute;pondit: &quot;Si tu m&rsquo;accompagnes, j&rsquo;irai; sinon, je n&rsquo;irai point.&quot;
+	</div><div class='passukEnHa'>And Barak said unto her: 'If thou wilt go with me, then I will go; but if thou wilt not go with me, I will not go.' </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>אם תלכי עמי.</b> אל המלחמה : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{ט}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַתֹּ&#1436;אמֶר הָלֹ&#1447;ךְ אֵלֵ&#1443;ךְ עִמָּ&#1431;ךְ אֶ&#1434;פֶס כִּי&#1449; לֹ&#1448;א תִֽהְיֶ&#1436;ה תִּֽפְאַרְתְּךָ&#1431; עַל-הַדֶּ&#1433;רֶךְ&#1433; אֲשֶׁ&#1443;ר אַתָּ&#1443;ה הוֹלֵ&#1428;ךְ כִּ&#1443;י בְֽיַד-אִשָּׁ&#1428;ה יִמְכֹּ&#1445;ר יְהוָ&#1430;ה אֶת-סִֽיסְרָ&#1425;א וַתָּ&#1447;קָם דְּבוֹרָ&#1435;ה וַתֵּ&#1445;לֶךְ עִם-בָּרָ&#1430;ק קֶֽדְשָׁה:</span>
+	</div><div class='passukFrHa'> Elle r&eacute;pliqua: &quot;Certes, j&rsquo;irai avec toi; seulement, ce n&rsquo;est pas &agrave; toi que reviendra l&rsquo;honneur de ton entreprise, puisque c&rsquo;est &agrave; une femme que l&rsquo;&Eacute;ternel aura livr&eacute; Sisara.&quot; Et l&agrave;-dessus D&eacute;bora s&rsquo;en alla avec Barak &agrave; K&eacute;dech.
+	</div><div class='passukEnHa'>And she said: 'I will surely go with thee; notwithstanding the journey that thou takest shall not be for thy honour; for the Lord will give Sisera over into the hand of a woman.' And Deborah arose, and went with Barak to Kedesh. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>אפס וגו'.</b> כי הנה הפאר הניתן לשר הצבא הוא בעבור אחד משני דרכים, או בהראות אומץ לבבו ללכת למלחמה מבלי פחד, או בהתגבר הוא או אחד מאנשיו להמית הגדול מאנשי בני מלחמתו. ולזה אמרה, הלא סיסרא יומת על ידי אשה, והיא יעל אשת חבר הקיני, כאשר יאמר בענין. אם כן, ידעו הכל שמיד ה' היתה זאת, כי לא בכח תגבר אשה, ואם כן, אם גם תפחד ללכת למלחמה בלעדי, אם כן, שוב לא תהיה לך על הדרך שאתה הולך התפארות הראוי לך בהיותך שר הצבא, כי לא יהיה במה לפארך : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>אפס.</b> רק : <b>תפארתך.</b> שבחך : <b>ימכור.</b> ימסור : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{י}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיַּזְעֵ&#1448;ק בָּרָ&#1436;ק אֶת-זְבוּלֻ&#1444;ן וְאֶת-נַפְתָּלִי&#1433; קֶ&#1428;דְשָׁה וַיַּ&#1443;עַל בְּרַגְלָ&#1428;יו עֲשֶׂ&#1445;רֶת אַלְפֵ&#1430;י אִ&#1425;ישׁ וַתַּ&#1445;עַל עִמּ&#1430;וֹ דְּבוֹרָֽה:</span>
+	</div><div class='passukFrHa'> Barak convoqua Zabulon et Nephtali &agrave; K&eacute;dech, dix mille hommes mont&egrave;rent &agrave; sa suite, et D&eacute;bora monta avec lui.
+	</div><div class='passukEnHa'>And Barak called Zebulun and Naphtali together to Kedesh; and there went up ten thousand men at his feet; and Deborah went up with him.
+	</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ויעל ברגליו.</b> עמו: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ויעל.</b> העלה להר תבור עשרת וכו', עם הלוכו אחריו, כמו (לקמן ח ה), לעם אשר ברגליו : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ויזעק.</b> ענינו אסיפה הבאה בזעקת המאסף, וכן (לקמן יח כג) מה לך כי נזעקת : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{יא}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וְחֶ&#1444;בֶר הַקֵּינִי&#1433; נִפְרָ&#1443;ד מִקַּ&#1428;יִן מִבְּנֵ&#1445;י חֹבָ&#1430;ב חֹתֵ&#1443;ן מֹשֶׁ&#1425;ה וַיֵּ&#1443;ט אָהֳל&#1428;וֹ עַד-אֵל&#1445;וֹן (בצענים) בְּצַעֲנַנִּ&#1430;ים אֲשֶׁ&#1445;ר אֶת-קֶֽדֶשׁ:</span>
+	</div><div class='passukFrHa'> (Or, H&eacute;ber, le K&eacute;n&eacute;en, s&rsquo;&eacute;tait s&eacute;par&eacute; des K&eacute;n&eacute;ens, des descendants de Hobab, beau-p&egrave;re de Mo&iuml;se; et il avait dress&eacute; sa tente vers le Ch&ecirc;ne de &Ccedil;aanann&icirc;m, qui est pr&egrave;s de K&eacute;dech.)
+	</div><div class='passukEnHa'>Now Heber the Kenite had severed himself from the Kenites, even from the children of Hobab the father-in-law of Moses, and had pitched his tent as far as Elon-bezaanannim, which is by Kedesh.
+	</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אילון בצעננים.</b> (תרגום:) מישר אגניא, מקום מישר של בצעים, מריש''ק בלע''ז והוא אגניא גבים, כמין גומות שהמים נקבצים שם, 'אגני דארעא מקרון' (קידושין סא א): <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>נפרד מקין.</b> פירש את עצמו משאר בני קין שישבו במדבר יהודה, כמו שנאמר בתחילת הספר (לעיל א טז) : <b>מבני חבב.</b> על קין הוא חוזר : <b>ויט אהלו.</b> ועל שבא לומר שנס סיסרא אל אהל יעל אשת חבר הקיני, לכך הקדים לומר שחבר נפרד מקין ונטה אהלו פה : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{יב}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיַּגִּ&#1430;דוּ לְסִֽיסְרָ&#1425;א כִּ&#1445;י עָלָ&#1435;ה בָּרָ&#1445;ק בֶּן-אֲבִינֹ&#1430;עַם הַר-תָּבֽוֹר:</span> <b>(ס)</b>
+	</div><div class='passukFrHa'> Sisara, ayant appris que Barak, fils d&rsquo;Abinoam, s&rsquo;&eacute;tait dirig&eacute; sur le mont Thabor,
+	</div><div class='passukEnHa'>And they told Sisera that Barak the son of Abinoam was gone up to mount Tabor. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>כי עלה וגו'.</b> ובזה הבין שרוצה להלחם, ולכך עלה להתגבר בהר : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{יג}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיַּזְעֵ&#1448;ק סִֽיסְרָ&#1436;א אֶת-כָּל-רִכְבּ&#1431;וֹ תְּשַׁ&#1444;ע מֵאוֹת&#1433; רֶ&#1443;כֶב בַּרְזֶ&#1428;ל וְאֶת-כָּל-הָעָ&#1430;ם אֲשֶׁ&#1443;ר אִתּ&#1425;וֹ מֵחֲרֹ&#1445;שֶׁת הַגּוֹיִ&#1430;ם אֶל-נַ&#1445;חַל קִישֽׁוֹן:</span>
+	</div><div class='passukFrHa'> r&eacute;unit tous ses chariots, neuf cents chariots arm&eacute;s de fer, ainsi que toute la milice sous ses ordres, et les achemina de Harochet Haggoyim vers le torrent de Kison.
+	</div><div class='passukEnHa'>And Sisera gathered together all his chariots, even nine hundred chariots of iron, and all the people that were with him, from Harosheth-goiim, unto the brook Kishon. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מחרושת הגוים אל נחל קישון.</b> הזעיקם שילכו אל נחל קישון מחרושת הגוים שהוא יושב שם: <small> (רש"י)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{יד}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַתֹּאמֶר&#1449; דְּבֹרָ&#1448;ה אֶל-בָּרָ&#1436;ק ק&#1431;וּם כִּ&#1443;י זֶ&#1444;ה הַיּוֹם&#1433; אֲשֶׁר&#1449; נָתַ&#1448;ן יְהוָ&#1444;ה אֶת-סִֽיסְרָא&#1433; בְּיָדֶ&#1428;ךָ הֲלֹ&#1445;א יְהוָ&#1430;ה יָצָ&#1443;א לְפָנֶ&#1425;יךָ וַיֵּ&#1444;רֶד בָּרָק&#1433; מֵהַ&#1443;ר תָּב&#1428;וֹר וַעֲשֶׂ&#1447;רֶת אֲלָפִ&#1435;ים אִ&#1430;ישׁ אַחֲרָֽיו:</span>
+	</div><div class='passukFrHa'> Alors D&eacute;bora dit &agrave; Barak: &quot;En avant! car c&rsquo;est aujourd&rsquo;hui que le Seigneur livre en tes mains Sisara; n&rsquo;est-ce pas Dieu m&ecirc;me qui marche devant toi?&quot; Et Barak descendit du mont Thabor, suivi de dix mille hommes.
+	</div><div class='passukEnHa'>And Deborah said unto Barak: 'Up; for this is the day in which the Lord hath delivered Sisera into thy hand; is not the Lord gone out before thee?' So Barak went down from mount Tabor, and ten thousand men after him. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>קום.</b> רצה לומר, אל תתעכב לעמוד פה לו ; תגבר בהר : <b>כי זה היום.</b> רצה לומר, הגזרה גזורה שהיום תנצח את סיסרא ולא תוכל עוד להתעכב בהר : <b>הלא ה'.</b> לא תירא לרדת לעמק, כי הלא ה' וכו' : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>קום.</b> הוא ענין זרוז : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{טו}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיָּ&#1443;הָם יְ&#1440;הוָה אֶת-סִֽיסְרָ&#1448;א וְאֶת-כָּל-הָרֶ&#1447;כֶב וְאֶת-כָּל-הַֽמַּחֲנֶ&#1435;ה לְפִי-חֶ&#1430;רֶב לִפְנֵ&#1443;י בָרָ&#1425;ק וַיֵּ&#1447;רֶד סִֽיסְרָ&#1435;א מֵעַ&#1445;ל הַמֶּרְכָּבָ&#1430;ה וַיָּ&#1445;נָס בְּרַגְלָֽיו:</span>
+	</div><div class='passukFrHa'> L&rsquo;&Eacute;ternel frappa de perturbation Sisara, tous ses attelages et toute son arm&eacute;e, qu&rsquo;il livra au glaive de Barak; Sisara sauta &agrave; bas de son char et s&rsquo;enfuit &agrave; pied.
+	</div><div class='passukEnHa'>And the Lord discomfited Sisera, and all his chariots, and all his host, with the edge of the sword before Barak; and Sisera alighted from his chariot, and fled away on his feet. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>לפי חרב.</b> להיות נהרגים בחדוד החרב : <b>ברגליו.</b> לבל יכיר אותו מי מבני ישראל ויתפוש אותו : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ויהם.</b> מלשון מהומה : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{טז}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וּבָרָ&#1431;ק רָדַ&#1438;ף אַחֲרֵ&#1444;י הָרֶ&#1433;כֶב&#1433; וְאַחֲרֵ&#1443;י הַֽמַּחֲנֶ&#1428;ה עַ&#1430;ד חֲרֹ&#1443;שֶׁת הַגּוֹיִ&#1425;ם וַיִּפֹּ&#1438;ל כָּל-מַחֲנֵ&#1444;ה סִֽיסְרָא&#1433; לְפִי-חֶ&#1428;רֶב לֹ&#1445;א נִשְׁאַ&#1430;ר עַד-אֶחָֽד:</span>
+	</div><div class='passukFrHa'> Barak poursuivit attelages et arm&eacute;e jusqu&rsquo;&agrave; Harochet Haggoyim; et toute l&rsquo;arm&eacute;e de Sisara tomba sous le tranchant du glaive, pas un seul n&rsquo;&eacute;chappa.
+	</div><div class='passukEnHa'>But Barak pursued after the chariots, and after the host, unto Harosheth-goiim; and all the host of Sisera fell by the edge of the sword; there was not a man left.
+	</div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>עד אחד.</b> אפילו אחד : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{יז}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וְסִֽיסְרָא&#1433; נָ&#1443;ס בְּרַגְלָ&#1428;יו אֶל-אֹ&#1443;הֶל יָעֵ&#1428;ל אֵ&#1430;שֶׁת חֶ&#1443;בֶר הַקֵּינִ&#1425;י כִּ&#1443;י שָׁל&#1431;וֹם בֵּ&#1434;ין יָבִ&#1443;ין מֶֽלֶךְ-חָצ&#1428;וֹר וּבֵ&#1429;ין בֵּ&#1430;ית חֶ&#1445;בֶר הַקֵּינִֽי:</span>
+	</div><div class='passukFrHa'> Cependant Sisara fuyait &agrave; pied vers la tente de Ja&euml;l, femme de H&eacute;ber le K&eacute;n&eacute;en; car il y avait paix entre Jabin, roi de Ha&ccedil;or, et la famille de H&eacute;ber le K&eacute;n&eacute;en.
+	</div><div class='passukEnHa'>Howbeit Sisera fled away on his feet to the tent of Jael the wife of Heber the Kenite; for there was peace between Jabin the king of Hazor and the house of Heber the Kenite. </div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>אל אהל.</b> לצד האהל : <b>כי שלום.</b> ולזה חשב להמלט שמה : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{יח}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַתֵּצֵ&#1443;א יָעֵל&#1454; לִקְרַ&#1443;את סִֽיסְרָא&#1426; וַתֹּ&#1443;אמֶר אֵלָ&#1431;יו סוּרָ&#1447;ה אֲדֹנִ&#1435;י סוּרָ&#1445;ה אֵלַ&#1430;י אַל-תִּירָ&#1425;א וַיָּ&#1444;סַר אֵלֶ&#1433;יהָ&#1433; הָאֹ&#1428;הֱלָה וַתְּכַסֵּ&#1430;הוּ בַּשְּׂמִיכָֽה:</span>
+	</div><div class='passukFrHa'> Ja&euml;l sortit &agrave; la rencontre de Sisara et lui dit: &quot;Entre, seigneur, entre chez moi, ne crains rien!&quot; Il la suivit dans la tente, et elle le cacha sous une couverture.
+	</div><div class='passukEnHa'>And Jael went out to meet Sisera, and said unto him: 'Turn in, my lord, turn in to me; fear not.' And he turned in unto her into the tent, and she covered him with a rug. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>בשמיכה.</b> תרגם יונתן: בגונכא, ופירש רב האי (שבת נא א): גונכא - גלופקרין, קוט''א בלע''ז: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>סורה.</b> ראתה שהיה כמסתפק אם לילך לאהלה אם לנוס עוד להלן, ואמרה לו, סור ממקום מהלכך ובוא אלי ואל תירא : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>סורה.</b> ענין נטיה מן המקום : <b>בשמיכה.</b> היא כסות עב ויוצאים ממנה ציציות, וכתרגום יונתן : בגונכא, וכן (מלכים ב ח טו) ויקח המכבר, תרגם יונתן : גונכא : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{יט}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיֹּ&#1447;אמֶר אֵלֶ&#1435;יהָ הַשְׁקִינִי-נָ&#1445;א מְעַט-מַ&#1430;יִם כִּ&#1443;י צָמֵ&#1425;אתִי וַתִּפְתַּ&#1438;ח אֶת-נֹ&#1447;אוד הֶחָלָ&#1435;ב וַתַּשְׁקֵ&#1430;הוּ וַתְּכַסֵּֽהוּ:</span>
+	</div><div class='passukFrHa'> Il lui dit: &quot;Donne-moi, je te prie, un peu d&rsquo;eau &agrave; boire, j&rsquo;ai soif!&quot; Et elle ouvrit l&rsquo;outre au lait, lui donna &agrave; boire et le recouvrit.
+	</div><div class='passukEnHa'>And he said unto her: 'Give me, I pray thee, a little water to drink; for I am thirsty.' And she opened a bottle of milk, and gave him drink, and covered him. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>נאד החלב.</b> שהחלב מכביד את הגוף להיות נרדם: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>נאד החלב.</b> השקתו חלב כי מביא תרדמה : <b>ותכסהו.</b> כי בעת השקתו נגלה כסויו, וחזרה לכסותו : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>צמאתי.</b> מלשון צמאון : <b>נאד.</b> שם כלי מה : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{כ}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיֹּ&#1443;אמֶר אֵלֶ&#1428;יהָ עֲמֹ&#1430;ד פֶּ&#1443;תַח הָאֹ&#1425;הֶל וְהָיָה&#1449; אִם-אִ&#1448;ישׁ יָב&#1436;וֹא וּשְׁאֵלֵ&#1431;ךְ וְאָמַ&#1435;ר הֲיֵֽשׁ-פֹּ&#1445;ה אִ&#1430;ישׁ וְאָמַ&#1445;רְתְּ אָֽיִן:</span>
+	</div><div class='passukFrHa'> Il lui dit: &quot;Tiens-toi &agrave; l&rsquo;entr&eacute;e de la tente, et si l&rsquo;on vient te demander: Y a-t-il quelqu&rsquo;un ici? tu r&eacute;pondras: Non.
+	</div><div class='passukEnHa'>And he said unto her: 'Stand in the door of the tent, and it shall be, when any man doth come and inquire of thee, and say: Is there any man here? that thou shalt say: No.' </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>עמוד פתח האהל.</b> זרזי עצמך בדבר. ויש פותרים: 'עמוד', כמו לעמוד: <small> (רש"י)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ושאלך.</b> מלשון שאלת מה : <b>פה.</b> בהאהל הזה : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{כא}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַתִּקַּ&#1443;ח יָעֵ&#1443;ל אֵֽשֶׁת-חֶ&#1440;בֶר אֶת-יְתַ&#1448;ד הָאֹ&#1436;הֶל וַתָּ&#1447;שֶׂם אֶת-הַמַּקֶּ&#1443;בֶת בְּיָדָ&#1431;הּ וַתָּב&#1444;וֹא אֵלָיו&#1433; בַּלָּ&#1428;אט וַתִּתְקַ&#1444;ע אֶת-הַיָּתֵד&#1433; בְּרַקָּת&#1428;וֹ וַתִּצְנַ&#1430;ח בָּאָ&#1425;רֶץ וְהֽוּא-נִרְדָּ&#1445;ם וַיָּ&#1430;עַף וַיָּמֹֽת:</span>
+	</div><div class='passukFrHa'> Or Ja&euml;l, femme de H&eacute;ber, prit une cheville de la tente, se saisit d&rsquo;un marteau, se glissa pr&egrave;s de lui sans bruit et enfon&ccedil;a dans sa tempe la cheville, qui resta fich&eacute;e en terre; lui, fatigu&eacute;, s&rsquo;&eacute;tait endormi; il mourut.
+	</div><div class='passukEnHa'>Then Jael Heber's wife took a tent-pin, and took a hammer in her hand, and went softly unto him, and smote the pin into his temples, and it pierced through into the ground; for he was in a deep sleep; so he swooned and died. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>יתד האהל.</b> קבילי''ל בלע''ז, שתוקעין בארץ עם שיפולי האהל לפושטו: <b>המקבת.</b> (תרגום:) ארזפתא, מרטי''ל בלע''ז: <b>בלאט.</b> (תרגום:) ברז, חרש: <b>ותצנח בארץ.</b> (תרגום:) ונעצת בארעא: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>יתד האהל.</b> היתד העשוי לתקוע בארץ עם שפולי האהל : <b>בלאט.</b> לבל יעור משנתו : <b>ותצנח בארץ.</b> הכתה במקבת על היתד עד שחלף רקתו ונתחב בארץ : <b>והוא נרדם.</b> רצה לומר, על שהיה נרדם משתיית החלב ועיף על כי נס ברגליו, ולזה מת מיד : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>יתד.</b> מסמר : <b>המקבת.</b> שם כלי, ובו מכין ביתד לנעצו בארץ, וכן (ישעיהו מד יב) ובמקבות יצרהו : <b>בלאט.</b> בהסתר ובחשאי, כמו (רות ג ז) ותבא בלט ותגל מרגלתיו : <b>ותתקע.</b> נעצה ותחבה : <b>ברקתו.</b> הוא צד גובה הפנים, וכן (שיר השירים ד ג) כפלח הרמון רקתך, ונקראת כך למיעוט הבשר שבה, כמו (בראשית מא יט) ורקות בשר : <b>ותצנח.</b> ענין נעיצה, כמו (לעיל א יד) ותצנח מעל החמור : <b>נרדם.</b> מלשון תרדמה ושינה : <b>ויעף.</b> ענין יגיעה : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{כב}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וְהִנֵּ&#1443;ה בָרָק&#1454; רֹדֵ&#1443;ף אֶת-סִֽיסְרָא&#1426; וַתֵּצֵ&#1444;א יָעֵל&#1433; לִקְרָאת&#1428;וֹ וַתֹּ&#1443;אמֶר ל&#1428;וֹ לֵ&#1443;ךְ וְאַרְאֶ&#1428;ךָּ אֶת-הָאִ&#1430;ישׁ אֲשֶׁר-אַתָּ&#1443;ה מְבַקֵּ&#1425;שׁ וַיָּבֹ&#1443;א אֵלֶ&#1428;יהָ וְהִנֵּ&#1444;ה סִֽיסְרָא&#1433; נֹפֵ&#1443;ל מֵ&#1428;ת וְהַיָּתֵ&#1430;ד בְּרַקָּתֽוֹ:</span>
+	</div><div class='passukFrHa'> Cependant Barak vint, poursuivant Sisara; Ja&euml;l s&rsquo;avan&ccedil;a &agrave; sa rencontre et lui dit: &quot;Viens, je vais te faire voir l&rsquo;homme que tu cherches.&quot; Il la suivit et vit Sisara &eacute;tendu mort, la tempe travers&eacute;e par la cheville.
+	</div><div class='passukEnHa'>And, behold, as Barak pursued Sisera, Jael came out to meet him, and said unto him: 'Come, and I will show thee the man whom thou seekest.' And he came unto her; and, behold, Sisera lay dead, and the tent-pin was in his temples. </div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ברקתו.</b> (תרגום:) בצידעיה, ניל''ה טימפי''ה בלע''ז, ותחבה ברקתו ובארץ: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>רדף את סיסרא.</b> לפי מחשבת דעתו, לבקשו באשר הוא שם : <small>(מצודת דוד)</small></div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{כג}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַיַּכְנַ&#1444;ע אֱלֹהִים&#1433; בַּיּ&#1443;וֹם הַה&#1428;וּא אֵ&#1430;ת יָבִ&#1443;ין מֶֽלֶךְ-כְּנָ&#1425;עַן לִפְנֵ&#1430;י בְּנֵ&#1445;י יִשְׂרָאֵֽל:</span>
+	</span>
+	</div><div class='passukFrHa'> Ce jour-l&agrave;, Dieu abattit Jabin, roi de Canaan, devant les enfants d&rsquo;Isra&euml;l;
+	</div><div class='passukEnHa'>So God subdued on that day Jabin the king of Canaan before the children of Israel. </div></div>
+	
+	
+	<div class='newPassuk'><div class='passukIvrit'>
+	<b><span style="color:RGB(47,109,187);">{כד}</span></b>&nbsp;</span>
+	<span >
+	<span style="font-family:Ezra SIL SR;">וַתֵּ&#1436;לֶךְ יַ&#1444;ד בְּנֵֽי-יִשְׂרָאֵל&#1433; הָל&#1443;וֹךְ וְקָשָׁ&#1428;ה עַ&#1430;ל יָבִ&#1443;ין מֶֽלֶךְ-כְּנָ&#1425;עַן עַ&#1434;ד אֲשֶׁ&#1443;ר הִכְרִ&#1428;יתוּ אֵ&#1430;ת יָבִ&#1445;ין מֶֽלֶךְ-כְּנָֽעַן:</span> <b>(פ)</b>
+	</div><div class='passukFrHa'> et la puissance des enfants d&rsquo;Isra&euml;l alla s&rsquo;appesantissant sur Jabin, roi de Canaan, si bien qu&rsquo;ils consomm&egrave;rent sa ruine.
+	</div><div class='passukEnHa'>And the hand of the children of Israel prevailed more and more against Jabin the king of Canaan, until they had destroyed Jabin king of Canaan.
+	</div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ותלך וגו'.</b> רצה לומר, בכל פעם יותר : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>וקשה.</b> רוצה לומר : וחזקה : <small> (מצודת ציון)</small></div></div>
+	
+	
+	<div class='community'>הספרדים מתחילים כאן:</div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{א}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">וַתָּ&#1443;שַׁר דְּבוֹרָ&#1428;ה וּבָרָ&#1430;ק בֶּן-אֲבִינֹ&#1425;עַם בַּיּ&#1445;וֹם הַה&#1430;וּא לֵאמֹֽר:</span>
+</div><div class='passukFrHa'> Ce m&ecirc;me jour, D&eacute;bora et Barak, fils d&rsquo;Abinoam, chant&egrave;rent ce cantique:
+</div><div class='passukEnHa'>Then sang Deborah and Barak the son of Abinoam on that day, saying:
+
+</div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>לאמר.</b> רצה לומר, שבני ישראל יאמרוהו : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ותשר.</b> מלשון שירה : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ב}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">בִּפְרֹ&#1444;עַ פְּרָעוֹת&#1433; בְּיִשְׂרָאֵ&#1428;ל בְּהִתְנַדֵּ&#1430;ב עָ&#1425;ם בָּרֲכ&#1430;וּ יְהוָֽה:</span>
+</div><div class='passukFrHa'> Quand l&rsquo;anarchie r&eacute;gnait en Isra&euml;l, une poign&eacute;e d&rsquo;hommes s&rsquo;est d&eacute;vou&eacute;e: rendez-en gr&acirc;ce &agrave; l&rsquo;&Eacute;ternel!
+</div><div class='passukEnHa'>When men let grow their hair in Israel,
+When the people offer themselves willingly,
+Bless ye the Lord.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>בפרע פרעות בישראל בהתנדב עם.</b> כשבאו פרצות על ישראל שפרצו בהם אויביהם על עזבם את ה', והתנדב העם לשוב בתשובה, מעתה ברכו את ה' על התשועות שעשה: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בפרע פרעות.</b> רצה לומר, במה שנקם הקדוש ברוך הוא נקמותיו על ידי ישראל להיות נראה שבכח ידם נעשתה, והיא להם לכבוד : <b>בהתנדב עם.</b> רצה לומר, בעבור מה שנתן ה' בלב העם להתנדב ללכת למלחמה, עם כי ראו חולשתם וגבורת סיסרא : <b>ברכו ה'.</b> בעבור שתי אלה, ברכו ה' : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>בפרע פרעות.</b> ענין נקמה, כי (במדבר לא ב) נקום נקמת, תרגמו : אתפרע פרענותא : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ג}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">שִׁמְע&#1443;וּ מְלָכִ&#1428;ים הַאֲזִ&#1430;ינוּ רֹֽזְנִ&#1425;ים אָֽנֹכִ&#1431;י לַֽיהוָה&#1433; אָנֹכִ&#1443;י אָשִׁ&#1428;ירָה אֲזַמֵּ&#1429;ר לַֽיהוָ&#1430;ה אֱלֹהֵ&#1445;י יִשְׂרָאֵֽל:</span>
+</div><div class='passukFrHa'> Ecoutez, rois; princes, pr&ecirc;tez l&rsquo;oreille: je veux, je veux chanter le Seigneur, c&eacute;l&eacute;brer l&rsquo;&Eacute;ternel, Dieu d&rsquo;Isra&euml;l.
+</div><div class='passukEnHa'>Hear, O ye kings; give ear, O ye princes;
+I, unto the Lord will I sing;
+I will sing praise to the Lord, the God of Israel.
+
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אנכי.</b> אנכי. כפול, שמעתי מדרש אגדה (ילקוט שמעוני ב מז) לא קפח הקדוש ברוך הוא שכר תבור וכרמל, שבאו למתן תורה לתת עליהם את התורה וחזרו בבשת הפנים, אמר להם הקדוש ברוך הוא, סוף שאני פורע לכם כפלים, נאמר בסיני (שמות כ ב) אנכי ה' אלהיך, בתבור יאמר: <b>אנכי.</b>.. אנכי, נאמר בסיני (שם) אנכי ה' אלהיך, בכרמל יאמר, כפול (מלכים א יח לט) ה' הוא האלהים, ה' הוא האלהים, בימי אליהו: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>שמעו מלכים.</b> את אשר אני דובר, למען תיראו להלחם עוד בישראל : <b>אנכי לה'.</b> רצה לומר, על אשר אנכי לה' ולחלקו להאמין בו, לזה : <b>אנכי אשירה.</b> על התשועה הבאה לי ממנו : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>האזינו.</b> הטו אוזן לשמוע : <b>רזנים.</b> ענין שררה, כמו (תהלים ב ב) ורוזנים נוסדו יחד : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ד}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">יְהוָ&#1431;ה בְּצֵאתְךָ&#1444; מִשֵּׂעִיר&#1433; בְּצַעְדְּךָ&#1433; מִשְּׂדֵ&#1443;ה אֱד&#1428;וֹם אֶ&#1443;רֶץ רָעָ&#1428;שָׁה גַּם-שָׁמַ&#1430;יִם נָטָ&#1425;פוּ גַּם-עָבִ&#1430;ים נָ&#1445;טְפוּ מָֽיִם:</span>
+</div><div class='passukFrHa'> &Eacute;ternel! Quand tu sortis de S&eacute;ir, quand tu t&rsquo;avan&ccedil;as de la r&eacute;gion d&rsquo;Edom, la terre frissonna, les cieux se fondirent, les nuages se fondirent en eau;
+</div><div class='passukEnHa'>Lord, when Thou didst go forth out of Seir,
+When Thou didst march out of the field of Edom,
+The earth trembled, the heavens also dropped,
+Yea, the clouds dropped water.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ה' בצאתך משעיר.</b> זה מתן תורה, כמה שנאמר (דברים לג ב) וזרח משעיר למו, ומה עניינה לכאן, כך אמרה דבורה: קשה היא התורה לפרוש ממנה וטובה היא לדבק בה, שהרי במורא ובגבורה נתנה, ולכך נמסרו ישראל ביד אויביהם על פרישתם הימנה וכשהתנדבו לעסוק בה נושעו, כל זה יש ללמוד מתרגומו של יונתן: <b>נטפו.</b> הזילו טל תחיה: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בצאתך משעיר.</b> כשיצאת לפני ישראל כשעברו את הר שעיר, כי אז התחילו להלחם בסיחון ועוג : <b>בצעדך משדה אדום.</b> כפל הדבר במלות שונות וכדרך השיר : <b>ארץ רעשה.</b> החריד והרעיש כל מלכי האדמה : <b>גם שמים נטפו.</b> שרי מעלה של הגוים אחזום חיל ורעדה, כאדם החרד והזיעה נוטף ממנו : <b>נטפו מים.</b> להחריד ולבלבל הגוים בקול המון הגשם : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>בצעדך.</b> מלשון צעדה והלוך : <b>נטפו.</b> מלשון טפטוף ושפיכה : <b>עבים.</b> עננים : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ה}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">הָרִ&#1445;ים נָזְל&#1430;וּ מִפְּנֵ&#1443;י יְהוָ&#1425;ה זֶ&#1443;ה סִינַ&#1428;י מִפְּנֵ&#1429;י יְהוָ&#1430;ה אֱלֹהֵ&#1445;י יִשְׂרָאֵֽל:</span>
+</div><div class='passukFrHa'> Les monts ruissel&egrave;rent &agrave; la vue du Seigneur, le Sina&iuml; tressaillit &agrave; l&rsquo;aspect du Dieu d&rsquo;Isra&euml;l.
+</div><div class='passukEnHa'>The mountains quaked at the presence of the Lord,
+Even yon Sinai at the presence of the Lord, the God of Israel.
+
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>הרים נזלו.</b> כמים נוזלים נמוגו: <b>זה סיני.</b> כבר מפורש (שמות יט, כ) מה נראה בו: עשן כולו, וקול, ולפידים ואש מפני ה', והרי זה מקרא קצר 'זה סיני', מה אירע בו, מפני אשר ירד עליו ה': <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>הרים נזלו.</b> מגודל הרעדה, ונטפו זיעה : <b>זה סיני.</b> כמו זה הר סיני, שנאמר בו (שמות יט טז), ויחרד כל ההר, כמו כן חרדו כולם מפחד ה' הנלחם לישראל : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>נזלו.</b> ענין נטיפה, כמו (במדבר כד ז) יזל מים מדליו : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ו}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">בִּימֵ&#1438;י שַׁמְגַּ&#1444;ר בֶּן-עֲנָת&#1433; בִּימֵ&#1443;י יָעֵ&#1428;ל חָדְל&#1430;וּ אֳרָח&#1425;וֹת וְהֹלְכֵ&#1443;י נְתִיב&#1428;וֹת יֵלְכ&#1429;וּ אֳרָח&#1430;וֹת עֲקַלְקַלּֽוֹת:</span>
+</div><div class='passukFrHa'> Au temps de Samgar, fils d&rsquo;Anat, aux jours de Ja&euml;l, les routes &eacute;taient devenues solitaires, les voyageurs suivaient des sentiers d&eacute;tourn&eacute;s.
+</div><div class='passukEnHa'>In the days of Shamgar the son of Anath,
+In the days of Jael, the highways ceased,
+And the travellers walked through byways.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>בימי שמגר בן ענת בימי יעל.</b> מלמד שאף יעל שפטה את ישראל בימיה: <b>חדלו ארחות.</b> היו יראים ישראל לצאת לדרכם מפני האויבים והיו הולכים דרך עקלתון בהחבא: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בימי שמגר.</b> אבל בימי השופט שמגר ובימי יעל אשר גם היא שפטה בימי שמגר, לא היתה תשועה שלימה ולא חרדו הגוים מפחד ה', ולזה חדלו הולכי אורח מיראת הגוים : <b>והלכי נתיבות.</b> רצה לומר, האנשים אשר הוכרחו לילך בנתיבות, היו הולכים דרך מעוקל לבל ירגיש מי בהם : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>חדלו.</b> מנעו : <b>ארחות.</b> נתיבות, דרכים ושבילים : <b>עקלקלות.</b> מלשון מעוקל ומעוקם : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ז}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">חָדְל&#1447;וּ פְרָז&#1435;וֹן בְּיִשְׂרָאֵ&#1430;ל חָדֵ&#1425;לּוּ עַ&#1444;ד שַׁקַּ&#1433;מְתִּי&#1433; דְּבוֹרָ&#1428;ה שַׁקַּ&#1445;מְתִּי אֵ&#1430;ם בְּיִשְׂרָאֵֽל:</span>
+</div><div class='passukFrHa'> Plus de ville ouverte en Isra&euml;l, plus aucune, quand enfin je me suis lev&eacute;e, moi D&eacute;bora, lev&eacute;e comme une m&egrave;re au milieu d&rsquo;Isra&euml;l.
+</div><div class='passukEnHa'>The rulers ceased in Israel, they ceased,
+Until that thou didst arise, Deborah,
+That thou didst arise a mother in Israel.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>חדלו פרזון.</b> ערי הפרזי שאין להם חומה חדלו מהיות יושבים בהם מפני אויביהם, ונאספו אל ערי המבצר: <b>עד שקמתי.</b> כמו שקמתי, וכן (שופטים ו יז): שאתה מדבר עמי: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>חדלו פרזון.</b> כי פחדו לשבת בערי הפרזי, ורק בישראל חדלו, ולא בגוים, כי הם לא פחדו מישראל מלשבת בערי הפרזי, כי ידם היתה על העליונה : <b>עד שקמתי דבורה.</b> רצה לומר, כן היה עד אשר קמתי אני דבורה, כי מעתה יהיה כמאז, כי התשועה הבאה על ידי שלימה היא, ויחרדו הגוים מה' ולא יחדלו ישראל מללכת אורח ומלשבת בערי הפרזי : <b>אם.</b> כאם המיסרת את בנה ליישר דרכו, כן אנכי לישראל : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>פרזון.</b> ערי פרזי, מבלי חומה סביבה : <b>שקמתי.</b> מלשון קימה : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ח}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">יִבְחַר&#1433; אֱלֹהִ&#1443;ים חֲדָשִׁ&#1428;ים אָ&#1430;ז לָחֶ&#1443;ם שְׁעָרִ&#1425;ים מָגֵ&#1444;ן אִם-יֵֽרָאֶה&#1433; וָרֹ&#1428;מַח בְּאַרְבָּעִ&#1445;ים אֶ&#1430;לֶף בְּיִשְׂרָאֵֽל:</span>
+</div><div class='passukFrHa'> Il avait adopt&eacute; des dieux nouveaux, d&egrave;s lors la guerre est &agrave; ses portes; et l&rsquo;on voyait &agrave; peine un bouclier, une lance, entre quarante milliers d&rsquo;Isra&euml;l.
+</div><div class='passukEnHa'>They chose new gods;
+Then was war in the gates;
+Was there a shield or spear seen
+Among forty thousand in Israel? 
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>יבחר אלהים חדשים אז לחם שערים.</b> כשבחר לו ישראל אלהים חדשים, אז הוזקקו למלחמה בשעריהם, ראו עתה בהתנדבם, אם יראה בישראל מגן ורומח, שצריך להלחם בארבעים אלף ראשי גייסות שהביא הגוי עליהם, וכולם הממם המקום במלחמת הכוכבים (פסוק כא) ונחל קישון גרפם: <b>שערים.</b> כמו (דברים יז ב) כי ימצא בקרבך באחד שעריך, עיירות: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>יבחר אלהים חדשים.</b> כי כאשר יבחר ישראל אלהים חדשים, אז בא מלחמה בעריו בעבור העונש ולא כשמטיב דרכו, כי הלא בימי יהושע שנאמר (ד יג), כארבעים אלף וכו' עברו וכו' אל ערבות יריחו, וכי היה נראה באותן ארבעים אלף מגן ורומח, כי הלא בנס כבשו את יריחו ולא במלחמה ובמגן ורומח : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>לחם.</b> מלשון מלחמה : <b>שערים.</b> עיירות, כמו (דברים יז ב) באחד שעריך : <b>מגן.</b> תריס : <b>ורמח.</b> כידון : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ט}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">לִבִּי&#1433; לְחוֹקְקֵ&#1443;י יִשְׂרָאֵ&#1428;ל הַמִּֽתְנַדְּבִ&#1430;ים בָּעָ&#1425;ם בָּרֲכ&#1430;וּ יְהוָֽה:</span>
+</div><div class='passukFrHa'> Mon c&oelig;ur est &agrave; vous, ma&icirc;tres d&rsquo;Isra&euml;l, qui vous &ecirc;tes d&eacute;vou&eacute;s au milieu du peuple, rendez gr&acirc;ce &agrave; l&rsquo;&Eacute;ternel!
+</div><div class='passukEnHa'>My heart is toward the governors of Israel,
+That offered themselves willingly among the people.
+Bless ye the Lord.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>לבי.</b> אני דבורה לחוקקי ישראל, לאהוב את חכמי ישראל שהתנדבו בעם, לאמר: ברכו את ה' ושובו אליו: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>לבי לחוקקי וגו'.</b> רצה לומר, לא מן השפה ולחוץ, כי אם מעומק הלב אדבר לחוקקי ישראל המתנדבים להלחם, שהם יברכו לה' על מה שנתן בלבם להתנדב : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>לחוקקי.</b> הגדולים יקראו 'מחוקקים', כי הם משימים החוקים : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{י}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">רֹכְבֵי&#1449; אֲתֹנ&#1448;וֹת צְחֹר&#1436;וֹת יֹשְׁבֵ&#1447;י עַל-מִדִּ&#1435;ין וְהֹלְכֵ&#1445;י עַל-דֶּ&#1430;רֶךְ שִֽׂיחוּ:</span>
+</div><div class='passukFrHa'> Vous qui montez de blanches &acirc;nesses, qui vous asseyez sur des tapis, et vous, humbles pi&eacute;tons du chemin, contez cette merveille!
+</div><div class='passukEnHa'>Ye that ride on white asses,
+Ye that sit on rich cloths,
+And ye that walk by the way, tell of it;
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>רכבי אתנות צחורות.</b> הסוחרים והשרים שירכבו מעתה על אתונות לבנות החשובות, מבלי יראה ודאגת אויביהם, ואותן שיושבין על מדין, לשון דיינים, שהיו יראים לעשות משפט בפרהסיא, וכן תרגם יונתן: דהוו מתחברין למיתב על דינא, ואותן שהולכין רגלי על דרך, שיחו וספרו את התשועה הזאת, אשר מקול המחצצים אתכם, אורבים, ליסטים ומוכסין, היושבין גדודים במערכות לארוב בעברי המים, שם יתנו עתה רוכבי האתונות והולכי על דרך את צדקות ה', ומה הן הצדקות (פסוק יא) צדקות פרזנו בישראל שהשקיט את ישראל, לשכון פרזון ולצאת מפוזרים ביחידי, שלא באסיפת עם: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>רכבי.</b> הן השרים הרוכבים על אתונות לבנות לרוב הגדולה, הן החכמים יושבי המשפט, הן הסוחרים ההולכים בדרך, כולכם שיחו ודברו תהלות ה', השרים, על אשר ישארו בגדולתם, והחכמים, על אשר יוכלו מעתה להרחיב לבם בחכמה מבלי טרדות פחד הגוים, והסוחרים, על כי ילכו מעתה בדרך סלולה, לא ארחות עקלקלות : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>אתנות.</b> נקבות החמורים : <b>צחרות.</b> לבנות, כמו (יחזקאל כז יח) וצמר צחר : <b>מדין.</b> מלשון דין : <b>שיחו.</b> דברו, כמו (דברי הימים א טז ט) שיחו בכל נפלאותיו : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{יא}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">מִקּ&#1443;וֹל מְחַֽצְצִ&#1431;ים בֵּ&#1434;ין מַשְׁאַבִּ&#1428;ים שָׁ&#1444;ם יְתַנּוּ&#1433; צִדְק&#1443;וֹת יְהוָ&#1428;ה צִדְקֹ&#1445;ת פִּרְזֹנ&#1430;וֹ בְּיִשְׂרָאֵ&#1425;ל אָ&#1435;ז יָרְד&#1445;וּ לַשְּׁעָרִ&#1430;ים עַם-יְהוָֽה:</span>
+</div><div class='passukFrHa'> Ceux que le tumulte faisait blottir parmi les auges, maintenant c&eacute;l&egrave;brent les bienfaits du Seigneur, ses bienfaits qui &eacute;mancipent Isra&euml;l; maintenant rentre dans ses portes le peuple du Seigneur.
+</div><div class='passukEnHa'>Louder than the voice of archers, by the watering-troughs!
+There shall they rehearse the righteous acts of the Lord,
+Even the righteous acts of His rulers in Israel.
+Then the people of the Lord went down to the gates.
+
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מחצצים.</b> פתר מנחם: עורכי מלחמה וסודרי קרב, וחברו עם (משלי ל כז): <b>מלך אין לארבה ויצא חצץ כולו, לשון גדודים.</b> דבר אחר: <b>מקול מחצצים בין משאבים.</b> כשהייתם הולכים בין משאבים לשאוב מים, הייתם יראים מקול אבנים, חלוקי הנחל, קיזל''ש בלע''ז, שהעובר עליהם נשמע קולם, והייתם יראים שלא ירגישו בכם אויביכם, מעכשיו אין לחוש על זאת, ומשום הכי מצוה עליכם ליתן הודיה לשמו: <b>מחצצים.</b> לשון אבני חלוקי הנחל, כמו (איכה ג טז) ויגרס בחצץ: <b>אז ירדו לשערים.</b> חזרו לערי מושבותם שברחו מהם ליאסף אל ערי המבצר: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>מקול מחצצים.</b> רצה לומר, תמורת מה שהיה נשמע קול מורים חצים אשר יורו בין ההולכים לשאוב מים, תמורת הקול הזה ישמע עתה שם קול מספרים צדקות ה', והם הצדקות שעשה להערים הפרזים שבישראל אשר היו שוממים, כי אז בהיות התשועה חזרו וירדו עם ה' לעריהם הפרזים : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>מחצצים.</b> מלשון חצים : <b>משאבים.</b> מלשון שאיבת המים : <b>יתנו.</b> ענין דבור, כי (דברים ו ז) ושננתם, תרגומו : ותתנון, וכן (לקמן יא מ) לתנות לבת יפתח : <b>פרזונו.</b> מלשון פרזון : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{יב}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">עוּרִ&#1444;י עוּרִי&#1433; דְּבוֹרָ&#1428;ה ע&#1445;וּרִי ע&#1430;וּרִי דַּבְּרִי-שִׁ&#1425;יר ק&#1445;וּם בָּרָ&#1435;ק וּֽשֲׁבֵ&#1445;ה שֶׁבְיְךָ&#1430; בֶּן-אֲבִינֹֽעַם:</span>
+</div><div class='passukFrHa'> Debout, debout, D&eacute;bora! Eveille-toi, &eacute;veille-toi, chante l&rsquo;hymne! Alerte, &ocirc; Barak! Fils d&rsquo;Abinoam, emm&egrave;ne ta capture!
+</div><div class='passukEnHa'>Awake, awake, Deborah;
+Awake, awake, utter a song;
+Arise, Barak, and lead thy captivity captive, thou son of Abinoam.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>עורי עורי דבורה.</b> לשון שבח כפשוטו, התגברי בשירתך. ורבותינו אמרו (פסחים סו ב) מפני שנתהללה ואמרה (פסוק ז) עד שקמתי דבורה, נסתלקה הימנה רוח הקודש: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>עורי עורי.</b> רצה לומר, התחזקי לדבר בשיר, וכפלה אמריה כדרך השיר ולרוב הזרוז : <b>ושבה שביך.</b> רצה לומר, בהתחזק השיר תתגבר התשועה : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>עורי.</b> מלשון הערה והתעוררות : <b>ושבה שביך.</b> מלשון שביה : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{יג}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">אָ&#1434;ז יְרַ&#1443;ד שָׂרִ&#1428;יד לְאַדִּירִ&#1430;ים עָ&#1425;ם יְהוָ&#1429;ה יְרַד-לִ&#1430;י בַּגִּבּוֹרִֽים:</span>
+</div><div class='passukFrHa'> Un faible reste triomphe d&rsquo;une puissante multitude; l&rsquo;&Eacute;ternel m&rsquo;a fait dompter les forts.
+</div><div class='passukEnHa'>Then made He a remnant to have dominion over the nobles and the people;
+The Lord made me have dominion over the mighty.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אז ירד שריד לאדירים.</b> ירד - ירדה, כמו (ישעיהו מה א) לרד לפניו גוים, שרידי ישראל רדו באדירי הגוים: <b>ה' ירד לי בגבורים.</b> ירדה לי את גבורי הגוים: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>אז.</b> כאשר יתחזק השיר ותתגבר התשועה, אז הנשאר מישראל למשול באדירי עם, הם הגוים החזקים : <b>ה' ירד לי.</b> ה' יתן לי ממשלה בגבורי הגוים, וכפל הדבר במה שאמר : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ירד.</b> ענין ממשלה, כמו (תהלים קי ב) רדה בקרב אויביך : <b>שריד.</b> שיור, כמו (ירמיהו מב יז) שריד ופליט : <b>לאדירים.</b> כמו באדירים, למ''ד במקום הבי''ת, וכן (ויקרא כז ז) ונפלו לפניכם לחרב, ומשפטו : בחרב : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{יד}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">מִנִּ&#1443;י אֶפְרַ&#1431;יִם שָׁרְשָׁם&#1433; בַּעֲמָלֵ&#1428;ק אַחֲרֶ&#1445;יךָ בִנְיָמִ&#1430;ין בַּֽעֲמָמֶ&#1425;יךָ מִנִּ&#1443;י מָכִ&#1431;יר יָֽרְדוּ&#1433; מְחֹ&#1443;קְקִ&#1428;ים וּמִ&#1448;זְּבוּלֻ&#1428;ן מֹשְׁכִ&#1430;ים בְּשֵׁ&#1445;בֶט סֹפֵֽר:</span>
+</div><div class='passukFrHa'> Les gens d&rsquo;Ephra&iuml;m ont pris racine en Amalec, &agrave; ta suite, &ocirc; Benjamin! et pr&egrave;s de tes familles; Makhir a produit des l&eacute;gislateurs, et plusieurs, dans Zabulon, manient la plume du scribe.
+</div><div class='passukEnHa'>Out of Ephraim came they whose root is in Amalek;
+After thee, Benjamin, among thy peoples;
+Out of Machir came down governors,
+And out of Zebulun they that handle the marshal's staff.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מני אפרים.</b> מן אפרים יצא שורש יהושע בן נון, לרדות בעמלק לחלש אותו לפי חרב, ומחובר מקרא זה לעליון, לפרש: ה' ירד לי בגבורים, את יהושע הקים לרד בעמלק: <b>אחריך.</b> יקום משבט בנימין שאול בן קיש שיגרמנו ויעמם אותו כגחלים עוממות. ויש לפתור: 'בעממיך', בחיל של מאתים אלף רגלי שבא שאול עליהם: <b>מני מכיר ירדו מחקקים.</b> שרים גדולים שכבשו את האמורי, אשר כבשו (דברים ג ד) ששים עיר כל חבל ארגוב שכבש יאיר: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>מני אפרים.</b> מן שבט אפרים ושרשם, והוא יהושע נשיאם : <b>בעמלק.</b> מאז נלחם הוא בעמלק והחלישם, כמו שכתוב (שמות יז יג), ויחלש יהושע את עמלק : <b>אחריך.</b> כאלו תדבר לאפרים ותאמד, אחר מלחמת יהושע אשר יצא ממך, יבוא שאול הבא מבנימין וילחם בעמלק ברוב עם אשר יבאו עמו ממך אתה ישראל, וכמו שכתוב (שמואל א טו ד), ויפקדם וכו' מאתים אלף : <b>ירדו מחקקים.</b> השרים מבני מכיר בן מנשה ירדו בהמלחמה ההיא עם סיסרא, ומזבולון ירדו כולם, ואף הסופרים, עם שאינם מלומדי מלחמה : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>מני.</b> מן, והיו''ד נוספת : <b>בעממיך.</b> מלשון עם : <b>משכים.</b> כי הכתיבה עשויה במשיכת הקולמוס : <b>שבט.</b> רוצה לומר, קולמוס : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{טו}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">וְשָׂרַ&#1444;י בְּיִשָּׂשכָר&#1433; עִם-דְּבֹרָ&#1428;ה וְיִשָּׂשכָר&#1433; כֵּ&#1443;ן בָּרָ&#1428;ק בָּעֵ&#1430;מֶק שֻׁלַּ&#1443;ח בְּרַגְלָ&#1425;יו בִּפְלַגּ&#1443;וֹת רְאוּבֵ&#1428;ן גְּדֹלִ&#1430;ים חִקְקֵי-לֵֽב:</span>
+</div><div class='passukFrHa'> Et ces princes d&rsquo;Issachar, amis de D&eacute;bora, et Issachar, l&rsquo;appui de Barak, dans la vall&eacute;e ils s&rsquo;&eacute;talent &agrave; ses pieds. Parmi les groupes de Ruben, grands sont les soucis de la pens&eacute;e!
+</div><div class='passukEnHa'>And the princes of Issachar were with Deborah;
+As was Issachar, so was Barak;
+Into the valley they rushed forth at his feet.
+Among the divisions of Reuben
+There were great resolves of heart.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ושרי ביששכר.</b> שרים שביששכר, הם סנהדראות עוסקין בתורה, (דברי הימים א יא לב) יודעי בינה לעתים, הם תמיד עם דבורה ללמד בישראל חק ומשפט: <b>ושרי ביששכר.</b> יו''ד זו טפילה היא ואינה משמשת כלום, והרי היא כיו''ד (תהלים ח ח) בהמות שדי, (ירמיהו כב יד) וקרע לו חלוני: <b>ויששכר כן ברק.</b> ושאר העם של יששכר, כן הם עם ברק לכל אשר יצוה: <b>בעמק שלח ברגליו.</b> שלחם בכל שליחותו, ולאסוף את העם ולכל צרכי המלחמה: <b>בפלגות ראובן.</b> אבל בחילוקי לבו של ראובן רבו: <b>חקקי לב.</b> (תרגום:) נכלי ליבא, ערמומית, ומה היא ערמומיתו, ישב לו בין משפתי המלחמה לשמוע מי נוצח ויהיה עמו: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ושרי ביששכר.</b> רצה לומר, עם כי השרים ביששכר ישבו בכל עת עם דבורה ללמד בישראל חק ומשפט, וכמו שכתוב (דברי הימים א יב לג), ומבני יששכר יודעי בינה לעתים וגו', ולא נסו אם כן מעולם ללכת במלחמה, ויששכר עם כל זה עשה כן כמו ברק, וירד למלחמה כמוהו : <b>בעמק שלח ברגליו.</b> כי למעלה נאמר (ד יד) שאמרה דבורה לברק לרדת מן ההר אל העמק לקראת המלחמה, ושמע ברק אליה וירדו, לזה אמרה גם בזה עשה יששכר כברק, כי בעמק אשר שולח לרדת בה בדבר ה' על ידי דבורה, בה ירד ברגליו של ברק, רצה לומר, עם הלוכו ואחריו, ולא פחד לרדת אל העמק (ומלת 'שלח' חוזר על יששכר, כי דבר ה' שעל ידי דבורה היה לכל העם, ומפני הכבוד ייחדה הדבר לברק, שהיה שר הצבא) : <b>בפלגות ראובן.</b> רצה לומר, אם כל השבטים האלו לא פחדו מלרדת למלחמה אם בעבר ואם בהווה ואם בעתיד, לזאת בפלגות ראובן, רצה לומר, במה שראובן נחלק ונפרד מן המלחמה ההיא, גדולים המה 'חקקי לב', רצה לומר, הנה ראוי לחשוב רבות מחשבות לב להבין הדבר מה זה היה לו שנחלק מן המלחמה : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ושרי.</b> כמו ושרים : <b>ברגליו.</b> עם הלוכו, ואחריו, וכן (לעיל ד י) ויעל ברגליו : <b>בפלגות.</b> ענין חלוקה, כמו (בראשית י כה) נפלגה הארץ : <b>חקקי.</b> מלשון חקיקה, וענינו מחשבה : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{טז}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">לָ&#1443;מָּה יָשַׁ&#1431;בְתָּ בֵּ&#1434;ין הַֽמִּשְׁפְּתַ&#1428;יִם לִשְׁמֹ&#1430;עַ שְׁרִק&#1443;וֹת עֲדָרִ&#1425;ים לִפְלַגּ&#1443;וֹת רְאוּבֵ&#1428;ן גְּדוֹלִ&#1430;ים חִקְרֵי-לֵֽב:</span>
+</div><div class='passukFrHa'> Pourquoi es-tu rest&eacute; entre les collines, &eacute;coutant le murmure des troupeaux? C&rsquo;est que, pour les groupes de Ruben, grave est la perplexit&eacute; d&rsquo;esprit.
+</div><div class='passukEnHa'>Why sattest thou among the sheepfolds,
+To hear the pipings for the flocks?
+At the divisions of Reuben
+There were great searchings of heart.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>שרקות עדרים.</b> לשמוע קול עדרי המלחמה, למי קול ענות גבורה ולמי קול ענות חלושה: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>למה ישבת בין המשפתים.</b> רצה לומר, ואם תשיב לומר שאתה מורך לב לרדת לקראת נשק אם כן מתחלה למה ישבת באחוזת עבר הירדן בין גבול ארץ ישראל ובין גבול הגוים, הלא מקום סכנה הוא לשבת על הספר, ומדוע בחרת בזה הגבול לשבת בה : <b>לשמע וגו'.</b> רצה לומר, מה ששאלת הארץ ההיא באמרך (במדבר לב ד), ארץ מקנה היא ולעבדיך מקנה, וכי שאלתך היה לשבת בית לשמוע שריקות העדרים והמקנה, וכי לא עלתה על דעתך שבעל כרחך תרד במלחמה בהיותך יושב על הספר : <b>לפלגות.</b> לזאת, למה שנפרד ראובן מן המלחמה, ראוי לחקור עליו רבות חקרי לב, להשכיל אמתת הדבר : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>המשפתים.</b> מלשון שפה, וענינו גבול, וכן תרגם יונתן : תחומין, וגם הוא תרגום של גבול, וכן (שם מט יד) רובץ בין המשפתים : <b>שרקות.</b> הונח על הקול הבאה בקבוץ השפתים, וכן (ישעיהו ה כו) ושרק לו, והוא שאול על כל המקנה : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{יז}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">גִּלְעָ&#1431;ד בְּעֵ&#1444;בֶר הַיַּרְדֵּן&#1433; שָׁכֵ&#1428;ן וְדָ&#1429;ן לָ&#1445;מָּה יָג&#1430;וּר אֳנִיּ&#1425;וֹת אָשֵׁ&#1431;ר יָשַׁב&#1433; לְח&#1443;וֹף יַמִּ&#1428;ים וְעַ&#1445;ל מִפְרָצָ&#1430;יו יִשְׁכּֽוֹן:</span>
+</div><div class='passukFrHa'> Galaad, sur la rive du Jourdain demeure immobile; Dan, qui le retient pr&egrave;s des vaisseaux? Aser s&rsquo;est fix&eacute; sur le littoral, il se cantonne pr&egrave;s de ses ports...
+</div><div class='passukEnHa'>Gilead abode beyond the Jordan;
+And Dan, why doth he sojourn by the ships?
+Asher dwelt at the shore of the sea,
+And abideth by its bays.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>בעבר הירדן שכן.</b> ולא בא אל המלחמה, וכן דן הכניס ממונו בספינות לעמוד ולברוח: <b>ועל מפרציו.</b> לשמור פרצות ארצו: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>גלעד וגו'.</b> רצה לומר, אם נחשב שלזה לא בא ראובן למלחמה, על כי נחלתו היא בעבר הירדן רחוקה ממקום המלחמה, הלא גם גלעד שוכן בעבר הירדן ועם כל זה בא למלחמה, כמו שכתוב למעלה (פסוק יד) מני מכיר וכו', והוא גלעד : <b>ודן וגו'.</b> רצה לומר, אף על דן יש להתרעם מאד, כי למה יקבץ כל אשר לו לשומם בספינות ולברוח, הלא נחלתו קרובה למקום המלחמה, ומדוע אם כן ברח ולא בא למלחמה. אשר וגו'. רצה לומר, עם שגם אשר לא בא הנה, לא במעל עשה, רק על כי נחלתו היא בחוף הים על הספר ועריו המה פרוצים ופרוזים מבלי חומה, ולזה, בעל כרחו שכן אצל עריו הפרוצים, לבל יבאו בהם הגוים הסמוכים להספר : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>יגור.</b> יאסף, כמו (תהלים נט ד) יגורו עלי עזים : <b>אניות.</b> באניות : <b>לחוף.</b> לשפת הים, וכן (דברים א ז) בחוף הים : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{יח}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">זְבֻל&#1431;וּן עַ&#1443;ם חֵרֵ&#1445;ף נַפְשׁ&#1435;וֹ לָמ&#1430;וּת וְנַפְתָּלִ&#1425;י עַ&#1430;ל מְרוֹמֵ&#1445;י שָׂדֶֽה:</span>
+</div><div class='passukFrHa'> Zabulon, voil&agrave; le peuple qui se d&eacute;voue &agrave; la mort! Lui et Nepthali, seuls au champ de bataille!
+</div><div class='passukEnHa'>Zebulun is a people that jeoparded their lives unto the death,
+And Naphtali, upon the high places of the field.
+
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>זבלון עם חרף וגו'.</b> בזה נפשו והפקיר עצמו למות במלחמה עם ברק, וכן נפתלי על מרומי שדה. על הר תבור: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>זבלון וגו'.</b> רצה לומר, אולם זבולון עשה הטוב, כי הוא עם אשר חרף ובזה נפשו ללכת למלחמה ולא יקרה נפשו בעיניו לחשוש פן ימות במלחמה : <b>ונפתלי וגו'.</b> רצה לומר, וגם נפתלי כמוהו לא חש למות על מרומי שדה במקום המלחמה (עם כי ה' צוה לקחת למלחמה בני זבולון ובני נפתלי, כמו שכתוב למעלה ולא צוה להביא למלחמה מיתר השבטים, מכל מקום התרעמה דבורה על ראובן ועל דן על שלא באו מעצמם, כדרך שבאו משאר השבטים) : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>חרף.</b> ענין בזיון : <b>מרומי.</b> מלשון רם : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{יט}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">בָּ&#1444;אוּ מְלָכִים&#1433; נִלְחָ&#1428;מוּ אָ&#1444;ז נִלְחֲמוּ&#1433; מַלְכֵ&#1443;י כְנַ&#1428;עַן בְּתַעְנַ&#1430;ךְ עַל-מֵ&#1443;י מְגִדּ&#1425;וֹ בֶּ&#1445;צַע כֶּ&#1430;סֶף לֹ&#1445;א לָקָֽחוּ:</span>
+</div><div class='passukFrHa'> Les rois sont venus, ils ont guerroy&eacute;, oui, ils ont guerroy&eacute;, les.rois de Canaan, &agrave; Taanakh, pr&egrave;s des eaux de Meghiddo: les riches d&eacute;pouilles n&rsquo;ont pas &eacute;t&eacute; pour eux.
+</div><div class='passukEnHa'>The kings came, they fought;
+Then fought the kings of Canaan,
+In Taanach by the waters of Megiddo;
+They took no gain of money.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>בתענך על מי מגדו.</b> תרגם יונתן: בתענך הוו שרן ומטן על מי מגדו, ראש המחנה בתענך ומגיע עד מי מגידו: <b>בצע כסף לא לקחו.</b> חנם באו לעזרת סיסרא, לא בקשו ממנו שכר: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>באו מלכים.</b> רצה לומר, שבטי ישראל הנה לא באו לעזרת אחיהם, ומלכי ארצות אחרות באו לעזרת סיסרא ונלחמו בעבורו : <b>אז.</b> בעת הלחם סיסרא נלחמו בעבורו מלכי כנען ברב עם, כי בתענך נלחמו, וקצה המחנה הגיע עד מי מגדו : <b>בצע.</b> בחנם באו בעזרתו ולא לקחו בשכרם בצע כסף, ואמרה כמתרעמת, הלא הגוים באו בחנם בעזרת סיסרא, ומדוע לא בא ראובן ודן לעזרת אחיהם : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>על מי.</b> עד מי : <b>בצע.</b> ענין חמדה, כמו (תהלים ל י) מה בצע בדמי : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כ}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">מִן-שָׁמַ&#1430;יִם נִלְחָ&#1425;מוּ הַכּֽוֹכָבִים&#1433; מִמְּסִלּוֹתָ&#1428;ם נִלְחֲמ&#1430;וּ עִם-סִיסְרָֽא:</span>
+</div><div class='passukFrHa'> Les cieux ont pris part au combat; les astres, dans leurs orbites, ont fait la guerre &agrave; Sisara.
+</div><div class='passukEnHa'>They fought from heaven,
+The stars in their courses fought against Sisera.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מן שמים נלחמו.</b> ואף הקדוש ברוך הוא שלח בם צבאיו שאינם רוצים שום שכר: <b>ממסלותם.</b> ראש הכוכב בשמים וסופו בארץ, מכאן אמרו (תנחומא בראשית ה) עוביו של רקיע כאויר שבין שמים לארץ, שהכוכב תקוע ברקיע כמין נגר בדלת, מדת ארכו כעביו של רקיע, ומן המקרא שמעיד 'ממסילותם נלחמו', אנו שומעין שעוביו של רקיע כגובה שמים מן הארץ: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>מן שמים נלחמו.</b> רצה לומר, אולם גם בלתם נפל סיסרא, וכאלו מן השמים נלחמו עמו וכאלו הכוכבים סרו ממסלותם ומדרך מהלכם וירדו ונלחמו עם סיסרא. ורבותינו זכרונם לברכה אמרו (פסחים קיח ב) שהכוכבים הרתיחו השריונות ונכנסו בנחל קישון להתקרר, ושטפם מי הנחל : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ממסלותם.</b> מלשון מסילה ודרך : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כא}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">נַ&#1444;חַל קִישׁוֹן&#1433; גְּרָפָ&#1428;ם נַ&#1445;חַל קְדוּמִ&#1430;ים נַ&#1443;חַל קִישׁ&#1425;וֹן תִּדְרְכִ&#1445;י נַפְשִׁ&#1430;י עֹֽז:</span>
+</div><div class='passukFrHa'> Le torrent de Kison les a balay&eacute;s, l&rsquo;antique torrent, le torrent de Kison... Mon &acirc;me, &eacute;lance-toi, imp&eacute;tueuse!
+</div><div class='passukEnHa'>The brook Kishon swept them away,
+That ancient brook, the brook Kishon.
+O my soul, tread them down with strength.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>גרפם.</b> טאטם מן העולם, כמגרפה זו שגורפת את האפר מן הכירה: <b>נחל קדומים.</b> שנעשה ערב לים על זה מימות מצרים, כדאיתא בפסחים (קיח ב): <b>תדרכי נפשי.</b> ברגלים את עוז גבורי כנען: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>נחל קישון גרפם.</b> כי המלחמה היתה בשפת הנחל, ובנס גברו מי הנחל ושטפם : <b>נחל קדומים וגו'.</b> רצה לומר, הנה מי הנחל אשר היו מקודם ומאז בנחל קישון, הלא מעטים היו, עד אשר דרכתי אני בה בעוז מבלי נזק, ועתה על פי הנס איך רבו למעלה עד אשר שטפו הגוים : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>גרפם.</b> ענין כבוד וטאטא, כי (שמות לח ג) : היעיס תרגם אונקלוס מגרופיתא, ורצונו לומר שטפם : <b>תדרכי.</b> מלשון דרך והלוך : <b>נפשי.</b> רוצה לומר, אני בעצמי : <b>עוז.</b> כמו בעוז : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כב}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">אָ&#1445;ז הָלְמ&#1430;וּ עִקְּבֵי-ס&#1425;וּס מִֽדַּהֲר&#1430;וֹת דַּהֲר&#1445;וֹת אַבִּירָֽיו:</span>
+</div><div class='passukFrHa'> Comme ils r&eacute;sonnaient, les sabots des coursiers, sous la fuite, la fuite rapide de ses vaillants!
+</div><div class='passukEnHa'>Then did the horsehoofs stamp
+By reason of the prancings, the prancings of their mighty ones.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>הלמו עקבי סוס.</b> נשתלפו טלפי סוסיהם, שהיה חום הכוכב מרתיח את הטיט והציפורן נשמטה, כמו שמולגין את הרגלים ברותחין והטלפים נשמטים, מתוך שנשתלפו נהלמו הרגלים: <b>מדהרות דהרות אביריו.</b> שהיו מרקידים את סוסיהם במלחמה, כמו (נחום ג ב) וסוס דהר, הוא לשון הרקדת הסוס: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>אז הלמו וגו'.</b> רצה לומר, כי בראותם הנחל שוטף, נסו לנפשם על הסוסים, ואז הוכו ונשברו עקבי הסוס מן הדהרות ודליגות שעשו עמהם אנשיו הגבורים רוכבי הסוסים, או מלת 'אביריו' חוזר על הסוסים, ורצה לומר, מן הדהרות שעשו סוסיו החזקים : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>הלמו.</b> ענין הכאה, כמו (ישעיהו מא ז) הולם פעם : <b>עקבי.</b> הוא סוף הרגל : <b>מדהרות.</b> כן יקרא דריסת ודליגת הסוס בכח, כמו (נחום ג ב) וסוס דהר, וכפל המלה לרוב הדהרות : <b>אביריו.</b> מלשון אביר וחזק : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כג}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">א&#1443;וֹרוּ מֵר&#1431;וֹז אָמַר&#1433; מַלְאַ&#1443;ךְ יְהוָ&#1428;ה אֹ&#1445;רוּ אָר&#1430;וֹר יֹשְׁבֶ&#1425;יהָ כִּ&#1444;י לֹֽא-בָ&#1433;אוּ&#1433; לְעֶזְרַ&#1443;ת יְהוָ&#1428;ה לְעֶזְרַ&#1445;ת יְהוָ&#1430;ה בַּגִּבּוֹרִֽים:</span>
+</div><div class='passukFrHa'> Maudissez M&eacute;roz, a dit le messager du Seigneur, vouez &agrave; l&rsquo;ex&eacute;cration ses habitants! Car ils ne sont point venus seconder le Seigneur parmi les braves.
+</div><div class='passukEnHa'>'Curse ye Meroz', said the angel of the Lord,
+'Curse ye bitterly the inhabitants thereof,
+Because they came not to the help of the Lord,
+To the help of the Lord against the mighty.'
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אורו מרוז.</b> אמרי לה כוכבא הוה, ואמרי לה גברא חשיבא הוה (מועד קטן טז א), והיה סמוך למקום המלחמה ולא בא: <b>אמר מלאך ה'.</b> אמר ברק בשליחותו של הקדוש ברוך הוא: <b>יושביה.</b> היושבים בארבע אמות שלו (שם) בארבע מאות שפורי שמתיה ברק למרוז: <b>לעזרת ה'.</b> כביכול, שמי שהוא עוזר את ישראל, כעוזר את השכינה: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>אורו מרוז.</b> קללו אתם את המקום 'מרוז' : <b>אמר וגו'.</b> המלאך אמר לקללו, ובנבואה אמרה : <b>ארו וגו'.</b> רצה לומר, קללו, לומר, ארור יושבי מרוז על שלא באו לעזרת עם ה', עם כי היו סמוכים למקום המלחמה : <b>לעזרת ה' בגבורים.</b> כפלה הדבר לפרש באיזה עזרה, ואמרה לעזרת עם ה' הנלחם בגבורים, והם אנשי סיסרא : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>אורו.</b> מלשון ארור : <b>מרוז.</b> שם מקום : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כד}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">תְּבֹרַךְ&#1433; מִנָּשִׁ&#1428;ים יָעֵ&#1429;ל אֵ&#1430;שֶׁת חֶ&#1443;בֶר הַקֵּינִ&#1425;י מִנָּשִׁ&#1445;ים בָּאֹ&#1430;הֶל תְּבֹרָֽךְ:</span>
+</div><div class='passukFrHa'> B&eacute;nie soit, entre les femmes, Ja&euml;l, l&rsquo;&eacute;pouse du K&eacute;n&eacute;en H&eacute;ber; entre les femmes, sous la tente, soit-elle b&eacute;nie!
+</div><div class='passukEnHa'>Blessed above women shall Jael be,
+The wife of Heber the Kenite,
+Above women in the tent shall she be blessed.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מנשים באהל.</b> שרה, שנאמר בה (בראשית יח ט) הנה באהל. רבקה, שנאמר בה (שם כד סז) ויביאה יצחק האהלה. רחל ולאה, שנאמר בהן (שם לא לג) ויצא מאהל לאה וגו': <b>מנשים באהל תבורך.</b> יעל. למה - הן ילדו וגידלו, ואם לא יעל הרי הרשע הזה בא ומאבדן, כך הוא בבראשית רבה (מח טו). דבר אחר, אף יעל היתה יושבת אהלים, לפיכך הזכיר אותה בברכת אהלים: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>תברך וגו'.</b> לפי שאמרה לקלל יושבי מרוז, אמרה, אבל יעל תבורך מפי הנשים, על כי היא עזרה לישראל : <b>מנשים באהל.</b> רצה לומר, מפי נשים צדקניות וצנועות היושבות באהל, מפי הנשים האלה תבורך ותתקיים הברכה, עם שלא אמרה מלאך ה' כקללת מרוז : <small>(מצודת דוד)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כה}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">מַ&#1445;יִם שָׁאַ&#1430;ל חָלָ&#1443;ב נָתָ&#1425;נָה בְּסֵ&#1445;פֶל אַדִּירִ&#1430;ים הִקְרִ&#1445;יבָה חֶמְאָֽה:</span>
+</div><div class='passukFrHa'> Il demandait de l&rsquo;eau, elle lui offre du lait; dans un vase pr&eacute;cieux elle apporte de la cr&egrave;me.
+</div><div class='passukEnHa'>Water he asked, milk she gave him;
+In a lordly bowl she brought him curd.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>חלב נתנה.</b> לדעת אם לבו עליו שיבין בין טעם מים לטעם חלב, כן תרגם יונתן: <b>בספל אדירים.</b> בספל ששותין בו מים, שהמים נקראו 'אדירים', שנאמר (שמות טו י) במים אדירים: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>מים שאל.</b> רצה לומר, הבינו חכמתה של יעל, כי סיסרא בקש מים, והיא נתנה לו חלב, כמו שכתוב למעלה (ד ט), ותפתח את נאד החלב ותשקהו, וזהו בכדי להביא עליו תרדמה : <b>בספל אדירים.</b> ולמען יהא לבו בטוח בה ולא ירגיש בדבר, הקריבה לפניו חמאה בספל חשוב הראוי להאכיל בו אדירים וחשובים, למען יחשב אשר נפשו יקרה בעיניה, ולאדון יחשב לה : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>בספל.</b> באגן, והוא כלי מה, וכן (לקמן ו לח) מלא הספל מים : <b>אדירים.</b> רוצה לומר, גדולים וחשובים : <b>חמאה.</b> הוא שומן החלב : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כו}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">יָדָהּ&#1433; לַיָּתֵ&#1443;ד תִּשְׁלַ&#1428;חְנָה וִֽימִינָ&#1430;הּ לְהַלְמ&#1443;וּת עֲמֵלִ&#1425;ים וְהָלְמָ&#1444;ה סִֽיסְרָא&#1433; מָחֲקָ&#1443;ה רֹאשׁ&#1428;וֹ וּמָחֲצָ&#1445;ה וְחָלְפָ&#1430;ה רַקָּתֽוֹ:</span>
+</div><div class='passukFrHa'> De sa main elle saisit une cheville, de sa droite le marteau du man&oelig;uvre; puis elle frappe Sisara, lui fracasse la t&ecirc;te, lui fend, lui transperce la tempe.
+</div><div class='passukEnHa'>Her hand she put to the tent-pin,
+And her right hand to the workmen's hammer;
+And with the hammer she smote Sisera, she smote through his head,
+Yea, she pierced and struck through his temples. 
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>להלמות עמלים.</b> סיסרא, שהיה עמל ויגע: <b>מחקה.</b> לשון חיקוי: <b>ומחצה.</b> לשון מחץ: <b>וחלפה.</b> יוצא מצד אחר: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>ידה וגו'.</b> אבל בקשה נפשה והושיטה ידה השמאלית לקחת יתד האהל, וימינה הושיטה לקחת המקבת הקרוי 'הלמות עמלים', על שם שהאנשים עמלים במלאכה ומכים בו לעשות מלאכתן : <b>והלמה סיסרא.</b> הכתה ושברה את סיסרא והסירה ראשו, ונגעה אותו בהכאה ופציעה, ועם היתד 'חלפה רקתו' מעבר אל עבר : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>ליתד.</b> הוא המסמר : <b>להלמות.</b> ענין הכאה : <b>עמלים.</b> מלשון עמל וטורח : <b>מחקה ראשו.</b> הסירה ראשו, בדברי רבותינו זכרונם לברכה (בבא בתרא פט א) אין מוחקין במקום שגודשין, ורצונו לומר אין מעבירין דבר מה על המדה, להסיר הגודש : <b>ומחצה.</b> ענין נגוע ומוכה, כמו (תהלים קי ו) מחץ ראש : <b>וחלפה.</b> ענין העברה מעבר לעבר, כמו (ישעיהו ח ח) וחלף ביהודה : <b>רקתו.</b> הוא המקום שאצל העין : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כז}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">בֵּ&#1443;ין רַגְלֶ&#1428;יהָ כָּרַ&#1445;ע נָפַ&#1430;ל שָׁכָ&#1425;ב בֵּ&#1444;ין רַגְלֶ&#1433;יהָ&#1433; כָּרַ&#1443;ע נָפָ&#1428;ל בַּאֲשֶׁ&#1443;ר כָּרַ&#1428;ע שָׁ&#1430;ם נָפַ&#1445;ל שָׁדֽוּד:</span>
+</div><div class='passukFrHa'> A ses pieds il se tord, il s&rsquo;affaisse, il succombe; &agrave; ses pieds il se tord, il rampe, se d&eacute;bat encore et g&icirc;t sur place, inanim&eacute;...
+</div><div class='passukEnHa'>At her feet he sunk, he fell, he lay;
+At her feet he sunk, he fell;
+Where he sunk, there he fell down dead.
+
+</div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בין רגליה כרע.</b> לפניה כרע על כרעיו, ומיד נפל לארץ ונשאר שוכב ולא הוסיף לקום, ורצה לומר, במהירות רב הומת, וכפלה הדבר לחזוק, וכדרך השיר : <b>באשר כרע.</b> במקום שכרע, שם נפל סיסרא הנאבד והנבוז, כי לא היה יכול להתחזק עוד אחר הכריעה, וזהו ממליצת השיר, כי באמת לא כרע ולא נפל : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>כרע.</b> ענין נפילה על הברכים : <b>שדוד.</b> נבוז ונאבד, כמו (שם לג א) ואתה לא שדוד : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כח}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">בְּעַד&#1449; הַחַלּ&#1448;וֹן נִשְׁקְפָ&#1447;ה וַתְּיַבֵּ&#1435;ב אֵ&#1445;ם סִֽיסְרָ&#1430;א בְּעַ&#1443;ד הָֽאֶשְׁנָ&#1425;ב מַדּ&#1431;וּעַ בֹּשֵׁ&#1444;שׁ רִכְבּוֹ&#1433; לָב&#1428;וֹא מַדּ&#1443;וּעַ אֶֽחֱר&#1428;וּ פַּעֲמֵ&#1430;י מַרְכְּבוֹתָֽיו:</span>
+</div><div class='passukFrHa'> Elle a regard&eacute; par la fen&ecirc;tre, la m&egrave;re de Sisara; &agrave; travers le grillage elle a jet&eacute; sa plainte: &quot;Pourquoi son char tarde-t-il &agrave; para&icirc;tre? Qui retient donc la course de ses chariots?&quot;
+</div><div class='passukEnHa'>Through the window she looked forth, and peered,
+The mother of Sisera, through the lattice:
+'Why is his chariot so long in coming?
+Why tarry the wheels of his chariots?
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ותיבב.</b> לשון דבור, כמו (ישעיהו יז יט) ניב שפתים. ורבותינו פירשוהו (ראש השנה לג ב) לשון גניחה, כתרועה, דמתרגמינן 'יבבא' (ויקרא כג כד). ואני אומר: לשון ראייה, כמו (זכריה ב ב) בבת עיני, וכן חברו מנחם: <b>אשנב.</b> חלון: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>בעד החלון.</b> חזרה לספר בשירתה אשר אם סיסרא נשקפה בעד החלון לראות אם בא מרכבת בנה, ובראותה כי איננו תילל במר נפש, ומשקפת תמיד בעד האשנב ואומרת, מדוע בשש רכבו לבוא מדוע אחרו וכו', וכפלה הדבר כדרך המיילל מכאב לב : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>בעד.</b> נגד : <b>נשקפה.</b> ענין הבטה, כמו (בראשית כו ט) וישקף אבימלך, ואמר בלשון גפעל, על כי גם היא נשקפה למביטים בה : <b>ותיבב.</b> ענין יללה, כי (במדבר י ה) תרועה, תרגם אונקלוס : יבבא, וקול התרועה היא כיללה : <b>האשנב.</b> הוא כעין חלון, כמו (משלי ז ו) בעד אשנבי נשקפתי : <b>בשש.</b> ענין איחור, כמו (שמות לב א) בשש משה : <b>פעמי.</b> צעדה והלוך, כמו (תהלים פה יד) וישם לדרך פעמיו : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{כט}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">חַכְמ&#1445;וֹת שָׂרוֹתֶ&#1430;יהָ תַּעֲנֶ&#1425;ינָּה אַף-הִ&#1429;יא תָּשִׁ&#1445;יב אֲמָרֶ&#1430;יהָ לָֽהּ:</span>
+</div><div class='passukFrHa'> Ses sages compagnes la rassurent; elle-m&ecirc;me trouve r&eacute;ponse &agrave; ses plaintes:
+</div><div class='passukEnHa'>The wisest of her princesses answer her,
+Yea, she returneth answer to herself:
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>חכמות שרותיה תענינה.</b> החכמות שבשרותיה, לכך נקוד חי''ת פת''ח, חכמות שהוא שם דבר נקוד חט''ף קמ''ץ, כמו (משלי יד א) ראמות לאויל חכמות, וזה נקוד חכמות, וכן (שם יד א) חכמות נשים בנתה ביתה, חכמות שבנשים: <b>תענינה.</b> דגשות של נו''ן משמשת במקום נו''ן שלישית, ופתרונו תענינה אותה, דגשות נו''ן משמשת במקום 'אותה', כמו (ויקרא ו יד) מרבכת תביאנה: <b>אף היא תשיב אמריה.</b> תנחומין לעצמה: מה אני מתמה תמיה על עכוב בני: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>חכמות שרותיה.</b> החכמות אשר בשרותיה כל אחת תשיב לנחמה, ואף היא כאחת מהן תשיב אמריה לעצמה : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>תענינה.</b> כל אחת תענה ותשיב : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{ל}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">הֲלֹ&#1448;א יִמְצְא&#1436;וּ יְחַלְּק&#1443;וּ שָׁלָ&#1431;ל רַ&#1444;חַם רַחֲמָתַ&#1433;יִם&#1433; לְרֹ&#1443;אשׁ גֶּ&#1428;בֶר שְׁלַ&#1444;ל צְבָעִים&#1433; לְסִ&#1443;יסְרָ&#1428;א שְׁלַ&#1445;ל צְבָעִ&#1430;ים רִקְמָ&#1425;ה צֶ&#1445;בַע רִקְמָתַ&#1430;יִם לְצַוְּארֵ&#1445;י שָׁלָֽל:</span>
+</div><div class='passukFrHa'> &quot;Sans doute ils enl&egrave;vent, ils partagent le butin; une jeune fille, deux jeunes filles par guerrier; pour Sisara, les &eacute;toffes richement teintes, la d&eacute;pouille des broderies &eacute;clatantes, des broderies doubles qui brillent au cou des captives...&quot;
+</div><div class='passukEnHa'>'Are they not finding, are they not dividing the spoil?
+A damsel, two damsels to every man;
+To Sisera a spoil of dyed garments,
+A spoil of dyed garments of embroidery,
+Two dyed garments of broidery for the neck of every spoiler?'
+
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>הלא ימצאו יחלקו שלל.</b> והוא מעכבן: <b>רחמתים לראש גבר.</b> מענים נשים יפות בישראל, וכל איש מהם יש לו במטתו שתים ושלש נשים: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>הלא ימצאו.</b> רצה לומר, וזאת דברי נחמתן, כי תאמרנה, הלא הון רב ימצאו בישראל, ושמה יחלקו ביניהם את השלל, ולזה הם מאחרים לבוא : <b>רחם וגו'.</b> אף כל אחד יקח בשלל, עלמה או שתי עלמות : <b>שלל צבעים.</b> השלל מבגדים צבועים החשובים ביותר יהיו נתונים לסיסרא על היותו שר הצבא. וחוזרת ומפרשת שזהו השלל מבגדים צבועים המרוקם אשר יתדמו בשני עבריהם, אבל צבע רקמתים שאינם מתדמים בשני עבריהם החשוב עוד יותר ויותר, יחולק לכל בעלי השלל לכרוך בו הצואר לנוי, כי מתחלה עשויים הם לכך ואינם ראויים לתשמיש אחר, ולזה יחולק לכולם, ואם כן בעבור כל זה המה מתאחרים לבוא : <small>(מצודת דוד)</small></div><div class='mezudatZion'><b><small>&nbsp;מצודת ציון&nbsp;</small></b></span>&nbsp;<b>רחם רחמתים.</b> רוצה לומר, עלמה ושתי עלמות, וקראן בלשון בזיון, על שם הרחם : <b>לראש גבר.</b> רוצה לומר, לכל איש : <b>רקמה.</b> מעשה רוקם בהרבה מיני צבעים : <b>רקמתים.</b> רוצה לומר, בשתי פנים, בהעבר מזה ובהעבר מזה, וחלוקה זה מזה, והוא כמו מעשה חושב : <small> (מצודת ציון)</small></div></div>
+
+
+<div class='newPassuk'><div class='passukIvrit'>
+<b><span style="color:RGB(47,109,187);">{לא}</span></b>&nbsp;</span>
+<span >
+<span style="font-family:Ezra SIL SR;">כֵּ&#1440;ן יֹאבְד&#1444;וּ כָל-אוֹיְבֶ&#1433;יךָ&#1433; יְהוָ&#1428;ה וְאֹ&#1443;הֲבָ&#1428;יו כְּצֵ&#1445;את הַשֶּׁ&#1430;מֶשׁ בִּגְבֻרָת&#1425;וֹ וַתִּשְׁקֹ&#1445;ט הָאָ&#1430;רֶץ אַרְבָּעִ&#1445;ים שָׁנָֽה:</span> <b>(פ)</b>
+</div><div class='passukFrHa'> Ainsi p&eacute;riront tous tes ennemis, Seigneur, et tes amis rayonneront comme le soleil dans sa gloire. Le pays eut, depuis lors, quarante ann&eacute;es de repos.
+</div><div class='passukEnHa'>So perish all Thine enemies, O Lord;
+But they that love Him be as the sun when he goeth forth in his might.
+</div><div class='rashiHa'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>כן יאבדו.</b> דבורה אמרה: תנחומין של הבל הן לה, כן יאבדו כל אויביך ה', כאשר אבד הוא: <b>ואהביו כצאת השמש בגברתו.</b> לעתיד לבא, (ישעיהו ל כו) שבעתים כאור שבעת הימים, שהיא על אחת שלש מאות וארבעים ושלש כמספר ארבעים ותשע שביעיות: <b>ותשקט הארץ.</b> אין זה מדברי דבורה אלא מדברי כותב הספר: <small> (רש"י)</small></div><div class='mezudatDavid'><b><small>&nbsp;מצודת דוד&nbsp;</small></b></span>&nbsp;<b>כן יאבדו.</b> אמרה דבורה, הנה תנחומין של הבל היו, והלואי 'כן יאבדו כל אויביך', אתה ה', כאשר נאבד סיסרא : <b>ואהביו.</b> אבל אוהבי ה' יהיו כצאת השמש בבוקר שהולך ומאיר בכל פעם יותר עד שהוא בגבורתו, שהוא חצי היום, כן יהיו אוהבי ה' הולכים וחזקים עד אשר יהיו בגובהי המעלה : <b>ותשקט וגו'.</b> אין זה מדברי השירה אלא המה דברי כותב הספר : <b>ארבעים שנה.</b> עד כלות ארבעים שנה מזמן התחלת השעבוד : <small>(מצודת דוד)</small></div></div>
+
+
+	
+
+
+
+
+
+
+
+
+
+<div class="alyot"><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html' class='parshiotTitle'>6</a></span><span class='parshiotTitle'><a href='7.html'>7</a></span><span class='parshiotTitle'><a class='linkSelected' href='8.html'>הפטרה</a></span></div>
+
+
+</div></div></body></html>
