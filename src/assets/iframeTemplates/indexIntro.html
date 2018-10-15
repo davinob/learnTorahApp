@@ -4,91 +4,86 @@
 lastVisited = localStorage.getItem('lastVisited');
 				console.log(lastVisited);
 				if (lastVisited!=null)
-				{
+				 {
 					window.location.replace(lastVisited);
 				}
 </script>		
-</head><body onload='saveLastVisited()' class='theBodyMain'> 
+  </head><body onload='saveLastVisited()' class='theBodyMain'> 					
+ <button class="accordion" onclick='accordionOpenClose(1)'>בראשית - Bereshit</button>
+  
+<div class="panel" id='1'>					
+  <button class="buttonInAccordion" onclick='window.location.replace("Bereshit/1.html")'>בראשית (פ' א-ו) -  Bereshit</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Noah/1.html")'>נח (פ' ו-יא) -  Noach</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("LehLeha/1.html")'>לך לך (פ' יא-יז) - Lech Lecha</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayera/1.html")'>וירא (פ' יז-כב) - Vayera</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("HayeSara/1.html")'>חיי שרה (פ' כב-כה) - Chaye Sarah</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Toldot/1.html")'>תולדות (פ' כה-כח) - Toledot</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayetze/1.html")'>ויצא (פ' כח-לב) - Vayetze</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayishlah/1.html")'>וישלח (פ' לב-לו) - Vayishlach</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayeshev/1.html")'>וישב (פ' לו-מ) - Vayeshev</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Miketz/1.html")'>מקץ (פ' מ-מד) - Miketz</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayigash/1.html")'>ויגש (פ' מד-מז) - Vayigash</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayehi/1.html")'>ויחי (פ' מז-נ) - Vayechi</button>
+  </div>					
+<button class="accordion" onclick='accordionOpenClose(2)'>שמות - Shemot</button>
 
+<div class="panel" id='2'>
+<button class="buttonInAccordion" onclick='window.location.replace("Shemot/1.html")'>שמות (פ' א-ו) - Shemot</button>
+<button class="buttonInAccordion" onclick='window.location.replace("Vaera/1.html")'>וארא (פ' ו-ט) - Vaera </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Bo/1.html")'>בא (פ' ט-יג) - Bo </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Beshalah/1.html")'>בשלח (פ' יג-יז) - Beshalach </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Yitro/1.html")'>יתרו	 (פ' 	יז-כ) - Yitro </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Mishpatim/1.html")'>משפטים (פ' כ-כד) - Mishpatim </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Terouma/1.html")'>תרומה (פ' כד-כז) - Terouma</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Tetzave/1.html")'>תצוה (פ' כז-ל) - Tetzave</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("KiTissa/1.html")'>כי תשא (פ' ל-לד) - Ki Tissa</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayakhel/1.html")'>ויקהל (פ' לד-לח) - Vayakhel </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Pekoudey/1.html")'>פקודי (פ' לח-מ) - Pekoudey</button>
+  </div>					
+<button class="accordion" onclick='accordionOpenClose(3)'>ויקרא - Vayikra </button>
 
+<div class="panel" id='3'>	 
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayikra/1.html")'>ויקרא (פ' א-ה) - Vayikra </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Zav/1.html")'>צו (פ' ה-ח) - Tzav </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Shemini/1.html")'>שמיני (פ' ח-יא) - Shemini</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Tazria/1.html")'>תזריע (פ' יא-יג) - Tazria</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Mezora/1.html")'>מצורע (פ' יג-טו) - Metzora</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("AhareiMot/1.html")'>אחרי מות (פ' טו-יח) - Acharei Mot</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Kedoshim/1.html")'>קדושים (פ' יח-כ) - Kedoshim</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Emor/1.html")'>אמור (פ' כ-כד) - Emor</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Behar/1.html")'>בהר (פ' כד-כו) - Behar</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Behoukotay/1.html")'>בחוקותי (פ' כו-כז) - Bechoukotay</button>
+  </div>
+	 <button class="accordion" onclick='accordionOpenClose(4)'>במדבר - Bamidbar</button>
 
-    <button class="accordion" onclick='accordionOpenClose(1)'>בראשית - Bereshit</button>
-    <div class="panel" id='1'>
-    <button class="buttonInAccordion" onclick='window.location.replace("Bereshit/1.html")'>בראשית - Bereshit</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Noah/1.html")'>נח - Noach</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("LehLeha/1.html")'>לך לך - Lech Lecha</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Vayera/1.html")'>וירא - Vayera</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("HayeSara/1.html")'>חיי שרה - Chaye Sarah</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Toldot/1.html")'>תולדות - Toledot</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Vayetze/1.html")'>ויצא - Vayetze</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Vayishlah/1.html")'>וישלח - Vayishlach</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Vayeshev/1.html")'>וישב - Vayeshev</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Miketz/1.html")'>מקץ - Miketz</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Vayigash/1.html")'>ויגש - Vayigash</button>
-    <button class="buttonInAccordion" onclick='window.location.replace("Vayehi/1.html")'>ויחי - Vayechi</button>
-    </div>
-    
-    <button class="accordion" onclick='accordionOpenClose(2)'>שמות - Shemot</button>
-    <div class="panel" id='2'>
-        <button class="buttonInAccordion" onclick="window.location.replace('Shemot/1.html')">שמות -  Shemot</button>
-        <button class="buttonInAccordion" onclick="window.location.replace('Vaera/1.html')">וארא - Vaera
-         </button><button class="buttonInAccordion" onclick="window.location.replace('Bo/1.html')">בא
-    - Bo     </button><button class="buttonInAccordion" onclick="window.location.replace('Beshalah/1.html')">בשלח
-    -  Beshalach  </button><button class="buttonInAccordion" onclick="window.location.replace('Yitro/1.html')">יתרו
-    - Yitro  </button><button class="buttonInAccordion" onclick="window.location.replace('Mishpatim/1.html')">משפטים
-    - Mishpatim </button><button class="buttonInAccordion" onclick="window.location.replace('Terouma/1.html')">תרומה
-    - Terouma</button><button class="buttonInAccordion" onclick="window.location.replace('Tetzave/1.html')">תצוה
-    - Tetzave</button><button class="buttonInAccordion" onclick="window.location.replace('KiTissa/1.html')">כי תשא
-    - Ki Tissa</button><button class="buttonInAccordion" onclick="window.location.replace('Vayakhel/1.html')">ויקהל
-    - Vayakhel </button><button class="buttonInAccordion" onclick="window.location.replace('Pekoudey/1.html')">פקודי 
-    - Pekoudey</button>
-    </div>
-         
-    <button class="accordion" onclick='accordionOpenClose(3)'>ויקרא - Vayikra </button>
-    <div class="panel" id='3'>	 
-    <button class="buttonInAccordion" onclick="window.location.replace('Vayikra/1.html')">ויקרא
-    - Vayikra    </button><button class="buttonInAccordion" onclick="window.location.replace('Zav/1.html')">צו
-    - Tzav  </button><button class="buttonInAccordion" onclick="window.location.replace('Shemini/1.html')">שמיני
-    - Shemini</button><button class="buttonInAccordion" onclick="window.location.replace('Tazria/1.html')">תזריע
-    - Tazria</button><button class="buttonInAccordion" onclick="window.location.replace('Mezora/1.html')">מצורע
-    - Metzora</button><button class="buttonInAccordion" onclick="window.location.replace('AhareiMot/1.html')">אחרי מות
-    - Acharei Mot</button><button class="buttonInAccordion" onclick="window.location.replace('Kedoshim/1.html')">קדושים
-    - Kedoshim</button><button class="buttonInAccordion" onclick="window.location.replace('Emor/1.html')">אמור
-    - Emor</button><button class="buttonInAccordion" onclick="window.location.replace('Behar/1.html')">בהר
-    - Behar</button><button class="buttonInAccordion" onclick="window.location.replace('Behoukotay/1.html')">בחוקותי 
-      - Bechoukotay   </button>
-         </div>
-    
-         <button class="accordion" onclick='accordionOpenClose(4)'>במדבר - Bamidbar</button>
-    <div class="panel" id='4'>	 
-          <button class="buttonInAccordion" onclick="window.location.replace('Bamidbar/1.html')">במדבר
-     -  Bamidbar  </button><button class="buttonInAccordion" onclick="window.location.replace('Nasso/1.html')">נשא
-      -  Nasso</button><button class="buttonInAccordion" onclick="window.location.replace('Behaaloteha/1.html')">בהעלותך
-       -  Behaalotecha  </button><button class="buttonInAccordion" onclick="window.location.replace('ShelahLeha/1.html')">שלח לך
-        - Shelach Lecha </button><button class="buttonInAccordion" onclick="window.location.replace('Korah/1.html')">קרח
-         - Korach</button><button class="buttonInAccordion" onclick="window.location.replace('Hukat/1.html')">חקת
-         - Chukat</button><button class="buttonInAccordion" onclick="window.location.replace('Balak/1.html')">בלק
-         - Balak</button><button class="buttonInAccordion" onclick="window.location.replace('Pinhas/1.html')">פינחס
-         - Pinchas</button><button class="buttonInAccordion" onclick="window.location.replace('Matot/1.html')">מטות
-         - Matot</button><button class="buttonInAccordion" onclick="window.location.replace('Massey/1.html')">מסעי
-          - Massey</button>
-    </div>
-    
-         <button class="accordion" onclick='accordionOpenClose(5)'>דברים - Devarim</button>
-    <div class="panel" id='5'>	 	 
-    <button class="buttonInAccordion" onclick="window.location.replace('Devarim/1.html')">דברים
-         - Devarim</button><button class="buttonInAccordion" onclick="window.location.replace('Vaethanan/1.html')">ואתחנן
-          - Vaetchanan</button><button class="buttonInAccordion" onclick="window.location.replace('Ekev/1.html')">עקב
-         - Ekev</button><button class="buttonInAccordion" onclick="window.location.replace('Reeh/1.html')">ראה
-         - Reeh </button><button class="buttonInAccordion" onclick="window.location.replace('Shoftim/1.html')">שופטים
-         - Shoftim</button><button class="buttonInAccordion" onclick="window.location.replace('KiTztze/1.html')">כי תצא
-         - Ki Tetze </button><button class="buttonInAccordion" onclick="window.location.replace('KiTavo/1.html')">כי תבוא
-         - Ki Tavo</button><button class="buttonInAccordion" onclick="window.location.replace('Nizavim/1.html')">ניצבים
-         - Nitzavim</button><button class="buttonInAccordion" onclick="window.location.replace('Vayeleh/1.html')">וילך
-         - Vayelech</button><button class="buttonInAccordion" onclick="window.location.replace('Haazinu/1.html')">האזינו
-         - Haazinu</button><button class="buttonInAccordion" onclick="window.location.replace('VezotHaberaha/1.html')">וזאת הברכה
-        -  Vezot Haberacha</button>
-    </div>
-         <div style='margin-top:100px'><a href='./zhouiot.html'>כל הזכויות שמורות - לפרטים ללחוץ כאן</button>
-         
-         </body></html>
+<div class="panel" id='4'>	 
+  <button class="buttonInAccordion" onclick='window.location.replace("Bamidbar/1.html")'>במדבר (פ' א-ד) - Bamidbar </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Nasso/1.html")'>נשא (פ' ד-ז) - Nasso</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Behaaloteha/1.html")'>בהעלותך (פ' ז-יב) - Behaalotecha </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("ShelahLeha/1.html")'>שלח לך (פ' יב-טו) - Shelach Lecha </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Korah/1.html")'>קרח (פ' טו-יח) - Korach</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Hukat/1.html")'>חקת (פ' יח-כב) - Chukat</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Balak/1.html")'>בלק (פ' כב-כה) - Balak</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Pinhas/1.html")'>פינחס (פ' כה-ל) - Pinchas</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Matot/1.html")'>מטות (פ' ל-לב) - Matot</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Massey/1.html")'>מסעי (פ' לב-לו) - Massey</button>
+  </div>
+  <button class="accordion" onclick='accordionOpenClose(5)'>דברים - Devarim</button>
+  
+<div class="panel" id='5'>
+  <button class="buttonInAccordion" onclick='window.location.replace("Devarim/1.html")'>דברים (פ' א-ג) - Devarim</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vaethanan/1.html")'>ואתחנן	 (פ' 	ג-ז) - Vaetchanan</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Ekev/1.html")'>עקב	 (פ' 	ז-יא) - Ekev</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Reeh/1.html")'>ראה	 (פ' 	יא-טז) - Reeh </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Shoftim/1.html")'>שופטים (פ' טז-כא) - Shoftim</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("KiTztze/1.html")'>כי תצא	 (פ' 	כא-כה) - Ki Tetze </button>
+  <button class="buttonInAccordion" onclick='window.location.replace("KiTavo/1.html")'>כי תבוא (פ' כה-כט) - Ki Tavo</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Nizavim/1.html")'>ניצבים	 (פ' 	כט-ל) - Nitzavim</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Vayeleh/1.html")'>וילך	 (פ' 	ל-לא) - Vayelech</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("Haazinu/1.html")'>האזינו	 (פ' 	לא-לב) - Haazinu</button>
+  <button class="buttonInAccordion" onclick='window.location.replace("VezotHaberaha/1.html")'>וזאת הברכה (פ' לב-לד) - Vezot Haberacha</button>
+  </div>					
+	 
+<div style='margin-top:100px'><a href='./zhouiot.html'>כל הזכויות שמורות - לפרטים ללחוץ כאן</button>
+	 
+	 </body></html>
