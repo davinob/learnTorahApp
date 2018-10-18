@@ -3,7 +3,7 @@
     <name>תורה עם פירושים</name>
     <description>Learn Humash with Pirushim and translations</description>
     <author email="torahwithpirushim@gmail.com">Learn Torah</author>
-    <content original-src="index.html" src="http://10.100.102.5:8105" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
