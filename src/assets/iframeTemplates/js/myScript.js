@@ -100,6 +100,10 @@ function accordionOpenClose(id)
 					}
 
 					makeDisappearAppearDivsBasedOnClass("theContent", true);
+				
+				
+				
+				
 				}
 				
 			
