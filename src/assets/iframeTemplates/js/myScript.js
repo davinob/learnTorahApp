@@ -67,7 +67,10 @@ function accordionOpenClose(id)
 								malbim:true,
 								ralbag:true,
 								mezudatDavid:true,
-								mezudatZion:true
+								mezudatZion:true,
+								passukFrHa:true,
+								passukEnHa:true,
+								rashiHa:true
 								};
 				localStorage.setItem('actives',JSON.stringify(activeClasses));
 				}
