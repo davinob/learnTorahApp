@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="learn.torah" version="0.1.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="learn.torah" version="0.2.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>תורה עם פירושים</name>
     <description>Learn Humash with Pirushim and translations</description>
     <author email="torahwithpirushim@gmail.com">Learn Torah</author>
@@ -86,5 +86,7 @@
     <allow-navigation href="http://10.100.102.4:8100" />
     <allow-navigation href="http://172.22.131.119:8105" sessionid="9decd40e" />
     <allow-navigation href="http://10.100.102.5:8105" sessionid="b7c205cc" />
+    <allow-navigation href="http://192.168.1.159:8100" sessionid="ff242a94" />
+    <allow-navigation href="http://192.168.1.159:8101" sessionid="a434015f" />
     <engine name="android" spec="~7.0.0" />
 </widget>

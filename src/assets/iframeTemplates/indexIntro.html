@@ -2,8 +2,10 @@
 <script src='js/myScript.js'></script>	
 <script>
 lastVisited = localStorage.getItem('lastVisited');
-				console.log(lastVisited);
-				if (lastVisited!=null)
+        console.log(lastVisited);
+        console.log(window.location.href);
+        console.log("///\\\\\\");
+				if (lastVisited!=null && lastVisited!=window.location.href)
 				 {
 					window.location.replace(lastVisited);
 				}

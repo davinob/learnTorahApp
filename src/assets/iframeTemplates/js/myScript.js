@@ -8,7 +8,8 @@ function accordionOpenClose(id)
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
+		} 
+		console.log("HELLLOOO2");
 
 }
 
