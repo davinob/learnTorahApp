@@ -1,0 +1,251 @@
+<html><head>				<link rel='stylesheet' type='text/css' href='../css/stylesTorah.css'>			<script src='../js/myScript.js'></script>											</head>							<body class='theBody' onload='initClassesBasedOnCookies()'>						
+<div id='mySidenav' class='sidenav'>  					<span class='trads'>					<span type='button' id='passukEn'  onClick="hideShow('passukEn',this)" class='button'>EN</span>					<span type='button' id='passukFr'  onClick="hideShow('passukFr',this)" class='button'>FR</span>										</span>					<span class='pirushim'>					<span type='button' id='onkelos' onClick="hideShow('onkelos',this)" class='button'>אונקלוס</span>					<span type='button' id='yonatan'  onClick="hideShow('yonatan',this)" class='button'>יונתן</span>					<span type='button' id='rashi' onClick="hideShow('rashi',this)" class='button'>רש"י</span>					<span type='button' id='siftey' onClick="hideShow('siftey',this)" class='button'>שפתי חכמים</span>										<span type='button' id='ibnEzra' onClick="hideShow('ibnEzra',this)" class='button'>אבן עזרא</span>					<span type='button' id='ramban' onClick="hideShow('ramban',this)" class='button'>הרמב"ן</span>					<span type='button' id='sforno' onClick="hideShow('sforno',this)" class='button'>ספורנו</span>					<span type='button' id='baalHaturim' onClick="hideShow('baalHaturim',this)" class='button'>בעל הטורים</span>					<span type='button' id='orHaHaim' onClick="hideShow('orHaHaim',this)" class='button'>אור החיים</span>					<span type='button' id='kliYakar' onClick="hideShow('kliYakar',this)" class='button'>כלי יקר</span>					<span type='button' id='daatZkenim' onClick="hideShow('daatZkenim',this)" class='button'>דעת זקנים</span>					</span>  					</div><span id='buttonNav' style='font-size:35px;cursor:pointer; position:fixed' onclick='openNav()'>&#9776;</span>								
+<div class='theContent'  style="display:none"  onclick='closeNav()'>
+<div class='newParasha'><span class='parashaTitle'><a href='../index.html'>תורה</a></span><span class='parashaTitle'><a href='1.html'>פינחס</a></span>
+<div class='alyot'><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html'>6</a></span><span class='parshiotTitle'><a href='7.html' class='linkSelected'>7</a></span><span class='parshiotTitle'><a href='8.html'>הפטרה</a></span></div></div>
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">פרק כט {יב}</span><b>&nbsp;</b><small></small><small style="background-color:#7694DA; color:white;">&nbsp;שביעי&nbsp;</small><span style="font-family:Ezra SIL SR;">וּבַֽחֲמִשָּׁה&#1449; עָשָׂ&#1448;ר י&#1436;וֹם לַח&#1443;ֹדֶשׁ הַשְּׁבִיעִ&#1431;י מִֽקְרָא-ק&#1448;ֹדֶשׁ&#1433; יִֽהְיֶ&#1443;ה לָכֶ&#1428;ם כָּל-מְלֶ&#1445;אכֶת עֲבֹדָ&#1430;ה לֹ&#1443;א תַֽעֲשׂ&#1425;וּ וְחַגֹּתֶ&#1445;ם חַ&#1435;ג לַֽיהֹוָ&#1430;ה שִׁבְעַ&#1445;ת יָמִֽים:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּבְחַמְשַׁת עַשְׂרָא יוֹמָא לְיַרְחָא שְׁבִיעָאָה מְעָרַע קַדִישׁ יְהֵי לְכוֹן כָּל עִבִידַת פּוּלְחַן לָא תַעַבְדוּן וּתְחַגוּן חַגָא קֳדָם יְיָ שַׁבְעָא יוֹמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּבַחֲמֵיסַר יוֹמָא לְיַרְחָא שְׁבִיעָאָה מְאָרַע קַדִישׁ יְהֵי לְכוֹן כָּל עִיבִידַת פּוּלְחָנָא לָא תַעַבְדוּן וּתְחַגוּן חַגָא דִמְטָלַיָא קֳדָם יְיָ שׁוּבְעָא יוֹמִין:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Et le quinzi&egrave;me jour du septi&egrave;me mois, il y aura pour vous convocation sainte, vous ne ferez aucune &oelig;uvre servile. Vous c&eacute;l&eacute;brerez, en l&rsquo;honneur de l&rsquo;&Eacute;ternel, une f&ecirc;te de sept jours.</div>
+<div class='passukEn'>And on the fifteenth day of the seventh month ye shall have a holy convocation: ye shall do no manner of servile work, and ye shall keep a feast unto the Lord seven days; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{יג}</span><span style="font-family:Ezra SIL SR;">וְהִקְרַבְתֶּ&#1448;ם עֹלָ&#1436;ה אִשֵּׁ&#1448;ה רֵ&#1444;יחַ נִיח&#1448;ֹחַ&#1433; לַֽיהֹוָ&#1428;ה פָּרִ&#1447;ים בְּנֵֽי-בָקָ&#1435;ר שְׁלֹשָׁ&#1445;ה עָשָׂ&#1430;ר אֵילִ&#1443;ם שְׁנָ&#1425;יִם כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה אַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר תְּמִימִ&#1445;ם יִֽהְיֽוּ:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּתְקַרְבוּן עֲלָתָא קוּרְבַּן דְמִתְקַבֵּל בְּרַעֲוָא קֳדָם יְיָ תּוֹרִין בְּנֵי תוֹרֵי תְּלַת עֲשַׂר דִכְרִין תְּרֵין אִימְרִין בְּנֵי שְׁנָא אַרְבְּעָא עֲשַׂר שַׁלְמִין יְהוֹן:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּתְקַרְבוּן עֲלָתָא קֻרְבַּן דְמִתְקַבֵּל בְּרַעֲוָא קֳדָם יְיָ תּוֹרִין בְּנֵי תּוֹרֵי תַּלְתֵיסַר אָזְלִין כָּל יוֹמָא וְחַסְרִין סְכוּמְהוֹן שׁוּבְעִין עַל שׁוּבְעִין עַמְמִין וּמְקַרְבִין יַתְהוֹן תְּלֵיסַר מַטַרְתָּא דִכְרִין תְּרֵין דִמְקַרְבִין תְּרֵין מַטַרְתָּא אִמְרִין בְּנֵי שְׁנָא אַרְבֵּיסַר שַׁלְמִין דִמְקַרְבִין תַּמְנֵי מַטַרְתָּא שִׁיתָּא מִנְהוֹן מְקַרְבִין תְּרֵי תְּרֵי וּתְרֵין מִנְהוֹן חַד חַד שַׁלְמִין יְהוֹן:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Vous offrirez en holocauste, comme sacrifice d&rsquo;odeur agr&eacute;able &agrave; l&rsquo;&Eacute;ternel, treize jeunes taureaux, deux b&eacute;liers, quatorze agneaux d&rsquo;un an qui soient sans d&eacute;faut.</div>
+<div class='passukEn'>and ye shall present a burnt-offering, an offering made by fire, of a sweet savour unto the Lord: thirteen young bullocks, two rams, fourteen he-lambs of the first year; they shall be without blemish; </div>
+<div class='orHaHaim'><b><small>&nbsp;אור החיים&nbsp;</small></b>&nbsp;<b>והקרבתם עולה וגו' לה' פרים וגו'</b>. נראה כי טעם המעטת הפרים יום יום, לפי שיש ב' סודי שביעיות, האומות הם הרבים שבעים אומות ונמשלו לפרים, וישראל גם כן הם בבחינת השבע בסוד בת שבע (זוח"ג) וכל מעשיהם שביעיות, הקרבנות בכל המוספין שבעה שבעה, ימים טובים שבעה שבעה, השבת סוד שבעה ענפי אילן שבו שורש נשמתן שבעה, צדיקים שבעה, ורמז ה' כנגד האומות הרמוזים בפרים שיהיו מתמעטים והולכים:<br><br><b>ורמז</b> בחשבון זה קבוע ארבעה עשר כבשים לרמוז ב' הדרגות שבישראל שבאים ברמז הכבשים אחד נסתר ואחד נגלה, הנסתר הם הברורים שצריך לברר מהאומות, והנגלה הם המבררים, ולזה כשכלים הפרים זה לך האות שכלה מהם הנסתר ולא ישארו כי אם ישראל למופת ואות, והוא מה שרמז ה' בקרבן יום עצרת שבעה כבשים שהם לבני ישראל צאן קדשים, פר הוא הנשאר מהאומות מענף ישמעאל, איל הוא הנשאר מבני עשו הבא מיצחק והבן סוד הדבר:<small> (אור החיים) </small></div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{יד}</span><span style="font-family:Ezra SIL SR;">וּמִ&#1448;נְחָתָ&#1428;ם ס&#1430;ֹלֶת בְּלוּלָ&#1443;ה בַשָּׁ&#1425;מֶן שְׁלֹשָׁ&#1448;ה עֶשְׂרֹנִ&#1436;ים לַפָּ&#1443;ר הָֽאֶחָ&#1431;ד לִשְׁלֹשָׁ&#1444;ה עָשָׂר&#1433; פָּרִ&#1428;ים שְׁנֵ&#1444;י עֶשְׂרֹנִים&#1433; לָאַ&#1443;יִל הָֽאֶחָ&#1428;ד לִשְׁנֵ&#1430;י הָֽאֵילִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן סוּלְתָּא דְפִילָא בִמְשַׁח תְּלָתָא עִשְׂרוֹנִין לְתוֹרָא חָד לִתְלַת עֲשַׂר תּוֹרִין תְּרֵין עִשְׂרוֹנִין לְדִכְרָא חָד לִתְרֵין דִכְרִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן סְמִידָא דְחִינְטַיָא פְּתִיכָא בִּמְשַׁח זֵיתָא תְּלָתָא עֶשְרוֹנִין לְתוֹרָא חַד לִתְּלֵיסַר תּוֹרִין תְּרֵין עֶשְרוֹנִין לְדִיכְרָא חָד לִתְרֵין דִיכְרִין:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leur oblation sera de fleur de farine p&eacute;trie &agrave; l&rsquo;huile: trois dixi&egrave;mes pour chacun des treize taureaux, deux dixi&egrave;mes pour chacun des deux b&eacute;liers,</div>
+<div class='passukEn'>and their meal-offering, fine flour mingled with oil, three tenth parts for every bullock of the thirteen bullocks, two tenth parts for each ram of the two rams, </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{טו}</span><span style="font-family:Ezra SIL SR;">וְעִשָּׂרוֹן&#1433; עִשָּׂר&#1428;וֹן לַכֶּ&#1430;בֶשׂ הָֽאֶחָ&#1425;ד לְאַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר כְּבָשִֽׂים:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וְעִשְׂרוֹנָא עִשְׂרוֹנָא לְאִימְרָא חָד לְאַרְבְּעָא עֲשַׂר אִימְרִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וְעִשְרוֹנָא עִשְרוֹנָא לְאִימַר חַד לְאַרְבֵּיסַר אִימְרִין:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> et un dixi&egrave;me, respectivement, pour chacun des quatorze agneaux.</div>
+<div class='passukEn'>and a several tenth part for every lamb of the fourteen lambs; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{טז}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִיר-עִזִּ&#1445;ים אֶחָ&#1430;ד חַטָּ&#1425;את מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד מִנְחָתָ&#1430;הּ וְנִסְכָּֽהּ: </span><b></b><b>(ס)</b></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִיר בַּר עִזִין חָד חַטָאתָא בַּר מֵעֲלַת תְּדִירָא מִנְחָתַהּ וְנִסְכַּהּ: <b>[ס]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִיר בַּר עִזֵי חַד חַטָאתָא דִמְקָרֵב מַטַרְתָּא חַד בַּר מֵעָלַת תְּדִירָא וּסְמִידָא דְחִינְטַיָא לְמִנְחָתָא וַחֲמַר נִיסוּכָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Plus, un bouc, comme expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de sa libation.</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, the meal-offering thereof, and the drink-offering thereof.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{יז}</span><span style="font-family:Ezra SIL SR;">וּבַיּ&#1443;וֹם הַשֵּׁנִ&#1431;י פָּרִ&#1447;ים בְּנֵֽי-בָקָ&#1435;ר שְׁנֵ&#1445;ים עָשָׂ&#1430;ר אֵילִ&#1443;ם שְׁנָ&#1425;יִם כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה אַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר תְּמִימִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּבְיוֹמָא תִנְיָנָא תּוֹרִין בְּנֵי תוֹרֵי תְּרֵי עֲשַׂר דִכְרִין תְּרֵין אִימְרִין בְּנֵי שְׁנָא אַרְבְּעָא עֲשַׂר שַׁלְמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּבְיוֹמָא תִּנְיָינָא דְחַגָא דִמְטָלַיָיא תִּקְרְבוּן תּוֹרִין בְּנֵי תּוֹרֵי תְּרֵיסַר לִתְרֵיסַר מַטַרְתָּא דִכְרִין תְּרֵין לִתְרֵי מַטַרְתָּא אִמְרִין בְּנֵי שְׁנָא אַרְבֵּיסַר שַׁלְמִין לְתִשְׁעַת מַטַרְתָּא חַמְשָׁא מִנְהוֹן מְקַרְבִין תְּרֵי תְּרֵי וְאַרְבַּע מִנְהוֹן חָד חָד:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Le deuxi&egrave;me jour, douze jeunes taureaux, deux b&eacute;liers, quatorze agneaux d&rsquo;un an sans d&eacute;faut.</div>
+<div class='passukEn'>And on the second day ye shall present twelve young bullocks, two rams, fourteen he-lambs of the first year without blemish; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{יח}</span><span style="font-family:Ezra SIL SR;">וּמִנְחָתָ&#1443;ם וְנִסְכֵּיהֶ&#1441;ם ל&#1440;ַפָּרִ&#1440;ים לָֽאֵילִ&#1447;ם וְלַכְּבָשִׂ&#1435;ים בְּמִסְפָּרָ&#1430;ם כַּמִּשְׁפָּֽט:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן וְנִסְכֵּיהוֹן לְתוֹרִין לְדִכְרִין וּלְאִימְרִין בְּמִנְיָנֵיהוֹן כִּדְחָזֵי:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן סְמִידָא דְחִינְטַיָא וַחֲמַר נִיסוּכֵיהוֹן מַה דִי תֶהֱווֹן מְקַרְבִין עִם תּוֹרַיָא עִם דִיכְרַיָא וְאִמְרַיָא בְּמִנְיָנֵיהוֹן כְּסֵדֶר דִינָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leurs oblations et leurs libations, pour les taureaux, les b&eacute;liers et les agneaux, &agrave; proportion de leur nombre, auront lieu d&rsquo;apr&egrave;s le rite.</div>
+<div class='passukEn'>and their meal-offering and their drink-offerings for the bullocks, for the rams, and for the lambs, according to their number, after the ordinance; </div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ומנחתם ונסכיהם לפרים.</b> פרי החג שבעים הם, כנגד ע' אומות עובדי גילולים שמתמעטים והולכים סימן כליה להם, ובימי המקדש היו מגינין עליהם מן היסורין <small><small>(סוכה נה:)</small></small>: <b>ולכבשים.</b> כנגד ישראל שנקראו שה פזורה <small><small>(ירמיה נ, יז)</small></small>, והם קבועים, ומניינם תשעים ושמונה, לכלות מהם תשעים ושמונה קללות שבמשנה תורה. בשני נאמר ונסכיהם על שני תמידי היום, ולא שינה הלשון אלא לדרוש, כמו שאמרו רז"ל, בשני ונסכיהם, בששי ונסכיה, בשביעי כמשפטם, מ"ם, יו"ד, מ"ם הרי כאן מים, רמז לנסוך המים מן התורה בחג: <small> (רש"י)</small></div>
+</div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{יט}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִיר-עִזִּ&#1445;ים אֶחָ&#1430;ד חַטָּ&#1425;את מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד וּמִנְחָתָ&#1430;הּ וְנִסְכֵּיהֶֽם: </span><b></b><b>(ס)</b></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִיר בַּר עִזִין חָד חַטָאתָא בַּר מֵעֲלַת תְּדִירָא וּמִנְחָתַהּ וְנִסְכֵּיהוֹן: <b>[ס]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִיר בַּר עִזֵי חָד לִמְטַרְתָּא חָד חַטָאתָא בַּר מֵעָלַת תְּדִירָא וּסְמִידָא דְחִינְטַיָא לְמִנְחַתְהוֹן וַחֲמַר נִיסוּכֵיהוֹן:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Plus, un bouc, comme expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de leurs libations.</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, and the meal-offering thereof, and their drink-offerings.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כ}</span><span style="font-family:Ezra SIL SR;">וּבַיּ&#1447;וֹם הַשְּׁלִישִׁ&#1435;י פָּרִ&#1445;ים עַשְׁתֵּֽי-עָשָׂ&#1430;ר אֵילִ&#1443;ם שְׁנָ&#1425;יִם כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה אַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר תְּמִימִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּבְיוֹמָא תְּלִיתָאָה תּוֹרִין חָד עֲשַׂר דִכְרִין תְּרֵין אִימְרִין בְּנֵי שְׁנָא אַרְבְּעָא עֲשַׂר שַׁלְמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּבְיוֹמָא תְלִיתָאָה דְחַגָא דִמְטָלַיָא תִּקְרְבוּן תּוֹרִין חַדְסַר לְחַדְסַר מַטַרְתָּא דִכְרִין תְּרֵין לִתְרֵין מַטַרְתָּא אִמְרִין בְּנֵי שְׁנָא אַרְבֵּיסַר שַׁלְמִין לַעֲשַר מַטַרְתָּא אַרְבְּעָא מִנְהוֹן מְקַרְבִין תְּרֵי תְּרֵי וְשִׁית מִנְהוֹן חָד חָד:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Le troisi&egrave;me jour, onze taureaux, deux b&eacute;liers, quatorze agneaux d&rsquo;un an sans d&eacute;faut.</div>
+<div class='passukEn'>And on the third day eleven bullocks, two rams, fourteen he-lambs of the first year without blemish; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כא}</span><span style="font-family:Ezra SIL SR;">וּמִנְחָתָ&#1443;ם וְנִסְכֵּיהֶ&#1441;ם לַ&#1440;פָּרִ&#1440;ים לָֽאֵילִ&#1447;ם וְלַכְּבָשִׂ&#1435;ים בְּמִסְפָּרָ&#1430;ם כַּמִּשְׁפָּֽט:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן וְנִסְכֵּיהוֹן לְתוֹרִין לְדִכְרִין וּלְאִמְרִין בְּמִנְיָנֵיהוֹן כִּדְחָזֵי:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן סְמִידָא דְחִינְטַיָא וַחֲמַר נִיסוּכֵיהוֹן מַה דִי תְקַרְבוּן עִם תּוֹרֵי וְדִכְרֵי וְאִמְרֵי בְּמִנְיָנֵיהוֹן כְּסֵדֶר דִינָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leurs oblations et leurs libations, pour les taureaux, les b&eacute;liers et les agneaux, &agrave; proportion de leur nombre, auront lieu d&rsquo;apr&egrave;s le rite.</div>
+<div class='passukEn'>and their meal-offering and their drink-offerings for the bullocks, for the rams, and for the lambs, according to their number, after the ordinance; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כב}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִ&#1445;יר חַטָּ&#1430;את אֶחָ&#1425;ד מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד וּמִנְחָתָ&#1430;הּ וְנִסְכָּֽהּ: </span><b></b><b>(ס)</b></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חָד בַּר מֵעֲלַת תְּדִירָא וּמִנְחָתַהּ וְנִסְכַּהּ: <b>[ס]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חַד לִמְטַרְתָּא חַד בַּר מִן עוֹלַת תְּדִירָא וּסְמִידָא דְחִינְטַיָא לְמִנְחָתָא וַחֲמַר נִיסוּכָהּ:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> De plus, un bouc expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de sa libation.</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, and the meal-offering thereof, and the drink-offering thereof.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כג}</span><span style="font-family:Ezra SIL SR;">וּבַיּ&#1447;וֹם הָֽרְבִיעִ&#1435;י פָּרִ&#1445;ים עֲשָׂרָ&#1430;ה אֵילִ&#1443;ם שְׁנָ&#1425;יִם כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה אַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר תְּמִימִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּבְיוֹמָא רְבִיעָאָה תּוֹרִין עַשְׂרָא דִכְרִין תְּרֵין אִימְרִין בְּנֵי שְׁנָא אַרְבְּעָא עֲשַׂר שַׁלְמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּבְיוֹמָא רְבִיעָאָה דְחַגָא דִמְטָלַיָא תּוֹרֵי עַשְרָא לַעֲשַר מַטַרְתָּא דִכְרִין תְּרֵין לִתְרֵי מַטַרְתָּא אִמְרִין בְּנֵי שְׁנָא אַרְבֵּיסַר שַׁלְמִין לְחַדְסַר מַטַרְתָּא תְּלַת מִנְהוֹן מְקַרְבִין תְּרֵי תְּרֵי וְתַמְנֵי מִנְהוֹן מְקַרְבִין חָד חָד:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Le quatri&egrave;me jour, dix taureaux, deux b&eacute;liers, quatorze agneaux d&rsquo;un an sans d&eacute;faut.</div>
+<div class='passukEn'>And on the fourth day ten bullocks, two rams, fourteen he-lambs of the first year without blemish; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כד}</span><span style="font-family:Ezra SIL SR;">מִנְחָתָ&#1443;ם וְנִסְכֵּיהֶ&#1441;ם לַ&#1440;פָּרִ&#1440;ים לָֽאֵילִ&#1447;ם וְלַכְּבָשִׂ&#1435;ים בְּמִסְפָּרָ&#1430;ם כַּמִּשְׁפָּֽט:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;מִנְחַתְהוֹן וְנִסְכֵּיהוֹן לְתוֹרִין לְדִכְרִין וּלְאִימְרִין בְּמִנְיָנֵיהוֹן כִּדְחָזֵי:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;מִנְחַתְהוֹן סְמִידָא דְחִינְטַיָא וַחֲמַר נִיסוּכֵיהוֹן מַה דִי תְקַרְבוּן עִם תּוֹרֵי וְדִכְרֵי וְאִמְרֵי בְּמִנְיָנֵיהוֹן כְּסֵדֶר דִינָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leurs oblations et leurs libations, pour les taureaux, les b&eacute;liers et les agneaux, &agrave; proportion de leur nombre, auront lieu d&rsquo;apr&egrave;s le rite.</div>
+<div class='passukEn'>their meal-offering and their drink-offerings for the bullocks, for the rams, and for the lambs, according to their number, after the ordinance; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כה}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִיר-עִזִּ&#1445;ים אֶחָ&#1430;ד חַטָּ&#1425;את מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד מִנְחָתָ&#1430;הּ וְנִסְכָּֽהּ: </span><b></b><b>(ס)</b></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִיר בַּר עִזִין חָד חַטָאתָא בַּר מֵעֲלַת תְּדִירָא מִנְחָתַהּ וְנִסְכַּהּ: <b>[ס]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִיר בַּר עִזֵי חַד לִמְטַרְתָּא חַד חַטָאתָא בַּר מִן עֲלַת תְּדִירָא וּסְמִידָא דְחִינְטַיָא לְמִנְחָתָא וַחֲמַר נִיסוּכָהּ:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Plus, un bouc, comme expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de sa libation.</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, the meal-offering thereof, and the drink-offering thereof.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כו}</span><span style="font-family:Ezra SIL SR;">וּבַיּ&#1447;וֹם הַֽחֲמִישִׁ&#1435;י פָּרִ&#1445;ים תִּשְׁעָ&#1430;ה אֵילִ&#1443;ם שְׁנָ&#1425;יִם כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה אַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר תְּמִימִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּבְיוֹמָא חֲמִישָׁאָה תּוֹרִין תְּשַׁע דִכְרִין תְּרֵין אִימְרִין בְּנֵי שְׁנָא אַרְבְּעָא עֲשַׂר שַׁלְמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּבְיוֹמָא חֲמִישָׁאָה דְחַגָא דִמְטָלַיָא תּוֹרִין תִּשְׁעָה לְתִשְׁעַת מַטַרְתָּא דִכְרִין תְּרֵין לִתְרֵי מַטַרְתָּא אִמְרִין בְּנֵי שְׁנָא אַרְבֵּיסַר שַׁלְמִין לִתְרֵיסַר מַטַרְתָּא תְּרֵי מִנְהוֹן מְקַרְבִין תְּרֵי תְּרֵי וְעַשְרָא מִנְהוֹן חָד חָד:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Le cinqui&egrave;me jour, neuf taureaux, deux b&eacute;liers, quatorze agneaux d&rsquo;un an sans d&eacute;faut.</div>
+<div class='passukEn'>And on the fifth day nine bullocks, two rams, fourteen he-lambs of the first year without blemish; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כז}</span><span style="font-family:Ezra SIL SR;">וּמִנְחָתָ&#1443;ם וְנִסְכֵּיהֶ&#1441;ם לַ&#1440;פָּרִ&#1440;ים לָֽאֵילִ&#1447;ם וְלַכְּבָשִׂ&#1435;ים בְּמִסְפָּרָ&#1430;ם כַּמִּשְׁפָּֽט:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן וְנִסְכֵּיהוֹן לְתוֹרִין לְדִכְרִין וּלְאִימְרִין בְּמִנְיָנֵיהוֹן כִּדְחָזֵי:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּסְמִידָא דְחִינְטַיָא לְמִנְחַתְהוֹן וַחֲמַר נִיסוּכֵיהוֹן מַה דִתְקַרְבוּן עִם תּוֹרֵי וְדִכְרֵי וְאִמְרֵי בְּמִנְיָנֵיהוֹן כְּסֵדֶר דִינָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leurs oblations et leurs libations, pour les taureaux, les b&eacute;liers et les agneaux, &agrave; proportion de leur nombre, auront lieu d&rsquo;apr&egrave;s le rite.</div>
+<div class='passukEn'>and their meal-offering and their drink-offerings for the bullocks, for the rams, and for the lambs, according to their number, after the ordinance; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כח}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִ&#1445;יר חַטָּ&#1430;את אֶחָ&#1425;ד מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד וּמִנְחָתָ&#1430;הּ וְנִסְכָּֽהּ: </span><b></b><b>(ס)</b></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חָד בַּר מֵעֲלַת תְּדִירָא וּמִנְחָתַהּ וְנִסְכַּהּ: <b>[ס]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חַד לִמְטַרְתָּא חֲדָא בַּר מִן עֲלַת תְּדִירָא וּסְמִידָא דְחִינְטָתָא לְמִנְחָתָא וַחֲמַר נִיסוּכָהּ:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> De plus, un bouc expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de sa libation.</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, and the meal-offering thereof, and the drink-offering thereof.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{כט}</span><span style="font-family:Ezra SIL SR;">וּבַיּ&#1447;וֹם הַשִּׁשִּׁ&#1435;י פָּרִ&#1445;ים שְׁמֹנָ&#1430;ה אֵילִ&#1443;ם שְׁנָ&#1425;יִם כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה אַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר תְּמִימִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּבְיוֹמָא שְׁתִיתָאָה תּוֹרִין תְּמַנְיָא דִכְרִין תְּרֵין אִמְרִין בְּנֵי שְׁנָא אַרְבְּעָא עֲשַׂר שַׁלְמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּבְיוֹמָא שְׁתִיתָאֵי דְחַגָא דִמְטָלַיָא תּוֹרִין תְּמַנְיָא לְתַמְנֵי מַטַרְתָּא דִכְרִין תְּרֵין לִתְרֵי מַטַרְתָּא אִמְרִין בְּנֵי שְׁנָא אַרְבֵּיסַר שַׁלְמִין לִתְלֵיסַר מַטַרְתָּא חֲדָא מִנְהוֹן מְקַרְבָא תְּרֵי וּתְרֵיסַר מִנְהוֹן חָד חָד:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Le sixi&egrave;me jour, huit taureaux, deux b&eacute;liers, quatorze agneaux d&rsquo;un an sans d&eacute;faut.</div>
+<div class='passukEn'>And on the sixth day eight bullocks, two rams, fourteen he-lambs of the first year without blemish; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{ל}</span><span style="font-family:Ezra SIL SR;">וּמִנְחָתָ&#1443;ם וְנִסְכֵּיהֶ&#1441;ם לַ&#1440;פָּרִ&#1440;ים לָֽאֵילִ&#1447;ם וְלַכְּבָשִׂ&#1435;ים בְּמִסְפָּרָ&#1430;ם כַּמִּשְׁפָּֽט:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן וְנִסְכֵּיהוֹן לְתוֹרִין לְדִכְרִין וּלְאִימְרִין בְּמִנְיָנֵיהוֹן כִּדְחָזֵי:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן סְמִידָא דְחִינְטַיָא וַחֲמַר נִיסוּכֵיהוֹן מַה דִתְקַרְבוּן עִם תּוֹרֵי וְדִכְרֵי וְאִמְרֵי בְּמִנְיָנֵיהוֹן כְּסֵדֶר דִינָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leurs oblations et leurs libations, pour les taureaux, les b&eacute;liers et les agneaux, &agrave; proportion de leur nombre, se feront d&rsquo;apr&egrave;s le rite.</div>
+<div class='passukEn'>and their meal-offering and their drink-offerings for the bullocks, for the rams, and for the lambs, according to their number, after the ordinance; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לא}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִ&#1445;יר חַטָּ&#1430;את אֶחָ&#1425;ד מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד מִנְחָתָ&#1430;הּ וּנְסָכֶֽיהָ: </span><b></b><b>(ס)</b></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חָד בַּר מֵעֲלַת תְּדִירָא מִנְחָתַהּ וְנִסְכָּהָא: <b>[ס]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חַד לִמְטַרְתָּא חֲדָא בַּר מִן עֲלַת תְּדִירָא וּסְמִידָא דְחִינְטָתָא לְמִנְחָתָא וַחֲמַר נִיסוּכָהּ וּצְלוּחִיתָא דְמַיָא הֲווֹן מְנַסְכִין בְּיוֹמָא דְחַגָא דִמְטָלַיָא דוּכְרָן טַב לִרְבִיעָא דְמִטְרָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> De plus, un bouc expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de ses libations.</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, the meal-offering thereof, and the drink-offerings thereof.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לב}</span><span style="font-family:Ezra SIL SR;">וּבַיּ&#1447;וֹם הַשְּׁבִיעִ&#1435;י פָּרִ&#1445;ים שִׁבְעָ&#1430;ה אֵילִ&#1443;ם שְׁנָ&#1425;יִם כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה אַרְבָּעָ&#1445;ה עָשָׂ&#1430;ר תְּמִימִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּבְיוֹמָא שְׁבִיעָאָה תּוֹרִין שַׁבְעָא דִכְרִין תְּרֵין אִימְרִין בְּנֵי שְׁנָא אַרְבְּעָא עֲשַׂר שַׁלְמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּבְיוֹמָא שְׁבִיעָאָה דְחַגָא דִמְטָלַיָא תְּקַרְבוּן תּוֹרִין שׁוּבְעָא לִשְׁבַע מַטַרְתָּא דִכְרִין תְּרֵין לִתְרֵי מַטַרְתָּא אִמְרִין בְּנֵי שְׁנָא אַרְבֵּיסַר שַׁלְמִין לְאַרְבֵּיסַר מַטַרְתָּא סְכוּמְהוֹן דְכָל אִימְרַיָא תַּמְנֵי וְתִשְׁעִין לִמְכַפְּרָא עַל תַּמְנֵי וְתִשְׁעִין לְוָוטַיָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Et le septi&egrave;me jour, sept taureaux, deux b&eacute;liers et quatorze agneaux d&rsquo;un an sans d&eacute;faut.</div>
+<div class='passukEn'>And on the seventh day seven bullocks, two rams, fourteen he-lambs of the first year without blemish; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לג}</span><span style="font-family:Ezra SIL SR;">וּמִנְחָתָ&#1443;ם וְנִסְכֵּהֶ&#1441;ם לַ&#1440;פָּרִ&#1440;ים לָֽאֵילִ&#1447;ם וְלַכְּבָשִׂ&#1435;ים בְּמִסְפָּרָ&#1430;ם כְּמִשְׁפָּטָֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן וְנִסְכֵּיהוֹן לְתוֹרִין לְדִכְרִין וּלְאִימְרִין בְּמִנְיָנֵיהוֹן כִּדְחָזֵי לְהוֹן:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּמִנְחַתְהוֹן סְמִידָא דְחִינְטָתָא וַחֲמַר נִיסוּכֵיהוֹן מַה דִתְקַרְבוּן עִם תּוֹרֵי וְדִכְרֵי וְאִמְרֵי בְּמִנְיָנֵיהוֹן כְּסֵדֶר דִינְהוֹן:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leurs oblations et leurs libations, pour les taureaux, les b&eacute;liers et les agneaux, &agrave; proportion de leur nombre, auront lieu suivant leur prescription.</div>
+<div class='passukEn'>and their meal-offering and their drink-offerings for the bullocks, for the rams, and for the lambs, according to their number, after the ordinance; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לד}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִ&#1445;יר חַטָּ&#1430;את אֶחָ&#1425;ד מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד מִנְחָתָ&#1430;הּ וְנִסְכָּֽהּ: </span><b></b><b>(ס)</b></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חָד בַּר מֵעֲלַת תְּדִירָא מִנְחָתָהּ וְנִסְכָּהּ: <b>[ס]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חַד לִמְטַרְתָּא חֲדָא בַּר מִן עֲלַת תְּדִירָא וּסְמִידָא דְחִינְטַיָא לְמִנְחָתָא וַחֲמַר נִיסוּכָהּ:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> De plus, un bouc expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de sa libation.</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, the meal-offering thereof, and the drink-offering thereof.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לה}</span><b>&nbsp;</b><small></small><small style="background-color:#7694DA; color:white;">&nbsp;מפטיר&nbsp;</small><span style="font-family:Ezra SIL SR;">בַּיּוֹם&#1433; הַשְּׁמִינִ&#1428;י עֲצֶ&#1430;רֶת תִּֽהְיֶ&#1443;ה לָכֶ&#1425;ם כָּל-מְלֶ&#1445;אכֶת עֲבֹדָ&#1430;ה לֹ&#1445;א תַֽעֲשֽׂוּ:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;בְּיוֹמָא תְּמִינָאָה כְּנִישִׁין תְּהֵא לְכוֹן כָּל עִבִידַת פּוּלְחַן לָא תַעְבְדוּן:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;בְּיוֹמָא תְמִינָאָה כְּנִישִׁין תֶּהֱווֹן בְּחֶדְוָא מִן מַטִילְכוֹן לְבָתֵּיכוֹן כְּנִישַׁת חֶדְוָא וְיוֹמָא טָבָא וְאִירוּעַ קַדִישׁ תֶּהֱוֵי לְכוֹן כָּל עִיבִידַת פּוּלְחָנָא לָא תַעַבְדוּן:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Le huiti&egrave;me jour, aura lieu pour vous une f&ecirc;te de cl&ocirc;ture; vous ne ferez aucune &oelig;uvre servile.</div>
+<div class='passukEn'>On the eighth day ye shall have a solemn assembly: ye shall do no manner of servile work; </div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>עצרת תהיה לכם.</b> עצורים בעשיית <span style='cursor:pointer' onclick='hideShowById(827)'>(פ)</span><span id='827' class='siftey' l></b> והא דכתיב בתריה כל מלאכת עבודה לא תעשו הוא תוספת ביאור שהכתוב עצמו מפרש לענין מה תהיו עצורים:  <b></span></b> מלאכה. דבר אחר, עצרת עצרו <span style='cursor:pointer' onclick='hideShowById(828)'>(צ)</span><span id='828' class='siftey' l></b> דלטעם ראשון דחוק הוא שהכתוב עצמו יפרש מהו העצרת שהוא עשיית מלאכה לכן פירש דבר אחר ולפי דבר אחר קשה כיון דקאי על ישראל מהו דכתיב עצרת תהיה לכם לא היה לו לומר אלא עצורים תהיו. לכן פירש טעם ראשון:  <b></span></b> מלצאת, מלמד שטעון לינה <small><small>(ספרי קנא)</small></small>. ומדרשו באגדה, לפי שכל ימות הרגל <span style='cursor:pointer' onclick='hideShowById(829)'>(ק)</span><span id='829' class='siftey' l></b> אף על פי שגם הראשון הוא מדרש. מפני שהראשון מדרשו על פי הברייתות שבתורת כהנים שהם כלם הלכות ודינים אבל זה הם דברי אגדיים:  <small> (שפתי חכמים)</small></span></b> הקריבו כנגד ע' אומות, וכשבאין ללכת, אמר להם המקום, בבקשה מכם עשו לי סעודה קטנה כדי שאהנה מכם: <small> (רש"י)</small></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>עצרת</b>. פרשתיו: <small> (אבן עזרא) </small></div>
+<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>עצרת תהיה לכם</b>. כמו שהתבאר בפרשת אמור:<small> (ספורנו) </small></div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לו}</span><span style="font-family:Ezra SIL SR;">וְהִקְרַבְתֶּ&#1448;ם עֹלָ&#1436;ה אִשֵּׁ&#1448;ה רֵ&#1444;יחַ נִיח&#1448;ֹחַ&#1433; לַֽיהֹוָ&#1428;ה פַּ&#1445;ר אֶחָ&#1430;ד אַ&#1443;יִל אֶחָ&#1425;ד כְּבָשִׂ&#1447;ים בְּנֵֽי-שָׁנָ&#1435;ה שִׁבְעָ&#1430;ה תְּמִימִֽם:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּתְקַרְבוּן עֲלָתָא קוּרְבַּן דְמִתְקַבֵּל בְּרַעֲוָא קֳדָם יְיָ תּוֹר חָד דְכַר חָד אִמְרִין בְּנֵי שְׁנָא שַׁבְעָא שַׁלְמִין:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּתְקַרְבוּן עֲלָתָא קוּרְבַּן דְמִתְקַבֵּל בְּרַעֲוָא קֳדָם יְיָ קוּרְבָּנִין קָלִילָן תּוֹר חַד קֳדָם אֱלָהָא חַד דְכַר חַד לְעַמָא יְחִידָאֵי אִמְרִין בְּנֵי שְׁנָא שַׁבְעָא שַׁלְמִין לְחֶדְוַת שׁוּבְעָא יוֹמִין:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Et vous offrirez en holocauste, comme sacrifice d&rsquo;odeur agr&eacute;able &agrave; l&rsquo;&Eacute;ternel, un taureau, un b&eacute;lier, sept agneaux d&rsquo;un an sans d&eacute;faut.</div>
+<div class='passukEn'>but ye shall present a burnt-offering, an offering made by fire, of a sweet savour unto the Lord: one bullock, one ram, seven he-lambs of the first year without blemish; </div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>פר אחד איל אחד.</b> אלו כנגד ישראל, <span style='cursor:pointer' onclick='hideShowById(830)'>(ר)</span><span id='830' class='siftey' l></b> שהם עם אחד בארץ:  <b></span></b> התעכבו לי מעט עוד, ולשון חבה הוא זה, כבנים הנפטרים מאביהם והוא אומר להם קשה עלי פרידתכם, עכבו עוד יום אחד. משל למלך שעשה סעודה וכו' כדאיתא במסכת סוכה <small><small>(נה:)</small></small>. ובמדרש רבי תנחומא <small><small>(יז)</small></small>, למדה תורה דרך ארץ, <span style='cursor:pointer' onclick='hideShowById(831)'>(ש)</span><span id='831' class='siftey' l></b> ר"ל קאי אדלעיל אפרי חג מה שמתמעטין והולכים בזה למדה תורה דרך ארץ כו': <small> (שפתי חכמים)</small></span></b> שמי שיש לו אכסנאי, יום ראשון מאכילו פטומות, למחר מאכילו דגים, למחר מאכילו בשר בהמה, למחר מאכילו קטניות, למחר מאכילו ירק, פוחת והולך כפרי החג: <small> (רש"י)</small></div>
+</div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לז}</span><span style="font-family:Ezra SIL SR;">מִנְחָתָ&#1443;ם וְנִסְכֵּיהֶ&#1431;ם לַפָּ&#1448;ר לָאַ&#1447;יִל וְלַכְּבָשִׂ&#1435;ים בְּמִסְפָּרָ&#1430;ם כַּמִּשְׁפָּֽט:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;מִנְחַתְהוֹן וְנִסְכֵּיהוֹן לְתוֹרָא לְדִכְרָא וּלְאִימְרִין בְּמִנְיָנֵיהוֹן כִּדְחָזֵי:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;מִנְחַתְהוֹן סְמִידָא דְחִינְטָתָא וַחֲמַר נִיסוּכֵיהוֹן מַה דִתְקַרְבוּן עִם תּוֹרֵי וְדִכְרֵי וְאִמְרֵי בְּמִנְיָנֵיהוֹן כְּסֵדֶר דִינָא:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Leurs oblations et leurs libations, pour le taureau, pour le b&eacute;lier et pour les agneaux, selon leur nombre, se feront d&rsquo;apr&egrave;s la r&egrave;gle.</div>
+<div class='passukEn'>their meal-offering and their drink-offerings for the bullock, for the ram, and for the lambs, shall be according to their number, after the ordinance; </div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לח}</span><span style="font-family:Ezra SIL SR;">וּשְׂעִ&#1445;יר חַטָּ&#1430;את אֶחָ&#1425;ד מִלְּבַד&#1433; עֹלַ&#1443;ת הַתָּמִ&#1428;יד וּמִנְחָתָ&#1430;הּ וְנִסְכָּֽהּ:</span></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חָד בַּר מֵעֲלַת תְּדִירָא וּמִנְחָתַהּ וְנִסְכַּהּ:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּצְפִירָא דְחַטָאתָא חַד בַּר מִן עֲלַת תְּדִירָא וּסְמִידָא לְמִנְחָתָא וַחֲמַר נִיסוּכָהּ:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> De plus, un bouc expiatoire; ind&eacute;pendamment de l&rsquo;holocauste perp&eacute;tuel, de son oblation et de sa libation,</div>
+<div class='passukEn'>and one he-goat for a sin-offering; beside the continual burnt-offering, and the meal-offering thereof, and the drink-offering thereof.</div></div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">{לט}</span><span style="font-family:Ezra SIL SR;">אֵ&#1435;לֶּה תַּֽעֲשׂ&#1445;וּ לַֽיהֹוָ&#1430;ה בְּמֽוֹעֲדֵיכֶ&#1425;ם לְבַ&#1448;ד מִנִּדְרֵיכֶ&#1436;ם וְנִדְבֹֽתֵיכֶ&#1431;ם לְעֹלֹֽתֵיכֶם&#1433; וּלְמִנְח&#1443;ֹתֵיכֶ&#1428;ם וּלְנִסְכֵּיכֶ&#1430;ם וּלְשַׁלְמֵיכֶֽם: </span><br></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;אִלֵין תַּעְבְדוּן קֳדָם יְיָ בְּמוֹעֲדֵיכוֹן בַּר מִנִדְרֵיכוֹן וְנִדְבוֹתֵיכוֹן לְעֲלְוַתְכוֹן וּלְמִנְחַתְכוֹן וּלְנִסְכֵּיכוֹן וּלְנִכְסַת קוּדְשֵׁיכוֹן:<small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;אִלֵין תְּקַרְבוּן קֳדָם יְיָ בִּזְמַן מוֹעֲדֵיכוֹן בַּר מִנִדְרֵיכוֹן דִנְדַרְתּוּן בְּחַגָא דְתַיְיתוּן בְּחַגָא וּנְסִיכַתְכוֹן לַעֲלָוַותְכוֹן וּלְמִנְחָתֵיכוֹן וּלְנִיסוּכֵיכוֹן וּלְנִכְסַת קוּדְשֵׁיכוֹן:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Tels seront vos sacrifices &agrave; l&rsquo;&Eacute;ternel lors de vos solennit&eacute;s, sans pr&eacute;judice de vos offrandes votives ou volontaires, de vos autres holocaustes, oblations et libations, et de vos sacrifices r&eacute;mun&eacute;ratoires.&quot;</div>
+<div class='passukEn'>These ye shall offer unto the Lord in your appointed seasons, beside your vows, and your freewill-offerings, whether they be your burnt-offerings, or your meal-offerings, or your drink-offerings, or your peace-offerings.</div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אלה תעשו לה' במועדיכם.</b> דבר הקצוב <span style='cursor:pointer' onclick='hideShowById(832)'>(ת)</span><span id='832' class='siftey' l></b> ר"ל כתיב אלה תעשו לה' במועדיכם לבד מנדריכם וגו' הואיל וגם הנדרים ונדבות צריך לעשות למה לא כללן בכלל אחד. ומתרץ דאלו הכתובים למעלה דבר קצוב לחובה לבד מנדריכם שהם רשות:  <small> (שפתי חכמים)</small></span></b> לחובה: <b>לבד מנדריכם.</b> אם באתם לידור קרבנות ברגל, מצוה היא בידכם, או נדרים או נדבות שנדרתם כל השנה תקריבום ברגל, שמא יקשה לו לחזור ולעלות לירושלים ולהקריב נדריו, ונמצא עובר בבל תאחר: <small> (רש"י)</small></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ולמנחותיכם ולנסכיכם</b>. לכל עולה ועולה כמשפטה:<br><br><b>חסלת פרשת פינחס</b><small> (אבן עזרא) </small></div>
+</div>
+
+
+<div class='newPassuk'>
+<div class='passukIvrit'><span style="color:RGB(47,109,187);">פרק ל  {א}</span><span style="font-family:Ezra SIL SR;">וַיּ&#1445;ֹאמֶר מֹשֶׁ&#1430;ה אֶל-בְּנֵ&#1443;י יִשְׂרָאֵ&#1425;ל כְּכ&#1435;ֹל אֲשֶׁר-צִוָּ&#1445;ה יְהֹוָ&#1430;ה אֶת-מֹשֶֽׁה:</span><b></b><b>(פפפ)</b><br></div>
+<div class='onkelos'><b><small>&nbsp;אונקלוס&nbsp;</small></b>&nbsp;וַאֲמַר משֶׁה לִבְנֵי יִשְׂרָאֵל כְּכֹל דִי פַקֵיד יְיָ יָת משֶׁה: <b>[פפפ]</b><small> (אונקלוס) </small></div>
+<div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וַאֲמַר משֶׁה לִבְנֵי יִשְרָאֵל כְּכָל מַה דְפַקֵיד יְיָ יַת משֶׁה:<small> (תרגום יונתן) </small></div>
+<div class='passukFr'> Mo&iuml;se redit aux enfants d&rsquo;Isra&euml;l tout ce que l&rsquo;&Eacute;ternel lui avait command&eacute;.</div>
+<div class='passukEn'>And Moses told the children of Israel according to all that the Lord commanded Moses.</div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ויאמר משה אל בני ישראל.</b> להפסיק הענין דברי רבי ישמעאל, לפי שעד כאן דבריו <span style='cursor:pointer' onclick='hideShowById(833)'>(א)</span><span id='833' class='siftey' l></b> דק"ל פשיטא הוא דאמר מה שצוה לו הקדוש ברוך הוא ועוד בכל התורה נאמר הציווי לבד ולמה נאמר כאן הציווי וגם דברי משה לישראל ומתרץ לפי וכו': חסלת פרשת פינחס <small> (שפתי חכמים)</small></span></b> של מקום, ופרשת נדרים מתחלת בדבורו של משה, הוצרך להפסיק תחלה ולומר שחזר משה ואמר פרשה זו לישראל, שאם לא כן יש במשמע שלא אמר להם זו, אלא בפרשת נדרים התחיל דבריו: <br><br>חסלת פרשת פינחס: <small> (רש"י)</small></div>
+<div class='ramban'><b><small>&nbsp;הרמב"ן&nbsp;</small></b></span></b>&nbsp;</span><b>ויאמר משה אל בני ישראל</b>. להפסיק הענין דברי רבי ישמעאל לפי שעד כאן דבריו של מקום ופרשת נדרים מתחלת בדבורו של משה הוצרך להפסיק הענין לומר שחזר בה משה ואמר הפרשה זו לישראל שאם לא כן יש במשמע שלא אמר להם זו אלא בפרשת נדרים התחיל דבריו לשון רש"י ולא הבינותי זה שכך נאמר וידבר משה אל אהרן ואל בניו ואל כל בני ישראל <small><small>(ויקרא כא כד)</small></small> בסוף פרשת המומין ואמר בסוף פרשת המועדות <small><small>(שם כג מד)</small></small> וידבר משה את מועדי ה' אל בני ישראל אבל כפי פשוטו בא הכתוב לומר כי אע"פ שהפרשה הזו בתורת הקרבנות לא ייחד בה אהרן ובניו כאשר הוא בפרשיות שבתורת כהנים אבל אמר אל כל בני ישראל יחדיו ככל אשר צוה ה' את משה בין בדין שביתת המלאכה בין בתמידין ומוספין ובנדרים ונדבות כי כן נאמר לו <small><small>(לעיל כח ב)</small></small> צו את בני ישראל והטעם מפני שהמצוה לאחר ביאתם לארץ והיא אזהרה לישראל כלם שישמרו במועדם התמידין והמוספין ויקריבו הנדרים והנדבות ועוד כי עיקר המצוה להיות הימים נזכרים ונעשים לשבות בהם מכל מלאכת העבודה והפרשה הזו שוה עם פרשת המועדות שבתורת כהנים <small><small>(ויקרא כג)</small></small> שם נאמר בתחלה דבר אל בני ישראל ואמרת אלהם ובסוף וידבר משה את מועדי ה' אל בני ישראל ובכאן ככה בתחלה צו את בני ישראל ואמרת אלהם ובסוף ויאמר משה אל בני ישראל ככל אשר צוה ה' ולא הזכיר "מועדי ה'" בעבור שהוזכרו בכאן בפרשה דברים אחרים שאינן במועדי ה' כגון תמידי החול ומוספי השבת וראשי חדשים והמדרש שדרש בו רבי ישמעאל מפני שאין הכתוב צריך לומר במשה שאמר לבני ישראל כל אשר צוה אותו ה' ואין הדרך בתורה שיאמר כן בכל פרשה ופרשה ולכך ידרשו בוידבר משה אל אהרן ואל בניו ואל כל בני ישראל הזהיר אהרן על ידי הבנים ואת הבנים על ידי ישראל ואת ישראל זה על ידי זה <small><small>(תו"כ אמור פרק ג יב)</small></small> ובפרשת המועדים עשו מדרשים רבים מלמד שהיה משה אומר להם לישראל הלכות הפסח בפסח הלכות עצרת בעצרת הלכות החג בחג בלשון שהוא שומע בו הוא אומר להם לישראל כל הפרשיות נאמרו בענין אחד ר' יוסי הגלילי אומר מועדי ה' נאמרו ולא נאמרה שבת בראשית עמהם בן עזאי אומר מועדי ה' נאמרו ולא נאמרה פרשת נדרים עמהם רבי אומר מה ת"ל וידבר משה את מועדי ה' אל בני ישראל לפי שלא למדנו אלא על הפסח ועל התמיד שידחו את השבת שנאמר בהם במועדו ושאר קרבנות צבור לא למדנו ת"ל אלה תעשו לה' במועדיכם לעומר ולקרב עמו לשתי הלחם ולקרב עמהם לא שמענו וכשהוא אומר וידבר משה את מועדי ה' אל בני ישראל קבע מועד לכולם ע"כ בת"כ <small><small>(אמור פרק יז יב יג)</small></small> ואפשר לומר כי מדרשו של ר' ישמעאל שאמר להפסיק הענין הוא מדרשו של בן עזאי שאמר מועדי ה' נאמרו ולא נאמרה פרשת נדרים עמהם לומר שאין דין המועדות כדין פרשת הנדרים שנאמרה אל ראשי המטות לומר שיחיד מומחה מתיר את הנדר וכן שלשה הדיוטות אבל המועדות צריכין קדוש ב"ד מג' מומחין כמו שמפורש בבבא בתרא <small><small>(קכא)</small></small> דרש בן עזאי החלוק הזה שביניהם ממיעוט מועדי ה' ודרשו רבי ישמעאל מן הכתוב היתר הזה שלא בא אלא להפסיק ענין המועדות מענין הנדרים שניהם אמרו דבר אחד ומשמעות דורשין איכא בינייהו והנכון בעיני כי אין כונתו אלא לומר שאם השלים פרשת המועדות באלה תעשו לה' במועדיכם ויתחיל וידבר משה אל ראשי המטות לבני ישראל לאמר זה הדבר אשר צוה ה' היה באפשר שיחזיר הכתוב למעלה לומר שדבר משה אל ראשי המטות זה הדבר אשר צוה ה' בתמידין ובמוספין הנזכרים ולא יהיה "אל ראשי המטות" נדרש לפניו על פרשת הנדרים ולפיכך הפסיק וסיים בפרשה של מועדות ויאמר משה אל בני ישראל ככל אשר צוה ה' את משה והתחיל בפרשת הנדרים שדבר משה אל ראשי המטות זה הדבר אשר צוה ה' וזהו האמת שכך פירוש להפסיק הענין במקומות רבים בספרא ובספרי וכבר הזכיר רש"י <small><small>(להלן לא יז)</small></small> מה שאמרו שם בספרי <small><small>(מטות לא מה)</small></small> הרוגו למה נאמר להפסיק הענין דברי רבי ישמעאל שאם קורא אני הרגו כל זכר בטף וכל אשה יודעת איש למשכב זכר וכל הטף בנשים איני יודע באיזה ענין הכתוב מדבר לכך נאמר הרוגו להפסיק הענין דברי רבי ישמעאל וכן במקומות אחרים בתורת כהנים<small> (הרמב"ן)</small></div>
+<div class='orHaHaim'><b><small>&nbsp;אור החיים&nbsp;</small></b>&nbsp; <b>ככל אשר וגו' את משה</b>. ולא הספיק לומר אותו ומובן שעל משה הוא אומר, להעירך שהוא מאמר בפני עצמו שהם דברי התורה שמעידה ואומרת שהמאמר ממנו אליהם היה ככל אשר צוה ה' את משה, מה שלא היה נשמע אם היה אומר אותו שאז היה נשמע שהוא גמר מאמר ויאמר משה וגו' ככל אשר צוה ה' אותו, ועדיין אני אומר שהוא חשב כן ומי יאמר שלא טעה בדבריו ולא שינה בהסח הדעת:<br><br><b>חסלת פרשת פינחס</b><small> (אור החיים) </small></div></div>
+<div class='alyot'><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html'>6</a></span><span class='parshiotTitle'><a href='7.html' class='linkSelected'>7</a></span><span class='parshiotTitle'><a href='8.html'>הפטרה</a></span></div></div></div></body></html>

@@ -1,7 +1,0 @@
-{
-  "name": "learnTorahApp",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
