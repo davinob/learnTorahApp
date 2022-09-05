@@ -1,71 +1,53 @@
-
-
-
-
- html{
-    --fontSizeIvrit:28px;
-    --fontSizeOthers:23px;
+html {
+    --fontSizeIvrit: 28px;
+    --fontSizeOthers: 23px;
 }
- 
- 
- .newPassuk {
+
+.newPassuk {
     float: right;
     direction: rtl;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
-.theBody
-{
-margin:0px;
-margin-bottom:10px;
+.theBody {
+    margin: 0px;
+    margin-bottom: 10px;
+}
 
-	}
-	
-.theBodyMain
-{
+.theBodyMain {
     margin-top: 5%;
     text-align: center;
     direction: rtl;
 }
 
-	.parsha
-{
-	font-size: 10px;
+.parsha {
+    font-size: 10px;
     font-weight: bold;
-	width:100%;
+    width: 100%;
 }
 
-
-.alyot
-{
-	margin-top: 20px;
+.alyot {
+    margin-top: 20px;
     margin-bottom: 20px;
     float: left;
     width: 100%;
     text-align: center;
-    
 }
 
-	
-.theContent
-{
-padding-top: 5px;
-	}
+.theContent {
+    padding-top: 5px;
+}
 
-
-
-.sefer
-{
-	width: 100%;
+.sefer {
+    width: 100%;
     white-space: nowrap;
     color: white;
     margin-bottom: 20px;
-	overflow-x: scroll;
-	overflow-y: hidden;
-   }
-   
-   a
-{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+a {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
@@ -75,27 +57,20 @@ padding-top: 5px;
     margin-left: 8px;
     padding: 2px;
     border: 2px solid;
-	display: inline-block;
-	background-color: #31567f;
+    display: inline-block;
+    background-color: #31567f;
     color: #e3fbff;
-
     font-weight: bold;
 }
-   
- .linkSelected
- {
-	border: 4px solid #00e3ff;
- }
-   
 
+.linkSelected {
+    border: 4px solid #00e3ff;
+}
 
-
-
-
-.pirushim{
-	display: inline-block;
-  margin-top: 5px;
-  width: 100%;
+.pirushim {
+    display: inline-block;
+    margin-top: 5px;
+    width: 100%;
 }
 
 .parshiotTitle {
@@ -103,165 +78,196 @@ padding-top: 5px;
 }
 
 .parashaTitle {
-      text-align: center;
-    color: RGB(45,104,176);
+    text-align: center;
+    color: RGB(45, 104, 176);
     font-weight: bold;
     font-size: 26px;
     display: block;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .passukFr {
     font-size: var(--fontSizeOthers);
     background-color: #d3e5f187;
-     display:inline-block;
-     margin-top:15px;
-     width:100%;
-	 direction: ltr
-    
-    
+    margin-top: 15px;
+    padding-left: 100px;
+    direction: ltr;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .passukEn {
     font-size: var(--fontSizeOthers);
     background-color: #d3e5f187;
-     display:inline-block;
-     margin-top:15px;
-    width:100%;
-	direction: ltr
-    
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
+    direction: ltr
 }
 
 .passukIvrit {
     font-size: var(--fontSizeIvrit);
-    display:inline-block;
-    margin-top:3px;
-    width:100%;
-		
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    width: 100%;
 }
 
-
-
-
 .rashi {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(7, 152, 236, 0.14);
     color: #212aa2;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .rashiHa {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(7, 152, 236, 0.14);
     color: #212aa2;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .siftey {
-   font-size: var(--fontSizeOthers);
-   font-family: cursive;
-   color: #a22222;
-   
+    font-size: var(--fontSizeOthers);
+    font-family: cursive;
+    color: #a22222;
 }
 
 .onkelos {
     font-size: var(--fontSizeOthers);
     background-color: rgba(221, 210, 255, 0.42);
+    box-sizing: border-box;
     display: inline-block;
-    margin-top:15px;
-    width:100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .yonatan {
     font-size: var(--fontSizeOthers);
     background-color: rgba(210, 236, 239, 0.42);
+    box-sizing: border-box;
     display: inline-block;
-    margin-top:15px;
-    width:100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .ibnEzra {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(45, 165, 82, 0.14);
     color: #196311;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .ramban {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(245, 229, 35, 0.14);
     color: #777912;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .baalHaturim {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(210, 124, 18, 0.14);
     color: #865309;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .orHaHaim {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(193, 107, 199, 0.14);
     color: #8e1e7a;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .sforno {
-    margin-top:-10px;
-    font-size:  var(--fontSizeOthers);
+    margin-top: -10px;
+    font-size: var(--fontSizeOthers);
     background-color: rgba(15, 67, 255, 0.14);
     color: #242298;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .kliYakar {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(15, 227, 249, 0.14);
     color: #0f4058;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .daatZkenim {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(255, 117, 86, 0.14);
     color: #58370b;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
-
-.newParasha
-{
-	margin-bottom:15px;
+.newParasha {
+    margin-bottom: 15px;
 }
-
 
 .sidenav {
     width: 0;
@@ -273,8 +279,8 @@ padding-top: 5px;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 10px;
-	padding-bottom: 10px;
-	float:left;
+    padding-bottom: 10px;
+    float: left;
 }
 
 .sidenav a {
@@ -298,14 +304,13 @@ padding-top: 5px;
     margin-left: 50px;
 }
 
-
-.trads{
-	display: inline-block;
+.trads {
+    display: inline-block;
     width: 100%;
-	}
+}
 
 .button {
-     background-color: #4a2dbb7a;
+    background-color: #4a2dbb7a;
     border: none;
     color: white;
     margin-left: 15px;
@@ -320,13 +325,10 @@ padding-top: 5px;
     margin-top: 10px;
     text-align: center;
     float: left;
-  
-}	
-
-
+}
 
 .active {
-border:5px solid #173ea7;
+    border: 5px solid #173ea7;
 }
 
 .buttonInAccordion {
@@ -343,9 +345,8 @@ border:5px solid #173ea7;
     transition: 0.4s;
 }
 
-
 .accordion {
-   background-color: #31567f;
+    background-color: #31567f;
     color: #e3fbff;
     cursor: pointer;
     padding: 18px;
@@ -353,13 +354,12 @@ border:5px solid #173ea7;
     border: none;
     text-align: left;
     outline: none;
-  font-size: 30px;
+    font-size: 30px;
     transition: 0.4s;
-	 font-weight: bold;
+    font-weight: bold;
 }
 
-.community
-{
+.community {
     font-size: 23px;
     color: #9f1d4b;
     display: inline-block;
@@ -368,84 +368,65 @@ border:5px solid #173ea7;
     direction: rtl;
     margin-bottom: 20px;
     font-weight: bolder;
-    
 }
 
-
-
-.haftaraSelected
-{
+.haftaraSelected {
     border: 4px solid #00e3ff;
     padding: 10px 6px 8px 0px;
 }
 
 .panel {
-	width:100%;
-   
+    width: 100%;
     background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
 
-
 .newPassuk {
     float: right;
     direction: rtl;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
-.theBody
-{
-margin:0px;
-margin-bottom:10px;
+.theBody {
+    margin: 0px;
+    margin-bottom: 10px;
+}
 
-	}
-	
-.theBodyMain
-{
+.theBodyMain {
     margin-top: 5%;
     text-align: center;
     direction: rtl;
 }
 
-
-
-.prakim
-{
-	margin-top: 20px;
+.prakim {
+    margin-top: 20px;
     margin-bottom: 20px;
     float: left;
     width: 100%;
     text-align: center;
 }
 
-	
-.theContent
-{
-padding-top: 5px;
-	}
-
-
-.perekTitle {
-display: inline-block;
-padding-left: 5px;  
-
+.theContent {
+    padding-top: 5px;
 }
 
+.perekTitle {
+    display: inline-block;
+    padding-left: 5px;
+}
 
-.prakim
-{
-	width: 100%;
+.prakim {
+    width: 100%;
     white-space: nowrap;
     color: white;
     margin-bottom: 20px;
-	overflow-x: scroll;
-	overflow-y: hidden;
-   }
-   
-   a
-{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+a {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
@@ -455,27 +436,20 @@ padding-left: 5px;
     margin-left: 8px;
     padding: 2px;
     border: 2px solid;
-	display: inline-block;
-	background-color: #31567f;
+    display: inline-block;
+    background-color: #31567f;
     color: #e3fbff;
-
     font-weight: bold;
 }
-   
- .linkSelected
- {
-	border: 4px solid #00e3ff;
- }
-   
 
+.linkSelected {
+    border: 4px solid #00e3ff;
+}
 
-
-
-
-.pirushim{
-	display: inline-block;
-  margin-top: 5px;
-  width: 100%;
+.pirushim {
+    display: inline-block;
+    margin-top: 5px;
+    width: 100%;
 }
 
 .inSeferTitle {
@@ -486,134 +460,149 @@ padding-left: 5px;
 }
 
 .newSefer {
-      text-align: center;
-    color: RGB(45,104,176);
+    text-align: center;
+    color: RGB(45, 104, 176);
     font-weight: bold;
     font-size: 26px;
     display: block;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .passukFr {
     font-size: var(--fontSizeOthers);
     background-color: #d3e5f187;
-     display:inline-block;
-     margin-top:15px;
-     width:100%;
-	 direction: ltr
-    
-    
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
+    direction: ltr
 }
 
 .passukFrHa {
     font-size: var(--fontSizeOthers);
     background-color: #d3e5f187;
-     display:inline-block;
-     margin-top:15px;
-     width:100%;
-	 direction: ltr
-    
-    
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
+    direction: ltr
 }
 
 .passukEn {
-     font-size: var(--fontSizeOthers);
+    font-size: var(--fontSizeOthers);
     background-color: #d3e5f187;
-     display:inline-block;
-     margin-top:15px;
-    width:100%;
-	direction: ltr
-    
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
+    direction: ltr
 }
-
 
 .passukEnHa {
     font-size: var(--fontSizeOthers);
     background-color: #d3e5f187;
-     display:inline-block;
-     margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
     direction: ltr
-
 }
 
 .passukIvrit {
     font-size: var(--fontSizeIvrit);
-    display:inline-block;
-    margin-top:3px;
-    width:100%;
-		
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    width: 100%;
 }
 
-
-
-
 .rashi {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(7, 152, 236, 0.14);
     color: #212aa2;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
-
-
 
 .onkelos {
     font-size: var(--fontSizeOthers);
     background-color: rgba(221, 210, 255, 0.42);
+    box-sizing: border-box;
     display: inline-block;
-    margin-top:15px;
-    width:100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .mezudatDavid {
-    font-size: var(--fontSizeMD);
+    font-size: var(--fontSizeOthers);
     background-color: rgba(210, 236, 239, 0.42);
+    box-sizing: border-box;
     display: inline-block;
-    margin-top:15px;
-    width:100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .ralbag {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(45, 165, 82, 0.14);
     color: #196311;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
-
 .malbim {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(193, 107, 199, 0.14);
     color: #8e1e7a;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .mezudatZion {
-    margin-top:-10px;
+    margin-top: -10px;
     font-size: var(--fontSizeOthers);
     background-color: rgba(15, 67, 255, 0.14);
     color: #242298;
-    display:inline-block;
-    margin-top:15px;
-    width:100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
-
-
-.newSefer
-{
-	margin-bottom:15px;
+.newSefer {
+    margin-bottom: 15px;
 }
-
 
 .sidenav {
     width: 0;
@@ -625,8 +614,8 @@ padding-left: 5px;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 10px;
-	padding-bottom: 10px;
-	float:left;
+    padding-bottom: 10px;
+    float: left;
 }
 
 .sidenav a {
@@ -650,14 +639,14 @@ padding-left: 5px;
     margin-left: 50px;
 }
 
-
-.trads{
-	display: inline-block;
+.trads {
+    box-sizing: border-box;
+    display: inline-block;
     width: 100%;
-	}
+}
 
 .button {
-     background-color: #4a2dbb7a;
+    background-color: #4a2dbb7a;
     border: none;
     color: white;
     margin-left: 15px;
@@ -672,13 +661,10 @@ padding-left: 5px;
     margin-top: 10px;
     text-align: center;
     float: left;
-  
-}	
-
-
+}
 
 .active {
-border:5px solid #173ea7;
+    border: 5px solid #173ea7;
 }
 
 .buttonInAccordion {
@@ -695,9 +681,8 @@ border:5px solid #173ea7;
     transition: 0.4s;
 }
 
-
 .accordion {
-   background-color: #31567f;
+    background-color: #31567f;
     color: #e3fbff;
     cursor: pointer;
     padding: 18px;
@@ -705,21 +690,15 @@ border:5px solid #173ea7;
     border: none;
     text-align: left;
     outline: none;
-  font-size: 30px;
+    font-size: 30px;
     transition: 0.4s;
-	 font-weight: bold;
+    font-weight: bold;
 }
 
-
-
 .panel {
-	width:100%;
-   
+    width: 100%;
     background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-
-
-
