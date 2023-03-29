@@ -2,9 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:learn_torah/Utils.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Utils.initData();
 
   runApp(new MyApp());
 }
