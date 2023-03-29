@@ -15,23 +15,24 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.2.5+215
+version: 1.2.6+216
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter:
-   sdk: flutter
   change_app_package_name: ^1.0.0
   cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
   flutter_inappwebview: ^5.3.2
   localstorage: ^4.0.0+1
- 
+  path_provider: ^2.0.14
+  webview_flutter: ^4.0.7
 
 dev_dependencies:
   flutter_test:
-   sdk: flutter
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -45,63 +46,63 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/html/
-   - assets/html/AhareiMot/
-   - assets/html/Balak/
-   - assets/html/Bamidbar/
-   - assets/html/Behaaloteha/
-   - assets/html/Behar/
-   - assets/html/Behoukotay/
-   - assets/html/Bereshit/
-   - assets/html/Beshalah/
-   - assets/html/Bo/
-   - assets/html/css/
-   - assets/html/Devarim/
-   - assets/html/Ekev/
-   - assets/html/Emor/
-   - assets/html/Haazinu/
-   - assets/html/HayeSara/
-   - assets/html/Hukat/
-   - assets/html/js/
-   - assets/html/Kedoshim/
-   - assets/html/KiTavo/
-   - assets/html/KiTissa/
-   - assets/html/KiTztze/
-   - assets/html/Korah/
-   - assets/html/LehLeha/
-   - assets/html/Massey/
-   - assets/html/Matot/
-   - assets/html/Mezora/
-   - assets/html/Miketz/
-   - assets/html/Mishpatim/
-   - assets/html/Nasso/
-   - assets/html/Nizavim/
-   - assets/html/Noah/
-   - assets/html/Pekoudey/
-   - assets/html/Pinhas/
-   - assets/html/Reeh/
-   - assets/html/ShelahLeha/
-   - assets/html/Shemini/
-   - assets/html/Shemot/
-   - assets/html/Shoftim/
-   - assets/html/Tazria/
-   - assets/html/Terouma/
-   - assets/html/Tetzave/
-   - assets/html/Toldot/
-   - assets/html/Vaera/
-   - assets/html/Vaethanan/
-   - assets/html/Vayakhel/
-   - assets/html/Vayehi/
-   - assets/html/Vayeleh/
-   - assets/html/Vayera/
-   - assets/html/Vayeshev/
-   - assets/html/Vayetze/
-   - assets/html/Vayigash/
-   - assets/html/Vayikra/
-   - assets/html/Vayishlah/
-   - assets/html/VezotHaberaha/
-   - assets/html/Yitro/
-   - assets/html/Zav/
+    - assets/html/
+    - assets/html/AhareiMot/
+    - assets/html/Balak/
+    - assets/html/Bamidbar/
+    - assets/html/Behaaloteha/
+    - assets/html/Behar/
+    - assets/html/Behoukotay/
+    - assets/html/Bereshit/
+    - assets/html/Beshalah/
+    - assets/html/Bo/
+    - assets/html/css/
+    - assets/html/Devarim/
+    - assets/html/Ekev/
+    - assets/html/Emor/
+    - assets/html/Haazinu/
+    - assets/html/HayeSara/
+    - assets/html/Hukat/
+    - assets/html/js/
+    - assets/html/Kedoshim/
+    - assets/html/KiTavo/
+    - assets/html/KiTissa/
+    - assets/html/KiTztze/
+    - assets/html/Korah/
+    - assets/html/LehLeha/
+    - assets/html/Massey/
+    - assets/html/Matot/
+    - assets/html/Mezora/
+    - assets/html/Miketz/
+    - assets/html/Mishpatim/
+    - assets/html/Nasso/
+    - assets/html/Nizavim/
+    - assets/html/Noah/
+    - assets/html/Pekoudey/
+    - assets/html/Pinhas/
+    - assets/html/Reeh/
+    - assets/html/ShelahLeha/
+    - assets/html/Shemini/
+    - assets/html/Shemot/
+    - assets/html/Shoftim/
+    - assets/html/Tazria/
+    - assets/html/Terouma/
+    - assets/html/Tetzave/
+    - assets/html/Toldot/
+    - assets/html/Vaera/
+    - assets/html/Vaethanan/
+    - assets/html/Vayakhel/
+    - assets/html/Vayehi/
+    - assets/html/Vayeleh/
+    - assets/html/Vayera/
+    - assets/html/Vayeshev/
+    - assets/html/Vayetze/
+    - assets/html/Vayigash/
+    - assets/html/Vayikra/
+    - assets/html/Vayishlah/
+    - assets/html/VezotHaberaha/
+    - assets/html/Yitro/
+    - assets/html/Zav/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
