@@ -1,8 +1,9 @@
 <html><head>				<link rel='stylesheet' type='text/css' href='../css/stylesTorah.css'>			<script src='../js/myScript.js'></script>											</head>							<body class='theBody' onload='initClassesBasedOnCookies()'>						
-<div id='mySidenav' class='sidenav'>  					<span class='trads'>					<span type='button' id='passukEn'  onClick="hideShow('passukEn',this)" class='button'>EN</span>					<span type='button' id='passukFr'  onClick="hideShow('passukFr',this)" class='button'>FR</span>										</span>					<span class='pirushim'>					<span type='button' id='onkelos' onClick="hideShow('onkelos',this)" class='button'>אונקלוס</span>					<span type='button' id='yonatan'  onClick="hideShow('yonatan',this)" class='button'>יונתן</span>					<span type='button' id='rashi' onClick="hideShow('rashi',this)" class='button'>רש"י</span>					<span type='button' id='siftey' onClick="hideShow('siftey',this)" class='button'>שפתי חכמים</span>										<span type='button' id='ibnEzra' onClick="hideShow('ibnEzra',this)" class='button'>אבן עזרא</span>					<span type='button' id='ramban' onClick="hideShow('ramban',this)" class='button'>הרמב"ן</span>					<span type='button' id='sforno' onClick="hideShow('sforno',this)" class='button'>ספורנו</span>					<span type='button' id='baalHaturim' onClick="hideShow('baalHaturim',this)" class='button'>בעל הטורים</span>					<span type='button' id='orHaHaim' onClick="hideShow('orHaHaim',this)" class='button'>אור החיים</span>					<span type='button' id='kliYakar' onClick="hideShow('kliYakar',this)" class='button'>כלי יקר</span>					<span type='button' id='daatZkenim' onClick="hideShow('daatZkenim',this)" class='button'>דעת זקנים</span>					</span>  					</div><span id='buttonNav' style='font-size:35px;cursor:pointer; position:fixed' onclick='openNav()'>&#9776;</span>								
+<div id='mySidenav' class='sidenav'>  					<span class='trads'>					<span type='button' id='passukEn'  onClick="hideShow('passukEn',this)" class='button'>EN</span>					<span type='button' id='passukFr'  onClick="hideShow('passukFr',this)" class='button'>FR</span>										</span>					<span class='pirushim'>					<span type='button' id='onkelos' onClick="hideShow('onkelos',this)" class='button'>אונקלוס</span>					<span type='button' id='yonatan'  onClick="hideShow('yonatan',this)" class='button'>יונתן</span>					<span type='button' id='rashi' onClick="hideShow('rashi',this)" class='button'>רש"י</span>					<span type='button' id='siftey' onClick="hideShow('siftey',this)" class='button'>שפתי חכמים</span>										<span type='button' id='ibnEzra' onClick="hideShow('ibnEzra',this)" class='button'>אבן עזרא</span>					<span type='button' id='ramban' onClick="hideShow('ramban',this)" class='button'>הרמב"ן</span>					<span type='button' id='sforno' onClick="hideShow('sforno',this)" class='button'>ספורנו</span>					<span type='button' id='baalHaturim' onClick="hideShow('baalHaturim',this)" class='button'>בעל הטורים</span>					<span type='button' id='orHaHaim' onClick="hideShow('orHaHaim',this)" class='button'>אור החיים</span>					<span type='button' id='kliYakar' onClick="hideShow('kliYakar',this)" class='button'>כלי יקר</span>					<span type='button' id='daatZkenim' onClick="hideShow('daatZkenim',this)" class='button'>דעת זקנים</span><span type='button' id='haemekDavar' onClick="hideShow('haemekDavar',this)" class='button'>העמק דבר</span><span type='button' id='abarbanel' onClick="hideShow('abarbanel',this)" class='button'>אברבנאל</span><span type='button' id='rashbam' onClick="hideShow('rashbam',this)" class='button'>רשב"ם</span>					</span>  					</div><span id='buttonNav' style='font-size:35px;cursor:pointer; position:fixed' onclick='openNav()'>&#9776;</span>								
 <div class='theContent'  style="display:none"  onclick='closeNav()'>
 <div class='newParasha'><span class='parashaTitle'><a href='../index.html'>תורה</a></span><span class='parashaTitle'><a href='1.html'>במדבר</a></span>
-<div class='alyot'><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html'>6</a></span><span class='parshiotTitle'><a href='7.html' class='linkSelected'>7</a></span><span class='parshiotTitle'><a href='8.html'>הפטרה</a></span></div></div>
+<div class='alyot'><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html'>6</a></span><span class='parshiotTitle'><a href='7.html' class='linkSelected'>7</a></span><span class='parshiotTitle'><a href='8.html'>הפטרה</a></span></div>
+</div>
 
 
 <div class='newPassuk'>
@@ -21,7 +22,8 @@
 <div class='passukEn'>Take the sum of the sons of Qehat from among the sons of Levi, after their families, by the house of their fathers,</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>נשא את ראש וגו'.</b> מנה מהם את הראויין לעבודת משא <span style='cursor:pointer' onclick='hideShowById(53)'>(ט)</span><span id='53' class='siftey' l></b> כוונתו לפרש טעם המנין שכל המנינים נמנים מבן חודש ומבן כ' ובני י"ג אבל זה המספר אינו דומה לשום אחד מהמספרים לכך פירש מנה מהם הראויין וכו' רא"ם: <small> (שפתי חכמים)</small></span></b> , והם מבן שלשים ועד בן חמשים שנה, והפחות משלשים לא נתמלא כחו, מכאן אמרו בן שלשים לכח, והיותר על בן חמשים כחו מכחיש מעתה: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>נשא את ראש בני קהת</b>. בתחלה בעבור משה ואהרן: <small> (אבן עזרא) </small></div>
-<div class='orHaHaim'><b><small>&nbsp;אור החיים&nbsp;</small></b>&nbsp; <b>נשא את ראש בני קהת</b>. לפי מה שהעלינו בפרשת כי תשא כי על ידי נתינת הכופר הוא נשיאת ראש להם ולזה אמר הכתוב במספרם כי תשא מה שאין כן הלוים שלא נתנו כופר במספרם אמר פקוד את בני לוי, אם כן למה שינה הכתוב את לשונו בלוים עצמן וחזר לומר <b>נשא</b> ולא פקוד. ונראה כי לצד שנתן ה' להם עבודה פנימית לשאת ארון ושלחן לזה יחס להם לשון נשיאות ראש בערך גרשון ומררי שיהיו הם מעולים מהם, והגם שגרשון הוא בכור לוי, קהת בחר לו יה כי ממנו יצא אור לעולם משה ואהרן, ושורת הדין שענף זה ישא ארון התורה אשר שם משה שיצא מקהת, ודקדק לומר <b>מתו</b>ך <b>בני לוי</b>, מטעם שאמרנו לצד שהוא אמצעי בין גרשון ובין מררי ויתיחס אליו תוך:<small> (אור החיים) </small></div></div>
+<div class='orHaHaim'><b><small>&nbsp;אור החיים&nbsp;</small></b>&nbsp; <b>נשא את ראש בני קהת</b>. לפי מה שהעלינו בפרשת כי תשא כי על ידי נתינת הכופר הוא נשיאת ראש להם ולזה אמר הכתוב במספרם כי תשא מה שאין כן הלוים שלא נתנו כופר במספרם אמר פקוד את בני לוי, אם כן למה שינה הכתוב את לשונו בלוים עצמן וחזר לומר <b>נשא</b> ולא פקוד. ונראה כי לצד שנתן ה' להם עבודה פנימית לשאת ארון ושלחן לזה יחס להם לשון נשיאות ראש בערך גרשון ומררי שיהיו הם מעולים מהם, והגם שגרשון הוא בכור לוי, קהת בחר לו יה כי ממנו יצא אור לעולם משה ואהרן, ושורת הדין שענף זה ישא ארון התורה אשר שם משה שיצא מקהת, ודקדק לומר <b>מתו</b>ך <b>בני לוי</b>, מטעם שאמרנו לצד שהוא אמצעי בין גרשון ובין מררי ויתיחס אליו תוך:<small> (אור החיים) </small></div>
+</div>
 
 
 <div class='newPassuk'>
@@ -31,7 +33,12 @@
 <div class='passukFr'> depuis l&rsquo;&acirc;ge de trente ans et plus, jusqu&rsquo;&agrave; l&rsquo;&acirc;ge de cinquante ans: quiconque est admissible au service, &agrave; l&rsquo;ex&eacute;cution d&rsquo;une t&acirc;che dans la tente d&rsquo;assignation.</div>
 <div class='passukEn'>from thirty years old and upward until fifty years old, all that enter into the host, to do the work in the Tent of Meeting.</div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>מבן שלשים שנה</b>. קרוב מארבע' שבועות בן חמשים שבעה שבועות כי אז יחסר כח הגוף: <b>מלאכה באהל מועד</b>. מלאכת המשא: <small> (אבן עזרא) </small></div>
-<div class='orHaHaim'><b><small>&nbsp;אור החיים&nbsp;</small></b>&nbsp;<b>לעשות מלאכה</b>. שינה מהאמור בעבודת בני גרשון ובני מררי לעבוד עבודה ואמר <b>לעשות מלאכה</b>, העיר בזה שאין בכללות מעשה בני קהת עבודה, לצד שהארון הוא אדרבה נושא את נושאיו (במד"ר פ"ד) ואין עושין בו אלא מלאכה. עוד נראה כי לצד שיש להם לעשות סדר נכון במשאם כשנושאים בכתף וכיוון ההליכה לצד כבוד ארון אלהים כנושא אדונו על כתפו, לזה קרא עבודתם מלאכה, מה שאין כן עבודת בני גרשון ובני מררי:<small> (אור החיים) </small></div></div>
+<div class='orHaHaim'><b><small>&nbsp;אור החיים&nbsp;</small></b>&nbsp;<b>לעשות מלאכה</b>. שינה מהאמור בעבודת בני גרשון ובני מררי לעבוד עבודה ואמר <b>לעשות מלאכה</b>, העיר בזה שאין בכללות מעשה בני קהת עבודה, לצד שהארון הוא אדרבה נושא את נושאיו (במד"ר פ"ד) ואין עושין בו אלא מלאכה. עוד נראה כי לצד שיש להם לעשות סדר נכון במשאם כשנושאים בכתף וכיוון ההליכה לצד כבוד ארון אלהים כנושא אדונו על כתפו, לזה קרא עבודתם מלאכה, מה שאין כן עבודת בני גרשון ובני מררי:<small> (אור החיים) </small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>כל בא לצבא.</b> בכל מקום כתיב כל הבא לצבא. זולתי בזה המקום. ולאו דבר ריק הוא. והענין דנכלל בזו התיבה משמעות אחרת. היינו כל הכשר לכך. כמו לשון הנביא יחזקאל ט״ז ט״ז לא באות ולא יהיה. דמשמעו שם לא כשר הדבר ולא יהיה. וכן ביארנו בס׳ דברים י״ח כ״ב לא יהיה הדבר ולא יבא יע״ש. ובל״א אומרים (עש קומט ניט צו) כך הפי׳ כאן ולמדנו שלא כל שהיה מבן שלשים שנה נמנה כאן. אלא מי שראוי למשמרת הקודש. והיינו דאיתא ברבה טעם שהיה מבני קהת בני שלשים פחות משליש ולא כבני גרשון ובני מררי. הוא משום שהיה הארון מכלה והורג בהם. ותמוה שהרי נמנו קודם שהגיעו לכך. אלא ה״פ בשביל שהתבוננו בסכנה שלפניהם ממה שראו מכבר בשעת הקמת המשכן ופירוקו בימי המלואים שמי שנגע בארון ולא היה מוכשר לכך ניזק. ע״כ לא נמנו בכלל נושאי המקדש ונכנסו בכלל טפלים:
+<b>לעשות מלאכה באהל מועד.</b> אין לפרש מלאכת המשא דא״כ יהא מוכח מכאן דהעברת ד״א ברה״ר מיקרי מלאכה. ובר״פ הזורק לא משמע הכי. אלא פי׳ מלאכה עשיית כלי קודש אם נדרש לעשות מחדש איזה כלי שרת וע״ע להלן כ״ג. וע׳ מש״כ לעיל ג׳ ל״א. וא״כ פי׳ <b>לצבא</b> למשא שזהו עיקר עסק בני קהת:
+<b>לעשות מלאכה.</b> בפ״ע אם יהא נדרש גם לזה:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -41,7 +48,8 @@
 <div class='passukFr'> Voici la t&acirc;che des enfants de Kehath, dans la tente d&rsquo;assignation: elle concerne les choses tr&egrave;s saintes.</div>
 <div class='passukEn'>This shall be the service of the sons of Qehat in the Tent of Meeting, namely, the most holy things:</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>קדש הקדשים.</b> המקודש שבכולן, הארון והשלחן והמנורה והמזבחות והפרוכת וכלי שרת: <small> (רש"י)</small></div>
-<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>קדש הקדשים</b>. הוא הארון: <small> (אבן עזרא) </small></div></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>קדש הקדשים</b>. הוא הארון: <small> (אבן עזרא) </small></div>
+</div>
 
 
 <div class='newPassuk'>
@@ -53,7 +61,9 @@
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ובא אהרן ובניו וגו'.</b> יכניסו כל כלי וכלי לנרתקו המפורש לו בפרשה זו, ולא יצטרכו הלוים בני קהת אלא לשאת: <b>בנסוע המחנה.</b> כשהענן מסתלק <span style='cursor:pointer' onclick='hideShowById(54)'>(י)</span><span id='54' class='siftey' l></b> פירוש אל יקשה בעיניך לומר היאך היו יודעים השעה שיסעו עד שיתחילו לפרק שאין כבוד לארון הקודש לכסותו אחר נסיעת דגל מחנה יהודה כי היה נראה שנסיעת דגל יהודה הכריח לפרק המשכן ולכסות הארון: <small> (שפתי חכמים)</small></span></b> הם יודעין שיסעו: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>פרכת המסך</b>. שתסוך על הארון: <small> (אבן עזרא) </small></div>
 <div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>בנסע המחנה</b>. אחר שנסתלק הענן כי קודם לכן היה אסור להם ליכנס:<small> (ספורנו) </small></div>
-<div class='daatZkenim'><b><small>&nbsp;דעת זקנים&nbsp;</small></b>&nbsp;<b>וכסו בה את ארון העדות.</b> וכתיב ושמו בדיו פי' נתקנו בדיו אבל אין לפרש לשון שימה ממש דהא כתיב לא יסורו ממנו לעולם: <small> (דעת זקנים) </small></div></div>
+<div class='daatZkenim'><b><small>&nbsp;דעת זקנים&nbsp;</small></b>&nbsp;<b>וכסו בה את ארון העדות.</b> וכתיב ושמו בדיו פי' נתקנו בדיו אבל אין לפרש לשון שימה ממש דהא כתיב לא יסורו ממנו לעולם: <small> (דעת זקנים) </small></div>
+<div class='rashbam'><b><small>  רשב"ם  </small></b>אהרן ובניו בנסוע המחנה - שני דגלים ראשונים שנוסעים תחלה, קודם שיסע המשכן והלוים. (רשב"ם)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -64,7 +74,11 @@
 <div class='passukEn'>and they shall put on it the covering of taĥash skins, and shall spread over it a cloth wholly of blue, and shall put in its poles.</div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ונתנו עלי</b>ו. על המסך ויש אומרים כי ישוב עליו אל מלת את שהוא את פרכת וכמוהו ותצפנו: <b>ופרשו בגד כלי</b>. <b>ל תכ</b>. לת. כלו תכלת: <b>מלמעלה</b>. י''א על כסוי עור תחש והנכון בעיני שפירושו וכבר פרשו בגד כליל תכלת מלמעלה לפרכת המסך ואם לדרך כבוד יתכן גם הראשון ועור תחש מפני הגשם והאבק: <b>ושמו בדיו</b>. הנה יסירום עד שיכסו הארון ויש אומרים שמו בדיו על כתפות הנושאים: <small> (אבן עזרא) </small></div>
 <div class='ramban'><b><small>&nbsp;הרמב"ן&nbsp;</small></b>&nbsp;<b>ונתנו עליו כסוי עור תחש ופרשו בגד כליל תכלת מלמעלה</b>. בעבור מעלת הארון לא היה נראה עליו כסוי עור תחש אבל היו מכסים אותו בפרוכת שהוא המסך לו ומכסים את שניהם במכסה עור תחש בעבור הגשמים ופורשים על הכל בגד כליל תכלת מלמעלה שיהיה נראה עליו הבגד הנכבד שהוא כעצם השמים לטוהר <small><small>(במד"ר ד יג)</small></small> אבל שאר כל הכלים השולחן והמנורה והמזבחות היה נראה עליהם מלמעלה מכסה עור תחש ויש אומרים כי טעם הכתוב ופרשו בגד כליל תכלת מלמעלה לפרכת המסך ונתנו עליו על הארון והפרוכת כסוי עור תחש וטעם ושמו בדיו על כתפות הכהנים והנכון כי "ושמו" שיתקנו אותם להיות יוצאים לשאת אותו בהם כי היו הטבעות רחבים ויאריכו הבדים בהם כרצונם ובלבד שלא יסורו ממנו<small> (הרמב"ן)</small></div>
-<div class='baalHaturim'><b><small>&nbsp;בעל הטורים&nbsp;</small></b>&nbsp;בארון ובמזבח הנחשת כתיב בדיו ובשלחן ובמזבח הזהב כתיב לבתים לבדים וכת. ב את בדיו לרבות הבתים: <small> (בעל הטורים) </small></div></div>
+<div class='baalHaturim'><b><small>&nbsp;בעל הטורים&nbsp;</small></b>&nbsp;בארון ובמזבח הנחשת כתיב בדיו ובשלחן ובמזבח הזהב כתיב לבתים לבדים וכת. ב את בדיו לרבות הבתים: <small> (בעל הטורים) </small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ונתנו עליו כסוי עור תחש וגו׳.</b> יש להתבונן על שנוי הכסוים ואופני הקיפול שבין כ״א וא׳. ובל״ס שכ״ז מיד ה׳ עלינו להשכיל על תכונת כל כלי שרת שראוי להיות כן. והנה ראשית השנוי הוא בארון הקודש. שבכל כל״ש היה בגד תכלת למטה וכסוי עור תחש מלמעלה. ובארון הקודש להיפך. והענין דבגד תכלת מורה על הנהגה למעלה מן הטבע כעין כסא הכבוד. ועור תחש נעשה לשמירה בדרך מחול וגשם וכדומה. מעתה נבין דכל כלי שרת כל א׳ מורה על פרט כמו השלחן על מלכות והמזבח הפנימי על כה״ג כדאיתא ביומא פ׳ בא לו לענין הזירים שעליהם. והמנורה על כח פלפולה ש״ת כמש״כ ר״פ תצוה ובפ׳ אמור וכל אלו אף ע״ג שמקורם למעלה בקודש ובהשגחה פרטית על כל מתנשא בישראל. מכ״מ לפי הנראה לעין אדם באו בהשתדלות האדם להגיע לכך. מש״ה הבגד תכלת למטה ועור תחש למעלה משא״כ הארון להיפך כליל תפארתו נגלה לעין כל שהוא למעלה מטבע אנושי והארון נושא את נושאיו. מכ״מ גנז הקב״ה גם בו הליכות הטבע עד שמכ״מ היה נישא ביד אנשים מש״ה בא עור תחש למטה ובגד כליל תכלת למעלה:
+<b>ושמו בדיו.</b> כבר ביארו התוס׳ יומא דף ע״ב א׳ דלא ששמו ממש. שהרי כבר היו הבדים עליו אלא משום שהיה בעמידה הבדים יוצאים למזרח ובולטין בפרכת כשני דדי אשה. ובשעת המסע התקינו שיהיו יוצאים משני הצדדים בשוה. זהו כוונת התוס׳ וגו׳ מש״כ בס׳ שמות כ״ה י״ד ט״ו:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -75,7 +89,10 @@
 <div class='passukEn'>And upon the table of showbread they shall spread a cloth of blue, and put on it the dishes, and the spoons, and the bowls, and the jars for pouring out: and the continual bread shall be on it:</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>קערת וכפת קשות ומנקיות.</b> כבר פירשתי במלאכת המשכן: <b>הנסך.</b> הכסוי לשון מסך, אשר יוסך בהם: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ועל שולחן הפנים</b>. להורות כי יש שם שולחנות אחרות לצורך הבשר ולחם הפנים שיש בו לא יוסר: <small> (אבן עזרא) </small></div>
-<div class='ramban'><b><small>&nbsp;הרמב"ן&nbsp;</small></b>&nbsp;<b>ולחם התמיד עליו יהיה</b>. על השולחן עצמו יהיה הלחם ועליהם בגד התכלת וישימו על הבגד הזה בשלחן כל הכלים ואחרי כן יפרשו על הכלים והשולחן בגד תולעת שני כי לכבוד הלחם שהוא מסודר כהלכתו יפרשו בגד תכלת להפריש בין השלחן ולחמו ובין הכלים והיה המכסה העליון בבגד תולעת שני שהוא מראה אדום בעבור שהשולחן סימן לכתר מלכות שהוא במדת הדין אבל הארון ומזבח הזהב בבגד תכלת למדה הכלולה מן הכל ומזבח העולה בבגד ארגמן שהוא אדום יותר מן הראשון כי שם יזרק הדם כופר נפשם<small> (הרמב"ן)</small></div></div>
+<div class='ramban'><b><small>&nbsp;הרמב"ן&nbsp;</small></b>&nbsp;<b>ולחם התמיד עליו יהיה</b>. על השולחן עצמו יהיה הלחם ועליהם בגד התכלת וישימו על הבגד הזה בשלחן כל הכלים ואחרי כן יפרשו על הכלים והשולחן בגד תולעת שני כי לכבוד הלחם שהוא מסודר כהלכתו יפרשו בגד תכלת להפריש בין השלחן ולחמו ובין הכלים והיה המכסה העליון בבגד תולעת שני שהוא מראה אדום בעבור שהשולחן סימן לכתר מלכות שהוא במדת הדין אבל הארון ומזבח הזהב בבגד תכלת למדה הכלולה מן הכל ומזבח העולה בבגד ארגמן שהוא אדום יותר מן הראשון כי שם יזרק הדם כופר נפשם<small> (הרמב"ן)</small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ונתנו עליו וגו׳.</b> היו כלי השלחן מונחים על השלחן בבגד תולעת שני. והשלחן לבדו בבגד תכלת מפסיק בין השלחן בין כליו. ולא כמו כלי המנורה. היינו משום דשלחן בא למלכות כמש״כ. ואין מלך בלי ראשי העם סביביו. אבל מכ״מ הוא מופשט מהם. ומוראו עליהם מבלי יהא רגיל עמהם כ״כ. גם אופני הנשיאות ראש שלהם משונים. דהמלך הוא מושגח פרטי ממקור עליון ב״ה. מש״ה הונח בכסוי תכלת. משא״כ סנקליטין שלו תלוי בדעת המלך ואין להם השגחה פרטית יותר משארי ב״א. מש״ה פרוש עליהם בגד תולעת שני:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -84,7 +101,8 @@
 <div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וְיִפְרְשׁוּן עֲלוֹי לְבוּשׁ צְבַע זְהוֹרִי וִיכַסוּן יָתֵיהּ בְּחוֹפָאָה דִמְשַׁךְ סַסְגוֹנָא וִישַׁווּן יַת אֲרִיחוֹהִי:<small> (תרגום יונתן) </small></div>
 <div class='passukFr'> Ils &eacute;tendront sur ces objets une &eacute;toffe d&rsquo;&eacute;carlate, qu&rsquo;ils couvriront d&rsquo;une housse de peau de tahach; puis ils ajusteront ses barres.</div>
 <div class='passukEn'>and they shall spread upon them a cloth of scarlet, and cover the same with a covering of taĥash skins, and shall put in its poles.</div>
-<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>בגד תולעת שני</b>. והנה על השולחן שני בגדים והמכסה וכן על הארון מסך ובגד תכלת ומכסה ועל המנורה בגד ומכסה: <small> (אבן עזרא) </small></div></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>בגד תולעת שני</b>. והנה על השולחן שני בגדים והמכסה וכן על הארון מסך ובגד תכלת ומכסה ועל המנורה בגד ומכסה: <small> (אבן עזרא) </small></div>
+</div>
 
 
 <div class='newPassuk'>
@@ -93,7 +111,11 @@
 <div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וְיִסְבוּן לְבוּשׁ דְתִכְלָא וִיכַסוּן יַת מְנַרְתָּא דְאַנְהוֹרֵי וְיַת בּוֹצִינָהָא וְיַת מַלְקְטַיָא וְיַת מַחְתְּיָתָא וְיַת כָּל מָאנֵי שִׁמוּשָׁא דִישַׁמְשׁוּן לָהּ בְּהוֹן:<small> (תרגום יונתן) </small></div>
 <div class='passukFr'> ils prendront une &eacute;toffe d&rsquo;azur, y envelopperont le cand&eacute;labre servant &agrave; l&rsquo;&eacute;clairage, avec ses lampes, ses mouchettes, ses godets et tous les vaisseaux &agrave; huile employ&eacute;s pour son service.</div>
 <div class='passukEn'>And they shall take a cloth of blue, and cover the candlestick of the light, and its lamps, and its tongs, and its pans, and all its oil vessels, with which they minister to it:</div>
-<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מלקחיה.</b> כמין צבת, שמושך בה את הפתילה לכל צד שירצה: <b>מחתתיה.</b> כמין כף קטנה, ושוליה פשוטין ולא סגלגלים, ואין לה מחיצה לפנים אלא מצדיה וחותה בה את דשן הנרות כשמטיבן: <b>נרתיה.</b> לוצי"ש בלע"ז שנותנים בהן <span style='cursor:pointer' onclick='hideShowById(55)'>(כ)</span><span id='55' class='siftey' l></b> פירוש לא הפתילה הדולקת כמו נר אלהים וגומר לכן פירש פה שהוא מורה על הכלי כי מלת נר מורה גם על הכלי:  <small> (שפתי חכמים)</small></span></b> השמן והפתילות: <small> (רש"י)</small></div></div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מלקחיה.</b> כמין צבת, שמושך בה את הפתילה לכל צד שירצה: <b>מחתתיה.</b> כמין כף קטנה, ושוליה פשוטין ולא סגלגלים, ואין לה מחיצה לפנים אלא מצדיה וחותה בה את דשן הנרות כשמטיבן: <b>נרתיה.</b> לוצי"ש בלע"ז שנותנים בהן <span style='cursor:pointer' onclick='hideShowById(55)'>(כ)</span><span id='55' class='siftey' l></b> פירוש לא הפתילה הדולקת כמו נר אלהים וגומר לכן פירש פה שהוא מורה על הכלי כי מלת נר מורה גם על הכלי:  <small> (שפתי חכמים)</small></span></b> השמן והפתילות: <small> (רש"י)</small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ולקחו בגד</b> <b>תכלת.</b> הקדים במנורה לקיחת הבגד קודם שהזכיר את המנורה ולא ככל כלי שרת שבפרשה. ללמדנו דכח פלפולה ש״ת בעי׳ סיעתא דשמיא לעמלים בה עוד קודם שהגיעו להיות ת״ח. שיהיו יכולים להגיע לבסוף לכבודה:
+<b>וכסו את מנורת המאור ואת נרותיה וגו׳.</b> ללמדנו שהרב עם התלמידים הוא מוכרח להיות בצוותא אחת. והיו עיניהם רואות את מוריהם ומשמשים אותו. וכולם מושגחים בפרטות כמו הרב כן התלמידים. ומש״ה היו הכל בבגד תכלת אחד:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -104,7 +126,9 @@
 <div class='passukEn'>and they shall put it and all its vessels within a covering of taĥash skins, and shall put it upon a bar.</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אל מכסה עור תחש.</b> <span style='cursor:pointer' onclick='hideShowById(56)'>(ל)</span><span id='56' class='siftey' l></b> פירוש שק גדול ששמים בו סחורות מדכתיב אל מכסה משמע דבר שיש לו תוך:  <small> (שפתי חכמים)</small></span></b> כמין מרצוף <small><small>(כלים פ"כ מ"א)</small></small>: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ונתנו על המוט</b>. כי אין לה בדים והוא כמו וישאוהו במ וט: <small> (אבן עזרא) </small></div>
-<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>ונתנו על המוט</b>. ואז יזכו הלויים לשאת:<small> (ספורנו) </small></div></div>
+<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>ונתנו על המוט</b>. ואז יזכו הלויים לשאת:<small> (ספורנו) </small></div>
+<div class='rashbam'><b><small>  רשב"ם  </small></b>ונתנו על המוט - טועה היה בזה ר' יוסף קרא. מדלא כתיב כדכתיב: במוט בשנים - והיה רוצה לומר שכל המוט היה תחת הכלים, מדכתיב: על. השיבותי: כי המוטות היו מצד הכלים, כדרך כל משא שנותנין המוטות בטבעות שבצדי הכלים, כדכתיב בפרשת המשכן, אבל אצל לשון ונתנו - ראוי לומר על המוט ואצל לשון משא אמר במוט כדכתיב: וישאוהו במוט. ונשא בם את השלחן, כדכתיב: בכתף ישאו - אין לכם משא אלא בכתף, כלומר: בדבר זה נושאין זה. (רשב"ם)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -113,7 +137,10 @@
 <div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וְעַל מַדְבְּחָא דְדַהֲבָא יִפְרְסוּן לְבוּשׁ תִּכְלָא וִיכַסוּן יָתֵיהּ בְּחוֹפָאָה דִמְשַׁךְ סַסְגוֹנָא וִישַׁווּן יַת אֲרִיחוֹי:<small> (תרגום יונתן) </small></div>
 <div class='passukFr'> Sur l&rsquo;autel d&rsquo;or ils &eacute;tendront une &eacute;toffe d&rsquo;azur, la couvriront d&rsquo;une housse de peau de tahach, et ajusteront les barres;</div>
 <div class='passukEn'>And upon the golden altar they shall spread a cloth of blue, and cover it with a covering of taĥash skins, and shall put in its poles.</div>
-<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ועל מזבח הזהב</b>. בגד (צ''ל אחד) אחר ומכסה לכסות את הקודש שהוא הארון והשולחן והמנורה והמזבחות וכל כלי השרת כמו סכינים וכפות וקערות: <small> (אבן עזרא) </small></div></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ועל מזבח הזהב</b>. בגד (צ''ל אחד) אחר ומכסה לכסות את הקודש שהוא הארון והשולחן והמנורה והמזבחות וכל כלי השרת כמו סכינים וכפות וקערות: <small> (אבן עזרא) </small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ועל מזבח הזהב וגו׳.</b> כבר ביארנו שהוא נגד כהונה גדולה. ובאשר אין מוכרח לכה״ג שיהא כהנים הדיוטים סביביו. מש״ה הונח מזבח הזהב בפ״ע בתכלת ובעור תחש:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -122,7 +149,10 @@
 <div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וְיִסְבוּן יַת כָּל מָאנֵי שִׁמוּשָׁא דִי יְשַׁמְשׁוּן בְּהוֹן בְּקוּדְשָׁא וְיִתְּנוּן לִלְבוּשׁ דְתִכְלָא וִיכַסוּן יַתְהוֹן בְּחוֹפָאָה דִמְשַׁךְ סַסְגוֹנָא וְיִתְּנוּן עַל קוֹפָא:<small> (תרגום יונתן) </small></div>
 <div class='passukFr'> ils prendront tous les ustensiles employ&eacute;s pour le service du sanctuaire, les mettront dans une &eacute;toffe d&rsquo;azur, les couvriront d&rsquo;une housse de peau de tahach, et les poseront sur une civi&egrave;re.</div>
 <div class='passukEn'>And they shall take all the instruments of ministry, with which they minister in the sanctuary, and put them in a cloth of blue, and cover them with a covering of taĥash skins, and shall put them on a bar:</div>
-<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>את כל כלי השרת אשר ישרתו בם בקדש.</b> בתוך המשכן שהוא קדש, <span style='cursor:pointer' onclick='hideShowById(57)'>(מ)</span><span id='57' class='siftey' l></b> דק"ל דלא הל"ל אלא אשר ישרתו בם בקדש למה לי. ומתרץ משום הכי כתיב בקדש לומר שלא היו משרתים על המזבח באותן כלים כי אם במשכן כי אין צריך כלים למזבח הפנימי שלא היו מקטירין עליו אלא קטורת הסמים. <small><small>(גור אריה)</small></small> לא שיהיה פירושו שישרתו בם בקדושה דאם כן ה"ל לנקוד הבי"ת בשו"א אבל עכשיו שהיא נקודה בפת"ח משמע קודש הידוע והוא המשכן שהוא ידוע ביותר:  <small> (שפתי חכמים)</small></span></b> והן כלי הקטרת שמשרתין בהם במזבח הפנימי: <small> (רש"י)</small></div></div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>את כל כלי השרת אשר ישרתו בם בקדש.</b> בתוך המשכן שהוא קדש, <span style='cursor:pointer' onclick='hideShowById(57)'>(מ)</span><span id='57' class='siftey' l></b> דק"ל דלא הל"ל אלא אשר ישרתו בם בקדש למה לי. ומתרץ משום הכי כתיב בקדש לומר שלא היו משרתים על המזבח באותן כלים כי אם במשכן כי אין צריך כלים למזבח הפנימי שלא היו מקטירין עליו אלא קטורת הסמים. <small><small>(גור אריה)</small></small> לא שיהיה פירושו שישרתו בם בקדושה דאם כן ה"ל לנקוד הבי"ת בשו"א אבל עכשיו שהיא נקודה בפת"ח משמע קודש הידוע והוא המשכן שהוא ידוע ביותר:  <small> (שפתי חכמים)</small></span></b> והן כלי הקטרת שמשרתין בהם במזבח הפנימי: <small> (רש"י)</small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ולקחו וגו׳.</b> נגד כהנים הדיוטים וגם המה משרתי עליון המה ומושגחים בפרטות מש״ה גם המה נתכסו בבגד תכלת מלמטה:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -132,7 +162,10 @@
 <div class='passukFr'> Ils enl&egrave;veront les cendres de l&rsquo;autel, sur lequel ils &eacute;tendront une &eacute;toffe de pourpre.</div>
 <div class='passukEn'>and they shall take away the ashes from the altar, and spread a purple cloth on it:</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ודשנו את המזבח.</b> מזבח הנחשת: <b>ודשנו.</b> יטלו את <span style='cursor:pointer' onclick='hideShowById(58)'>(נ)</span><span id='58' class='siftey' l></b> לא שישימו בו הדשן:  <b></span></b> הדשן מעליו: <b>ופרשו עליו בגד ארגמן.</b> ואש שירדה מן השמים, רבוצה תחת הבגד כארי <small><small>(יומא כא:)</small></small> <span style='cursor:pointer' onclick='hideShowById(59)'>(ס)</span><span id='59' class='siftey' l></b> דוקא בשעת המסעות נראית הגחלת כארי אבל בשעת חנייתן לא היתה נראית מפני אש של המערכה שהיתה מונחת עליו ובנסעם הסירו כל האש ונראית הגחלת:  <b></span></b> בשעת המסעות ואינה שורפתו, שהיו כופין עליה <span style='cursor:pointer' onclick='hideShowById(60)'>(ע)</span><span id='60' class='siftey' l></b> בשלהי פרק המוצא תפילין פרש"י פסכתר סיר של נחושת סירות מתרגמינן פסכתרות: <small> (שפתי חכמים)</small></span></b> פסכתר של נחשת <small><small>(עירובין קד:)</small></small>: <small> (רש"י)</small></div>
-<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ודשנו</b>. הסרת הדשן מעל המזבח: <small> (אבן עזרא) </small></div></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ודשנו</b>. הסרת הדשן מעל המזבח: <small> (אבן עזרא) </small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ודשנו את המזבח וגו׳ בגד ארגמן.</b> באשר כח עבודה היא במזבח החיצון. ושפע ברכה בא ע״י מזבח החיצון שמזין כדאיתא בכתובות ד״ח. ואפי׳ קטרת שעל מזבח הפנימי מוכרח להביא הגחלים ממזבח החיצון. מש״ה בא עליו בגד ארגמן שהוא בגד מלכים ומי שיש לו שפע עשירות:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -141,7 +174,8 @@
 <div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וְיִתְּנוּן עֲלוֹי יַת כָּל מָנוֹי דִישַׁמְשׁוּן עֲלוֹי בְּהוֹן יַת מַחְתְּיָיתָא וְיַת מַשִׁלְיָיתָא וְיַת מַגְרוֹפְיָיתָא וְיַת מִזְרְקַיָא כָּל מָאנֵי מַדְבְּחָא וְיִפְרְסוּן עֲלוֹי חוֹפָאָה דִמְשַׁךְ סַסְגוֹנָא וִישַׁווּן אֲרִיחוֹי:<small> (תרגום יונתן) </small></div>
 <div class='passukFr'> Ils mettront l&agrave;-dessus tous les ustensiles destin&eacute;s &agrave; son service: brasiers, fourches, pelles, bassins, tous les ustensiles de cet autel; ils d&eacute;ploieront par-dessus une housse de peau de tahach, et ajusteront les barres.</div>
 <div class='passukEn'>and they shall put upon it all its vessels with which they minister about it, the pans, the forks, and the shovels, and the basins, all the vessels of the altar; and they shall spread upon it a covering of taĥash skins, and put in its poles.</div>
-<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מחתת.</b> שבהן חותים גחלים לתרומת הדשן, שעשויה כמין מחבת, שאין לה אלא שלש מחיצות, ומלפניה שואבת את הגחלים: <b>המזלגות.</b> צינוריות של נחשת, שבהן מכין באברים שעל המזבח להפכן, כדי שיתעכלו יפה ומהר: <b>יעים.</b> הם מגרפות ובלע"ז ווידי"ל והן של נחשת, ובהן מכבדין את הדשן מעל המזבח: <small> (רש"י)</small></div></div>
+<div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>מחתת.</b> שבהן חותים גחלים לתרומת הדשן, שעשויה כמין מחבת, שאין לה אלא שלש מחיצות, ומלפניה שואבת את הגחלים: <b>המזלגות.</b> צינוריות של נחשת, שבהן מכין באברים שעל המזבח להפכן, כדי שיתעכלו יפה ומהר: <b>יעים.</b> הם מגרפות ובלע"ז ווידי"ל והן של נחשת, ובהן מכבדין את הדשן מעל המזבח: <small> (רש"י)</small></div>
+</div>
 
 
 <div class='newPassuk'>
@@ -151,7 +185,9 @@
 <div class='passukFr'> Aaron et ses fils ach&egrave;veront ainsi d&rsquo;envelopper les choses saintes et tous les ustensiles sacr&eacute;s, lors du d&eacute;part du camp; alors seulement viendront les enfants de Kehath pour les porter, car ils ne doivent pas toucher aux choses saintes, sous peine de mort. C&rsquo;est l&agrave; la charge des enfants de Kehath dans la tente d&rsquo;assignation.</div>
 <div class='passukEn'>And when Aharon and his sons have made an end of covering the sanctuary, and all the vessels of the sanctuary, as the camp is to set forward; after that, the sons of Qehat shall come to bear it: but they shall not touch any holy thing, lest they die. These things are the burden of the sons of Qehat in the Tent of Meeting.</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>לכסות את הקודש.</b> הארון והמזבח: <b>ואת כל כלי הקודש.</b> המנורה וכלי שרת: <b>ומתו.</b> שאם יגעו חייבין <span style='cursor:pointer' onclick='hideShowById(61)'>(פ)</span><span id='61' class='siftey' l></b> לא שאם לא יגעו ימותו כדמשמע פשוטו של קרא אלא מלת ימותו אינו דבוק עם ולא יגעו רק שהוא דבוק עם מלת יגעו לבד הבא מדיוקא ולא יגעו הא אם יגעו ועליה קאי ימותו:  <small> (שפתי חכמים)</small></span></b> מיתה בידי שמים: <small> (רש"י)</small></div>
-<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>משא בני קהת באהל מועד</b>. כי האהל והמשכן הם לא ישאוהו: <small> (אבן עזרא) </small></div></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>משא בני קהת באהל מועד</b>. כי האהל והמשכן הם לא ישאוהו: <small> (אבן עזרא) </small></div>
+<div class='rashbam'><b><small>  רשב"ם  </small></b>ואחרי כן יבאו בני קהת - לאחר שתכסו את הארון והכלים. (רשב"ם)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -163,7 +199,12 @@
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ופקדת אלעזר.</b> שהוא ממונה עליהם לשאת אותם: <b>שמן המאור וקטורת הסמים ומנחת התמיד ושמן המשחה.</b> עליו מוטל לצוות ולזרז <span style='cursor:pointer' onclick='hideShowById(62)'>(צ)</span><span id='62' class='siftey' l></b> ואם תאמר והרי תחלה פירש לשאת אותם. ויש לומר דכך פירושו לשאת אותם שמן וקטרת ושמן המשחה אבל מנחת התמיד עליו מוטל כו' אף על גב דמשמע של לשאת אכולהו קאי אף על המנחה מכל מקום אי אפשר לומר כן לפי שהמנחה זה קמח ומקריבין עם הקרבן שמפרישין אותו עשרון לכבש ואינה קרויה מנחה אלא בזמן שמפרישין אותו לקרבן והוא בעת החנייה שאז היו מקריבין ולא בעת הנסיעה. וכן שכן שאין לומר שמיירי שהפרישו אותה או נתקדשה בכלי דאם כן היתה נפסלת ביוצא גם למה יפרשו אותה מקודם וחביבה מצוה בשעתה ואם כן אי אפשר לומר שנשא אותה בעת הנסיעה. לכן פירש שעליו מוטל לצוות כו' ובזה נדחה קושיית הרמב"ן מדברי רש"י זכרונו לברכה:  <b></span></b> ולהקריב בעת חנייתן: <b>פקדת כל המשכן.</b> ועוד היה ממונה על משא בני קהת, לצוות איש איש <span style='cursor:pointer' onclick='hideShowById(63)'>(ק)</span><span id='63' class='siftey' l></b> פירוש לא שישאם הוא בעצמו כמו שמן המאור והשאר כי כבר כתיב למעלה ואחרי כן יבואו בני קהת לשאת והוסיף לומר על משא בני קהת מפני שלא תטעה לומר שגם משא בני גרשון ומררי נמי היה על פי אלעזר מדכתיב פקודת כל המשכן וזה אינו דמשא בני גרשון ומררי על פי איתמר היה. לכן פירש על משא בני קהת היה ממונה אלעזר:  <small> (שפתי חכמים)</small></span></b> על עבודתו ועל משאו, והוא המשכן וכל אשר בו כל האמורים למעלה בפרשה זו, אבל משא בני גרשון ומררי שאינן מקדש הקדשים, על פי איתמר היה, כמו שכתוב בפרשת נשא <small><small>(לקמן פסוק כח)</small></small>: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ופקדת</b>. מגזרת פקיד: <b>שמן המאור</b>. יש אומרים כי הוא היה נושא שמן המאור לילה אחד וכן את מנחת התמיד והנכון בעיני שהוא פקיד עליה לתת שמן המאור וטעם הכלי וכן כלי שמן המשחה וכלי הקטורת לבני הקהתים. וטעם <b>פקדת כל המשכן</b>. כי יש לו גם פקידות במשכן ובכל כליו עם אחיו איתמר רק לגודל מעלת אלעזר היה הוא פקיד על השמן הקטרת והמנחה לבדו: <small> (אבן עזרא) </small></div>
 <div class='ramban'><b><small>&nbsp;הרמב"ן&nbsp;</small></b>&nbsp;<b>ופקדת אלעזר בן אהרן הכהן שמן המאור</b>. יאמר שהוא פקיד על כל אלו ושיעורו "פקודת כל המשכן ופקודת כל אשר בו" ואמר רבי אברהם כי פירושו שיש לו פקידות גם במשכן ובכל כליו עם איתמר אחיו רק לגודל מעלת אלעזר היה הוא פקיד על השמן ועל הקטורת לבדו ואינו נכון כי הכתוב אומר <small><small>(פסוקים כח לג)</small></small> "ביד איתמר" ופירש בכאן "בקדש ובכליו" וכן אמר למעלה <small><small>(ג לב)</small></small> ונשיא נשיאי הלוי אלעזר בן אהרן הכהן פקדת שומרי משמרת הקדש כלומר נשיא פקודת משמרת הקדש שהם הנתונים ביד בני קהת אבל פירוש "פקדת כל המשכן" כי פקדת שמן המאור והקטורת והמנחה ושמן המשחה ופקדת כל המשכן בקדש וכל אשר בו בכלי הקדש הכל ביד אלעזר והם הנזכרים בכאן <small><small>(פסוק טו)</small></small> שאמר וכלה אהרן ובניו לכסות את הקדש ואת כל כלי הקדש והנה אלעזר אמרכל על שלשת הנשיאים וגזבר למשמרת בני קהת ואיתמר גזבר לגרשון ומררי ומפני שלא הזכיר באלעזר "ונשא" כאמור בלוים יראה שאינו נושא אותם אבל הוא פקיד עליהם ונותן אותם מידו ליד בני קהת אשר יבחר בהם בזריזות וחסידות והם ישאו אותם ויחזירום לידו בהקים המשכן וכן פקדת שומרי משמרת הקדש <small><small>(לעיל ג לב)</small></small> וכן ובשמות תפקדו את כלי משמרת משאם <small><small>(להלן פסוק לב)</small></small> ועל דעת הירושלמי <small><small>(שבת פ"י ה"ג)</small></small> הכתוב בפירושי רש"י <small><small>(שבת צב ד"ה שכן)</small></small> שהוא נושא אותם יהיה משא גדול כי הקטורת שס"ה מנה <small><small>(כריתות ו)</small></small> ומשה רבינו לא פטמה לחצאין ושמן המאור לשנה שלימה רב מאד קפ"ג לוגין ומנחת התמיד לא ידענו לכמה ימים ישא ממנה אבל היה אלעזר חזק ואמיץ כיעקב אבינו וכן משה רבינו ואהרן אחיו וקוי ה' יחליפו כח<small> (הרמב"ן)</small></div>
-<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>ופקדת אלעזר</b>. לצוות מי ומי ישא ומה ישא כל אחד ואחד:<b> פקדת כל המשכן</b>. ובעת נסיעתם וחנייתם היתה פקודתו לצוות הקמתם והורדתם והנחתם במקום הראוי להם:<small> (ספורנו) </small></div></div>
+<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>ופקדת אלעזר</b>. לצוות מי ומי ישא ומה ישא כל אחד ואחד:<b> פקדת כל המשכן</b>. ובעת נסיעתם וחנייתם היתה פקודתו לצוות הקמתם והורדתם והנחתם במקום הראוי להם:<small> (ספורנו) </small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>פקודת כל המשכן וגו׳.</b> גם זה פקודת אלעזר שהוא היה הסגן שהוא ממונה בכל הנעשה במשכן:
+<b>בקדש.</b> בעבודת הקרבנות הוא היה מצוה להביא בכל עת לפי הצורך:
+<b>ובכליו.</b> היינו במשא הכלים ובהבאתם לעבודה כדתנן במסכת תמיד אמר להם הממונה כו׳:
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -172,7 +213,8 @@
 <div class='yonatan'><b><small>&nbsp;יונתן&nbsp;</small></b>&nbsp;וּמַלֵיל יְיָ עִם משֶׁה וְעִם אַהֲרן לְמֵימָר:<small> (תרגום יונתן) </small></div>
 <div class='passukFr'> L&rsquo;&Eacute;ternel parla ainsi &agrave; Mo&iuml;se et &agrave; Aaron:</div>
 <div class='passukEn'>And the Lord spoke to Moshe and to Aharon, saying,</div>
-<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;וטעם <b>אל משה וא</b>. <b>ל אהרן</b>. כי מצוה על אהרן ובניו להשמר שלא יבאו הקהתים לידי כרת: <small> (אבן עזרא) </small></div></div>
+<div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;וטעם <b>אל משה וא</b>. <b>ל אהרן</b>. כי מצוה על אהרן ובניו להשמר שלא יבאו הקהתים לידי כרת: <small> (אבן עזרא) </small></div>
+</div>
 
 
 <div class='newPassuk'>
@@ -183,7 +225,8 @@
 <div class='passukEn'>Do not cut off the tribe of the families of the Qehati from among the Levites:</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>אל תכריתו.</b> אל תגרמו להם <span style='cursor:pointer' onclick='hideShowById(64)'>(ר)</span><span id='64' class='siftey' l></b> הודיענו בזה שמלת תכריתו הוא מבנין הפעיל: <small> (שפתי חכמים)</small></span></b> שימותו: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;ומלת <b>אל תכריתו</b>. למשה אהרן ובניו: <small> (אבן עזרא) </small></div>
-<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>אל תכריתו</b>. אל תניחו את המשאות באופן שיזכה בהם כל הקודם כי בזה האופן יקרה שידחפו זה את זה ויחללו את הקודש וזה יהיה סבה להכריתם כמו שספרו ז''ל (פרק ב' דיומא) שקרה בתרומת הדשן:<small> (ספורנו) </small></div></div>
+<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>אל תכריתו</b>. אל תניחו את המשאות באופן שיזכה בהם כל הקודם כי בזה האופן יקרה שידחפו זה את זה ויחללו את הקודש וזה יהיה סבה להכריתם כמו שספרו ז''ל (פרק ב' דיומא) שקרה בתרומת הדשן:<small> (ספורנו) </small></div>
+</div>
 
 
 <div class='newPassuk'>
@@ -195,7 +238,11 @@
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>וחיו</b>. יוסיפו חיים: <b>ולא ימותו</b>. בכרת והטעם כי אם ישמרו יקבלו שכר ואם לא יענשו כי יתכן שלא יענשו על כן ולא ימותו: <b>ושמו אותם</b>. הארון והשולחן והמנורה והמזבחות: <b>על עבודתו</b>. בכלי הקדש. <b>ואל משאו</b>. לשאת בכתף: <small> (אבן עזרא) </small></div>
 <div class='baalHaturim'><b><small>&nbsp;בעל הטורים&nbsp;</small></b>&nbsp;<b>וחיו</b>. ב' וחיו ולא ימותו וחיו את בניהם ושבו בתרי עשר בענין הגאולה מלמד שמלאך המות בטל לעתיד לבא וזהו וחיו את בניהם ושבו וחיו ולא ימותו: <small> (בעל הטורים) </small></div>
 <div class='orHaHaim'><b><small>&nbsp;אור החיים&nbsp;</small></b>&nbsp;<b>וזאת עשו וגו'</b>. פירוש המעשה הוא שלא יהיו בני קהת ברשות עצמן לשאת כחפצם, שאז לצד חיבת עבודת הקודש הכל רצים לעבוד ונמצאו שוגגים בדבר, אלא ישימו אותם אהרן ובניו איש איש וגו' ובזה כל אחד מכיר מקומו, והוא אומרו <b>ושמו אותם איש</b> וגו', והוא אומרו <b>ולא יבואו לראות</b> פירוש כדי שלא יבואו לידי ראיה כבלע את הקודש, ופירוש <b>ושמו</b> הוא שלא יועיל בהכרת כל אחד מקומו לבד אלא לא יכנס לשים ידו לשאת עד שיאמר לו אהרן ובניו פלוני שים ידך במקום פלוני לישא וכן על זה הדרך, והוא אומרו <b>ושמו אותם</b>, ולזה תמצא במצות בני גרשון הגם שאמר הכתוב על פי אהרן ובניו תהיה כל עבודת וגו' לא אמר ושמו וגו':<br><br><b>וחיו ולא ימותו</b>. פירוש כי בהתעסקם בארון שבו התורה שהוא מקור החיים יאריכו ימים, ולחשש ההיזק שיכול להיות מהנגיעה והראות בו אמר <b>ולא ימותו</b>:<br><br><b>חסלת פרשת במדבר</b><small> (אור החיים) </small></div>
-<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;ושמו אותם איש איש על עבודתו ואל משאו. ולא שיהיה כל הקודם זוכה אבל ימתין כל אחד להיות מצווה ועושה:<small> (ספורנו) </small></div></div>
+<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;ושמו אותם איש איש על עבודתו ואל משאו. ולא שיהיה כל הקודם זוכה אבל ימתין כל אחד להיות מצווה ועושה:<small> (ספורנו) </small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>וחיו ולא ימותו.</b> יוסיפו חיים ולא יכרתו. הראב״ע. פי׳ כל קדושה נותנת חיים לנזהר בהם כראוי. ומכרית למי שאינו נזהר כראוי. ועובד אדום ובניו יוכיחו שנתברכו הרבה בשמירת הארון כראוי:
+<b>ושמו אותם איש וגו׳ ואל משאו.</b> אין הכונה שיפרשו מי ומי ישא הארון וכדומה. שזה היה גם במשא גרשון ומררי. כמבואר ברבה פ״ו. ותו א״כ על משאו מיבעי אלא אהרן ובניו יעמידו את נושאי כל כלי קודש אל המשא משום שהיו הכל מכוסה ואם לא היו עושין כן היו בע״כ מגביהין הכסוי כרגע לדעת איזה כלי הוא. וזהו שפירש הכתוב עוד
+(העמק דבר)</div>
+</div>
 
 
 <div class='newPassuk'>
@@ -207,5 +254,10 @@
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ולא יבאו לראות כבלע את הקדש.</b> לתוך נרתק שלו, כמו שפירשתי למעלה בפרשה זו ופרשו עליו בגד פלוני וכסו אותו במכסה פלונית, ובלוע שלו <span style='cursor:pointer' onclick='hideShowById(65)'>(ש)</span><span id='65' class='siftey' l></b> וכן תרגם אונקלוס כד מכסן ית מני קודשא: חסלת פרשת במדבר <small> (שפתי חכמים)</small></span></b> הוא כסויו: <br><br>חסלת פרשת במדבר: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ולא יבואו</b>. הקהתים אל אהל מועד לראות כבלע את הקדש והטעם כאשר יוסר בנינו יוסר מסך הפרכת ונגלה הארון ויש אומרים כי כבלע כמו ככסות והטעם כאשר יכסו הארון לשאת אותו וזה טעם קרוב מהראשון והנה שתים אזהרות שלא יגעו בקדש כי אם בבדים ישאוהו ולא יראו הקדש:<br><br><b>חסלת פרשת במדבר</b><small> (אבן עזרא) </small></div>
 <div class='ramban'><b><small>&nbsp;הרמב"ן&nbsp;</small></b>&nbsp;<b>ולא יבאו לראות כבלע את הקדש</b>. כשמכניסין את הכלי לתוך נרתיקו כמו שפירש למעלה בפרשה זו ופרשו עליו בגד פלוני וכסו אותו במכסה פלוני ובלוע שלו זהו כסויו לשון רש"י והוא דעתו של אונקלוס ורבותינו אמרו במסכת סנהדרין <small><small>(פא)</small></small> שזו אזהרה על הגונב כלי שרת שחייב מיתה והקנאין פוגעין בו שהגנבה והגזל יקראו בליעה מלשון חיל בלע ויקיאנו <small><small>(איוב כ טו)</small></small> והוצאתי את בלעו מפיו <small><small>(ירמיהו נא מד)</small></small> ור"א אמר כפשוטו שלא יבאו לראות כאשר יוסר פרכת המסך ויגלה הארון רק אחרי כן כאשר יכוסה יבאו לשאת אותו ויהיה "כבלע את הקדש" כאשר יוסר הבנין מעל הארון שהוא הקדש מלשון בלע ה' ולא חמל <small><small>(איכה ב ב)</small></small> יחד סביב ותבלעני <small><small>(איוב י ח)</small></small> והנה הלוים מוזהרים שלא יגעו אל ארון הקדש ומתו רק בבדים ישאוהו ועוד יזהירם שלא יבאו לראות כלל הסרת הבנין בעוד שיוריד אהרן את הפרכת כענין כי ראו בארון ה' <small><small>(שמואל א ו יט)</small></small> ויפה אמר אבל ע"ד האמת טעם הכתוב כי בעבור היות כבוד יושב הכרובים שם הוזהרו הלוים שלא יהרסו לראות את ה' עד שיורידו הכהנים את הפרכת כי אז תראה הכבוד בחביון עזו וישוב אל מקומו הראשון לקדש הקדשים ויהיה כבלע את הקדש כפשוטו והמשכיל יבין<small> (הרמב"ן)</small></div>
-<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>ולא יבאו לראות</b>. באופן זה לא יבאו לראות כשהכהן מכסה את כלי הקדש כדי להקדים איש את חברו ולא ינהגו קלות ראש באופן שיתחייבו מיתה:<small> (ספורנו) </small></div></div>
-<div class="alyot"><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html'>6</a></span><span class='parshiotTitle'><a href='7.html' class='linkSelected'>7</a></span><span class='parshiotTitle'><a href='8.html'>הפטרה</a></span></div></div></div></body></html>
+<div class='sforno'><b><small>&nbsp;ספורנו&nbsp;</small></b>&nbsp;<b>ולא יבאו לראות</b>. באופן זה לא יבאו לראות כשהכהן מכסה את כלי הקדש כדי להקדים איש את חברו ולא ינהגו קלות ראש באופן שיתחייבו מיתה:<small> (ספורנו) </small></div>
+<div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ולא יבאו לראות כבלע.</b> פי׳ כהרף עין. וכמו באכילה שהבולע בלי לעיסה אינו נהנה מאכילתו אלא רגע הבליעה. כך הרואה ואינו משביע עינו נקרא שהוא בולע. והזהיר הכתוב שלא יראו אפי׳ כבלע את הקודש:
+(העמק דבר)</div>
+<div class='rashbam'><b><small>  רשב"ם  </small></b>כבלע את הקדש - כשסותרין את ההיכל כבוד ה' נגלה ואם יראו ימותו. כמו שמצינו באנשי בית שמש כי ראו בארון ה'. כבלע - כמו בלע ה'. ודרך אורחותיך בלעו. בלע כל ארמנותיה. ומאשריו מבולעים. וכן כתיב למעלה, שמשעה שהיו מתחילים לפרק את המשכן היו מתרחקים בני קהת, כדכתיב: ובא אהרן ובניו בנסוע המחנה והורידו את פרכת המסך - וכל הפרשה עד: וכלה אהרן ובניו לכסות וגו' - ואחרי כן: יבאו בני קהת. (רשב"ם)</div>
+</div>
+<div class="alyot"><span class='parshiotTitle'><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html'>6</a></span><span class='parshiotTitle'><a href='7.html' class='linkSelected'>7</a></span><span class='parshiotTitle'><a href='8.html'>הפטרה</a></span></div>
+</div></div></body></html>

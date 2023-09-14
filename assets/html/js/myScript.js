@@ -56,12 +56,15 @@ function accordionOpenClose(id)
 				
 				function openNav() {
     document.getElementById("mySidenav").style.width = "50%";
+	document.getElementById("mySidenav").style.border = "1px solid #31567f";
 	document.getElementById("buttonNav").style.display = "none";
 	}
 
 			function closeNav() {
 		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("mySidenav").style.border = "0px";
 		document.getElementById("buttonNav").style.display = "";
+		
 	}
 				
 				function hideShowById(id) {
@@ -155,6 +158,9 @@ function accordionOpenClose(id)
 								orHaHaim:true,
 								kliYakar:true,
 								daatZkenim:true,
+								haemekDavar:true,
+								abarbanel:true,
+								rashbam:true,
 								malbim:true,
 								ralbag:true,
 								mezudatDavid:true,
@@ -169,10 +175,15 @@ function accordionOpenClose(id)
 				{
 				activeClasses=JSON.parse(activeClasses);
 				}
+
+				if (activeClasses["haemekDavar"]==null){ //update 1.3.4
+					activeClasses["haemekDavar"]=true;
+					activeClasses["abarbanel"]=true;
+					activeClasses["rashbam"]=true;
+					localStorage.setItem('actives',JSON.stringify(activeClasses));
+				}
 				
 				keys=Object.keys(activeClasses);
-				
-				 
 					
 					for (i = 0; i < keys.length; i += 1) {
 						var key=keys[i];
@@ -227,7 +238,7 @@ function accordionOpenClose(id)
 						 var elements = document.getElementsByClassName(theClass), i;
 							for (i = 0; i < elements.length; i += 1) {
 							if (elements[i].style.display === 'none') {
-								elements[i].style.display = '';
+								elements[i].style.display = 'inline-block';
 							} else {
 								elements[i].style.display = 'none';
 							}
@@ -239,7 +250,7 @@ function accordionOpenClose(id)
 						 var elements = document.getElementsByClassName(theClass), i;
 							for (i = 0; i < elements.length; i += 1) {
 							if (toAppear) {
-								elements[i].style.display = '';
+								elements[i].style.display = 'inline-block';
 							} else {
 								elements[i].style.display = 'none';
 							}

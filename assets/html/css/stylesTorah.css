@@ -64,13 +64,15 @@ a {
 }
 
 .linkSelected {
-    border: 4px solid #00e3ff;
+    border: 3px solid #00e3ff;
+    color: #00e3ff;
 }
 
 .pirushim {
-    display: inline-block;
+    display: inline-grid;
     margin-top: 5px;
     width: 100%;
+    justify-items: center;
 }
 
 .parshiotTitle {
@@ -125,6 +127,45 @@ a {
     font-size: var(--fontSizeOthers);
     background-color: rgba(7, 152, 236, 0.14);
     color: #212aa2;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.haemekDavar {
+    margin-top: -10px;
+    font-size: var(--fontSizeOthers);
+    background-color: rgb(255, 240, 223);
+    color: #834f1e;
+    box-sizing: border-box;
+    display:none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.rashbam {
+    margin-top: -10px;
+    font-size: var(--fontSizeOthers);
+    background-color: rgb(253, 234, 255);
+    color: #ce25b7;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.abarbanel {
+    margin-top: -10px;
+    font-size: var(--fontSizeOthers);
+    background-color: rgb(221, 255, 229);
+    color: #014701;
     box-sizing: border-box;
     display: inline-block;
     padding-left: 10px;
@@ -269,19 +310,6 @@ a {
     margin-bottom: 15px;
 }
 
-.sidenav {
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgba(102, 133, 228, 0.97);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    float: left;
-}
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -304,33 +332,6 @@ a {
     margin-left: 50px;
 }
 
-.trads {
-    display: inline-block;
-    width: 100%;
-}
-
-.button {
-    background-color: #4a2dbb7a;
-    border: none;
-    color: white;
-    margin-left: 15px;
-    font-size: 14px;
-    padding-left: 2px;
-    padding-right: 2px;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: sans-serif;
-    display: inline-grid;
-    width: 80%;
-    margin-top: 10px;
-    text-align: center;
-    float: left;
-}
-
-.active {
-    border: 5px solid #173ea7;
-}
-
 .buttonInAccordion {
     background-color: #5475aa;
     color: #f9ffff;
@@ -343,20 +344,6 @@ a {
     font-size: 20px;
     font-weight: bold;
     transition: 0.4s;
-}
-
-.accordion {
-    background-color: #31567f;
-    color: #e3fbff;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 30px;
-    transition: 0.4s;
-    font-weight: bold;
 }
 
 .community {
@@ -440,16 +427,6 @@ a {
     background-color: #31567f;
     color: #e3fbff;
     font-weight: bold;
-}
-
-.linkSelected {
-    border: 4px solid #00e3ff;
-}
-
-.pirushim {
-    display: inline-block;
-    margin-top: 5px;
-    width: 100%;
 }
 
 .inSeferTitle {
@@ -610,12 +587,14 @@ a {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgba(102, 133, 228, 0.97);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 10px;
     padding-bottom: 10px;
     float: left;
+    box-shadow: 17px 19px 0px rgb(0 0 0 / 0.2);
+    background-color: white;
+    height: 80%;
 }
 
 .sidenav a {
@@ -641,18 +620,16 @@ a {
 
 .trads {
     box-sizing: border-box;
-    display: inline-block;
+    display: inline-grid;
     width: 100%;
+    justify-items: center;
 }
 
 .button {
-    background-color: #4a2dbb7a;
+    background-color: #31567f;
     border: none;
     color: white;
-    margin-left: 15px;
     font-size: 20px;
-    padding-left: 2px;
-    padding-right: 2px;
     font-weight: bold;
     cursor: pointer;
     font-family: sans-serif;
@@ -664,21 +641,8 @@ a {
 }
 
 .active {
-    border: 5px solid #173ea7;
-}
-
-.buttonInAccordion {
-    background-color: #5475aa;
-    color: #f9ffff;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 20px;
-    font-weight: bold;
-    transition: 0.4s;
+    border: 2px solid #00e3ff;
+    color: #00e3ff;
 }
 
 .accordion {

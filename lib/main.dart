@@ -20,26 +20,29 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      body: WillPopScope(
-        onWillPop: () async {
-          webViewController!.loadFile(assetFilePath: "assets/html/index.html");
+          body: WillPopScope(
+            onWillPop: () async {
+              webViewController!
+                  .loadFile(assetFilePath: "assets/html/index.html");
 
-          return false;
-        },
-        child: SafeArea(
-          child: InAppWebView(
-            onWebViewCreated: (controller) => webViewController = controller,
-            initialFile: "assets/html/indexIntro.html",
-            initialOptions: InAppWebViewGroupOptions(
-                crossPlatform: InAppWebViewOptions(
-                  supportZoom: false,
-                  javaScriptEnabled: true,
-                ),
-                android: AndroidInAppWebViewOptions(textZoom: 260)),
+              return false;
+            },
+            child: SafeArea(
+              child: InAppWebView(
+                onWebViewCreated: (controller) =>
+                    webViewController = controller,
+                initialFile: "assets/html/indexIntro.html",
+                initialOptions: InAppWebViewGroupOptions(
+                    crossPlatform: InAppWebViewOptions(
+                      supportZoom: false,
+                      javaScriptEnabled: true,
+                    ),
+                    android: AndroidInAppWebViewOptions(textZoom: 260)),
+              ),
+            ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }
