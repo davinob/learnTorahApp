@@ -145,30 +145,31 @@ function accordionOpenClose(id)
 				console.log(activeClasses);
 				if (activeClasses==null)
 				{
-				activeClasses={onkelos:true,
-								yonatan:true,
-								passukEn:true,
-								passukFr:false,
-								rashi:true,
-								siftey:true,
-								ibnEzra:true,
-								ramban:true,
-								sforno:true,
-								baalHaturim:true,
-								orHaHaim:true,
-								kliYakar:true,
-								daatZkenim:true,
-								haemekDavar:true,
-								abarbanel:true,
-								rashbam:true,
-								malbim:true,
-								ralbag:true,
-								mezudatDavid:true,
-								mezudatZion:true,
-								passukFrHa:true,
-								passukEnHa:true,
-								rashiHa:true
-								};
+			activeClasses={onkelos:true,
+							yonatan:true,
+							passukEn:true,
+							passukFr:false,
+							rashi:true,
+							siftey:true,
+							ibnEzra:true,
+							ramban:true,
+							sforno:true,
+							baalHaturim:true,
+							orHaHaim:true,
+							kliYakar:true,
+							daatZkenim:true,
+							haemekDavar:true,
+							abarbanel:true,
+							rashbam:true,
+							gurarie:true,
+							malbim:true,
+							ralbag:true,
+							mezudatDavid:true,
+							mezudatZion:true,
+							passukFrHa:true,
+							passukEnHa:true,
+							rashiHa:true
+							};
 				localStorage.setItem('actives',JSON.stringify(activeClasses));
 				}
 				else
@@ -176,12 +177,17 @@ function accordionOpenClose(id)
 				activeClasses=JSON.parse(activeClasses);
 				}
 
-				if (activeClasses["haemekDavar"]==null){ //update 1.3.4
-					activeClasses["haemekDavar"]=true;
-					activeClasses["abarbanel"]=true;
-					activeClasses["rashbam"]=true;
-					localStorage.setItem('actives',JSON.stringify(activeClasses));
-				}
+			if (activeClasses["haemekDavar"]==null){ //update 1.3.4
+				activeClasses["haemekDavar"]=true;
+				activeClasses["abarbanel"]=true;
+				activeClasses["rashbam"]=true;
+				localStorage.setItem('actives',JSON.stringify(activeClasses));
+			}
+			
+			if (activeClasses["gurarie"]==null){ //update for Gur Arie
+				activeClasses["gurarie"]=true;
+				localStorage.setItem('actives',JSON.stringify(activeClasses));
+			}
 				
 				keys=Object.keys(activeClasses);
 					

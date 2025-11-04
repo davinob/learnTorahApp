@@ -1,5 +1,5 @@
 <html><head>				<link rel='stylesheet' type='text/css' href='../css/stylesTorah.css'>			<script src='../js/myScript.js'></script>											</head>							<body class='theBody' onload='initClassesBasedOnCookies()'>						
-<div id='mySidenav' class='sidenav'>  					<span class='trads'>					<span type='button' id='passukEn'  onClick="hideShow('passukEn',this)" class='button'>EN</span>					<span type='button' id='passukFr'  onClick="hideShow('passukFr',this)" class='button'>FR</span>										</span>					<span class='pirushim'>					<span type='button' id='onkelos' onClick="hideShow('onkelos',this)" class='button'>אונקלוס</span>					<span type='button' id='yonatan'  onClick="hideShow('yonatan',this)" class='button'>יונתן</span>					<span type='button' id='rashi' onClick="hideShow('rashi',this)" class='button'>רש"י</span>					<span type='button' id='siftey' onClick="hideShow('siftey',this)" class='button'>שפתי חכמים</span>										<span type='button' id='ibnEzra' onClick="hideShow('ibnEzra',this)" class='button'>אבן עזרא</span>					<span type='button' id='ramban' onClick="hideShow('ramban',this)" class='button'>הרמב"ן</span>					<span type='button' id='sforno' onClick="hideShow('sforno',this)" class='button'>ספורנו</span>					<span type='button' id='baalHaturim' onClick="hideShow('baalHaturim',this)" class='button'>בעל הטורים</span>					<span type='button' id='orHaHaim' onClick="hideShow('orHaHaim',this)" class='button'>אור החיים</span>					<span type='button' id='kliYakar' onClick="hideShow('kliYakar',this)" class='button'>כלי יקר</span>					<span type='button' id='daatZkenim' onClick="hideShow('daatZkenim',this)" class='button'>דעת זקנים</span><span type='button' id='haemekDavar' onClick="hideShow('haemekDavar',this)" class='button'>העמק דבר</span><span type='button' id='abarbanel' onClick="hideShow('abarbanel',this)" class='button'>אברבנאל</span><span type='button' id='rashbam' onClick="hideShow('rashbam',this)" class='button'>רשב"ם</span>					</span>  					</div><span id='buttonNav' style='font-size:35px;cursor:pointer; position:fixed' onclick='openNav()'>&#9776;</span>								
+<div id='mySidenav' class='sidenav'>  					<span class='trads'>					<span type='button' id='passukEn'  onClick="hideShow('passukEn',this)" class='button'>EN</span>					<span type='button' id='passukFr'  onClick="hideShow('passukFr',this)" class='button'>FR</span>										</span>					<span class='pirushim'>					<span type='button' id='onkelos' onClick="hideShow('onkelos',this)" class='button'>אונקלוס</span>					<span type='button' id='yonatan'  onClick="hideShow('yonatan',this)" class='button'>יונתן</span>					<span type='button' id='rashi' onClick="hideShow('rashi',this)" class='button'>רש"י</span>					<span type='button' id='siftey' onClick="hideShow('siftey',this)" class='button'>שפתי חכמים</span>										<span type='button' id='ibnEzra' onClick="hideShow('ibnEzra',this)" class='button'>אבן עזרא</span>					<span type='button' id='ramban' onClick="hideShow('ramban',this)" class='button'>הרמב"ן</span>					<span type='button' id='sforno' onClick="hideShow('sforno',this)" class='button'>ספורנו</span>					<span type='button' id='baalHaturim' onClick="hideShow('baalHaturim',this)" class='button'>בעל הטורים</span>					<span type='button' id='orHaHaim' onClick="hideShow('orHaHaim',this)" class='button'>אור החיים</span>					<span type='button' id='kliYakar' onClick="hideShow('kliYakar',this)" class='button'>כלי יקר</span>					<span type='button' id='daatZkenim' onClick="hideShow('daatZkenim',this)" class='button'>דעת זקנים</span><span type='button' id='haemekDavar' onClick="hideShow('haemekDavar',this)" class='button'>העמק דבר</span><span type='button' id='abarbanel' onClick="hideShow('abarbanel',this)" class='button'>אברבנאל</span><span type='button' id='rashbam' onClick="hideShow('rashbam',this)" class='button'>רשב"ם</span><span type='button' id='gurarie' onClick="hideShow('gurarie',this)" class='button'>גור אריה</span>					</span>  					</div><span id='buttonNav' style='font-size:35px;cursor:pointer; position:fixed' onclick='openNav()'>&#9776;</span>								
 <div class='theContent'  style="display:none"  onclick='closeNav()'>
 <div class='newParasha'><span class='parashaTitle'><a href='../index.html'>תורה</a></span><span class='parashaTitle'><a href='1.html'>תרומה</a></span>
 <div class='alyot'><span><a href='../Mishpatim/8.html'><<</a><a href='1.html'>1</a></span><span class='parshiotTitle'><a href='2.html' class='linkSelected'>2</a></span><span class='parshiotTitle'><a href='3.html'>3</a></span><span class='parshiotTitle'><a href='4.html'>4</a></span><span class='parshiotTitle'><a href='5.html'>5</a></span><span class='parshiotTitle'><a href='6.html'>6</a></span><span class='parshiotTitle'><a href='7.html'>7</a></span><span class='parshiotTitle'><a href='8.html'>הפטרה</a></span><a href='../Tetzave/1.html'>>></a></div>
@@ -15,6 +15,7 @@
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>כפורת. </b>כסוי על הארון, שהיה פתוח מלמעלה, ומניחו עליו כמין דף: <b>אמתים וחצי ארכה. </b>כארכו של ארון, ורחבה כרחבו של ארון, ומונחת על עובי הכתלים ארבעתם, ואף על פי שלא נתן שיעור לעוביה, פירשו רבותינו <span style='cursor:pointer' onclick='hideShowById(623)'>(א)</span><span id='623' class='siftey' l></b> מגזירה שוה דכתיב בפרשת אחרי פני הכפורת וכתיב על פני יצחק וכל פנים לכל הפחות טפח גמרא: <small> (שפתי חכמים)</small></span></b> שהיה עוביה טפח <small><small>(סוכה ה.)</small></small>: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ועשית כפרת</b>. כדמות מכסה. ואמר יפת כי כמוהו לכפר עליו. כמו כסוי חטא'. ולפי דעתי שמלת לכפר עליו מגזרת כופר. והנה זה מפורש ונתנו איש כופר נפשו. ושם כתוב לכפר על נפשותיכם ועובי הכפורת לא נזכר: <small> (אבן עזרא) </small></div>
 <div class='rashbam'><b><small>  רשב"ם  </small></b>כפרת - ל' כיסוי. אמתים וחצי ארכה וגו' - כמדת ארכו ורחבו של ארון. (רשב"ם)</div>
+
 </div>
 
 
@@ -30,6 +31,7 @@
 <div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>שנים.</b> שני מיבעי. וכ״כ בפרשת ויקהל שני כרובים. והנה לפי הכלל ריש פרק שני שעירי. דבכל מקום דכתיב שני והוא מיותר דסתם רבים שנים והכא נמי סתם כרובים שנים. אלא שני שיהיו שוין זה כזה. ודאי הכי הוי. מיהו בדבר אחד לא היו שוין. דלחדא היה צורת זכר ולחדא צורת נקבה כדמוכח ביומא דנ״ד א׳. והיינו דכתיב שנים. דמשמע זוג כרובים א׳ זכר וא׳ נקבה (אח״כ מצאתי שרבינו בחיי כ״כ) ללמדנו דאהבה שבין ישראל לאביהם שבשמים שיבואר במקרא הסמוך הוא אהבת המשפיע והמושפע. שטבע היצירה מחייבם שכך הוטבע הבריאה שיהא המשפיע משתוקק להשפיע באהבה על המושפע ממנו. והמושפע עיניו תלויות תמיד להמשפיע. כך תשוקת של הקב״ה להשפיע תמיד ברכה באהבה על ישראל. וכלשון חז״ל בב״ר פ״כ אין תשוקתו של הקב״ה אלא על ישראל שנאמר ועלי תשוקתו. וישראל עיניהם תלויות רק להקב״ה:
 (העמק דבר)</div>
 <div class='rashbam'><b><small>  רשב"ם  </small></b>כרבים - עופות, כדכתיב: (יחזקאל כח) את כרוב ממשח הסוכך. עוף גדול בעל כנפים. וחכמים פירשו: פני תינוק. מקשה - מעובי זהב הכפורת הקשו בקורנס, להבליט ממנו כרוב ולא נתחבר שם. (רשב"ם)</div>
+
 </div>
 
 
@@ -62,6 +64,7 @@
 <b>אל הכפרת וגו׳.</b> ללמדנו דהבטת הקב״ה וישראל יחד אל התורה שבארון וזה מבואר דקוב״ה וישראל ואורייתא חד הוא כ״י:
 (העמק דבר)</div>
 <div class='rashbam'><b><small>  רשב"ם  </small></b>למעלה - לצד ראשיהם. ופניהם איש אל אחיו שזה הוא אל אמצעות הכפורת, יהיו פני הכרובים. (רשב"ם)</div>
+
 </div>
 
 
@@ -78,6 +81,7 @@
 <div class='haemekDavar'><b><small>  העמק דבר  </small></b><b>ונתת את הכפרת על הארון מלמעלה ואל הארון וגו׳.</b> לא בא הכתוב לבאר הסדר איך שיגיע כל דבר לתכליתו. דא״כ להיפך מיבעי דמתחלה נתינת הלוחות בארון ואח״כ נתינת הכפרת על הארון. ותו הא כבר כתיב ונתת אל הארון וגו׳. אלא לא בא מקרא זה כ״א ללמד שתהא הכפרת על הארון למעלה. ועדיין אין הלשון מדויק כלל על הארון מלמעלה. ועוד הרבה דיוקים הכל יבא עה״נ להלן כ״ו ל״ד ברצות ה׳:
 <b>ואל הארון תתן את העדות.</b> אתה בעצמך ולא ע״י שלוחך כמו כל הקמת המשכן וכ״כ להלן מ׳ כ׳. והנה לפי הפשט. העדות היינו הלוחות והכי מבואר במעשה שם. והא דכתיב שלא כסדרן אמרו ע״ז בירושלמי שקלים פ״ו ה״א שאין מוקדם ומאוחר בתורה. ואי׳ שם דר׳ מאיר מפרש דמרומז כאן על הס״ת שניתן אח״כ בארון. וזהו כונה שניה שלמדנו מן הסדר:
 (העמק דבר)</div>
+
 </div>
 
 
@@ -172,6 +176,7 @@
 <div class='passukEn'>And thou shalt make the poles of shittim wood, and overlay them with gold, and they shall be for carrying the table.</div>
 <div class='rashi'><b><small>&nbsp;רש"י&nbsp;</small></b>&nbsp;<b>ונשא בם. </b>לשון נפעל, יהיה נשא בם את השלחן: <small> (רש"י)</small></div>
 <div class='ibnEzra'><b><small>&nbsp;אבן עזרא&nbsp;</small></b>&nbsp;<b>ונשא בם את השלחן</b>. מבנין נפעל. כמו ונקה המכה. כי הדגשות להתבלע פ''א הפועל: <small> (אבן עזרא) </small></div>
+
 </div>
 
 

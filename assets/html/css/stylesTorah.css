@@ -306,6 +306,17 @@ a {
     width: 100%;
 }
 
+.gurarie {
+    font-size: var(--fontSizeOthers);
+    background-color: rgba(100, 200, 180, 0.16);
+    color: #0d5e4d;
+    box-sizing: border-box;
+    display: inline; /* inline, not forcing new line */
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 3px;
+}
+
 .newParasha {
     margin-bottom: 15px;
 }
