@@ -14,12 +14,6 @@ html {
     margin-bottom: 10px;
 }
 
-.theBodyMain {
-    margin-top: 5%;
-    text-align: center;
-    direction: rtl;
-}
-
 .parsha {
     font-size: 10px;
     font-weight: bold;
@@ -55,24 +49,16 @@ a {
     border-radius: 10%;
     text-decoration: unset;
     margin-left: 8px;
-    padding: 2px;
+    padding: 2px 4px;
     border: 2px solid;
     display: inline-block;
     background-color: #31567f;
     color: #e3fbff;
-    font-weight: bold;
 }
 
 .linkSelected {
     border: 3px solid #00e3ff;
     color: #00e3ff;
-}
-
-.pirushim {
-    display: inline-grid;
-    margin-top: 5px;
-    width: 100%;
-    justify-items: center;
 }
 
 .parshiotTitle {
@@ -321,40 +307,40 @@ a {
     margin-bottom: 15px;
 }
 
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: rgba(237, 241, 241, 0.911);
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
 .buttonInAccordion {
-    background-color: #5475aa;
-    color: #f9ffff;
+    background: #fff;
+    color: #2a4d70;
     cursor: pointer;
-    padding: 18px;
+    padding: 14px 16px;
     width: 100%;
     border: none;
-    text-align: left;
+    border-bottom: 1px solid #e4ebf2;
+    text-align: right;
     outline: none;
-    font-size: 20px;
-    font-weight: bold;
-    transition: 0.4s;
+    font-size: 17px;
+    font-weight: 600;
+    transition: background 0.15s, transform 0.1s;
+    direction: rtl;
+    border-radius: 0;
+}
+
+.buttonInAccordion:first-child {
+    border-radius: 10px 10px 0 0;
+    margin-top: 8px;
+}
+
+.buttonInAccordion:last-child {
+    border-bottom: none;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 8px;
+}
+
+.buttonInAccordion:only-child {
+    border-radius: 10px;
+}
+
+.buttonInAccordion:active {
+    background: #e8f0f8;
 }
 
 .community {
@@ -381,6 +367,646 @@ a {
     transition: max-height 0.2s ease-out;
 }
 
+/* ==================== SEARCH HIGHLIGHTS ==================== */
+
+.searchHighlight {
+    background-color: #ffe14c;
+    border-radius: 3px;
+    padding: 1px 2px;
+    box-shadow: 0 0 0 1px #e6c200;
+}
+
+.searchHighlightCurrent {
+    background-color: #ff6b00;
+    color: white;
+    border-radius: 3px;
+    padding: 1px 2px;
+    box-shadow: 0 0 0 2px #cc5500;
+}
+
+
+/* ==================== SEARCH ICON ==================== */
+
+#searchIcon {
+    position: fixed;
+    top: 4px;
+    right: 8px;
+    z-index: 90;
+    background: linear-gradient(135deg, #31567f, #1e3e5e);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#searchIcon:active {
+    transform: scale(0.92);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+
+/* ==================== SEARCH ALIYOT NAV ==================== */
+
+#searchAliyotNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: #eaf1f8;
+    border-bottom: 1px solid #c5d5e5;
+    padding: 6px 10px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    direction: rtl;
+}
+
+.sanLabel {
+    font-size: 13px;
+    font-weight: 700;
+    color: #31567f;
+    margin-left: 4px;
+}
+
+.sanBtn {
+    font-size: 13px;
+    font-weight: 600;
+    background: #fff;
+    color: #31567f;
+    border: 1.5px solid #c5d5e5;
+    border-radius: 6px;
+    padding: 3px 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.sanBtn.sanCurrent {
+    background: #31567f;
+    color: #fff;
+    border-color: #31567f;
+}
+
+.sanCount {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.sanCount::before { content: '('; }
+.sanCount::after { content: ')'; }
+
+/* ==================== LOCAL SEARCH PANEL ==================== */
+
+#searchPanel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 12px 14px 10px;
+    direction: ltr;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    border-bottom: 2px solid #31567f;
+}
+
+#searchPanel .sRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+#searchPanel input[type="text"] {
+    flex: 1;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 2px solid #c5d5e5;
+    border-radius: 10px;
+    outline: none;
+    background: #f7fafd;
+    transition: border-color 0.2s;
+}
+
+#searchPanel input[type="text"]:focus {
+    border-color: #31567f;
+    background: #fff;
+}
+
+#searchPanel .sBtn {
+    background: linear-gradient(135deg, #31567f, #2a4a6e);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+#searchPanel .sBtn:active {
+    background: #1e3e5e;
+}
+
+#searchPanel .sBack {
+    font-size: 14px;
+    font-weight: 600;
+    color: #31567f;
+    background: #e8eff6;
+    border: 1.5px solid #c5d5e5;
+    border-radius: 8px;
+    padding: 6px 10px;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+#searchPanel .sBack:active {
+    background: #31567f;
+    color: #fff;
+}
+
+#searchPanel .sClose {
+    background: none;
+    color: #999;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+#searchPanel .sClose:hover {
+    color: #cc3333;
+}
+
+#searchPanel .sNav {
+    background: #e8eff6;
+    color: #31567f;
+    border: 1.5px solid #c5d5e5;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+#searchPanel .sNav:active {
+    background: #31567f;
+    color: white;
+}
+
+#searchPanel .sInfo {
+    font-size: 13px;
+    color: #31567f;
+    font-weight: 600;
+    min-width: 55px;
+    text-align: center;
+}
+
+
+/* ==================== SOURCE FILTER CHIPS ==================== */
+
+.sFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0;
+}
+
+.sFilters.open {
+    max-height: 400px;
+    padding: 6px 0;
+}
+
+.sGroupHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #d5e0ec;
+}
+
+.sGroupLabel {
+    font-size: 12px;
+    font-weight: 700;
+    color: #31567f;
+}
+
+.sGroupBtns {
+    display: flex;
+    gap: 3px;
+}
+
+.sToggleSm {
+    font-size: 11px !important;
+    padding: 1px 6px !important;
+    min-width: 0 !important;
+    line-height: 1.2;
+}
+
+.sf {
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 14px;
+    border: 1.5px solid #b0c4d8;
+    background: #f0f5fa;
+    color: #31567f;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sf.selected {
+    background: #31567f;
+    color: white;
+    border-color: #31567f;
+    box-shadow: 0 1px 4px rgba(49,86,127,0.3);
+}
+
+.sf:active {
+    transform: scale(0.95);
+}
+
+.sToggle {
+    font-size: 12px;
+    color: #31567f;
+    background: #e8eff6;
+    border: 1px solid #c5d5e5;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: background 0.15s;
+}
+
+.sToggle:active {
+    background: #d0dde8;
+}
+
+
+/* ==================== ZOOM CONTROLS ==================== */
+
+#zoomControls {
+    position: fixed;
+    bottom: 10px;
+    right: 6px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    border: 1px solid #d0dde8;
+}
+
+#zoomControls button {
+    background: #f0f5fa;
+    color: #31567f;
+    border: 1.5px solid #c5d5e5;
+    border-radius: 6px;
+    width: 32px;
+    height: 28px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.12s;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+#zoomControls button:active {
+    background: #31567f;
+    color: white;
+    transform: scale(0.93);
+}
+
+#zoomToast {
+    position: fixed;
+    bottom: 110px;
+    right: 10px;
+    z-index: 91;
+    background: rgba(30,62,94,0.9);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+}
+
+#zoomToast.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==================== GLOBAL SEARCH (index page) ==================== */
+
+#globalSearchBox {
+    margin: 0 auto 20px;
+    padding: 16px;
+    max-width: 600px;
+    background: linear-gradient(135deg, #f7fafd 0%, #eaf1f8 100%);
+    border-radius: 16px;
+    border: 1.5px solid #c5d5e5;
+    box-shadow: 0 4px 16px rgba(49,86,127,0.08);
+    direction: rtl;
+    text-align: right;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.gsTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #31567f;
+    margin-bottom: 10px;
+}
+
+#gsResultsHeader {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.gsCloseBtn {
+    background: #f0f4f8;
+    border: 1.5px solid #c5d5e5;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    padding: 6px 14px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.gsCloseBtn:active {
+    background: #cc3333;
+    color: #fff;
+    border-color: #cc3333;
+}
+
+.gsInputRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#gsInput {
+    flex: 1;
+    font-size: 17px;
+    padding: 10px 14px;
+    border: 2px solid #c5d5e5;
+    border-radius: 12px;
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+#gsInput:focus {
+    border-color: #31567f;
+    box-shadow: 0 0 0 3px rgba(49,86,127,0.1);
+}
+
+.gsBtn {
+    background: linear-gradient(135deg, #31567f, #2a4a6e);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.12s;
+    font-family: inherit;
+}
+
+.gsBtn:active {
+    transform: scale(0.95);
+}
+
+#gsProgress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    direction: ltr;
+}
+
+.gsProgressBar {
+    flex: 1;
+    height: 8px;
+    background: #dce6ef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.gsProgressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #31567f, #4a8dc9);
+    border-radius: 4px;
+    transition: width 0.2s;
+    width: 0%;
+}
+
+.gsProgressText {
+    font-size: 13px;
+    color: #31567f;
+    font-weight: 600;
+    min-width: 34px;
+    text-align: center;
+}
+
+.gsStopBtn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#gsResults {
+    margin-top: 12px;
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gsParashaGroup {
+    background: white;
+    border: 1.5px solid #d8e3ed;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.gsParashaHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    background: #eaf1f8;
+    border-bottom: 1px solid #d8e3ed;
+    user-select: none;
+}
+
+.gsParashaHeader:active {
+    background: #dbe6f2;
+}
+
+.gsToggleIcon {
+    margin-right: auto;
+    font-size: 12px;
+    color: #6a8faf;
+    transition: transform 0.2s;
+}
+
+.gsParashaGroup.collapsed .gsToggleIcon {
+    transform: rotate(-90deg);
+}
+
+.gsParashaBody {
+    padding: 4px 0;
+}
+
+.gsParashaGroup.collapsed .gsParashaBody {
+    display: none;
+}
+
+.gsAliyahCard {
+    padding: 10px 14px 10px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f4f8;
+    transition: background 0.1s;
+}
+
+.gsAliyahCard:last-child {
+    border-bottom: none;
+}
+
+.gsAliyahCard:active {
+    background: #f5f9fd;
+}
+
+.gsAliyahHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.gsParsha {
+    font-size: 16px;
+    font-weight: 700;
+    color: #31567f;
+}
+
+.gsAliyah {
+    font-size: 13px;
+    color: #6a8faf;
+    background: #eaf1f8;
+    padding: 2px 8px;
+    border-radius: 8px;
+}
+
+.gsCount {
+    font-size: 12px;
+    color: #999;
+    margin-right: auto;
+    direction: rtl;
+}
+
+.gsSnippet {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+    padding: 4px 0;
+    border-top: 1px solid #f0f0f0;
+    direction: rtl;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gsSnippetSrc {
+    display: inline-block;
+    font-size: 11px;
+    color: #fff;
+    background: #6a8faf;
+    padding: 1px 6px;
+    border-radius: 6px;
+    margin-left: 4px;
+    font-weight: 600;
+}
+
+.gsMore {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.gsNoResults {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-size: 15px;
+}
+
+.gsTotalCount {
+    text-align: center;
+    color: #31567f;
+    font-weight: 700;
+    padding: 10px;
+    font-size: 15px;
+    background: #e8f0f8;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
 .newPassuk {
     float: right;
     direction: rtl;
@@ -393,9 +1019,13 @@ a {
 }
 
 .theBodyMain {
-    margin-top: 5%;
+    margin: 0;
+    padding: 16px 12px;
     text-align: center;
     direction: rtl;
+    background: linear-gradient(180deg, #e8f0f8 0%, #f5f8fc 40%, #fff 100%);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .prakim {
@@ -592,88 +1222,138 @@ a {
     margin-bottom: 15px;
 }
 
+/* ==================== HAMBURGER BUTTON ==================== */
+
+#buttonNav {
+    z-index: 50;
+}
+
+/* ==================== SIDE NAV ==================== */
+
 .sidenav {
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 200;
     top: 0;
     left: 0;
     overflow-x: hidden;
+    overflow-y: auto;
     transition: 0.5s;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    float: left;
-    box-shadow: 17px 19px 0px rgb(0 0 0 / 0.2);
-    background-color: white;
-    height: 80%;
+    padding-top: 0;
+    background-color: #3d6da1;
+    height: 100%;
 }
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: rgba(237, 241, 241, 0.911);
+    color: #e3fbff;
     display: block;
     transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
 }
 
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 14px;
     font-size: 36px;
     margin-left: 50px;
 }
 
 .trads {
     box-sizing: border-box;
-    display: inline-grid;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
     width: 100%;
-    justify-items: center;
+    padding: 40px 14px 10px;
+}
+
+.pirushim {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    padding: 10px 14px 16px;
 }
 
 .button {
     background-color: #31567f;
-    border: none;
-    color: white;
-    font-size: 20px;
+    border: 1px solid #5a8aba;
+    color: #e3fbff;
+    font-size: 17px;
     font-weight: bold;
     cursor: pointer;
     font-family: sans-serif;
-    display: inline-grid;
-    width: 80%;
-    margin-top: 10px;
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
     text-align: center;
-    float: left;
+    float: none;
+    border-radius: 6px;
+    margin-top: 0;
 }
 
-.active {
+.button:active {
+    background-color: #264a6b;
+}
+
+.button.active {
+    background-color: #1a4a6e;
     border: 2px solid #00e3ff;
     color: #00e3ff;
 }
 
 .accordion {
-    background-color: #31567f;
-    color: #e3fbff;
+    background: linear-gradient(135deg, #35618a 0%, #2a4d70 100%);
+    color: #fff;
     cursor: pointer;
-    padding: 18px;
+    padding: 18px 20px;
     width: 100%;
     border: none;
-    text-align: left;
+    text-align: right;
     outline: none;
-    font-size: 30px;
-    transition: 0.4s;
-    font-weight: bold;
+    font-size: 22px;
+    transition: background 0.2s, box-shadow 0.2s;
+    font-weight: 700;
+    border-radius: 14px;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 8px rgba(42,77,112,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    direction: rtl;
+    letter-spacing: 0.3px;
+}
+
+.accordion::after {
+    content: '▸';
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    transition: transform 0.25s ease;
+    margin-left: 4px;
+    flex-shrink: 0;
+}
+
+.accordion.open::after {
+    transform: rotate(90deg);
+    color: rgba(255,255,255,0.9);
+}
+
+.accordion:active {
+    background: linear-gradient(135deg, #264a6b 0%, #1e3e5e 100%);
+    box-shadow: 0 1px 4px rgba(42,77,112,0.25);
 }
 
 .panel {
     width: 100%;
-    background-color: white;
+    background: #f4f7fb;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: max-height 0.3s ease-out;
+    border-radius: 0 0 14px 14px;
+    margin-top: -6px;
+    margin-bottom: 10px;
+    padding: 0 6px;
 }
