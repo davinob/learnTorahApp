@@ -20,11 +20,23 @@ class _MyAppState extends State<MyApp> {
   InAppWebViewController? webViewController;
   final UpdateService _updateService = UpdateService.instance;
   bool _updateAvailable = false;
+  String? _pendingLocalStorageRestore;
+  String? _pendingReturnUrl;
+  Timer? _updateTimer;
+
+  static const _updateInterval = Duration(minutes: 15);
 
   @override
   void initState() {
     super.initState();
     _checkForUpdates();
+    _updateTimer = Timer.periodic(_updateInterval, (_) => _checkForUpdates());
+  }
+
+  @override
+  void dispose() {
+    _updateTimer?.cancel();
+    super.dispose();
   }
 
   Future<void> _checkForUpdates() async {
@@ -39,19 +51,69 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  void _reloadWithUpdates() {
+  Future<void> _reloadWithUpdates() async {
     if (webViewController != null && _updateService.hasLocalContent) {
-      final path = _updateService.getIndexPath();
-      if (path.startsWith('file://')) {
-        webViewController!.loadUrl(
-          urlRequest: URLRequest(url: WebUri(path)),
+      final currentUrl = await webViewController!.getUrl();
+      final savedState = await webViewController!.evaluateJavascript(source: '''
+        (function() {
+          var data = {};
+          for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            data[key] = localStorage.getItem(key);
+          }
+          return JSON.stringify(data);
+        })();
+      ''');
+
+      _pendingLocalStorageRestore = (savedState != null && savedState != 'null') ? savedState : null;
+
+      final currentUrlStr = currentUrl?.toString() ?? '';
+      final basePath = _updateService.getLocalBasePath();
+
+      if (currentUrlStr.contains(basePath) && !currentUrlStr.endsWith('indexIntro.html')) {
+        final relativePath = currentUrlStr.substring(currentUrlStr.indexOf(basePath) + basePath.length);
+        _pendingReturnUrl = 'file://$basePath$relativePath';
+      } else {
+        _pendingReturnUrl = null;
+      }
+
+      await webViewController!.clearCache();
+
+      final reloadUrl = _pendingReturnUrl ?? _updateService.getIndexPath();
+      if (reloadUrl.startsWith('file://')) {
+        await webViewController!.loadUrl(
+          urlRequest: URLRequest(url: WebUri(reloadUrl)),
         );
       } else {
-        webViewController!.loadFile(assetFilePath: path);
+        await webViewController!.loadFile(assetFilePath: reloadUrl);
       }
+      _pendingReturnUrl = null;
+
       setState(() {
         _updateAvailable = false;
       });
+    }
+  }
+
+  Future<void> _onPageFinished(InAppWebViewController controller) async {
+    if (_pendingLocalStorageRestore != null) {
+      final escaped = _pendingLocalStorageRestore!
+          .replaceAll('\\', '\\\\')
+          .replaceAll("'", "\\'");
+      _pendingLocalStorageRestore = null;
+      await controller.evaluateJavascript(source: '''
+        (function() {
+          try {
+            var data = JSON.parse('$escaped');
+            for (var key in data) {
+              localStorage.setItem(key, data[key]);
+            }
+            if (typeof initClassesBasedOnCookies === 'function') {
+              initClassesBasedOnCookies();
+            }
+          } catch(e) { console.error('Restore localStorage error:', e); }
+        })();
+      ''');
     }
   }
 
@@ -98,12 +160,14 @@ class _MyAppState extends State<MyApp> {
       javaScriptEnabled: true,
       allowFileAccessFromFileURLs: true,
       allowUniversalAccessFromFileURLs: true,
+      cacheEnabled: false,
       textZoom: Platform.isAndroid ? 170 : 100,
     );
 
     if (useLocalContent) {
       return InAppWebView(
         onWebViewCreated: (controller) => webViewController = controller,
+        onLoadStop: (controller, url) => _onPageFinished(controller),
         initialUrlRequest: URLRequest(url: WebUri(indexPath)),
         initialSettings: settings,
       );
@@ -111,6 +175,7 @@ class _MyAppState extends State<MyApp> {
 
     return InAppWebView(
       onWebViewCreated: (controller) => webViewController = controller,
+      onLoadStop: (controller, url) => _onPageFinished(controller),
       initialFile: "assets/html/indexIntro.html",
       initialSettings: settings,
     );
