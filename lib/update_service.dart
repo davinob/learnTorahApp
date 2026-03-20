@@ -55,6 +55,10 @@ class UpdateService {
     return 'assets/html/index.html';
   }
 
+  String getLocalBasePath() {
+    return _localHtmlPath ?? '';
+  }
+
   bool get isConfigured {
     return UpdateConfig.owner != 'OWNER' && UpdateConfig.repo != 'REPO_NAME';
   }
