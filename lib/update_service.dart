@@ -64,14 +64,18 @@ class UpdateService {
   }
 
   Future<bool> _hasInternet() async {
-    try {
-      final result = await http
-          .get(Uri.parse('https://api.github.com'))
-          .timeout(const Duration(seconds: 5));
-      return result.statusCode == 200;
-    } catch (_) {
-      return false;
+    for (int attempt = 0; attempt < 3; attempt++) {
+      try {
+        final result = await http
+            .get(Uri.parse('https://www.google.com/generate_204'))
+            .timeout(const Duration(seconds: 15));
+        if (result.statusCode == 204 || result.statusCode == 200) return true;
+      } catch (e) {
+        print('[UpdateService] Internet check attempt ${attempt + 1} failed: $e');
+      }
+      if (attempt < 2) await Future.delayed(const Duration(seconds: 5));
     }
+    return false;
   }
 
   Future<UpdateResult> checkAndUpdate() async {
@@ -163,12 +167,23 @@ class UpdateService {
   Future<Map<String, dynamic>?> _fetchGitHubTree() async {
     final url =
         'https://api.github.com/repos/${UpdateConfig.owner}/${UpdateConfig.repo}/git/trees/${UpdateConfig.branch}?recursive=1';
-    final response = await http
-        .get(Uri.parse(url),
-            headers: {'Accept': 'application/vnd.github.v3+json'})
-        .timeout(const Duration(seconds: 30));
-    if (response.statusCode == 200) return json.decode(response.body);
-    print('[UpdateService] GitHub tree API returned ${response.statusCode}');
+    for (int attempt = 1; attempt <= 3; attempt++) {
+      try {
+        print('[UpdateService] GitHub tree fetch attempt $attempt');
+        final response = await http
+            .get(Uri.parse(url),
+                headers: {'Accept': 'application/vnd.github.v3+json'})
+            .timeout(const Duration(seconds: 30));
+        if (response.statusCode == 200) return json.decode(response.body);
+        print(
+            '[UpdateService] GitHub tree API returned ${response.statusCode}');
+      } catch (e) {
+        print('[UpdateService] GitHub tree fetch attempt $attempt failed: $e');
+      }
+      if (attempt < 3) {
+        await Future.delayed(Duration(seconds: 5 * attempt));
+      }
+    }
     return null;
   }
 
