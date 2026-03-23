@@ -19,7 +19,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   InAppWebViewController? webViewController;
   final UpdateService _updateService = UpdateService.instance;
-  bool _updateAvailable = false;
   String? _pendingLocalStorageRestore;
   String? _pendingReturnUrl;
   Timer? _updateTimer;
@@ -45,54 +44,60 @@ class _MyAppState extends State<MyApp> {
     final result = await _updateService.checkAndUpdate();
     print('[Main] Update result: ${result.message}');
     if (result.needsReload && mounted) {
-      setState(() {
-        _updateAvailable = true;
-      });
+      _reloadWithUpdates();
     }
   }
 
   Future<void> _reloadWithUpdates() async {
-    if (webViewController != null && _updateService.hasLocalContent) {
-      final currentUrl = await webViewController!.getUrl();
-      final savedState = await webViewController!.evaluateJavascript(source: '''
-        (function() {
-          var data = {};
-          for (var i = 0; i < localStorage.length; i++) {
-            var key = localStorage.key(i);
-            data[key] = localStorage.getItem(key);
-          }
-          return JSON.stringify(data);
-        })();
-      ''');
+    if (webViewController == null || !_updateService.hasLocalContent) return;
 
-      _pendingLocalStorageRestore = (savedState != null && savedState != 'null') ? savedState : null;
+    final currentUrl = await webViewController!.getUrl();
+    final currentUrlStr = currentUrl?.toString() ?? '';
+    final basePath = _updateService.getLocalBasePath();
 
-      final currentUrlStr = currentUrl?.toString() ?? '';
-      final basePath = _updateService.getLocalBasePath();
+    final savedState = await webViewController!.evaluateJavascript(source: '''
+      (function() {
+        var data = {};
+        for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          data[key] = localStorage.getItem(key);
+        }
+        return JSON.stringify(data);
+      })();
+    ''');
 
-      if (currentUrlStr.contains(basePath) && !currentUrlStr.endsWith('indexIntro.html')) {
-        final relativePath = currentUrlStr.substring(currentUrlStr.indexOf(basePath) + basePath.length);
-        _pendingReturnUrl = 'file://$basePath$relativePath';
+    _pendingLocalStorageRestore = (savedState != null && savedState != 'null') ? savedState : null;
+
+    if (currentUrlStr.contains(basePath) && !currentUrlStr.endsWith('indexIntro.html') && !currentUrlStr.endsWith('index.html')) {
+      final relativePath = currentUrlStr.substring(currentUrlStr.indexOf(basePath) + basePath.length);
+      _pendingReturnUrl = 'file://$basePath$relativePath';
+    } else {
+      final lastVisited = await webViewController!.evaluateJavascript(
+        source: 'localStorage.getItem("lastVisited")',
+      );
+      if (lastVisited != null && lastVisited != 'null' && lastVisited.toString().isNotEmpty) {
+        final cleanPath = lastVisited.toString().replaceAll('"', '').replaceAll("'", '');
+        if (cleanPath.isNotEmpty && !cleanPath.endsWith('indexIntro.html')) {
+          _pendingReturnUrl = 'file://$basePath/$cleanPath';
+        } else {
+          _pendingReturnUrl = null;
+        }
       } else {
         _pendingReturnUrl = null;
       }
-
-      await webViewController!.clearCache();
-
-      final reloadUrl = _pendingReturnUrl ?? _updateService.getIndexPath();
-      if (reloadUrl.startsWith('file://')) {
-        await webViewController!.loadUrl(
-          urlRequest: URLRequest(url: WebUri(reloadUrl)),
-        );
-      } else {
-        await webViewController!.loadFile(assetFilePath: reloadUrl);
-      }
-      _pendingReturnUrl = null;
-
-      setState(() {
-        _updateAvailable = false;
-      });
     }
+
+    await webViewController!.clearCache();
+
+    final reloadUrl = _pendingReturnUrl ?? _updateService.getIndexPath();
+    if (reloadUrl.startsWith('file://')) {
+      await webViewController!.loadUrl(
+        urlRequest: URLRequest(url: WebUri(reloadUrl)),
+      );
+    } else {
+      await webViewController!.loadFile(assetFilePath: reloadUrl);
+    }
+    _pendingReturnUrl = null;
   }
 
   Future<void> _onPageFinished(InAppWebViewController controller) async {
@@ -139,12 +144,7 @@ class _MyAppState extends State<MyApp> {
             if (!didPop) _goToIndex();
           },
           child: SafeArea(
-            child: Stack(
-              children: [
-                _buildWebView(),
-                if (_updateAvailable) _buildUpdateBanner(),
-              ],
-            ),
+            child: _buildWebView(),
           ),
         ),
       ),
@@ -178,42 +178,6 @@ class _MyAppState extends State<MyApp> {
       onLoadStop: (controller, url) => _onPageFinished(controller),
       initialFile: "assets/html/indexIntro.html",
       initialSettings: settings,
-    );
-  }
-
-  Widget _buildUpdateBanner() {
-    return Positioned(
-      bottom: 0,
-      left: 0,
-      right: 0,
-      child: Container(
-        color: const Color(0xFF31567F),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: Row(
-          children: [
-            const Expanded(
-              child: Text(
-                'Content updated! Tap to reload.',
-                style: TextStyle(color: Colors.white, fontSize: 14),
-              ),
-            ),
-            TextButton(
-              onPressed: _reloadWithUpdates,
-              child: const Text(
-                'Reload',
-                style: TextStyle(
-                  color: Color(0xFF00E3FF),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.close, color: Colors.white70, size: 20),
-              onPressed: () => setState(() => _updateAvailable = false),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

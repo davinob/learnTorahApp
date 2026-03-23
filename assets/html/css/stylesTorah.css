@@ -22,9 +22,12 @@ html {
 
 .alyot {
     margin-top: 20px;
-    margin-bottom: 20px;
-    float: left;
+    margin-bottom: 80px;
     width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     text-align: center;
 }
 
@@ -396,9 +399,9 @@ a {
     color: white;
     border: none;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -423,33 +426,74 @@ a {
     z-index: 99;
     background: #eaf1f8;
     border-bottom: 1px solid #c5d5e5;
-    padding: 6px 10px;
+    padding: 8px 10px;
     display: none;
     align-items: center;
     gap: 6px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     direction: rtl;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#searchAliyotNav::-webkit-scrollbar {
+    display: none;
+}
+
+#searchAliyotNavWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 98;
+}
+
+#searchAliyotNavWrap::before {
+    content: '\u25C0';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 44px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #eaf1f8 60%, transparent);
+    color: #6a8faf;
+    font-size: 14px;
+    pointer-events: none;
+    animation: scrollHintPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollHintPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }
 
 .sanLabel {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     color: #31567f;
     margin-left: 4px;
 }
 
 .sanBtn {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     background: #fff;
     color: #31567f;
     border: 1.5px solid #c5d5e5;
-    border-radius: 6px;
-    padding: 3px 8px;
+    border-radius: 8px;
+    padding: 6px 12px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .sanBtn.sanCurrent {
@@ -459,7 +503,7 @@ a {
 }
 
 .sanCount {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
     opacity: 0.7;
 }
@@ -480,7 +524,7 @@ a {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    padding: 12px 14px 10px;
+    padding: 14px 16px 12px;
     direction: ltr;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     border-bottom: 2px solid #31567f;
@@ -489,16 +533,16 @@ a {
 #searchPanel .sRow {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 6px;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
 #searchPanel input[type="text"] {
     flex: 1;
-    font-size: 16px;
-    padding: 8px 12px;
+    font-size: 20px;
+    padding: 10px 14px;
     border: 2px solid #c5d5e5;
-    border-radius: 10px;
+    border-radius: 12px;
     outline: none;
     background: #f7fafd;
     transition: border-color 0.2s;
@@ -513,9 +557,9 @@ a {
     background: linear-gradient(135deg, #31567f, #2a4a6e);
     color: white;
     border: none;
-    border-radius: 10px;
-    padding: 8px 14px;
-    font-size: 16px;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 20px;
     cursor: pointer;
     transition: background 0.15s;
 }
@@ -525,13 +569,13 @@ a {
 }
 
 #searchPanel .sBack {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     color: #31567f;
     background: #e8eff6;
     border: 1.5px solid #c5d5e5;
-    border-radius: 8px;
-    padding: 6px 10px;
+    border-radius: 10px;
+    padding: 8px 14px;
     text-decoration: none;
     white-space: nowrap;
     display: inline-block;
@@ -546,7 +590,7 @@ a {
     background: none;
     color: #999;
     border: none;
-    font-size: 24px;
+    font-size: 32px;
     cursor: pointer;
     padding: 4px 8px;
     line-height: 1;
@@ -561,10 +605,10 @@ a {
     background: #e8eff6;
     color: #31567f;
     border: 1.5px solid #c5d5e5;
-    border-radius: 8px;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -579,7 +623,7 @@ a {
 }
 
 #searchPanel .sInfo {
-    font-size: 13px;
+    font-size: 16px;
     color: #31567f;
     font-weight: 600;
     min-width: 55px;
@@ -592,7 +636,7 @@ a {
 .sFilters {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 6px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
@@ -600,8 +644,8 @@ a {
 }
 
 .sFilters.open {
-    max-height: 400px;
-    padding: 6px 0;
+    max-height: 500px;
+    padding: 8px 0;
 }
 
 .sGroupHeader {
@@ -609,33 +653,33 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 6px;
-    padding-bottom: 3px;
+    margin-top: 8px;
+    padding-bottom: 4px;
     border-bottom: 1px solid #d5e0ec;
 }
 
 .sGroupLabel {
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     color: #31567f;
 }
 
 .sGroupBtns {
     display: flex;
-    gap: 3px;
+    gap: 4px;
 }
 
 .sToggleSm {
-    font-size: 11px !important;
-    padding: 1px 6px !important;
+    font-size: 13px !important;
+    padding: 3px 8px !important;
     min-width: 0 !important;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 .sf {
-    font-size: 13px;
-    padding: 4px 10px;
-    border-radius: 14px;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 16px;
     border: 1.5px solid #b0c4d8;
     background: #f0f5fa;
     color: #31567f;
@@ -658,12 +702,12 @@ a {
 }
 
 .sToggle {
-    font-size: 12px;
+    font-size: 15px;
     color: #31567f;
     background: #e8eff6;
     border: 1px solid #c5d5e5;
-    border-radius: 6px;
-    padding: 4px 10px;
+    border-radius: 8px;
+    padding: 6px 14px;
     cursor: pointer;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     transition: background 0.15s;
@@ -678,18 +722,18 @@ a {
 
 #zoomControls {
     position: fixed;
-    bottom: 10px;
+    bottom: 8px;
     right: 6px;
     z-index: 90;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 3px;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.92);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 4px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
     border: 1px solid #d0dde8;
 }
 
@@ -697,14 +741,19 @@ a {
     background: #f0f5fa;
     color: #31567f;
     border: 1.5px solid #c5d5e5;
-    border-radius: 6px;
-    width: 32px;
-    height: 28px;
-    font-size: 13px;
+    border-radius: 8px;
+    width: 60px;
+    height: 52px;
+    font-size: 32px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.12s;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 52px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #zoomControls button:active {
@@ -715,14 +764,14 @@ a {
 
 #zoomToast {
     position: fixed;
-    bottom: 110px;
+    bottom: 60px;
     right: 10px;
     z-index: 91;
     background: rgba(30,62,94,0.9);
     color: white;
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 12px;
+    padding: 6px 16px;
+    border-radius: 10px;
+    font-size: 16px;
     font-weight: 600;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     opacity: 0;
@@ -741,8 +790,10 @@ a {
 
 #globalSearchBox {
     margin: 0 auto 20px;
-    padding: 16px;
+    padding: 18px;
+    width: 100%;
     max-width: 600px;
+    box-sizing: border-box;
     background: linear-gradient(135deg, #f7fafd 0%, #eaf1f8 100%);
     border-radius: 16px;
     border: 1.5px solid #c5d5e5;
@@ -753,10 +804,10 @@ a {
 }
 
 .gsTitle {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     color: #31567f;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 #gsResultsHeader {
@@ -768,12 +819,12 @@ a {
 .gsCloseBtn {
     background: #f0f4f8;
     border: 1.5px solid #c5d5e5;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 10px;
+    font-size: 18px;
     font-weight: 600;
     color: #666;
     cursor: pointer;
-    padding: 6px 14px;
+    padding: 8px 18px;
     transition: background 0.15s, color 0.15s;
 }
 
@@ -785,20 +836,22 @@ a {
 
 .gsInputRow {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
 }
 
 #gsInput {
     flex: 1;
-    font-size: 17px;
-    padding: 10px 14px;
+    min-width: 0;
+    font-size: 20px;
+    padding: 12px 16px;
     border: 2px solid #c5d5e5;
-    border-radius: 12px;
+    border-radius: 14px;
     outline: none;
     background: white;
     transition: border-color 0.2s;
     font-family: inherit;
+    box-sizing: border-box;
 }
 
 #gsInput:focus {
@@ -810,9 +863,9 @@ a {
     background: linear-gradient(135deg, #31567f, #2a4a6e);
     color: white;
     border: none;
-    border-radius: 12px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 14px;
+    padding: 12px 24px;
+    font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.12s;
@@ -1226,6 +1279,7 @@ a {
 
 #buttonNav {
     z-index: 50;
+    font-size: 50px !important;
 }
 
 /* ==================== SIDE NAV ==================== */
@@ -1271,6 +1325,7 @@ a {
 }
 
 .pirushim {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1288,11 +1343,14 @@ a {
     font-family: sans-serif;
     display: block;
     width: 100%;
+    box-sizing: border-box;
     padding: 10px 14px;
     text-align: center;
     float: none;
     border-radius: 6px;
     margin-top: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .button:active {
