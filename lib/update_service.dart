@@ -108,17 +108,8 @@ class UpdateService {
 
       if (!_hasLocalContent) {
         await _copyBundledAssets();
-        await _saveBundledManifest(remoteManifest);
-        final localManifestAfterCopy = await _loadLocalManifest();
-        final realUpdates =
-            _getFilesToUpdate(remoteManifest, localManifestAfterCopy);
-        if (realUpdates.isEmpty) {
-          _hasLocalContent = true;
-          print('[UpdateService] Bundled content matches remote, no downloads needed');
-          return UpdateResult(success: true, message: 'Already up to date');
-        }
-        print('[UpdateService] ${realUpdates.length} files actually changed since bundle');
-        await _downloadFiles(realUpdates, remoteManifest);
+        print('[UpdateService] Downloading ${filesToUpdate.length} files from remote');
+        await _downloadFiles(filesToUpdate, remoteManifest);
       } else {
         await _downloadFiles(filesToUpdate, remoteManifest);
       }
@@ -250,19 +241,6 @@ class UpdateService {
       } catch (_) {}
     }
     print('[UpdateService] Copied $copied bundled files');
-  }
-
-  Future<void> _saveBundledManifest(Map<String, dynamic> remoteManifest) async {
-    final manifest = <String, dynamic>{};
-    for (var entry in remoteManifest.entries) {
-      final localFile = File('${_localHtmlPath!}/${entry.key}');
-      if (await localFile.exists()) {
-        manifest[entry.key] = entry.value;
-      }
-    }
-    final manifestFile = File('${_localHtmlPath!}/manifest.json');
-    await manifestFile.writeAsString(json.encode(manifest));
-    print('[UpdateService] Saved bundled manifest for ${manifest.length} files');
   }
 
   Future<void> _downloadFiles(
