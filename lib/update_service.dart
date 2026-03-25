@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:crypto/crypto.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
@@ -313,17 +314,22 @@ class UpdateService {
       final info = manifest[relativePath];
       final fullGitPath = info['path'] as String;
       final expectedSize = info['size'] as int?;
+      final cacheBuster = DateTime.now().millisecondsSinceEpoch;
       final rawUrl =
-          'https://raw.githubusercontent.com/${UpdateConfig.owner}/${UpdateConfig.repo}/${UpdateConfig.branch}/$fullGitPath';
+          'https://raw.githubusercontent.com/${UpdateConfig.owner}/${UpdateConfig.repo}/${UpdateConfig.branch}/$fullGitPath?cb=$cacheBuster';
       try {
         final response = await http
-            .get(Uri.parse(rawUrl), headers: {'Cache-Control': 'no-cache'})
+            .get(Uri.parse(rawUrl), headers: {'Cache-Control': 'no-cache, no-store'})
             .timeout(const Duration(seconds: 15));
         if (response.statusCode == 200) {
-          if (expectedSize != null && response.bodyBytes.length != expectedSize) {
-            print('[UpdateService] Size mismatch for $relativePath: got ${response.bodyBytes.length}, expected $expectedSize (CDN cache stale, will retry)');
-            failed++;
-            continue;
+          final expectedSha = info['sha'] as String?;
+          if (expectedSha != null) {
+            final actualSha = _gitBlobSha(response.bodyBytes);
+            if (actualSha != expectedSha) {
+              print('[UpdateService] SHA mismatch for $relativePath: got $actualSha, expected $expectedSha (CDN stale, will retry)');
+              failed++;
+              continue;
+            }
           }
           final localFile = File('${_localHtmlPath!}/$relativePath');
           await localFile.parent.create(recursive: true);
@@ -351,6 +357,11 @@ class UpdateService {
     }
     existingManifest['_manifestVersion'] = _manifestVersion;
     await manifestFile.writeAsString(json.encode(existingManifest));
+  }
+
+  String _gitBlobSha(List<int> bytes) {
+    final header = utf8.encode('blob ${bytes.length}\x00');
+    return sha1.convert([...header, ...bytes]).toString();
   }
 
   Future<void> clearLocalContent() async {
