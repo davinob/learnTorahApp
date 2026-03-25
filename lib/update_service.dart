@@ -16,6 +16,7 @@ class UpdateService {
   static UpdateService? _instance;
   String? _localHtmlPath;
   bool _hasLocalContent = false;
+  bool _updateInProgress = false;
 
   UpdateService._();
 
@@ -27,6 +28,8 @@ class UpdateService {
   bool get hasLocalContent => _hasLocalContent;
   String? get localHtmlPath => _localHtmlPath;
 
+  static const int _manifestVersion = 2;
+
   Future<void> initialize() async {
     try {
       final dir = await getApplicationDocumentsDirectory();
@@ -35,6 +38,15 @@ class UpdateService {
       final manifestFile = File('${_localHtmlPath!}/manifest.json');
       _hasLocalContent =
           await localDir.exists() && await manifestFile.exists();
+
+      if (_hasLocalContent) {
+        final manifest = await _loadLocalManifest();
+        if (manifest['_manifestVersion'] != _manifestVersion) {
+          print('[UpdateService] Stale manifest detected, clearing local content for fresh sync');
+          await clearLocalContent();
+        }
+      }
+
       print('[UpdateService] Initialized. hasLocalContent=$_hasLocalContent');
     } catch (e) {
       print('[UpdateService] Initialize error: $e');
@@ -79,6 +91,9 @@ class UpdateService {
   }
 
   Future<UpdateResult> checkAndUpdate() async {
+    if (_updateInProgress) {
+      return UpdateResult(success: false, message: 'Update already in progress');
+    }
     if (!isConfigured) {
       return UpdateResult(
           success: false, message: 'GitHub repo not configured');
@@ -87,6 +102,7 @@ class UpdateService {
       print('[UpdateService] No internet, skipping update check');
       return UpdateResult(success: false, message: 'No internet connection');
     }
+    _updateInProgress = true;
     try {
       print('[UpdateService] Checking for updates...');
       final remoteManifest = await _fetchRemoteManifest();
@@ -95,6 +111,24 @@ class UpdateService {
             success: false, message: 'Could not fetch remote manifest');
       }
       print('[UpdateService] Remote manifest: ${remoteManifest.length} files');
+
+      if (!_hasLocalContent) {
+        await _copyBundledAssets();
+        final staleFiles = await _findStaleBundledFiles(remoteManifest);
+        if (staleFiles.isNotEmpty) {
+          print('[UpdateService] ${staleFiles.length} bundled files differ from remote, downloading...');
+          await _downloadFiles(staleFiles, remoteManifest);
+        }
+        await _saveBundledManifest(remoteManifest);
+        _hasLocalContent = true;
+        print('[UpdateService] First run complete. ${staleFiles.length} files updated from remote');
+        return UpdateResult(
+          success: true,
+          message: 'Initial sync complete (${staleFiles.length} updated)',
+          updatedCount: staleFiles.length,
+          needsReload: staleFiles.isNotEmpty,
+        );
+      }
 
       final localManifest = await _loadLocalManifest();
       final filesToUpdate = _getFilesToUpdate(remoteManifest, localManifest);
@@ -105,14 +139,7 @@ class UpdateService {
       }
 
       print('[UpdateService] ${filesToUpdate.length} files to update');
-
-      if (!_hasLocalContent) {
-        await _copyBundledAssets();
-        print('[UpdateService] Downloading ${filesToUpdate.length} files from remote');
-        await _downloadFiles(filesToUpdate, remoteManifest);
-      } else {
-        await _downloadFiles(filesToUpdate, remoteManifest);
-      }
+      await _downloadFiles(filesToUpdate, remoteManifest);
       _hasLocalContent = true;
 
       print('[UpdateService] Update complete: ${filesToUpdate.length} files');
@@ -124,6 +151,8 @@ class UpdateService {
     } catch (e) {
       print('[UpdateService] Update error: $e');
       return UpdateResult(success: false, message: 'Update error: $e');
+    } finally {
+      _updateInProgress = false;
     }
   }
 
@@ -243,6 +272,34 @@ class UpdateService {
     print('[UpdateService] Copied $copied bundled files');
   }
 
+  Future<List<String>> _findStaleBundledFiles(Map<String, dynamic> remoteManifest) async {
+    final stale = <String>[];
+    for (var entry in remoteManifest.entries) {
+      final relativePath = entry.key;
+      final remoteInfo = entry.value as Map<String, dynamic>;
+      final remoteSize = remoteInfo['size'] as int?;
+      if (remoteSize == null) continue;
+      final localFile = File('${_localHtmlPath!}/$relativePath');
+      if (!await localFile.exists()) {
+        stale.add(relativePath);
+      } else {
+        final localSize = await localFile.length();
+        if (localSize != remoteSize) {
+          stale.add(relativePath);
+        }
+      }
+    }
+    return stale;
+  }
+
+  Future<void> _saveBundledManifest(Map<String, dynamic> remoteManifest) async {
+    final manifestFile = File('${_localHtmlPath!}/manifest.json');
+    await manifestFile.parent.create(recursive: true);
+    final manifestToSave = Map<String, dynamic>.from(remoteManifest);
+    manifestToSave['_manifestVersion'] = _manifestVersion;
+    await manifestFile.writeAsString(json.encode(manifestToSave));
+  }
+
   Future<void> _downloadFiles(
       List<String> files, Map<String, dynamic> manifest) async {
     final baseDir = Directory(_localHtmlPath!);
@@ -284,6 +341,7 @@ class UpdateService {
         existingManifest[relativePath] = manifest[relativePath];
       }
     }
+    existingManifest['_manifestVersion'] = _manifestVersion;
     await manifestFile.writeAsString(json.encode(existingManifest));
   }
 
