@@ -59,6 +59,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       webViewController?.loadUrl(
         urlRequest: URLRequest(url: WebUri(indexPath)),
       );
+    } else if (result.needsReload && _initialSyncDone && mounted) {
+      webViewController?.reload();
     }
   }
 

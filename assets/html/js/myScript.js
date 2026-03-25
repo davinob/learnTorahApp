@@ -113,7 +113,16 @@ function accordionOpenClose(id) {
 }
 
 function saveLastVisited() {
-	localStorage.setItem('lastVisited', window.location.href);
+	var href = window.location.href;
+	var markers = ['/html_content/', '/assets/html/'];
+	for (var i = 0; i < markers.length; i++) {
+		var idx = href.indexOf(markers[i]);
+		if (idx >= 0) {
+			href = href.substring(idx + markers[i].length);
+			break;
+		}
+	}
+	localStorage.setItem('lastVisited', href);
 }
 
 function openNav() {
