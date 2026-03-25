@@ -60,6 +60,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         urlRequest: URLRequest(url: WebUri(indexPath)),
       );
     } else if (result.needsReload && _initialSyncDone && mounted) {
+      print('[Main] Reloading WebView after update');
       webViewController?.reload();
     }
   }

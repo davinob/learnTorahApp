@@ -307,21 +307,29 @@ class UpdateService {
 
     var downloaded = 0;
     var failed = 0;
+    final successfulFiles = <String>[];
 
     for (var relativePath in files) {
       final info = manifest[relativePath];
       final fullGitPath = info['path'] as String;
+      final expectedSize = info['size'] as int?;
       final rawUrl =
           'https://raw.githubusercontent.com/${UpdateConfig.owner}/${UpdateConfig.repo}/${UpdateConfig.branch}/$fullGitPath';
       try {
         final response = await http
-            .get(Uri.parse(rawUrl))
+            .get(Uri.parse(rawUrl), headers: {'Cache-Control': 'no-cache'})
             .timeout(const Duration(seconds: 15));
         if (response.statusCode == 200) {
+          if (expectedSize != null && response.bodyBytes.length != expectedSize) {
+            print('[UpdateService] Size mismatch for $relativePath: got ${response.bodyBytes.length}, expected $expectedSize (CDN cache stale, will retry)');
+            failed++;
+            continue;
+          }
           final localFile = File('${_localHtmlPath!}/$relativePath');
           await localFile.parent.create(recursive: true);
           await localFile.writeAsBytes(response.bodyBytes);
           downloaded++;
+          successfulFiles.add(relativePath);
         } else {
           failed++;
           print('[UpdateService] HTTP ${response.statusCode} for $relativePath');
@@ -336,7 +344,7 @@ class UpdateService {
 
     final manifestFile = File('${_localHtmlPath!}/manifest.json');
     final existingManifest = await _loadLocalManifest();
-    for (var relativePath in files) {
+    for (var relativePath in successfulFiles) {
       if (manifest.containsKey(relativePath)) {
         existingManifest[relativePath] = manifest[relativePath];
       }
