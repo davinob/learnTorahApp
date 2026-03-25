@@ -4,12 +4,19 @@
     <link rel='stylesheet' type='text/css' href='./css/stylesTorah.css'>
     <script src='js/myScript.js'></script>
     <script>
-        lastVisited = localStorage.getItem('lastVisited');
-        console.log(lastVisited);
-        console.log(window.location.href);
-        console.log("///\\\\\\");
-        if (lastVisited != null && lastVisited != window.location.href) {
-            window.location.replace(lastVisited);
+        var lastVisited = localStorage.getItem('lastVisited');
+        if (lastVisited != null && lastVisited !== '') {
+            var markers = ['/html_content/', '/assets/html/'];
+            for (var i = 0; i < markers.length; i++) {
+                var idx = lastVisited.indexOf(markers[i]);
+                if (idx >= 0) {
+                    lastVisited = lastVisited.substring(idx + markers[i].length);
+                    break;
+                }
+            }
+            if (lastVisited !== 'indexIntro.html' && lastVisited !== '' && lastVisited !== 'index.html') {
+                window.location.replace(lastVisited);
+            }
         }
     </script>
 </head>
