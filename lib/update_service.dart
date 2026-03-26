@@ -29,7 +29,7 @@ class UpdateService {
   bool get hasLocalContent => _hasLocalContent;
   String? get localHtmlPath => _localHtmlPath;
 
-  static const int _manifestVersion = 2;
+  static const int _manifestVersion = 3;
 
   Future<void> initialize() async {
     try {
@@ -115,12 +115,12 @@ class UpdateService {
 
       if (!_hasLocalContent) {
         await _copyBundledAssets();
-        final staleFiles = await _findStaleBundledFiles(remoteManifest);
+        final localManifest = await _buildLocalManifest(remoteManifest);
+        final staleFiles = _getFilesToUpdate(remoteManifest, localManifest);
         if (staleFiles.isNotEmpty) {
           print('[UpdateService] ${staleFiles.length} bundled files differ from remote, downloading...');
           await _downloadFiles(staleFiles, remoteManifest);
         }
-        await _saveBundledManifest(remoteManifest);
         _hasLocalContent = true;
         print('[UpdateService] First run complete. ${staleFiles.length} files updated from remote');
         return UpdateResult(
@@ -273,32 +273,26 @@ class UpdateService {
     print('[UpdateService] Copied $copied bundled files');
   }
 
-  Future<List<String>> _findStaleBundledFiles(Map<String, dynamic> remoteManifest) async {
-    final stale = <String>[];
+  Future<Map<String, dynamic>> _buildLocalManifest(Map<String, dynamic> remoteManifest) async {
+    final manifest = <String, dynamic>{};
     for (var entry in remoteManifest.entries) {
       final relativePath = entry.key;
-      final remoteInfo = entry.value as Map<String, dynamic>;
-      final remoteSize = remoteInfo['size'] as int?;
-      if (remoteSize == null) continue;
       final localFile = File('${_localHtmlPath!}/$relativePath');
-      if (!await localFile.exists()) {
-        stale.add(relativePath);
-      } else {
-        final localSize = await localFile.length();
-        if (localSize != remoteSize) {
-          stale.add(relativePath);
-        }
+      if (await localFile.exists()) {
+        final bytes = await localFile.readAsBytes();
+        final localSha = _gitBlobSha(bytes);
+        manifest[relativePath] = {
+          'sha': localSha,
+          'size': bytes.length,
+          'path': (entry.value as Map<String, dynamic>)['path'],
+        };
       }
     }
-    return stale;
-  }
-
-  Future<void> _saveBundledManifest(Map<String, dynamic> remoteManifest) async {
+    manifest['_manifestVersion'] = _manifestVersion;
     final manifestFile = File('${_localHtmlPath!}/manifest.json');
     await manifestFile.parent.create(recursive: true);
-    final manifestToSave = Map<String, dynamic>.from(remoteManifest);
-    manifestToSave['_manifestVersion'] = _manifestVersion;
-    await manifestFile.writeAsString(json.encode(manifestToSave));
+    await manifestFile.writeAsString(json.encode(manifest));
+    return manifest;
   }
 
   Future<void> _downloadFiles(
