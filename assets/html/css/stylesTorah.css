@@ -639,6 +639,7 @@ a {
     gap: 6px;
     max-height: 0;
     overflow: hidden;
+    direction: rtl;
     transition: max-height 0.3s ease-out;
     padding: 0;
 }

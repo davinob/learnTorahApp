@@ -1,12 +1,29 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'update_service.dart';
 
+class _GitHubCertOverrides extends HttpOverrides {
+  static const _trustedHosts = [
+    'raw.githubusercontent.com',
+    'api.github.com',
+    'github.com',
+  ];
+
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (cert, host, port) =>
+          _trustedHosts.contains(host);
+  }
+}
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = _GitHubCertOverrides();
   await UpdateService.instance.initialize();
   runApp(MyApp());
 }
