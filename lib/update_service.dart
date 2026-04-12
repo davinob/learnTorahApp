@@ -76,21 +76,6 @@ class UpdateService {
     return UpdateConfig.owner != 'OWNER' && UpdateConfig.repo != 'REPO_NAME';
   }
 
-  Future<bool> _hasInternet() async {
-    for (int attempt = 0; attempt < 3; attempt++) {
-      try {
-        final result = await http
-            .get(Uri.parse('https://www.google.com/generate_204'))
-            .timeout(const Duration(seconds: 15));
-        if (result.statusCode == 204 || result.statusCode == 200) return true;
-      } catch (e) {
-        print('[UpdateService] Internet check attempt ${attempt + 1} failed: $e');
-      }
-      if (attempt < 2) await Future.delayed(const Duration(seconds: 5));
-    }
-    return false;
-  }
-
   Future<UpdateResult> checkAndUpdate() async {
     if (_updateInProgress) {
       return UpdateResult(success: false, message: 'Update already in progress');
@@ -98,10 +83,6 @@ class UpdateService {
     if (!isConfigured) {
       return UpdateResult(
           success: false, message: 'GitHub repo not configured');
-    }
-    if (!await _hasInternet()) {
-      print('[UpdateService] No internet, skipping update check');
-      return UpdateResult(success: false, message: 'No internet connection');
     }
     _updateInProgress = true;
     try {
