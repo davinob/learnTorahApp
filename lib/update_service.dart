@@ -29,7 +29,7 @@ class UpdateService {
   bool get hasLocalContent => _hasLocalContent;
   String? get localHtmlPath => _localHtmlPath;
 
-  static const int _manifestVersion = 3;
+  static const int _manifestVersion = 16;
 
   Future<void> initialize() async {
     try {
@@ -232,7 +232,8 @@ class UpdateService {
     final filesToCopy = <String>[
       'index.html', 'indexIntro.html', 'zhouiot.html',
       'total', 'listOfBooks.txt', 'allFolders.txt',
-      'css/stylesTorah.css', 'js/myScript.js',
+      'css/stylesTorah.css', 'css/admin.css',
+      'js/myScript.js', 'js/admin.js',
     ];
 
     for (var folder in _parshaFolders) {
