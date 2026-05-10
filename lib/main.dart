@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'admin/admin_bridge.dart';
 import 'update_service.dart';
 
 class _GitHubCertOverrides extends HttpOverrides {
@@ -36,8 +36,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   InAppWebViewController? webViewController;
   final UpdateService _updateService = UpdateService.instance;
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+  late final AdminBridge _adminBridge =
+      AdminBridge(navigatorKey: _navigatorKey);
   Timer? _updateTimer;
   bool _initialSyncDone = false;
+
+  /// Stable key so Flutter reuses the same native InAppWebView across
+  /// rebuilds (keyboard show/hide, text-selection menu, etc.) instead
+  /// of destroying it and reloading the page mid-edit.
+  final GlobalKey _webViewKey = GlobalKey();
+
+  /// Memoized widget so build() always returns the SAME instance.
+  Widget? _cachedLocalWebView;
+  Widget? _cachedAssetWebView;
 
   static const _updateInterval = Duration(minutes: 5);
 
@@ -67,17 +79,23 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   Future<void> _checkForUpdates() async {
     if (!_updateService.isConfigured) return;
 
+    if (AdminBridge.isSessionUnlocked) {
+      debugPrint('[Main] Skipping update check: admin session is active');
+      return;
+    }
+
     final result = await _updateService.checkAndUpdate();
-    print('[Main] Update result: ${result.message}');
+    debugPrint('[Main] Update result: ${result.message}');
 
     if (!_initialSyncDone && _updateService.hasLocalContent && mounted) {
       _initialSyncDone = true;
       final indexPath = _updateService.getIndexPath();
+      debugPrint('[Main] Initial sync complete, loading $indexPath');
       webViewController?.loadUrl(
         urlRequest: URLRequest(url: WebUri(indexPath)),
       );
     } else if (result.needsReload && _initialSyncDone && mounted) {
-      print('[Main] Reloading WebView after update');
+      debugPrint('[Main] Reloading WebView after update');
       webViewController?.reload();
     }
   }
@@ -97,6 +115,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      navigatorKey: _navigatorKey,
       home: Scaffold(
         body: PopScope(
           canPop: false,
@@ -122,20 +141,51 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       allowUniversalAccessFromFileURLs: true,
       cacheEnabled: false,
       textZoom: Platform.isAndroid ? 170 : 100,
+      // Kills the Translate / Copy / Share popup that breaks active edits
+      // by causing the underlying native WebView to be torn down.
+      disableContextMenu: true,
     );
 
     if (useLocalContent) {
-      return InAppWebView(
-        onWebViewCreated: (controller) => webViewController = controller,
+      return _cachedLocalWebView ??= InAppWebView(
+        key: _webViewKey,
+        onWebViewCreated: (controller) {
+          webViewController = controller;
+          _adminBridge.register(controller);
+        },
+        onConsoleMessage: _onConsoleMessage,
+        onLoadStart: _onLoadStart,
+        onLoadStop: _onLoadStop,
         initialUrlRequest: URLRequest(url: WebUri(indexPath)),
         initialSettings: settings,
       );
     }
 
-    return InAppWebView(
-      onWebViewCreated: (controller) => webViewController = controller,
+    return _cachedAssetWebView ??= InAppWebView(
+      key: _webViewKey,
+      onWebViewCreated: (controller) {
+        webViewController = controller;
+        _adminBridge.register(controller);
+      },
+      onConsoleMessage: _onConsoleMessage,
+      onLoadStart: _onLoadStart,
+      onLoadStop: _onLoadStop,
       initialFile: "assets/html/indexIntro.html",
       initialSettings: settings,
     );
+  }
+
+  void _onConsoleMessage(
+      InAppWebViewController controller, ConsoleMessage msg) {
+    debugPrint('[webview ${msg.messageLevel}] ${msg.message}');
+  }
+
+  void _onLoadStart(InAppWebViewController controller, WebUri? url) {
+    debugPrint('[Main] WebView LOAD START: $url'
+        ' adminActive=${AdminBridge.isSessionUnlocked}');
+  }
+
+  void _onLoadStop(InAppWebViewController controller, WebUri? url) {
+    debugPrint('[Main] WebView LOAD STOP : $url');
   }
 }
