@@ -1,0 +1,303 @@
+/* ============================================================
+   Admin editor styles. Loaded on every page; only takes effect
+   when admin.js sets up the toolbar (i.e. localStorage.adminMode).
+   ============================================================ */
+
+#adminToolbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 99999;
+	background: #1f2937;
+	color: #f3f4f6;
+	padding: 6px 8px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-items: center;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 13px;
+	box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+	direction: ltr;
+}
+
+#adminToolbar button {
+	background: #374151;
+	color: #f3f4f6;
+	border: 1px solid #4b5563;
+	border-radius: 4px;
+	padding: 4px 8px;
+	font-size: 12px;
+	cursor: pointer;
+	min-height: 32px;
+}
+
+#adminToolbar button:hover {
+	background: #4b5563;
+}
+
+#adminToolbar button:active {
+	background: #6b7280;
+}
+
+#adminToolbar button.admin-toggle-on {
+	background: #047857;
+	border-color: #10b981;
+	color: #ecfdf5;
+}
+
+#adminToolbar button.admin-toggle-on:hover {
+	background: #059669;
+}
+
+/* When select-mode is on, hint that taps on blocks will select them. */
+body.admin-select-mode .newPassuk * {
+	cursor: crosshair;
+}
+
+/* When paste-mode is on, hint that the next tap will paste exactly
+   where the finger lands (the cursor becomes a copy marker). */
+body.admin-paste-mode .newPassuk,
+body.admin-paste-mode .newPassuk * {
+	cursor: copy;
+}
+body.admin-paste-mode .newPassuk {
+	outline: 1px dashed #60a5fa;
+	outline-offset: 2px;
+}
+
+#adminSelectionLabel {
+	margin-right: 6px;
+	font-weight: 600;
+	color: #fbbf24;
+	min-width: 140px;
+}
+
+#adminFlash {
+	margin-left: auto;
+	color: #34d399;
+	font-weight: 600;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+#adminBadge {
+	position: fixed;
+	top: 4px;
+	left: 4px;
+	z-index: 99998;
+	background: #dc2626;
+	color: #fff;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 10px;
+	font-weight: 700;
+	padding: 2px 6px;
+	border-radius: 3px;
+	letter-spacing: 1px;
+	pointer-events: none;
+	opacity: 0.85;
+}
+
+.admin-selected {
+	outline: 2px dashed #f59e0b !important;
+	outline-offset: 2px;
+	background-color: rgba(254, 243, 199, 0.35) !important;
+}
+
+/* In admin mode we do NOT force gurarie spans visible — they stay
+   collapsed exactly like in normal mode. The user opens them via the
+   normal `[N]` footnote marker, then can select / cut them. We just
+   add a thin dotted outline around the (visible) gurarie content so
+   it's obvious which block will be picked. */
+body.admin-active .gurarie:not([style*="display:none"]):not([style*="display: none"]) {
+	background-color: rgba(167, 243, 208, 0.18);
+	outline: 1px dotted #10b981;
+	outline-offset: 1px;
+}
+
+/* Lift the toolbar above any z-stacked content inside the page. */
+#adminToolbar, #adminBadge {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Reserve space at the bottom so the toolbar doesn't overlap text. */
+body.admin-active {
+	padding-bottom: 80px;
+	/* Block the Android long-press text-selection chrome. That popup
+	   ("Translate / Copy / Share / Select all") causes the WebView to
+	   lose focus and gets re-instantiated by flutter_inappwebview,
+	   which reloads the page and wipes our edits + clipboard. We don't
+	   want it because we have our own block-selection mechanism. */
+	-webkit-touch-callout: none !important;
+	-webkit-user-select: none !important;
+	user-select: none !important;
+}
+
+/* The contentEditable .newPassuk regions still need to accept text input
+   for letter fixing, so re-enable selection inside them. */
+body.admin-active .newPassuk[contenteditable] {
+	-webkit-user-select: text !important;
+	user-select: text !important;
+}
+
+/* In-page modal (used because WebView prompt()/alert() handling
+   varies between Android, iOS, and webview implementations). */
+#adminModal {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.55);
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	direction: ltr;
+}
+
+#adminModal .admin-modal-card {
+	background: #fff;
+	color: #111;
+	border-radius: 8px;
+	width: min(90vw, 480px);
+	padding: 16px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+#adminModal .admin-modal-title {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+#adminModal .admin-modal-body {
+	font-size: 14px;
+	margin-bottom: 12px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+#adminModal .admin-modal-body-info {
+	max-height: 200px;
+	overflow-y: auto;
+	background: #f3f4f6;
+	padding: 8px;
+	border-radius: 4px;
+	font-family: monospace;
+	font-size: 12px;
+}
+
+#adminModal.admin-preview-overlay {
+	padding: 0;
+	align-items: stretch;
+	justify-content: stretch;
+}
+
+#adminModal .admin-preview-card {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	max-width: none;
+	background: #fff;
+	border-radius: 0;
+	box-shadow: none;
+	padding: 0;
+}
+
+#adminModal .admin-preview-header {
+	padding: 10px 14px 6px;
+	border-bottom: 1px solid #e5e7eb;
+	background: #f9fafb;
+}
+
+#adminModal .admin-preview-title {
+	font-weight: 600;
+	font-size: 14px;
+	color: #111827;
+}
+
+#adminModal .admin-preview-path {
+	font-family: monospace;
+	color: #2563eb;
+}
+
+#adminModal .admin-preview-hint {
+	font-size: 12px;
+	color: #6b7280;
+	margin-top: 2px;
+}
+
+#adminModal .admin-preview-frame {
+	flex: 1 1 auto;
+	width: 100%;
+	border: none;
+	background: #fff;
+}
+
+#adminModal .admin-preview-actions {
+	padding: 10px 14px;
+	border-top: 1px solid #e5e7eb;
+	background: #f9fafb;
+}
+
+#adminModal .admin-modal-pr-body {
+	background: #f3f4f6;
+	padding: 10px;
+	border-radius: 4px;
+	font-family: inherit;
+	font-size: 14px;
+	max-height: none;
+	overflow: visible;
+}
+
+#adminModal .admin-modal-pr-label {
+	margin-bottom: 6px;
+	color: #111827;
+}
+
+#adminModal .admin-modal-pr-link {
+	display: block;
+	color: #2563eb;
+	text-decoration: underline;
+	word-break: break-all;
+	font-family: monospace;
+	font-size: 12px;
+}
+
+#adminModal .admin-modal-input {
+	width: 100%;
+	padding: 8px;
+	font-size: 14px;
+	border: 1px solid #d1d5db;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-bottom: 12px;
+}
+
+#adminModal .admin-modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+#adminModal .admin-modal-actions button {
+	background: #1f2937;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 8px 16px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	min-width: 80px;
+}
+
+#adminModal .admin-modal-cancel {
+	background: #6b7280 !important;
+}
+
+#adminModal .admin-modal-actions button:active {
+	opacity: 0.8;
+}
