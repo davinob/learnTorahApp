@@ -7,7 +7,7 @@
 //     admin session is already unlocked. If yes, it activates
 //     silently with NO prompt - so navigating between pasukim
 //     never re-prompts for the passphrase.
-//   - Five quick taps (within 1.5s, in the top 100px banner)
+//   - Ten quick taps (within 3s, in the top 100px banner)
 //     trigger `requestAdminUnlock`, which prompts for the passphrase
 //     once. After that, the Flutter bridge holds the unlocked flag
 //     in memory until the user taps the toolbar X or the app dies.
@@ -41,8 +41,8 @@
 		"mezudatDavid", "mezudatZion", "ralbag", "radak",
 	];
 
-	var TAP_BURST_COUNT = 5;        // taps required
-	var TAP_BURST_WINDOW_MS = 1500; // within this window
+	var TAP_BURST_COUNT = 10;       // taps required
+	var TAP_BURST_WINDOW_MS = 3000; // within this window (ms)
 	var TAP_HOT_ZONE_HEIGHT = 100;  // taps must land in the top N px
 
 	// Per-tab state.
@@ -99,7 +99,7 @@
 	// ============================================================
 	// Tap-burst hot zone to open the admin gateway.
 	//
-	// 5 quick taps in the top 100px of the screen within 1.5s.
+	// 10 quick taps in the top 100px of the screen within 3s.
 	// The hot zone is invisible to non-admins. We use touchend
 	// (not click) because the click event can be cancelled by the
 	// WebView's text-selection gesture on Android.
