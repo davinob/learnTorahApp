@@ -29,7 +29,7 @@ class UpdateService {
   bool get hasLocalContent => _hasLocalContent;
   String? get localHtmlPath => _localHtmlPath;
 
-  static const int _manifestVersion = 17;
+  static const int _manifestVersion = 18;
 
   Future<void> initialize() async {
     try {
