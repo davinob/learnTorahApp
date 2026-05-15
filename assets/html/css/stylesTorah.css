@@ -399,9 +399,9 @@ a {
     color: white;
     border: none;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
     cursor: pointer;
     display: flex;
     align-items: center;
