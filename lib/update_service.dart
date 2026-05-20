@@ -29,7 +29,7 @@ class UpdateService {
   bool get hasLocalContent => _hasLocalContent;
   String? get localHtmlPath => _localHtmlPath;
 
-  static const int _manifestVersion = 16;
+  static const int _manifestVersion = 18;
 
   Future<void> initialize() async {
     try {
@@ -338,6 +338,35 @@ class UpdateService {
   String _gitBlobSha(List<int> bytes) {
     final header = utf8.encode('blob ${bytes.length}\x00');
     return sha1.convert([...header, ...bytes]).toString();
+  }
+
+  /// Writes [content] (the post-edit HTML) to the local copy of [relativePath]
+  /// (e.g. "Bereshit/1.html"), so the in-app WebView reflects the edit
+  /// immediately after a PR is opened, without waiting for the next
+  /// background sync to download the merged file from GitHub.
+  ///
+  /// If we don't have a local content directory yet (i.e. the app is
+  /// still serving from bundled assets), we initialize one by copying
+  /// the bundled assets first, then write over the edited file.
+  Future<bool> writeLocalAssetFile(String relativePath, String content) async {
+    try {
+      if (_localHtmlPath == null) {
+        print('[UpdateService] writeLocalAssetFile: no local path');
+        return false;
+      }
+      if (!_hasLocalContent) {
+        await _copyBundledAssets();
+        _hasLocalContent = true;
+      }
+      final localFile = File('${_localHtmlPath!}/$relativePath');
+      await localFile.parent.create(recursive: true);
+      await localFile.writeAsString(content);
+      print('[UpdateService] Wrote local edit to $relativePath (${content.length} bytes)');
+      return true;
+    } catch (e) {
+      print('[UpdateService] writeLocalAssetFile error: $e');
+      return false;
+    }
   }
 
   Future<void> clearLocalContent() async {
