@@ -51,13 +51,30 @@
 	background: #059669;
 }
 
+/* Paste button: green when an anchor is dropped and clipboard is ready,
+   greyed out otherwise so the user can see the gating. */
+#adminToolbar button#adminPasteBtn[disabled] {
+	background: #374151;
+	color: #9ca3af;
+	border-color: #4b5563;
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+#adminToolbar button#adminPasteBtn.admin-btn-ready {
+	background: #047857;
+	border-color: #10b981;
+	color: #ecfdf5;
+}
+
 /* When select-mode is on, hint that taps on blocks will select them. */
 body.admin-select-mode .newPassuk * {
 	cursor: crosshair;
 }
 
-/* When paste-mode is on, hint that the next tap will paste exactly
-   where the finger lands (the cursor becomes a copy marker). */
+/* When paste-mode is on, hint that the next tap will drop the
+   paste anchor (the cursor becomes a copy marker). The actual
+   paste happens when the user presses the Paste toolbar button. */
 body.admin-paste-mode .newPassuk,
 body.admin-paste-mode .newPassuk * {
 	cursor: copy;
@@ -65,6 +82,25 @@ body.admin-paste-mode .newPassuk * {
 body.admin-paste-mode .newPassuk {
 	outline: 1px dashed #60a5fa;
 	outline-offset: 2px;
+}
+
+/* The paste anchor itself: a blinking thin red bar at the caret
+   spot the user picked. It contains only a zero-width-space so it
+   has near-zero layout impact but is still hit-testable. */
+#adminPasteAnchor.admin-paste-anchor {
+	display: inline-block;
+	width: 0;
+	border-left: 3px solid #ef4444;
+	height: 1.1em;
+	vertical-align: text-bottom;
+	margin: 0 1px;
+	animation: admin-paste-anchor-blink 0.9s steps(2, start) infinite;
+	pointer-events: none;
+}
+@keyframes admin-paste-anchor-blink {
+	to {
+		visibility: hidden;
+	}
 }
 
 #adminSelectionLabel {

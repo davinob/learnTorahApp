@@ -18,7 +18,7 @@ import 'github_pr_service.dart';
 ///       -> prompts the user for the admin passphrase, returns true on success.
 ///
 ///   { action: 'submitEdit', filePath, newContent, message }
-///       -> creates a branch + commit + PR using the saved PAT.
+///       -> commits the edit and pushes it directly onto master.
 ///
 ///   { action: 'openSettings' }
 ///       -> pushes AdminSettingsScreen.
@@ -157,7 +157,7 @@ class AdminBridge {
       title: title,
     );
     if (result.success) {
-      return {'url': result.url, 'number': result.number};
+      return {'url': result.url, 'commitSha': result.commitSha};
     }
     return {'error': result.error ?? 'Unknown error'};
   }

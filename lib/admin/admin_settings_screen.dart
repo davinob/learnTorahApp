@@ -153,7 +153,7 @@ class _AdminSettingsScreenState extends State<AdminSettingsScreen> {
                 Text(
                   _hasToken
                       ? 'A token is currently saved. Paste a new one below to replace it.'
-                      : 'No token saved. Paste a token to enable PR submission.',
+                      : 'No token saved. Paste a token to enable pushing edits.',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(height: 8),
@@ -217,10 +217,9 @@ class _AdminSettingsScreenState extends State<AdminSettingsScreen> {
                 const SizedBox(height: 4),
                 const Text(
                   '  - Contents: Read and write\n'
-                  '  - Pull requests: Read and write\n'
                   '  - Metadata: Read-only\n\n'
-                  'Restrict the token to ONLY this repo. Master must be branch-protected '
-                  'so the token cannot push to it directly.',
+                  'Restrict the token to ONLY this repo. The token must be allowed to push '
+                  'directly to master (admin/owner role, or master is not branch-protected).',
                 ),
               ],
             ),
