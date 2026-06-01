@@ -23,10 +23,20 @@
 //   - On desktop, holding Shift while clicking a block also
 //     selects it (no need to flip the toggle).
 //
-// Submit:
+// Paste flow (two-step, intentional):
+//   - After Cut/Copy, we enter "anchor-pick" mode.
+//   - The next tap inside an editable block does NOT paste; it
+//     drops a blinking red caret marker (#adminPasteAnchor) at
+//     the tap point. The user can re-tap to move the anchor as
+//     many times as they want, then press the "Paste" toolbar
+//     button to actually splice the clipboard nodes in.
+//   - This avoids the original "first tap pastes" footgun where
+//     an accidental scroll-tap would paste somewhere unintended.
+//
+// Push:
 //   - Calls window.flutter_inappwebview.callHandler('AdminBridge',
 //     { action: 'submitEdit', filePath, newContent, message })
-//   - Flutter handles the GitHub PR creation.
+//   - Flutter commits the change and pushes directly to master.
 // ============================================================
 
 (function () {
@@ -49,7 +59,8 @@
 	var state = {
 		active: false,
 		selectMode: false,    // when true, tap selects a block instead of typing
-		pasteMode: false,     // when true, tap pastes clipboard after the tapped block
+		pasteMode: false,     // when true, tap drops/moves the paste anchor (does NOT paste)
+		pasteAnchor: null,    // marker <span id="adminPasteAnchor"> in the DOM, or null
 		selectedEl: null,
 		clipboardHtml: null,
 		undoStack: [],
@@ -57,6 +68,8 @@
 		toolbarEl: null,
 		pendingEdits: {}, // filePath -> outerHTML; used if you want multi-file batch later
 	};
+
+	var PASTE_ANCHOR_ID = "adminPasteAnchor";
 
 	function log() {
 		try {
@@ -172,10 +185,11 @@
 
 	// Capture the current document body so we can roll back to it.
 	// We snapshot the body's innerHTML EXCLUDING any admin chrome
-	// (toolbar, badge, modals) - those get rebuilt fresh on restore.
+	// (toolbar, badge, modals, transient paste anchor) - those get
+	// rebuilt fresh on restore.
 	function captureBody() {
 		var clone = document.body.cloneNode(true);
-		var dropIds = ["adminToolbar", "adminBadge", "adminModal"];
+		var dropIds = ["adminToolbar", "adminBadge", "adminModal", PASTE_ANCHOR_ID];
 		for (var i = 0; i < dropIds.length; i++) {
 			var n = clone.querySelector("#" + dropIds[i]);
 			if (n && n.parentNode) n.parentNode.removeChild(n);
@@ -207,6 +221,11 @@
 		var toolbar = document.getElementById("adminToolbar");
 		var badge = document.getElementById("adminBadge");
 		var modal = document.getElementById("adminModal");
+		// The paste anchor lived in the old body and is about to be
+		// thrown away with the innerHTML reset. Drop our reference so
+		// updatePasteButton() goes back to the disabled state until
+		// the user picks a new spot.
+		state.pasteAnchor = null;
 		document.body.innerHTML = html;
 		if (toolbar) document.body.appendChild(toolbar);
 		if (badge) document.body.appendChild(badge);
@@ -219,6 +238,7 @@
 		makeEditable();
 		state.selectedEl = null;
 		updateToolbarSelectionLabel();
+		updatePasteButton();
 	}
 
 	function undo() {
@@ -278,16 +298,18 @@
 		if (state.pasteMode) {
 			e.preventDefault();
 			e.stopPropagation();
-			var inserted = pasteAtCaret(e.clientX, e.clientY);
-			if (inserted === "no-clipboard") {
+			var result = setPasteAnchorAt(e.clientX, e.clientY);
+			if (result === "no-clipboard") {
 				showInfoModal("Empty clipboard", "Cut or copy a block first.");
-			} else if (inserted === "no-target") {
-				showInfoModal("Bad target", "Tap inside a perush block (e.g. inside the Rashi text) to choose where to paste.");
-				return; // keep paste mode on so user can try again
+				setPasteMode(false);
+			} else if (result === "no-target") {
+				showInfoModal("Bad target", "Tap inside a perush block (e.g. inside the Rashi text) to drop the paste anchor.");
+				// keep paste mode on so user can try again
 			} else {
-				flashToolbar("Pasted");
+				flashToolbar("Anchor set \u2014 press Paste to insert");
+				updateToolbarSelectionLabel();
+				updatePasteButton();
 			}
-			setPasteMode(false);
 			return;
 		}
 
@@ -322,14 +344,35 @@
 		if (document.body) {
 			document.body.classList.toggle("admin-paste-mode", state.pasteMode);
 		}
+		// Leaving paste mode wipes the anchor so it never lingers in the DOM.
+		if (!state.pasteMode) clearPasteAnchor();
 		updateToolbarSelectionLabel();
+		updatePasteButton();
+	}
+
+	function clearPasteAnchor() {
+		var existing = document.getElementById(PASTE_ANCHOR_ID);
+		if (existing && existing.parentNode) {
+			existing.parentNode.removeChild(existing);
+		}
+		state.pasteAnchor = null;
+	}
+
+	function updatePasteButton() {
+		var b = document.getElementById("adminPasteBtn");
+		if (!b) return;
+		var ready = !!(state.clipboardHtml && state.pasteAnchor);
+		b.disabled = !ready;
+		b.classList.toggle("admin-btn-ready", ready);
 	}
 
 	function updateToolbarSelectionLabel() {
 		var label = document.getElementById("adminSelectionLabel");
 		if (!label) return;
 		if (state.pasteMode) {
-			label.textContent = "Paste: tap exact spot";
+			label.textContent = state.pasteAnchor
+				? "Anchor set \u2014 press Paste"
+				: "Tap where to paste";
 		} else if (state.selectedEl) {
 			var classes = state.selectedEl.className || "";
 			label.textContent = "Selected: " + classes.split(" ")[0];
@@ -435,8 +478,8 @@
 		state.selectedEl = null;
 		setPasteMode(true);
 		flashToolbar(group.length > 1
-			? "Cut " + group.length + " linked nodes. Tap exact spot to paste."
-			: "Cut. Tap exact spot inside a block to paste there.");
+			? "Cut " + group.length + " linked nodes. Tap where to paste, then press Paste."
+			: "Cut. Tap where to paste, then press Paste.");
 		log("cutBlock done, paste mode = ON, clipboard length =",
 			state.clipboardHtml.length);
 	}
@@ -448,8 +491,8 @@
 		log("copyBlock group size =", group.length);
 		state.clipboardHtml = groupOuterHtml(group);
 		flashToolbar(group.length > 1
-			? "Copied " + group.length + " linked nodes. Tap exact spot to paste."
-			: "Copied. Tap exact spot inside a block to paste there.");
+			? "Copied " + group.length + " linked nodes. Tap where to paste, then press Paste."
+			: "Copied. Tap where to paste, then press Paste.");
 		setPasteMode(true);
 		log("copyBlock done, paste mode = ON");
 	}
@@ -472,38 +515,72 @@
 		return null;
 	}
 
-	// Paste the clipboard content right at the tap (x,y). Returns:
-	//   "ok"           -> inserted at caret
-	//   "no-clipboard" -> nothing in clipboard
+	// Drop (or move) the paste anchor at the tap (x,y). The anchor is a
+	// blinking inline marker that the user can re-position by tapping
+	// again. No actual paste happens until the user presses the Paste
+	// button — see pasteAtAnchor().
+	//
+	// Returns:
+	//   "ok"           -> anchor placed
+	//   "no-clipboard" -> nothing in clipboard (shouldn't happen in paste mode)
 	//   "no-target"    -> tap landed outside any editable block
-	function pasteAtCaret(x, y) {
-		log("pasteAtCaret at", x, y,
+	function setPasteAnchorAt(x, y) {
+		log("setPasteAnchorAt at", x, y,
 			"clipboard length =", state.clipboardHtml ? state.clipboardHtml.length : 0);
 		if (!state.clipboardHtml) return "no-clipboard";
 		var range = caretRangeAt(x, y);
-		// Validate that the caret is actually inside an editable block
-		// (otherwise we'd paste into the toolbar / nav / etc.).
 		var anchorEl = range && range.startContainer;
 		if (anchorEl && anchorEl.nodeType === 3) anchorEl = anchorEl.parentNode;
 		var blockAncestor = anchorEl && findEditableAncestor(anchorEl);
 		if (!range || !blockAncestor) {
-			log("pasteAtCaret: no usable caret position");
+			log("setPasteAnchorAt: no usable caret position");
 			return "no-target";
+		}
+		clearPasteAnchor();
+		var marker = document.createElement("span");
+		marker.id = PASTE_ANCHOR_ID;
+		marker.className = "admin-paste-anchor";
+		// Stick non-breaking space inside so iOS/Android caret APIs treat
+		// the element as having real content and don't drop it on reflow.
+		marker.appendChild(document.createTextNode("\u200B"));
+		range.insertNode(marker);
+		state.pasteAnchor = marker;
+		log("setPasteAnchorAt inserted anchor in", describeBlock(blockAncestor));
+		return "ok";
+	}
+
+	// Paste the clipboard content at the marker location. Triggered by
+	// the Paste toolbar button.
+	function pasteAtAnchor() {
+		log("pasteAtAnchor, clipboard length =",
+			state.clipboardHtml ? state.clipboardHtml.length : 0,
+			"hasAnchor =", !!state.pasteAnchor);
+		if (!state.clipboardHtml) {
+			showInfoModal("Empty clipboard", "Cut or copy a block first.");
+			return;
+		}
+		var marker = state.pasteAnchor || document.getElementById(PASTE_ANCHOR_ID);
+		if (!marker || !marker.parentNode) {
+			showInfoModal("No paste anchor",
+				"Tap inside a perush block to drop the paste anchor first, then press Paste.");
+			return;
 		}
 		snapshot();
 		var tmp = document.createElement("div");
 		tmp.innerHTML = state.clipboardHtml;
 		var nodes = [];
 		while (tmp.firstChild) nodes.push(tmp.removeChild(tmp.firstChild));
-		// Insert all clipboard nodes at the caret in order.
+		var parent = marker.parentNode;
 		var inserted = 0;
-		for (var i = nodes.length - 1; i >= 0; i--) {
-			range.insertNode(nodes[i]);
+		for (var i = 0; i < nodes.length; i++) {
+			parent.insertBefore(nodes[i], marker);
 			inserted++;
 		}
-		log("pasteAtCaret inserted", inserted, "node(s) into",
-			describeBlock(blockAncestor));
-		return "ok";
+		parent.removeChild(marker);
+		state.pasteAnchor = null;
+		setPasteMode(false);
+		flashToolbar("Pasted " + inserted + " node" + (inserted === 1 ? "" : "s"));
+		log("pasteAtAnchor inserted", inserted, "nodes");
 	}
 
 	// ============================================================
@@ -518,8 +595,9 @@
 
 	// Build the HTML we'll commit to GitHub. CRITICAL: this must look
 	// like what a normal (non-admin) user would see - no toolbar, no
-	// ADMIN badge, no `contenteditable`, no `body.admin-active`, etc.
-	// Otherwise the PR would ship admin chrome to every reader.
+	// ADMIN badge, no `contenteditable`, no `body.admin-active`, no
+	// blinking paste anchor, etc. Otherwise the push would ship admin
+	// chrome straight to every reader on master.
 	function serializeForCommit() {
 		// Clone the whole document so we don't mutate the live page.
 		var docClone = document.documentElement.cloneNode(true);
@@ -527,6 +605,7 @@
 		// 1. Strip admin-only DOM nodes that we appended at runtime.
 		var dropSelectors = [
 			"#adminToolbar", "#adminBadge", "#adminModal",
+			"#" + PASTE_ANCHOR_ID,
 		];
 		for (var i = 0; i < dropSelectors.length; i++) {
 			var matches = docClone.querySelectorAll(dropSelectors[i]);
@@ -582,10 +661,11 @@
 	function submitEdit() {
 		log("submitEdit tapped");
 		var defaultTitle = "Edit " + getCurrentFilePath();
-		showInputModal("Submit PR", "Short description of this change (PR title):", defaultTitle, function (msg) {
+		showInputModal("Push to master", "Commit message:", defaultTitle, function (msg) {
 			log("submitEdit title =", msg);
 			if (!msg) return;
 			clearSelectionStyle();
+			clearPasteAnchor();
 			var html = serializeForCommit();
 			log("submitEdit serialized HTML length =", html.length);
 			var filePath = getCurrentFilePath();
@@ -600,7 +680,7 @@
 	}
 
 	function doSubmitAfterPreview(html, filePath, msg) {
-		flashToolbar("Submitting...");
+		flashToolbar("Pushing...");
 		callBridge({
 			action: "submitEdit",
 			filePath: filePath,
@@ -617,14 +697,14 @@
 				}).catch(function (e) {
 					log("writeLocalFile failed:", e);
 				});
-				showPrSuccessModal("PR opened", result.url, result.number);
+				showCommitSuccessModal("Pushed to master", result.url, result.commitSha);
 			} else if (result && result.error) {
 				showInfoModal("Failed", result.error);
 			} else {
-				showInfoModal("Submitted", "(no URL returned)");
+				showInfoModal("Pushed", "(no URL returned)");
 			}
 		}).catch(function (err) {
-			showInfoModal("Submit failed", (err && err.message) ? err.message : String(err));
+			showInfoModal("Push failed", (err && err.message) ? err.message : String(err));
 		});
 	}
 
@@ -763,12 +843,16 @@
 		});
 	}
 
-	// Renders the PR-opened success modal with a clickable link that asks
-	// Flutter to open the URL in the system browser (the WebView itself
-	// can't navigate to github.com without losing the admin session).
-	function showPrSuccessModal(title, url, number) {
+	// Renders the commit-pushed success modal with a clickable link that
+	// asks Flutter to open the URL in the system browser (the WebView
+	// itself can't navigate to github.com without losing the admin
+	// session).
+	function showCommitSuccessModal(title, url, commitSha) {
 		var overlay = buildOverlay();
-		var label = number ? ("Pull request #" + number + " opened.") : "Pull request opened.";
+		var shortSha = commitSha ? commitSha.substring(0, 7) : "";
+		var label = shortSha
+			? ("Commit " + shortSha + " pushed to master.")
+			: "Commit pushed to master.";
 		overlay.innerHTML = ""
 			+ "<div class='admin-modal-card'>"
 			+ "  <div class='admin-modal-title'></div>"
@@ -880,12 +964,16 @@
 		var selectBtn = btn("Select: OFF", function () { setSelectMode(!state.selectMode); }, "Toggle: tap a block to select it");
 		selectBtn.id = "adminSelectToggle";
 		bar.appendChild(selectBtn);
-		bar.appendChild(btn("Cut", cutBlock, "Cut selected block (then tap target to paste)"));
-		bar.appendChild(btn("Copy", copyBlock, "Copy selected block (then tap target to paste)"));
+		bar.appendChild(btn("Cut", cutBlock, "Cut selected block (then tap to drop anchor, then press Paste)"));
+		bar.appendChild(btn("Copy", copyBlock, "Copy selected block (then tap to drop anchor, then press Paste)"));
+		var pasteBtn = btn("Paste", pasteAtAnchor, "Insert clipboard at the dropped paste anchor");
+		pasteBtn.id = "adminPasteBtn";
+		pasteBtn.disabled = true;
+		bar.appendChild(pasteBtn);
 		bar.appendChild(btn("Undo", undo));
 		bar.appendChild(btn("Redo", redo));
 		bar.appendChild(btn("Discard", discard, "Reload from disk"));
-		bar.appendChild(btn("Submit PR", submitEdit, "Submit as a GitHub Pull Request"));
+		bar.appendChild(btn("Push", submitEdit, "Commit and push directly to master"));
 		bar.appendChild(btn("\u2699", openSettings, "Admin settings (token, sign out)"));
 		bar.appendChild(btn("\u2715", disableAdminMode, "Exit admin mode"));
 

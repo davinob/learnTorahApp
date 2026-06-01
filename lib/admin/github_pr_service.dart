@@ -3,20 +3,25 @@ import 'package:http/http.dart' as http;
 
 import '../update_service.dart';
 
-/// Result of a PR creation attempt.
+/// Result of a commit-push attempt.
+///
+/// `url` is the public GitHub URL for the new commit (or `null` if the
+/// push failed). `commitSha` is the full SHA of the new commit, also
+/// `null` on failure. `error` carries a human-readable message in the
+/// failure case.
 class PrResult {
   final bool success;
   final String? url;
   final String? error;
-  final int? number;
+  final String? commitSha;
 
-  PrResult.success(this.url, this.number)
+  PrResult.success(this.url, this.commitSha)
       : success = true,
         error = null;
   PrResult.failure(this.error)
       : success = false,
         url = null,
-        number = null;
+        commitSha = null;
 }
 
 /// One file edit: relative path under assets/html (e.g. 'Bereshit/1.html')
@@ -27,9 +32,11 @@ class FileEdit {
   FileEdit(this.relativePath, this.newContent);
 }
 
-/// Creates a branch, commits the edits, and opens a PR against `master`.
-/// `master` is expected to be branch-protected so this token cannot push
-/// to it directly even if it tried.
+/// Commits the edits and pushes the new commit directly onto `master`.
+///
+/// The token therefore needs **Contents: Read and write** plus permission
+/// to push to `master` (i.e. either no branch protection, or the token's
+/// account is allowed to bypass it). PR scopes are no longer required.
 class GithubPrService {
   final String token;
   final String owner;
@@ -65,13 +72,16 @@ class GithubPrService {
     }
   }
 
-  /// Implements the 7-step PR flow:
-  ///   1. GET base ref     -> baseSha
-  ///   2. POST a blob      -> blobSha (per file)
-  ///   3. POST a new tree  -> treeSha (with one entry per file)
-  ///   4. POST a commit    -> commitSha
-  ///   5. POST a new ref   -> refs/heads/admin-edit/<ts>-<slug>
-  ///   6. POST a pull req  -> PR url
+  /// Implements the 5-step direct-commit flow:
+  ///   1. GET  /git/ref/heads/master   -> baseSha (current HEAD)
+  ///   2. POST /git/blobs              -> blobSha (per file)
+  ///   3. POST /git/trees              -> treeSha (one entry per file, on top of base tree)
+  ///   4. POST /git/commits            -> commitSha
+  ///   5. PATCH /git/refs/heads/master -> fast-forward master to commitSha
+  ///
+  /// Step 5 fails with 422 if branch protection blocks the push or if
+  /// master moved while we were composing the commit; the error is
+  /// surfaced verbatim so the user can fix it (e.g. pull and retry).
   Future<PrResult> submitEdit({
     required List<FileEdit> edits,
     required String title,
@@ -158,46 +168,30 @@ class GithubPrService {
         return PrResult.failure(
             'Failed to create commit: ${_shortBody(newCommitResp)}');
       }
-      final commitSha =
-          (json.decode(newCommitResp.body) as Map)['sha'] as String;
+      final newCommit = json.decode(newCommitResp.body) as Map<String, dynamic>;
+      final commitSha = newCommit['sha'] as String;
 
-      // Step 5: branch
-      final branchName = _branchName(title);
-      final refCreateResp = await http.post(
-        Uri.parse('$_api/git/refs'),
+      // Step 5: fast-forward master to the new commit.
+      // Use force=false so we never overwrite history if master moved
+      // between step 1 and now; the user gets a clear 422 in that case.
+      final updateRefResp = await http.patch(
+        Uri.parse('$_api/git/refs/heads/$baseBranch'),
         headers: _headers,
         body: json.encode({
-          'ref': 'refs/heads/$branchName',
           'sha': commitSha,
+          'force': false,
         }),
       );
-      if (refCreateResp.statusCode != 201) {
+      if (updateRefResp.statusCode != 200) {
         return PrResult.failure(
-            'Failed to create branch $branchName: ${_shortBody(refCreateResp)}');
+            'Failed to push to $baseBranch: ${_shortBody(updateRefResp)}');
       }
 
-      // Step 6: pull request
-      final prResp = await http.post(
-        Uri.parse('$_api/pulls'),
-        headers: _headers,
-        body: json.encode({
-          'title': title,
-          'head': branchName,
-          'base': baseBranch,
-          'body': body ??
-              'Submitted from the in-app admin editor.\n\n'
-                  'Files changed:\n${edits.map((e) => '- ${e.relativePath}').join('\n')}',
-          'maintainer_can_modify': true,
-        }),
-      );
-      if (prResp.statusCode != 201) {
-        return PrResult.failure('Failed to open PR: ${_shortBody(prResp)}');
-      }
-      final pr = json.decode(prResp.body) as Map<String, dynamic>;
-      return PrResult.success(
-        pr['html_url'] as String?,
-        pr['number'] as int?,
-      );
+      // Prefer the html_url returned by the commit endpoint; fall back
+      // to the well-known commit URL pattern if it's missing.
+      final url = (newCommit['html_url'] as String?) ??
+          'https://github.com/$owner/$repo/commit/$commitSha';
+      return PrResult.success(url, commitSha);
     } catch (e) {
       return PrResult.failure('Unexpected error: $e');
     }
@@ -206,18 +200,6 @@ class GithubPrService {
   String _commitMessage(String title, List<FileEdit> edits) {
     final paths = edits.map((e) => e.relativePath).join(', ');
     return '$title\n\nIn-app admin edit affecting: $paths';
-  }
-
-  String _branchName(String title) {
-    final ts = DateTime.now().millisecondsSinceEpoch;
-    final slug = title
-        .toLowerCase()
-        .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
-        .replaceAll(RegExp(r'^-+|-+$'), '');
-    final shortSlug = slug.isEmpty
-        ? 'edit'
-        : (slug.length > 40 ? slug.substring(0, 40) : slug);
-    return 'admin-edit/$ts-$shortSlug';
   }
 
   String _shortBody(http.Response r) {

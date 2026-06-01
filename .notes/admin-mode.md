@@ -1,8 +1,8 @@
-# Admin mode (in-app editor + GitHub PR)
+# Admin mode (in-app editor + direct push to master)
 
 A hidden admin mode lets you edit the rendered HTML in place — fix
 letters, move perush blocks (Gur Arye, Rashi notes, ...) around —
-and submit the change as a Pull Request to the source repo.
+and push the change as a commit directly to `master` on GitHub.
 
 This file documents both the user-facing flow and the internal
 plumbing. The same feature exists in `learnTanahApp`; the two apps
@@ -12,9 +12,13 @@ are kept byte-identical except for `UpdateConfig.repo`.
 
 Do this once for both `davinob/learnTorahApp` and `davinob/learnTanahApp`.
 
-1. **Protect `master`**: Settings -> Branches -> Add rule for `master`:
-   - Require a pull request before merging.
-   - Restrict who can push to matching branches -> only you (or no one).
+1. **Allow direct push to `master`**: either leave `master` unprotected
+   for the `davinob` owner account, or — if you keep branch protection
+   on for review-by-default — enable "Allow specified actors to bypass
+   required pull requests" and add yourself. The app's PAT pushes
+   commits straight to the ref via `PATCH /git/refs/heads/master`, so
+   any protection rule that blocks that API call will surface as a 422
+   error in the in-app modal.
 2. **Create a fine-grained PAT**: github.com -> Settings -> Developer
    settings -> Personal access tokens -> Fine-grained tokens -> Generate.
    - Resource owner: `davinob`.
@@ -23,14 +27,13 @@ Do this once for both `davinob/learnTorahApp` and `davinob/learnTanahApp`.
      prefer; the app uses one token per app).
    - Repository permissions:
      - Contents: **Read and write**
-     - Pull requests: **Read and write**
      - Metadata: **Read-only**
+     - (Pull requests scope is no longer needed; the app never opens PRs.)
    - Expiration: pick a value you're comfortable with (e.g. 90 days).
 3. Copy the token (starts with `github_pat_...`); you only see it once.
 
-With `master` protected, the token cannot push to `master` even by
-mistake. The worst case if a device is lost is unwanted PRs, which
-you can close — and the token can be revoked from GitHub in one click.
+If a device is lost: revoke the token from GitHub in one click. Any
+commits already pushed can be reverted with `git revert` on desktop.
 
 ## One-time setup (in the app, per device)
 
@@ -58,37 +61,45 @@ In admin mode:
   1. Tap **Select: OFF** on the toolbar so it turns green and reads
      **Select: ON**.
   2. Tap the block you want to move. It gets a dashed yellow outline.
-  3. Tap **Cut** (or **Copy**). The toolbar flashes "Cut. Tap target
-     block to paste after it." and every block on the page gets a
-     thin blue dashed outline — you are now in **paste mode**.
-  4. Tap the block after which the clipboard should be inserted.
-     The block is pasted right below the target, paste mode ends.
+  3. Tap **Cut** (or **Copy**). The toolbar flashes "Cut. Tap where
+     to paste, then press Paste." and every block on the page gets
+     a thin blue dashed outline — you are now in **paste mode**.
+  4. Tap *exactly* where you want the clipboard to land. A small
+     blinking red caret marker appears at that spot — that's the
+     paste anchor. You can re-tap somewhere else to move the anchor
+     as many times as you want until it looks right.
+  5. Press the green **Paste** button on the toolbar. The clipboard
+     is spliced in at the anchor, paste mode ends.
   - On a desktop browser you can also hold **Shift** while clicking
     a block instead of toggling Select.
 - Toolbar buttons:
   - **Select: OFF/ON**: toggle block-selection mode (mobile-friendly
     replacement for shift-click).
   - **Cut** / **Copy**: clipboard the selected block, then enter
-    paste mode (next block tap pastes after it).
-  - **Undo / Redo**: in-memory snapshot stack (~100 deep).
+    paste mode. Paste does not happen on tap — see below.
+  - **Paste**: only enabled once you've dropped a paste anchor with a
+    tap. Inserts the clipboard at the anchor and exits paste mode.
+  - **Undo / Redo**: in-memory snapshot stack (~50 deep).
   - **Discard**: reload the page from disk, throwing away edits.
-  - **Submit PR**: prompts for a short title, then opens a PR.
+  - **Push**: prompts for a commit message, then commits and pushes
+    directly to `master`.
   - Gear: open admin settings (token, sign out).
   - **X**: exit admin mode (go back to read-only).
 - All in-page modals can be dismissed by tapping the dark backdrop
   outside the white card (or pressing Escape on a desktop keyboard),
   so a stuck modal will never block the UI.
 
-When you tap Submit, the app:
+When you tap Push, the app:
 1. Asks GitHub for `master` HEAD's SHA.
 2. Creates a blob with your edited file content.
 3. Creates a tree based on `master` overriding that one file.
 4. Creates a commit pointing at the new tree.
-5. Creates a branch `admin-edit/<timestamp>-<slug>` pointing at the commit.
-6. Opens a PR from that branch into `master`.
-7. Shows you the PR URL.
+5. Fast-forwards `master` to that commit via `PATCH /git/refs/heads/master`.
+6. Shows you the commit URL.
 
-You then review and merge on desktop as usual.
+If step 5 fails with a 422 it usually means `master` moved on GitHub
+between step 1 and step 5 (someone else pushed). Hit Push again and
+the app will rebuild the commit on the new HEAD.
 
 ## Test plan (run once after setup)
 
@@ -98,15 +109,16 @@ For each app (`learnTorahApp`, `learnTanahApp`):
 2. Run on iOS simulator and on an Android device.
 3. Tap 5 times quickly in the top 100px banner area, set passphrase, paste PAT, hit Test token.
 4. Open Bereshit/1.html (or Yehoshua/1.html for Tanah).
-5. Add an extra space inside a Hebrew word, then **Submit PR**.
-   Verify a PR appears at github.com/davinob/<repo>/pulls.
-6. Close the PR.
+5. Add an extra space inside a Hebrew word, then **Push**.
+   Verify a new commit appears at the top of
+   github.com/davinob/<repo>/commits/master.
+6. Revert the test commit on desktop.
 7. Repeat with a Gur Arye span: tap **Select: OFF** to turn it
-   ON, tap the green-bordered gurarie span, then Down/Paste it
-   into the next pasuk's Rashi block. Submit PR and verify the
-   span (and its `[N]` marker) moved correctly in the diff.
-8. Verify `master` was NOT pushed to directly.
-9. Exit admin mode (X button) and confirm the toolbar is gone
+   ON, tap the green-bordered gurarie span, then **Copy**. Tap
+   inside the next pasuk's Rashi block — the red blinking anchor
+   should appear. Press **Paste**. Push, and verify the span
+   (and its `[N]` marker) moved correctly in the diff.
+8. Exit admin mode (X button) and confirm the toolbar is gone
    and editing no longer triggers.
 
 ## Files added / changed in this app
@@ -116,7 +128,8 @@ For each app (`learnTorahApp`, `learnTanahApp`):
 - `assets/html/**/*.html` — `<link>` + `<script>` tags injected by
   `scripts/inject_admin_assets.py` (idempotent; safe to re-run).
 - `lib/admin/admin_storage.dart` — secure storage of token + passphrase hash.
-- `lib/admin/github_pr_service.dart` — the 7-step PR flow.
+- `lib/admin/github_pr_service.dart` — the 5-step direct-commit flow
+  (POST blob, tree, commit; PATCH refs/heads/master).
 - `lib/admin/admin_settings_screen.dart` — token entry + test + sign out.
 - `lib/admin/admin_bridge.dart` — JS bridge handler dispatching to the above.
 - `lib/main.dart` — registers the AdminBridge on the WebView, holds a
