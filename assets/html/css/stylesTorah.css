@@ -1426,6 +1426,13 @@ a {
     font-size: 22px;
     padding: 4px 8px;
     min-width: 22px;
-    margin-left: 7px;
+    margin: 4px 7px;
     text-align: center;
+}
+
+/* The gap between two buttons comes from their margins alone: the wrapper spans
+   used to add padding on one side only, which left uneven gaps. */
+.alyot .parshiotTitle,
+.prakim .perekTitle {
+    padding: 0;
 }
