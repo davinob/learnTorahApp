@@ -1420,10 +1420,12 @@ a {
 /* Kept last in the file so it wins over the earlier generic `a` rules.
    Horizontal padding stays tight so the whole strip still fits on one screen. */
 .alyot a,
-.prakim a {
-    font-size: 24px;
-    padding: 6px 9px;
-    min-width: 26px;
+.prakim a,
+.parashaTitle a,
+.inSeferTitle a {
+    font-size: 22px;
+    padding: 4px 8px;
+    min-width: 22px;
     margin-left: 7px;
     text-align: center;
 }
