@@ -22,7 +22,7 @@ html {
 
 .alyot {
     margin-top: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 12px;
     width: 100%;
     white-space: nowrap;
     overflow-x: auto;
@@ -1423,9 +1423,9 @@ a {
 .prakim a,
 .parashaTitle a,
 .inSeferTitle a {
-    font-size: 22px;
-    padding: 4px 8px;
-    min-width: 22px;
+    font-size: 27px;
+    padding: 8px 12px;
+    min-width: 30px;
     margin: 4px 7px;
     text-align: center;
 }
