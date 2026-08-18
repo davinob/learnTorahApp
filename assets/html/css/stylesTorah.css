@@ -1436,3 +1436,12 @@ a {
 .prakim .perekTitle {
     padding: 0;
 }
+
+/* Trailing space so the fixed zoom controls cannot cover the bottom number
+   strip. `clear` is needed because the strip is floated. */
+.theBody::after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 90px;
+}
