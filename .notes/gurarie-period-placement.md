@@ -17,3 +17,14 @@ phrase:
 The same punctuation-insensitive rematch (ignore `.` / `,` / `:`
 between lemma words; require a tight hit with no extra Hebrew in
 between) moved 66 markers across 56 pages.
+
+A second pass treated *any* non-word junk as a separator, not just `.`:
+
+- a Siftei Chachamim `(ז)` / hidden span between lemma words
+  (`אל תונו. זו אונאת (ז) … ממון`)
+- a `<small>` citation in the middle of the lemma
+- the lemma present as an exact phrase, but `[n]` still dropped later
+  in the same Rashi (`בראשית הכל`, `היום לעשותם`, …)
+
+That moved another 56 markers across 34 pages. A rematch after the
+pass found no remaining cases of this class.
