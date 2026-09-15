@@ -733,84 +733,85 @@ a {
    about 40% of its CSS size, which left these controls 8-14px wide on screen.
    Taps meant for one button landed on its neighbour, and focusing an input
    whose text renders at 8px makes mobile browsers zoom the page in to read it.
-   Sizes below are ~2.5x the desktop ones so they come out close to their
-   intended size on screen; wide screens keep the 1:1 values above. */
+   Sizes below are ~2x the desktop ones. The first pass used ~2.5x, which read
+   fine in a mobile browser but looked oversized in the Android app because its
+   WebView also applies textZoom: 170. Wide screens keep the 1:1 values above. */
 @media (max-device-width: 560px) {
     #searchPanel {
-        padding: 28px 30px 24px;
+        padding: 20px 22px 16px;
     }
 
     #searchPanel .sRow {
         flex-wrap: wrap;
-        gap: 18px;
-        margin-bottom: 18px;
+        gap: 12px;
+        margin-bottom: 12px;
     }
 
     #searchPanel input[type="text"] {
-        font-size: 50px;
-        padding: 22px 28px;
-        border-radius: 24px;
-        border-width: 4px;
+        font-size: 40px;
+        padding: 16px 20px;
+        border-radius: 18px;
+        border-width: 3px;
     }
 
     #searchPanel .sBtn {
-        font-size: 46px;
-        padding: 22px 34px;
-        border-radius: 24px;
+        font-size: 36px;
+        padding: 16px 24px;
+        border-radius: 18px;
     }
 
     #searchPanel .sClose {
-        width: 110px;
-        height: 110px;
+        width: 84px;
+        height: 84px;
         padding: 0;
-        font-size: 80px;
+        font-size: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
     #searchPanel .sNav {
-        width: 104px;
-        height: 104px;
-        font-size: 56px;
-        border-radius: 22px;
-        border-width: 3px;
+        width: 80px;
+        height: 80px;
+        font-size: 42px;
+        border-radius: 16px;
+        border-width: 2px;
     }
 
     #searchPanel .sInfo {
-        font-size: 38px;
-        min-width: 130px;
+        font-size: 28px;
+        min-width: 100px;
     }
 
     #searchPanel .sToggle {
-        font-size: 34px;
-        padding: 14px 26px;
-        border-radius: 16px;
+        font-size: 26px;
+        padding: 10px 18px;
+        border-radius: 12px;
     }
 
     #searchPanel .sToggleSm {
-        font-size: 28px !important;
-        padding: 10px 20px !important;
+        font-size: 22px !important;
+        padding: 8px 14px !important;
     }
 
     #searchPanel .sGroupLabel {
-        font-size: 34px;
+        font-size: 26px;
     }
 
     #searchPanel .sf {
-        font-size: 38px;
-        padding: 16px 32px;
-        border-radius: 36px;
-        border-width: 3px;
+        font-size: 30px;
+        padding: 12px 24px;
+        border-radius: 28px;
+        border-width: 2px;
     }
 
     #searchPanel .sFilters {
-        gap: 14px;
+        gap: 10px;
     }
 
     #searchPanel .sFilters.open {
-        max-height: 1400px;
-        padding: 18px 0;
+        max-height: 1100px;
+        padding: 12px 0;
     }
 }
 
