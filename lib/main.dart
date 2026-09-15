@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'admin/admin_bridge.dart';
@@ -52,6 +54,16 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   Widget? _cachedAssetWebView;
 
   static const _updateInterval = Duration(minutes: 5);
+
+  /// Forward long-press (text selection / Copy) and vertical scroll to the
+  /// platform WebView. Without this, Flutter's gesture arena often eats the
+  /// long-press before Android can show the selection action bar.
+  static final _webViewGestureRecognizers =
+      <Factory<OneSequenceGestureRecognizer>>{
+    Factory<OneSequenceGestureRecognizer>(() => LongPressGestureRecognizer()),
+    Factory<OneSequenceGestureRecognizer>(
+        () => VerticalDragGestureRecognizer()),
+  };
 
   @override
   void initState() {
@@ -141,13 +153,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       allowUniversalAccessFromFileURLs: true,
       cacheEnabled: false,
       textZoom: Platform.isAndroid ? 170 : 100,
-      // Keep the native Copy menu for normal reading. AdminBridge toggles
-      // disableContextMenu on only while an admin editing session is active.
+      disableContextMenu: false,
     );
 
     if (useLocalContent) {
       return _cachedLocalWebView ??= InAppWebView(
         key: _webViewKey,
+        gestureRecognizers: _webViewGestureRecognizers,
         onWebViewCreated: (controller) {
           webViewController = controller;
           _adminBridge.register(controller);
@@ -162,6 +174,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
     return _cachedAssetWebView ??= InAppWebView(
       key: _webViewKey,
+      gestureRecognizers: _webViewGestureRecognizers,
       onWebViewCreated: (controller) {
         webViewController = controller;
         _adminBridge.register(controller);
