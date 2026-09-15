@@ -34,6 +34,7 @@ class AdminBridge {
   /// reloads. The "is this device an admin device" decision is the
   /// device-persistent flag stored by AdminStorage.setAdminEnabled().
   static bool _sessionUnlocked = false;
+  static InAppWebViewController? _controller;
 
   static bool get isSessionUnlocked => _sessionUnlocked;
 
@@ -41,11 +42,27 @@ class AdminBridge {
   /// in-memory hint matches the persistent flag.
   static void clearSessionFlag() {
     _sessionUnlocked = false;
+    _syncContextMenuPolicy();
   }
 
   AdminBridge({required this.navigatorKey});
 
+  /// Android/iOS long-press "Copy" is blocked only while admin mode is
+  /// active — that popup can tear down the WebView and wipe in-progress
+  /// edits. Normal reading keeps the native copy menu enabled.
+  static Future<void> _syncContextMenuPolicy() async {
+    final controller = _controller;
+    if (controller == null) return;
+    await controller.setSettings(
+      settings: InAppWebViewSettings(
+        disableContextMenu: _sessionUnlocked,
+      ),
+    );
+  }
+
   void register(InAppWebViewController controller) {
+    _controller = controller;
+    _syncContextMenuPolicy();
     controller.addJavaScriptHandler(
       handlerName: 'AdminBridge',
       callback: (args) async {
@@ -66,10 +83,14 @@ class AdminBridge {
               // Hide the toolbar for now, but keep the device-level
               // admin enrolment so the next 5-tap doesn't reprompt.
               _sessionUnlocked = false;
+              await _syncContextMenuPolicy();
               return true;
             case 'requestAdminUnlock':
               final ok = await _handleUnlock();
-              if (ok) _sessionUnlocked = true;
+              if (ok) {
+                _sessionUnlocked = true;
+                await _syncContextMenuPolicy();
+              }
               return ok;
             case 'submitEdit':
               return await _handleSubmit(payload);

@@ -141,9 +141,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       allowUniversalAccessFromFileURLs: true,
       cacheEnabled: false,
       textZoom: Platform.isAndroid ? 170 : 100,
-      // Kills the Translate / Copy / Share popup that breaks active edits
-      // by causing the underlying native WebView to be torn down.
-      disableContextMenu: true,
+      // Keep the native Copy menu for normal reading. AdminBridge toggles
+      // disableContextMenu on only while an admin editing session is active.
     );
 
     if (useLocalContent) {
