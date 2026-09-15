@@ -469,13 +469,22 @@ function updateContentPadding() {
 	}
 }
 
+// The open panel has its own search button, so the floating one is a second
+// identical loupe on screen. Hide it for as long as the panel is up.
+function setSearchIconHidden(hidden) {
+	var icon = document.getElementById('searchIcon');
+	if (icon) icon.style.display = hidden ? 'none' : '';
+}
+
 function toggleSearchPanel() {
 	var p = document.getElementById('searchPanel');
 	if (!p) return;
 	if (p.style.display === 'block') {
 		closeSearchPanel();
 	} else {
+		adjustSearchPanelTop();
 		p.style.display = 'block';
+		setSearchIconHidden(true);
 		document.getElementById('searchInput').focus();
 		updateContentPadding();
 	}
@@ -484,6 +493,7 @@ function toggleSearchPanel() {
 function closeSearchPanel() {
 	var p = document.getElementById('searchPanel');
 	if (p) p.style.display = 'none';
+	setSearchIconHidden(false);
 	clearSearchHighlights();
 	clearSearchState();
 	var nav = document.getElementById('searchAliyotNav');
@@ -1195,6 +1205,7 @@ function restoreSearchOnParshaPage() {
 			}
 			adjustSearchPanelTop();
 			panel.style.display = 'block';
+			setSearchIconHidden(true);
 			input.value = state.term;
 			doSearch();
 			updateContentPadding();
@@ -1205,9 +1216,12 @@ function restoreSearchOnParshaPage() {
 function adjustSearchPanelTop() {
 	var nav = document.getElementById('searchAliyotNav');
 	var panel = document.getElementById('searchPanel');
-	if (panel && nav && nav.style.display === 'flex') {
-		panel.style.top = nav.offsetHeight + 'px';
-	}
+	if (!panel) return;
+	var barShown = nav && nav.style.display === 'flex';
+	// Reset the offset when the bar is gone. Leaving the previous run's value
+	// drops the panel below the top of the page and exposes a strip of content
+	// behind it, which is where the second loupe used to reappear.
+	panel.style.top = barShown ? nav.offsetHeight + 'px' : '0px';
 }
 
 function restoreSearchOnIndexPage() {
