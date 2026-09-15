@@ -55,14 +55,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   static const _updateInterval = Duration(minutes: 5);
 
-  /// Forward long-press (text selection / Copy) and vertical scroll to the
-  /// platform WebView. Without this, Flutter's gesture arena often eats the
-  /// long-press before Android can show the selection action bar.
+  /// Forward taps, scrolls, and long-press to the platform WebView. A partial
+  /// set (e.g. long-press only) breaks ordinary clicks such as the hamburger.
   static final _webViewGestureRecognizers =
       <Factory<OneSequenceGestureRecognizer>>{
-    Factory<OneSequenceGestureRecognizer>(() => LongPressGestureRecognizer()),
-    Factory<OneSequenceGestureRecognizer>(
-        () => VerticalDragGestureRecognizer()),
+    Factory<OneSequenceGestureRecognizer>(() => EagerGestureRecognizer()),
   };
 
   @override
