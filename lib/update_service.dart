@@ -173,8 +173,13 @@ class UpdateService {
       try {
         print('[UpdateService] GitHub tree fetch attempt $attempt');
         final response = await http
-            .get(Uri.parse(url),
-                headers: {'Accept': 'application/vnd.github.v3+json'})
+            .get(Uri.parse(url), headers: {
+              'Accept': 'application/vnd.github.v3+json',
+              // Without this the tree can come back from cache minutes after a
+              // push, and the app then reports "Already up to date" and never
+              // sees the new files. The file downloads below do the same.
+              'Cache-Control': 'no-cache, no-store',
+            })
             .timeout(const Duration(seconds: 30));
         if (response.statusCode == 200) return json.decode(response.body);
         print(
