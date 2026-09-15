@@ -542,6 +542,10 @@ a {
 
 #searchPanel input[type="text"] {
     flex: 1;
+    /* Without this the input refuses to shrink past its intrinsic width, which
+       pushes the close button onto its own line — the Android app enlarges text
+       to 170% so its row is wider than the same row in a browser. */
+    min-width: 0;
     font-size: 20px;
     padding: 10px 14px;
     border: 2px solid #c5d5e5;
