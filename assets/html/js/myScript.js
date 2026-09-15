@@ -879,6 +879,39 @@ function closeGlobalSearch() {
 	clearSearchState();
 }
 
+// Reads another page's HTML so a search can scan pages the user isn't on.
+//
+// In the app these pages are served from file://, and Chromium refuses
+// cross-file XHR outright ("Cross origin requests are only supported for
+// protocol schemes: ... http, https") no matter what the WebView's file-access
+// settings say, so there the read goes through the Flutter bridge. On the
+// website there is no bridge and a normal request works.
+function fetchPageText(url, onLoad, onError) {
+	var bridge = window.flutter_inappwebview;
+	if (bridge && bridge.callHandler) {
+		var path;
+		try {
+			path = new URL(url, window.location.href).pathname;
+		} catch (e) {
+			path = url;
+		}
+		bridge.callHandler('readContentFile', path).then(function (textContent) {
+			if (typeof textContent === 'string' && textContent.length > 0) onLoad(textContent);
+			else onError();
+		}).catch(onError);
+		return;
+	}
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+	xhr.onload = function () {
+		if ((xhr.status === 200 || xhr.status === 0) && xhr.responseText) onLoad(xhr.responseText);
+		else onError();
+	};
+	xhr.onerror = onError;
+	xhr.send();
+}
+
 function startGlobalSearch() {
 	var rawQuery = document.getElementById('gsInput').value;
 	var parsed = parseSearchQuery(rawQuery);
@@ -955,41 +988,36 @@ function startGlobalSearch() {
 		var file = allFiles[fileIdx++];
 		var url = file.folder + '/' + file.num + '.html';
 
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', url, true);
-		xhr.onload = function () {
+		function advanceProgress() {
 			processed++;
 			var pct = Math.round((processed / totalFiles) * 100);
 			fill.style.width = pct + '%';
 			text.textContent = pct + '%';
+		}
 
-			if ((xhr.status === 200 || xhr.status === 0) && xhr.responseText) {
-				var isHaftarahFile = file.num === 8;
-				var pageSources = [];
-				for (var j = 0; j < activeSources.length; j++) {
-					if (isHaftarahFile ? haftarahSourceIds[activeSources[j]] : torahSourceIds[activeSources[j]]) {
-						pageSources.push(activeSources[j]);
-					}
+		fetchPageText(url, function (pageHtml) {
+			advanceProgress();
+
+			var isHaftarahFile = file.num === 8;
+			var pageSources = [];
+			for (var j = 0; j < activeSources.length; j++) {
+				if (isHaftarahFile ? haftarahSourceIds[activeSources[j]] : torahSourceIds[activeSources[j]]) {
+					pageSources.push(activeSources[j]);
 				}
-				if (pageSources.length > 0) {
-					var matches = searchInHtml(xhr.responseText, normalizedQuery, pageSources, parsed);
-					if (matches.length > 0) {
-						totalMatches += matches.length;
-						if (!groupedResults[file.folder]) groupedResults[file.folder] = {};
-						groupedResults[file.folder][file.num] = matches;
-					}
+			}
+			if (pageSources.length > 0) {
+				var matches = searchInHtml(pageHtml, normalizedQuery, pageSources, parsed);
+				if (matches.length > 0) {
+					totalMatches += matches.length;
+					if (!groupedResults[file.folder]) groupedResults[file.folder] = {};
+					groupedResults[file.folder][file.num] = matches;
 				}
 			}
 			processNext();
-		};
-		xhr.onerror = function () {
-			processed++;
-			var pct = Math.round((processed / totalFiles) * 100);
-			fill.style.width = pct + '%';
-			text.textContent = pct + '%';
+		}, function () {
+			advanceProgress();
 			processNext();
-		};
-		xhr.send();
+		});
 	}
 
 	for (var c = 0; c < concurrency; c++) processNext();
@@ -1300,39 +1328,30 @@ function searchOtherAliyot(normalizedQuery, activeSources, currentPageCount, par
 	var total = aliyotToScan.length;
 
 	aliyotToScan.forEach(function (num) {
-		var url = num + '.html';
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', url, true);
-		xhr.onload = function () {
-			processed++;
-			if ((xhr.status === 200 || xhr.status === 0) && xhr.responseText) {
-				var isHaftarahFile = (num === 8);
-				var pageSources = [];
-				for (var j = 0; j < activeSources.length; j++) {
-					if (isHaftarahFile ? haftarahSourceIds[activeSources[j]] : torahSourceIds[activeSources[j]]) {
-						pageSources.push(activeSources[j]);
-					}
-				}
-				if (pageSources.length > 0) {
-					var matches = searchInHtml(xhr.responseText, normalizedQuery, pageSources, parsed);
-					if (matches.length > 0) {
-						parashaResults[num] = matches.length;
-					}
-				}
-			}
-			if (processed === total) {
-				saveParashaSearchResults(current.folder, parashaResults);
-				renderAliyotNav(current.folder, current.num, parashaResults);
-			}
-		};
-		xhr.onerror = function () {
+		function finishIfDone() {
 			processed++;
 			if (processed === total) {
 				saveParashaSearchResults(current.folder, parashaResults);
 				renderAliyotNav(current.folder, current.num, parashaResults);
 			}
-		};
-		xhr.send();
+		}
+
+		fetchPageText(num + '.html', function (pageHtml) {
+			var isHaftarahFile = (num === 8);
+			var pageSources = [];
+			for (var j = 0; j < activeSources.length; j++) {
+				if (isHaftarahFile ? haftarahSourceIds[activeSources[j]] : torahSourceIds[activeSources[j]]) {
+					pageSources.push(activeSources[j]);
+				}
+			}
+			if (pageSources.length > 0) {
+				var matches = searchInHtml(pageHtml, normalizedQuery, pageSources, parsed);
+				if (matches.length > 0) {
+					parashaResults[num] = matches.length;
+				}
+			}
+			finishIfDone();
+		}, finishIfDone);
 	});
 }
 

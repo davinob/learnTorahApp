@@ -6,6 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'admin/admin_bridge.dart';
+import 'content_reader.dart';
 import 'update_service.dart';
 
 class _GitHubCertOverrides extends HttpOverrides {
@@ -38,6 +39,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   InAppWebViewController? webViewController;
   final UpdateService _updateService = UpdateService.instance;
+  final ContentReader _contentReader = ContentReader();
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
   late final AdminBridge _adminBridge =
       AdminBridge(navigatorKey: _navigatorKey);
@@ -160,6 +162,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         onWebViewCreated: (controller) {
           webViewController = controller;
           _adminBridge.register(controller);
+          _contentReader.register(controller);
         },
         onConsoleMessage: _onConsoleMessage,
         onLoadStart: _onLoadStart,
@@ -175,6 +178,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       onWebViewCreated: (controller) {
         webViewController = controller;
         _adminBridge.register(controller);
+        _contentReader.register(controller);
       },
       onConsoleMessage: _onConsoleMessage,
       onLoadStart: _onLoadStart,
