@@ -722,6 +722,95 @@ a {
 }
 
 
+/* ==================== LOCAL SEARCH PANEL ON PHONES ==================== */
+
+/* These pages carry no viewport meta, so a phone lays them out at 980px and
+   shrinks the result to fit the screen: on a 390px device everything renders at
+   about 40% of its CSS size, which left these controls 8-14px wide on screen.
+   Taps meant for one button landed on its neighbour, and focusing an input
+   whose text renders at 8px makes mobile browsers zoom the page in to read it.
+   Sizes below are ~2.5x the desktop ones so they come out close to their
+   intended size on screen; wide screens keep the 1:1 values above. */
+@media (max-device-width: 560px) {
+    #searchPanel {
+        padding: 28px 30px 24px;
+    }
+
+    #searchPanel .sRow {
+        flex-wrap: wrap;
+        gap: 18px;
+        margin-bottom: 18px;
+    }
+
+    #searchPanel input[type="text"] {
+        font-size: 50px;
+        padding: 22px 28px;
+        border-radius: 24px;
+        border-width: 4px;
+    }
+
+    #searchPanel .sBtn {
+        font-size: 46px;
+        padding: 22px 34px;
+        border-radius: 24px;
+    }
+
+    #searchPanel .sClose {
+        width: 110px;
+        height: 110px;
+        padding: 0;
+        font-size: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #searchPanel .sNav {
+        width: 104px;
+        height: 104px;
+        font-size: 56px;
+        border-radius: 22px;
+        border-width: 3px;
+    }
+
+    #searchPanel .sInfo {
+        font-size: 38px;
+        min-width: 130px;
+    }
+
+    #searchPanel .sToggle {
+        font-size: 34px;
+        padding: 14px 26px;
+        border-radius: 16px;
+    }
+
+    #searchPanel .sToggleSm {
+        font-size: 28px !important;
+        padding: 10px 20px !important;
+    }
+
+    #searchPanel .sGroupLabel {
+        font-size: 34px;
+    }
+
+    #searchPanel .sf {
+        font-size: 38px;
+        padding: 16px 32px;
+        border-radius: 36px;
+        border-width: 3px;
+    }
+
+    #searchPanel .sFilters {
+        gap: 14px;
+    }
+
+    #searchPanel .sFilters.open {
+        max-height: 1400px;
+        padding: 18px 0;
+    }
+}
+
+
 /* ==================== ZOOM CONTROLS ==================== */
 
 #zoomControls {

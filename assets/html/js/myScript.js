@@ -427,7 +427,6 @@ function initSearchUI() {
 		"<div class='sRow'>" +
 		"<input type='text' id='searchInput' placeholder='חיפוש בדף...' dir='auto' />" +
 		"<button class='sBtn' onclick='doSearch()'>&#x1F50D;</button>" +
-		"<button onclick='showSearchHelp()' style='font-size:16px;background:none;border:none;color:#888;cursor:pointer;padding:2px 4px;'>&#9432;</button>" +
 		"<button class='sClose' onclick='closeSearchPanel()'>&times;</button>" +
 		"</div>" +
 		"<div class='sRow'>" +
@@ -435,6 +434,7 @@ function initSearchUI() {
 		"<span class='sInfo' id='searchInfo'></span>" +
 		"<button class='sNav' onclick='searchNext()'>&rsaquo;</button>" +
 		"<span style='flex:1'></span>" +
+		"<button class='sToggle' onclick='showSearchHelp()'>&#9432; עזרה</button>" +
 		"<button class='sToggle' onclick='window.location.href=\"../index.html\"'>&#x1F50D; חיפוש כללי</button>" +
 		"<button class='sToggle' onclick='toggleSourceFiltersPanel()'>&#9881; מקורות</button>" +
 		"</div>" +
