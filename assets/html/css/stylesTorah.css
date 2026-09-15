@@ -310,17 +310,20 @@ a {
     margin-bottom: 15px;
 }
 
+/* These pages render at the default 980px viewport and are scaled down to the
+   device width, so the parasha names were only about 7 effective pixels tall at
+   17px. Sized to match .accordion below, which reads fine on a phone. */
 .buttonInAccordion {
     background: #fff;
     color: #2a4d70;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 16px 18px;
     width: 100%;
     border: none;
     border-bottom: 1px solid #e4ebf2;
     text-align: right;
     outline: none;
-    font-size: 17px;
+    font-size: 22px;
     font-weight: 600;
     transition: background 0.15s, transform 0.1s;
     direction: rtl;
