@@ -392,8 +392,8 @@ a {
 
 #searchIcon {
     position: fixed;
-    top: 4px;
-    right: 8px;
+    top: max(14px, env(safe-area-inset-top, 0px));
+    right: max(14px, env(safe-area-inset-right, 0px));
     z-index: 90;
     background: linear-gradient(135deg, #31567f, #1e3e5e);
     color: white;
@@ -1281,8 +1281,8 @@ a {
 /* Box matches #searchIcon exactly so the two sit on the same baseline. */
 #buttonNav {
     position: fixed !important;
-    top: 4px;
-    left: 8px;
+    top: max(14px, env(safe-area-inset-top, 0px));
+    left: max(14px, env(safe-area-inset-left, 0px));
     z-index: 250;
     width: 60px;
     height: 60px;
