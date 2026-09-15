@@ -390,12 +390,12 @@ a {
 
 /* ==================== SEARCH ICON ==================== */
 
-/* --topBarOffset is set on <body> by updateTopOverlayOffset() and equals the
-   height of #searchAliyotNav while that bar is visible, so the floating
-   buttons drop below it instead of sharing the same band. */
+/* Layer order for the top overlays: #searchAliyotNav (99) < the two floating
+   buttons (120) < #searchPanel (130), which covers them and offers its own
+   close button while search is open. */
 #searchIcon {
     position: fixed;
-    top: calc(max(14px, env(safe-area-inset-top, 0px)) + var(--topBarOffset, 0px));
+    top: max(14px, env(safe-area-inset-top, 0px));
     right: max(14px, env(safe-area-inset-right, 0px));
     z-index: 120;
     background: linear-gradient(135deg, #31567f, #1e3e5e);
@@ -1284,7 +1284,7 @@ a {
 /* Box matches #searchIcon exactly so the two sit on the same baseline. */
 #buttonNav {
     position: fixed !important;
-    top: calc(max(14px, env(safe-area-inset-top, 0px)) + var(--topBarOffset, 0px));
+    top: max(14px, env(safe-area-inset-top, 0px));
     left: max(14px, env(safe-area-inset-left, 0px));
     z-index: 120;
     width: 60px;
