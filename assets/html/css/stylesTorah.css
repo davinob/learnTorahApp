@@ -821,9 +821,12 @@ a {
         padding: 12px 0;
     }
 
-    /* The aliyot row is part of the same control, so it scales with the panel. */
+    /* The aliyot row is part of the same control, so it scales with the panel.
+       Fixed height so it measures the same whether it lists aliyot or just says
+       "not found", and stays short enough to clear the parasha title button. */
     #searchAliyotNav {
-        padding: 14px 18px;
+        height: 76px;
+        padding: 0 18px;
         gap: 12px;
     }
 
@@ -834,10 +837,7 @@ a {
 
     #searchAliyotNav .sanBtn {
         font-size: 30px;
-        /* These are the only way to reach another aliyah's hits, so give them a
-           real tap height rather than letting the text alone size them. */
-        min-height: 84px;
-        padding: 12px 22px;
+        padding: 8px 20px;
         border-radius: 14px;
         border-width: 2px;
         gap: 6px;

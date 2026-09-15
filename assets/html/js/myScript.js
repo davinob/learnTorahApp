@@ -463,7 +463,12 @@ function updateContentPadding() {
 	var c = document.querySelector('.theContent');
 	if (!p || !c) return;
 	if (p.style.display === 'block') {
-		setTimeout(function() { c.style.paddingTop = (p.offsetHeight + 50) + 'px'; }, 50);
+		// The panel is pushed down by the aliyot bar, so its own height is not the
+		// height of the search UI. Measure to its bottom edge instead, or the
+		// parasha title ends up underneath the bottom of the panel.
+		setTimeout(function() {
+			c.style.paddingTop = (p.getBoundingClientRect().bottom + 50) + 'px';
+		}, 50);
 	} else {
 		c.style.paddingTop = '';
 	}
@@ -1222,6 +1227,9 @@ function adjustSearchPanelTop() {
 	// drops the panel below the top of the page and exposes a strip of content
 	// behind it, which is where the second loupe used to reappear.
 	panel.style.top = barShown ? nav.offsetHeight + 'px' : '0px';
+	// The bar changes how far down the page the search UI reaches, so the content
+	// offset has to follow it.
+	updateContentPadding();
 }
 
 function restoreSearchOnIndexPage() {
