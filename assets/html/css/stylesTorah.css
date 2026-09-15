@@ -390,11 +390,14 @@ a {
 
 /* ==================== SEARCH ICON ==================== */
 
+/* --topBarOffset is set on <body> by updateTopOverlayOffset() and equals the
+   height of #searchAliyotNav while that bar is visible, so the floating
+   buttons drop below it instead of sharing the same band. */
 #searchIcon {
     position: fixed;
-    top: max(14px, env(safe-area-inset-top, 0px));
+    top: calc(max(14px, env(safe-area-inset-top, 0px)) + var(--topBarOffset, 0px));
     right: max(14px, env(safe-area-inset-right, 0px));
-    z-index: 90;
+    z-index: 120;
     background: linear-gradient(135deg, #31567f, #1e3e5e);
     color: white;
     border: none;
@@ -519,7 +522,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 130;
     background: rgba(255,255,255,0.97);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -1281,9 +1284,9 @@ a {
 /* Box matches #searchIcon exactly so the two sit on the same baseline. */
 #buttonNav {
     position: fixed !important;
-    top: max(14px, env(safe-area-inset-top, 0px));
+    top: calc(max(14px, env(safe-area-inset-top, 0px)) + var(--topBarOffset, 0px));
     left: max(14px, env(safe-area-inset-left, 0px));
-    z-index: 250;
+    z-index: 120;
     width: 60px;
     height: 60px;
     box-sizing: border-box;

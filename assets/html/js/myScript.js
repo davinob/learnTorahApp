@@ -488,6 +488,7 @@ function closeSearchPanel() {
 	clearSearchState();
 	var nav = document.getElementById('searchAliyotNav');
 	if (nav) nav.style.display = 'none';
+	updateTopOverlayOffset();
 	var c = document.querySelector('.theContent');
 	if (c) c.style.paddingTop = '';
 }
@@ -1208,6 +1209,15 @@ function adjustSearchPanelTop() {
 	if (panel && nav && nav.style.display === 'flex') {
 		panel.style.top = nav.offsetHeight + 'px';
 	}
+	updateTopOverlayOffset();
+}
+
+// Keep the floating menu / search buttons clear of the aliyot results bar.
+function updateTopOverlayOffset() {
+	var nav = document.getElementById('searchAliyotNav');
+	var shown = nav && nav.style.display === 'flex';
+	document.body.style.setProperty(
+		'--topBarOffset', (shown ? nav.offsetHeight : 0) + 'px');
 }
 
 function restoreSearchOnIndexPage() {
