@@ -1,7 +1,23 @@
+import com.github.triplet.gradle.androidpublisher.ReleaseStatus
+import java.io.File
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
     id("dev.flutter.flutter-gradle-plugin")
+    id("com.github.triplet.play") version "3.12.1"
+}
+
+val localProps: Properties = Properties().apply {
+    val f = rootProject.file("local.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+
+val playApiKeyFile: File? = run {
+    val fromEnv = System.getenv("GOOGLE_PLAY_API_KEY")?.takeIf { it.isNotBlank() }
+    val fromProps = localProps.getProperty("googlePlayApiKey")?.takeIf { it.isNotBlank() }
+    listOfNotNull(fromEnv, fromProps).map { File(it) }.firstOrNull { it.exists() }
 }
 
 android {
@@ -44,4 +60,16 @@ android {
 
 flutter {
     source = "../.."
+}
+
+play {
+    if (playApiKeyFile != null) {
+        serviceAccountCredentials.set(playApiKeyFile)
+    } else {
+        enabled.set(false)
+    }
+    defaultToAppBundles.set(true)
+    track.set("production")
+    releaseStatus.set(ReleaseStatus.COMPLETED)
+    resolutionStrategy.set(com.github.triplet.gradle.androidpublisher.ResolutionStrategy.FAIL)
 }
