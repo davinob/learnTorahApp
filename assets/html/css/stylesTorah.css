@@ -1278,26 +1278,33 @@ a {
 
 /* ==================== HAMBURGER BUTTON ==================== */
 
+/* Box matches #searchIcon exactly so the two sit on the same baseline. */
 #buttonNav {
     position: fixed !important;
-    top: max(6px, env(safe-area-inset-top, 0px));
-    left: max(6px, env(safe-area-inset-left, 0px));
+    top: 4px;
+    left: 8px;
     z-index: 250;
-    display: inline-flex;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 48px;
-    min-height: 48px;
-    padding: 8px 12px;
     line-height: 1;
     touch-action: manipulation;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    font-size: 50px !important;
-    color: #31567f;
-    background: rgba(255, 255, 255, 0.94);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 34px !important;
+    color: white;
+    background: linear-gradient(135deg, #31567f, #1e3e5e);
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#buttonNav:active {
+    transform: scale(0.92);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 /* ==================== SIDE NAV ==================== */

@@ -1386,13 +1386,6 @@ function showSearchAliyotNav() {
 // ==================== INIT ====================
 
 document.addEventListener('DOMContentLoaded', function () {
-	if (!document.querySelector('meta[name="viewport"]')) {
-		var viewport = document.createElement('meta');
-		viewport.name = 'viewport';
-		viewport.content = 'width=device-width, initial-scale=1';
-		document.head.appendChild(viewport);
-	}
-
 	var isIndexPage = document.body.classList.contains('theBodyMain');
 	var isParshaPage = document.body.classList.contains('theBody');
 
