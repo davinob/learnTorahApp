@@ -390,9 +390,10 @@ a {
 
 /* ==================== SEARCH ICON ==================== */
 
-/* Layer order for the top overlays: #searchAliyotNav (99) < the two floating
-   buttons (120) < #searchPanel (130), which covers them and offers its own
-   close button while search is open. */
+/* Layer order for the top overlays: the two floating buttons (120) < the search
+   UI (130), which is #searchAliyotNav stacked directly on #searchPanel. Both
+   parts sit above the buttons so neither the menu nor the search icon pokes
+   through them; the panel carries its own close button while search is open. */
 #searchIcon {
     position: fixed;
     top: max(14px, env(safe-area-inset-top, 0px));
@@ -421,13 +422,19 @@ a {
 
 /* ==================== SEARCH ALIYOT NAV ==================== */
 
+/* Renders directly above #searchPanel, which offsets its own top by this bar's
+   height, so the two read as one control: same translucency and blur, tinted a
+   shade darker to set the aliyot row apart, and only a hairline between them.
+   The panel keeps the drop shadow and heavy bottom border for the whole unit. */
 #searchAliyotNav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 99;
-    background: #eaf1f8;
+    z-index: 130;
+    background: rgba(226, 236, 246, 0.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid #c5d5e5;
     padding: 8px 10px;
     display: none;
@@ -812,6 +819,29 @@ a {
     #searchPanel .sFilters.open {
         max-height: 1100px;
         padding: 12px 0;
+    }
+
+    /* The aliyot row is part of the same control, so it scales with the panel. */
+    #searchAliyotNav {
+        padding: 14px 18px;
+        gap: 12px;
+    }
+
+    #searchAliyotNav .sanLabel {
+        font-size: 30px;
+        margin-left: 8px;
+    }
+
+    #searchAliyotNav .sanBtn {
+        font-size: 30px;
+        padding: 12px 22px;
+        border-radius: 14px;
+        border-width: 2px;
+        gap: 6px;
+    }
+
+    #searchAliyotNav .sanCount {
+        font-size: 24px;
     }
 }
 
