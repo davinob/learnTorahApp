@@ -834,6 +834,9 @@ a {
 
     #searchAliyotNav .sanBtn {
         font-size: 30px;
+        /* These are the only way to reach another aliyah's hits, so give them a
+           real tap height rather than letting the text alone size them. */
+        min-height: 84px;
         padding: 12px 22px;
         border-radius: 14px;
         border-width: 2px;
