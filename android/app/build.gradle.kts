@@ -14,6 +14,13 @@ val localProps: Properties = Properties().apply {
     if (f.exists()) f.inputStream().use { load(it) }
 }
 
+fun signingProp(key: String): String {
+    val fromEnv = System.getenv(key)?.takeIf { it.isNotBlank() }
+    val fromProps = localProps.getProperty(key)?.takeIf { it.isNotBlank() }
+    return fromEnv ?: fromProps
+        ?: error("Missing signing property '$key'. Add it to android/local.properties or set the env var.")
+}
+
 val playApiKeyFile: File? = run {
     val fromEnv = System.getenv("GOOGLE_PLAY_API_KEY")?.takeIf { it.isNotBlank() }
     val fromProps = localProps.getProperty("googlePlayApiKey")?.takeIf { it.isNotBlank() }
@@ -44,10 +51,10 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("../../../my-release-key.keystore")
-            storePassword = "[REDACTED]"
-            keyAlias = "alias_name"
-            keyPassword = "[REDACTED]"
+            storeFile = file(signingProp("KEYSTORE_FILE"))
+            storePassword = signingProp("KEYSTORE_PASSWORD")
+            keyAlias = signingProp("KEY_ALIAS")
+            keyPassword = signingProp("KEY_PASSWORD")
         }
     }
 

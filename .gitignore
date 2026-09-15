@@ -44,3 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Local signing and Play credentials (never commit)
+/android/local.properties
+/android/app/play-publisher.json

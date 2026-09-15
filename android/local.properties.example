@@ -1,0 +1,12 @@
+# Copy to local.properties and fill in. Flutter also writes sdk/flutter keys here;
+# keep the signing block when Flutter regenerates the file.
+#
+# KEYSTORE_FILE is relative to android/app/ (the app module).
+
+KEYSTORE_FILE=../../../my-release-key.keystore
+KEYSTORE_PASSWORD=your-keystore-password
+KEY_ALIAS=alias_name
+KEY_PASSWORD=your-key-password
+
+# Optional: Play Console upload (or set GOOGLE_PLAY_API_KEY env var instead)
+googlePlayApiKey=/path/to/play-publisher.json
