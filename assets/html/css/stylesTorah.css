@@ -747,6 +747,29 @@ a {
    fine in a mobile browser but looked oversized in the Android app because its
    WebView also applies textZoom: 170. Wide screens keep the 1:1 values above. */
 @media (max-device-width: 560px) {
+    /* These pages have no viewport meta tag, so the layout viewport grows to fit
+       the widest element — and the number strips are it. Without a cap, enlarging
+       the buttons below would just widen the viewport and rescale the whole page
+       smaller. Pin the strips to the default 980px viewport and let them scroll. */
+    .alyot,
+    .prakim,
+    .sefer {
+        max-width: 980px;
+    }
+
+    /* 27px renders at ~11 effective pixels once the page is scaled to the device
+       width, well below what these titles and aliyah buttons measured before the
+       pages lost their viewport tag. */
+    .alyot a,
+    .prakim a,
+    .parashaTitle a,
+    .inSeferTitle a {
+        font-size: 38px;
+        padding: 10px 12px;
+        min-width: 42px;
+        margin: 5px 6px;
+    }
+
     #searchPanel {
         padding: 20px 22px 16px;
     }
