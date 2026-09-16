@@ -51,7 +51,7 @@ if (( BUMP )); then
   bump_args=()
   [[ -n "$VERSION_NAME" ]] && bump_args+=(--name "$VERSION_NAME")
   (( DRY_RUN )) && bump_args+=(--dry-run)
-  python3 scripts/bump_version.py "${bump_args[@]}"
+  python3 scripts/bump_version.py ${bump_args[@]+"${bump_args[@]}"}
 fi
 
 if (( DRY_RUN )); then
