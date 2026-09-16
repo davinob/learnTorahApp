@@ -127,7 +127,9 @@ function saveLastVisited() {
 
 function openNav() {
 	var nav = document.getElementById("mySidenav");
-	nav.style.width = "33%";
+	// Phones set the commentary buttons much larger (see stylesTorah.css), which
+	// needs a wider panel to keep the longer names on one line.
+	nav.style.width = window.matchMedia("(max-device-width: 560px)").matches ? "44%" : "33%";
 	nav.style.border = "1px solid #31567f";
 	nav.classList.add("open");
 	document.getElementById("buttonNav").style.display = "none";

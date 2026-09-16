@@ -1633,4 +1633,18 @@ a {
         min-width: 42px;
         margin: 5px 6px;
     }
+
+    /* At 17px the commentary buttons were the smallest text in either app, about
+       7 effective pixels. openNav() widens the panel to match, otherwise the
+       longer names wrap once the WebView applies its text zoom. */
+    #mySidenav .button {
+        font-size: 34px;
+        padding: 12px 16px;
+        border-radius: 10px;
+    }
+
+    #mySidenav .trads,
+    #mySidenav .pirushim {
+        gap: 10px;
+    }
 }
