@@ -167,8 +167,13 @@ class UpdateService {
   }
 
   Future<Map<String, dynamic>?> _fetchGitHubTree() async {
+    // The no-cache request header below is not enough on its own: a cache keyed
+    // on the URL (carrier or CDN) can still hand back a tree from before the
+    // last push, and the app then reports "Already up to date" and never fetches
+    // the new files. A unique query parameter makes the URL itself unseen.
     final url =
-        'https://api.github.com/repos/${UpdateConfig.owner}/${UpdateConfig.repo}/git/trees/${UpdateConfig.branch}?recursive=1';
+        'https://api.github.com/repos/${UpdateConfig.owner}/${UpdateConfig.repo}/git/trees/${UpdateConfig.branch}?recursive=1'
+        '&_=${DateTime.now().millisecondsSinceEpoch}';
     for (int attempt = 1; attempt <= 3; attempt++) {
       try {
         print('[UpdateService] GitHub tree fetch attempt $attempt');
