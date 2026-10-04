@@ -58,6 +58,11 @@
 	// Per-tab state.
 	var state = {
 		active: false,
+
+		// Pristine HTML captured before admin/runtime UI is added.
+		// Used as the structural baseline when pushing changes.
+		originalDocumentHtml: null,
+
 		selectMode: false,    // when true, tap selects a block instead of typing
 		pasteMode: false,     // when true, tap drops/moves the paste anchor (does NOT paste)
 		pasteAnchor: null,    // marker <span id="adminPasteAnchor"> in the DOM, or null
@@ -404,7 +409,7 @@
 	}
 
 	// For perush spans that are paired with a footnote marker
-	// (`<span onclick='hideShowById("ID")'>[N]</span>` + 
+	// (`<span onclick='hideShowById("ID")'>[N]</span>` +
 	//  `<span id='ID' class='gurarie' style='display:none'>...</span>`),
 	// find the marker so cut/copy/paste move BOTH together.
 	// Returns null if there's no matching marker.
@@ -593,69 +598,181 @@
 		});
 	}
 
-	// Build the HTML we'll commit to GitHub. CRITICAL: this must look
-	// like what a normal (non-admin) user would see - no toolbar, no
-	// ADMIN badge, no `contenteditable`, no `body.admin-active`, no
-	// blinking paste anchor, etc. Otherwise the push would ship admin
-	// chrome straight to every reader on master.
-	function serializeForCommit() {
-		// Clone the whole document so we don't mutate the live page.
-		var docClone = document.documentElement.cloneNode(true);
+	// ------------------------------------------------------------
+	// Runtime state that myScript.js (and admin.js itself) add to the
+	// live page and that must NEVER be pushed:
+	//   - inline `display` on perush blocks (hideShow / initClasses...)
+	//   - "button active" on the left-menu buttons
+	//   - search UI (icon, panel, aliyot bar, help, zoom controls)
+	//   - search highlight <span>s
+	//   - font-size vars on <html>, width/border on #mySidenav,
+	//     display/padding on .theContent and #buttonNav
+	// ------------------------------------------------------------
+	var RUNTIME_DISPLAY_CLASSES = EDITABLE_BLOCK_CLASSES.concat(
+		["passukEnHa", "passukFrHa", "rashiHa"]);
+	// Footnote-style perush spans that are hidden by default (tap [N] to open).
+	var FOOTNOTE_CLASSES = ["siftey", "gurarie"];
+	var RUNTIME_ELEMENT_IDS = [
+		"adminToolbar", "adminBadge", "adminModal", PASTE_ANCHOR_ID,
+		"searchIcon", "searchPanel", "searchAliyotNav", "searchHelpOverlay",
+		"zoomControls", "zoomToast", "globalSearchBox"
+	];
 
-		// 1. Strip admin-only DOM nodes that we appended at runtime.
-		var dropSelectors = [
-			"#adminToolbar", "#adminBadge", "#adminModal",
-			"#" + PASTE_ANCHOR_ID,
-		];
-		for (var i = 0; i < dropSelectors.length; i++) {
-			var matches = docClone.querySelectorAll(dropSelectors[i]);
-			for (var j = 0; j < matches.length; j++) {
-				if (matches[j].parentNode) {
-					matches[j].parentNode.removeChild(matches[j]);
+	function captureOriginalDocument() {
+		if (state.originalDocumentHtml !== null) return;
+
+		// Fallback snapshot of the live DOM, taken before admin UI exists.
+		// NOT fully pristine (myScript.js has already touched <html>), which
+		// is why serializeForCommit() sanitizes it anyway.
+		state.originalDocumentHtml = document.documentElement.outerHTML;
+		log("captureOriginalDocument: fallback snapshot, length =",
+			state.originalDocumentHtml.length);
+
+		loadOriginalFromDisk();
+	}
+
+	// Preferred baseline: the real file as stored on disk (same bridge call
+	// myScript.js uses for search). It was never touched by runtime scripts.
+	function loadOriginalFromDisk() {
+		if (!hasFlutterBridge()) return;
+		try {
+			window.flutter_inappwebview
+				.callHandler("readContentFile", window.location.pathname)
+				.then(function (text) {
+					if (typeof text === "string" && text.length > 0 &&
+						text.indexOf("newPassuk") >= 0) {
+						state.originalDocumentHtml = text;
+						log("loadOriginalFromDisk: using on-disk source, length =",
+							text.length);
+					} else {
+						log("loadOriginalFromDisk: unusable result, keeping snapshot");
+					}
+				})
+				.catch(function (e) {
+					log("loadOriginalFromDisk failed, keeping snapshot:", e);
+				});
+		} catch (e) {
+			log("loadOriginalFromDisk threw:", e);
+		}
+	}
+
+	function stripStyleProps(el, props) {
+		for (var i = 0; i < props.length; i++) el.style.removeProperty(props[i]);
+		var st = el.getAttribute("style");
+		if (st === null || st.trim() === "") el.removeAttribute("style");
+	}
+
+	function sanitizeRuntimeState(doc, origStyles) {
+		var i, j, list;
+
+		// 1. Runtime/admin DOM nodes.
+		for (i = 0; i < RUNTIME_ELEMENT_IDS.length; i++) {
+			list = doc.querySelectorAll("#" + RUNTIME_ELEMENT_IDS[i]);
+			for (j = 0; j < list.length; j++) {
+				if (list[j].parentNode) list[j].parentNode.removeChild(list[j]);
+			}
+		}
+
+		// 2. Search highlights -> plain text again.
+		list = doc.querySelectorAll(".searchHighlight, .searchHighlightCurrent");
+		for (i = 0; i < list.length; i++) {
+			var hp = list[i].parentNode;
+			if (!hp) continue;
+			hp.replaceChild(doc.createTextNode(list[i].textContent), list[i]);
+			hp.normalize();
+		}
+
+		// 3. Admin classes/attributes.
+		list = doc.querySelectorAll(".admin-selected");
+		for (i = 0; i < list.length; i++) {
+			list[i].classList.remove("admin-selected");
+			if (list[i].classList.length === 0) list[i].removeAttribute("class");
+		}
+		list = doc.querySelectorAll("[contenteditable]");
+		for (i = 0; i < list.length; i++) list[i].removeAttribute("contenteditable");
+		list = doc.querySelectorAll("[spellcheck='false']");
+		for (i = 0; i < list.length; i++) {
+			if (list[i].classList.contains("newPassuk")) list[i].removeAttribute("spellcheck");
+		}
+		var body = doc.querySelector("body");
+		if (body) {
+			var bc = ["admin-active", "admin-select-mode", "admin-paste-mode", "admin-show-all"];
+			for (i = 0; i < bc.length; i++) body.classList.remove(bc[i]);
+			if (body.classList.length === 0) body.removeAttribute("class");
+		}
+
+		// 4. Page-level inline state set by myScript.js.
+		var htmlEl = doc.documentElement;
+		stripStyleProps(htmlEl, ["--fontSizeIvrit", "--fontSizeOthers"]);
+		var nav = doc.getElementById("mySidenav");
+		if (nav) {
+			stripStyleProps(nav, ["width", "border"]);
+			nav.classList.remove("open");
+			if (nav.classList.length === 0) nav.removeAttribute("class");
+		}
+		var bn = doc.getElementById("buttonNav");
+		if (bn) stripStyleProps(bn, ["display"]);
+		list = doc.querySelectorAll(".theContent");
+		for (i = 0; i < list.length; i++) stripStyleProps(list[i], ["display", "padding-top"]);
+
+		// 5. Left-menu "button active" -> "button".
+		list = doc.querySelectorAll("#mySidenav .button");
+		for (i = 0; i < list.length; i++) list[i].classList.remove("active");
+
+		// 6. Inline display on perush blocks is owned by the toggle logic.
+		var sel = "." + RUNTIME_DISPLAY_CLASSES.join(", .");
+		list = doc.querySelectorAll(sel);
+		for (i = 0; i < list.length; i++) {
+			var el = list[i];
+			var isFootnote = !!el.id && FOOTNOTE_CLASSES.some(function (c) {
+				return el.classList.contains(c);
+			});
+			if (isFootnote) {
+				// Hidden-by-default footnote: restore its original style from
+				// the baseline, or hide it if it is new (e.g. a pasted copy).
+				if (Object.prototype.hasOwnProperty.call(origStyles, el.id)) {
+					var st = origStyles[el.id];
+					if (st === null) el.removeAttribute("style");
+					else el.setAttribute("style", st);
+				} else {
+					el.style.display = "none";
 				}
+			} else {
+				stripStyleProps(el, ["display"]);
 			}
+		}
+	}
+
+	// Build the HTML we'll commit to GitHub: the pristine baseline with ONLY
+	// the editable content (.newPassuk innerHTML) copied in from the live DOM,
+	// then scrubbed of any runtime state (see sanitizeRuntimeState).
+	function serializeForCommit() {
+		if (state.originalDocumentHtml === null) {
+			captureOriginalDocument();
 		}
 
-		// 2. Strip body-level admin classes.
-		var bodyClone = docClone.querySelector("body");
-		if (bodyClone) {
-			var stripClasses = [
-				"admin-active", "admin-select-mode",
-				"admin-paste-mode", "admin-show-all",
-			];
-			for (var k = 0; k < stripClasses.length; k++) {
-				bodyClone.classList.remove(stripClasses[k]);
-			}
-			if (bodyClone.classList.length === 0) {
-				bodyClone.removeAttribute("class");
-			}
+		var originalDoc = new DOMParser().parseFromString(
+			state.originalDocumentHtml, "text/html");
+
+		var liveEditable = document.querySelectorAll(".newPassuk");
+		var originalEditable = originalDoc.querySelectorAll(".newPassuk");
+		var count = Math.min(liveEditable.length, originalEditable.length);
+
+		// Original inline style of every element with an id, from the baseline
+		// (used to restore footnote spans, which are hidden by default).
+		var origStyles = {};
+		var withId = originalDoc.querySelectorAll("[id]");
+		for (var w = 0; w < withId.length; w++) {
+			origStyles[withId[w].id] = withId[w].getAttribute("style");
 		}
 
-		// 3. Strip per-element admin attributes / classes added by the
-		// editor (contenteditable, spellcheck="false", admin-selected
-		// outline). We only added these to elements with class
-		// "newPassuk", but be permissive in case anything else got it.
-		var editable = docClone.querySelectorAll("[contenteditable]");
-		for (var n = 0; n < editable.length; n++) {
-			editable[n].removeAttribute("contenteditable");
-		}
-		var spellch = docClone.querySelectorAll("[spellcheck='false']");
-		for (var s = 0; s < spellch.length; s++) {
-			// Only strip if WE set it (newPassuk regions).
-			if (spellch[s].classList.contains("newPassuk")) {
-				spellch[s].removeAttribute("spellcheck");
-			}
-		}
-		var sel = docClone.querySelectorAll(".admin-selected");
-		for (var t = 0; t < sel.length; t++) {
-			sel[t].classList.remove("admin-selected");
-			if (sel[t].classList.length === 0) {
-				sel[t].removeAttribute("class");
-			}
+		for (var j = 0; j < count; j++) {
+			originalEditable[j].innerHTML = liveEditable[j].innerHTML;
 		}
 
-		// Reconstruct full HTML document.
-		return "<!DOCTYPE html>\n" + docClone.outerHTML;
+		sanitizeRuntimeState(originalDoc, origStyles);
+
+		return "<!DOCTYPE html>\n" + originalDoc.documentElement.outerHTML;
 	}
 
 	function submitEdit() {
@@ -999,6 +1116,8 @@
 	function activate() {
 		if (state.active) return;
 		log("activate: turning admin mode ON");
+		// Capture before any admin DOM changes (no-op if boot() already did).
+		captureOriginalDocument();
 		state.active = true;
 		makeEditable();
 		buildToolbar();
@@ -1011,6 +1130,9 @@
 
 	function boot() {
 		log("boot: setting up tap-burst handler, page =", window.location.pathname);
+		// Earliest practical point: before admin UI exists, so the baseline
+		// is the page as normal readers see it.
+		captureOriginalDocument();
 		installTapBurstHandler();
 		// Catch surprise navigations while admin is editing.
 		window.addEventListener("beforeunload", function (e) {
