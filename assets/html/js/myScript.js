@@ -195,10 +195,10 @@ function initClassesBasedOnCookies() {
 			makeDisappearAppearDivsBasedOnClass(key, appear);
 			if (appear) {
 				document.getElementById(key).className =
-					document.getElementById(key).className.replace("button", "button active");
+					document.getElementById(key).className.replace("button", "button");
 			} else {
 				document.getElementById(key).className =
-					document.getElementById(key).className.replace("button active", "button");
+					document.getElementById(key).className.replace("button", "button");
 			}
 		}
 	}
@@ -207,10 +207,10 @@ function initClassesBasedOnCookies() {
 
 function hideShow(theClass, obj) {
 	if (obj.className == "button") {
-		obj.className = obj.className.replace("button", "button active");
+		obj.className = obj.className.replace("button", "button");
 		activeClasses[theClass] = true;
 	} else {
-		obj.className = obj.className.replace("button active", "button");
+		obj.className = obj.className.replace("button", "button");
 		activeClasses[theClass] = false;
 	}
 	localStorage.setItem('actives', JSON.stringify(activeClasses));
