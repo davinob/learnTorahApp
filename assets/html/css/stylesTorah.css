@@ -350,7 +350,7 @@ a {
 }
 
 .community {
-    font-size: 23px;
+    font-size: var(--fontSizeIvrit);
     color: #9f1d4b;
     display: inline-block;
     margin-top: -15px;
