@@ -389,7 +389,7 @@ function initMyFlagsSection() {
 	var box = document.createElement('div');
 	box.id = 'myFlagsBox';
 	box.innerHTML =
-		"<div class='myFlagsTitle'>&#9873; הסימניות שלי / My flags / Mes signets</div>" +
+		"<div class='myFlagsTitle'>&#9873; הסימניות שלי</div>" +
 		"<div id='myFlagsList' class='myFlagsList'></div>";
 
 	var anchor = document.getElementById('globalSearchBox') ||
