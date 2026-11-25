@@ -264,21 +264,34 @@ function initPassukFlags() {
 	if (!pesukim.length) return;
 
 	var key = currentPageKey();
-	var stored = loadPassukFlags()[key] || [];
-	var marked = {};
-	var i;
-	for (i = 0; i < stored.length; i++) marked[stored[i]] = true;
-
-	var lastEl = null;
-	for (i = 0; i < pesukim.length; i++) {
-		bindPassukFlag(pesukim[i], i, key, marked[i]);
-		if (marked[i]) lastEl = pesukim[i];
+	var all = loadPassukFlags();
+	var stored = all[key] || [];
+	var markIdx = stored.length ? stored[stored.length - 1] : null;
+	if (stored.length > 1) {
+		all[key] = [markIdx];
+		localStorage.setItem(PASSUK_FLAGS_KEY, JSON.stringify(all));
 	}
 
-	if (lastEl) {
+	var markedEl = null;
+	var i;
+	for (i = 0; i < pesukim.length; i++) {
+		bindPassukFlag(pesukim[i], i, key, i === markIdx);
+		if (i === markIdx) markedEl = pesukim[i];
+	}
+
+	if (markedEl) {
 		setTimeout(function () {
-			lastEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			markedEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
 		}, 80);
+	}
+}
+
+function clearPagePassukFlags(exceptIdx) {
+	var pesukim = document.querySelectorAll('.newPassuk');
+	for (var i = 0; i < pesukim.length; i++) {
+		if (i === exceptIdx) continue;
+		var numEl = verseNumberEl(pesukim[i]);
+		if (numEl) setPassukFlag(numEl, false);
 	}
 }
 
@@ -299,15 +312,18 @@ function bindPassukFlag(passuk, idx, key, isMarked) {
 
 function togglePassukFlag(numEl, key, idx) {
 	var all = loadPassukFlags();
-	var list = all[key] ? all[key].slice() : [];
-	var pos = list.indexOf(idx);
-	if (pos >= 0) list.splice(pos, 1);
-	else list.push(idx);
-	list.sort(function (a, b) { return a - b; });
-	if (list.length) all[key] = list;
-	else delete all[key];
+	var list = all[key] || [];
+	var wasMarked = list.indexOf(idx) >= 0;
+
+	if (wasMarked) {
+		delete all[key];
+		setPassukFlag(numEl, false);
+	} else {
+		clearPagePassukFlags(idx);
+		all[key] = [idx];
+		setPassukFlag(numEl, true);
+	}
 	localStorage.setItem(PASSUK_FLAGS_KEY, JSON.stringify(all));
-	setPassukFlag(numEl, pos < 0);
 	if (navigator.vibrate) {
 		try { navigator.vibrate(20); } catch (e) {}
 	}
@@ -336,15 +352,15 @@ function maybeShowPassukBookmarkNotice() {
 		"<div class='pbnTitle'>&#9873; סימניה / Bookmark / Signet</div>" +
 		"<div class='pbnBlock pbnHe'>" +
 		"<b>עברית:</b> הקש על מספר הפסוק (בצד ימין של שורת הפסוק) כדי לסמן היכן עצרת. " +
-		"בפתיחה מחדש של הדף יופיע דגל כחול ותיגלגל אוטומטית לפסוק האחרון שסימנת. הקש שוב על המספר כדי לבטל את הסימון." +
+		"בכל דף נשמרת סימניה אחת בלבד — סימון חדש מחליף את הקודם. בפתיחה מחדש יופיע דגל כחול ותיגלגל לפסוק שסימנת. הקש שוב על המספר כדי לבטל." +
 		"</div>" +
 		"<div class='pbnBlock pbnEn'>" +
 		"<b>English:</b> Tap the verse number on the right of the Hebrew line to mark where you stopped. " +
-		"When you open this page again, a blue flag appears and the page scrolls to the last verse you marked. Tap the number again to clear the bookmark." +
+		"Only one bookmark per page — a new tap replaces the previous. When you open this page again, a blue flag appears and the page scrolls to that verse. Tap again to clear." +
 		"</div>" +
 		"<div class='pbnBlock pbnFr'>" +
 		"<b>Français&nbsp;:</b> Appuyez sur le numéro du verset à droite de la ligne hébraïque pour marquer où vous vous êtes arrêté. " +
-		"À la réouverture de cette page, un drapeau bleu s'affiche et la page défile jusqu'au dernier verset marqué. Appuyez à nouveau sur le numéro pour effacer le signet." +
+		"Un seul signet par page — un nouvel appui remplace le précédent. À la réouverture, un drapeau bleu s'affiche et la page défile jusqu'à ce verset. Appuyez à nouveau pour effacer." +
 		"</div>" +
 		"<button type='button' class='pbnClose' onclick='dismissPassukBookmarkNotice()'>הבנתי / Got it / Compris</button>";
 	document.body.insertBefore(panel, document.body.firstChild);
