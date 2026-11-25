@@ -1628,13 +1628,13 @@ a {
     right: 0;
     z-index: 99998;
     box-sizing: border-box;
-    padding: 12px 14px 14px;
+    padding: 18px 18px 20px;
     background: linear-gradient(180deg, #e8f0fb 0%, #f4f8fd 100%);
     border-bottom: 2px solid rgb(47, 109, 187);
     box-shadow: 0 4px 14px rgba(42, 77, 112, 0.2);
-    font-size: 15px;
-    line-height: 1.55;
-    max-height: 55vh;
+    font-size: 22px;
+    line-height: 1.5;
+    max-height: 70vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -1642,13 +1642,17 @@ a {
 #passukBookmarkNotice .pbnTitle {
     text-align: center;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 28px;
     color: rgb(47, 109, 187);
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
 #passukBookmarkNotice .pbnBlock {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+}
+
+#passukBookmarkNotice .pbnBlock b {
+    font-size: 1.05em;
 }
 
 #passukBookmarkNotice .pbnHe {
@@ -1666,14 +1670,14 @@ a {
 #passukBookmarkNotice .pbnClose {
     display: block;
     width: 100%;
-    max-width: 280px;
-    margin: 12px auto 0;
-    padding: 10px 16px;
+    max-width: 420px;
+    margin: 16px auto 0;
+    padding: 14px 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     background: rgb(47, 109, 187);
     color: #fff;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -1729,5 +1733,27 @@ body.passukNoticeOpen {
     #mySidenav .trads,
     #mySidenav .pirushim {
         gap: 10px;
+    }
+
+    /* Same WebView scaling as nav buttons — 15px was unreadable on phones. */
+    #passukBookmarkNotice {
+        font-size: 34px;
+        line-height: 1.45;
+        padding: 20px 22px 24px;
+    }
+
+    #passukBookmarkNotice .pbnTitle {
+        font-size: 40px;
+        margin-bottom: 18px;
+    }
+
+    #passukBookmarkNotice .pbnBlock {
+        margin-bottom: 18px;
+    }
+
+    #passukBookmarkNotice .pbnClose {
+        font-size: 36px;
+        padding: 16px 24px;
+        max-width: 90%;
     }
 }
