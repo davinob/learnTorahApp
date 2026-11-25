@@ -277,8 +277,8 @@ function initPassukFlags() {
 
 	if (lastEl) {
 		setTimeout(function () {
-			lastEl.scrollIntoView({ block: 'start' });
-		}, 60);
+			lastEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		}, 80);
 	}
 }
 
