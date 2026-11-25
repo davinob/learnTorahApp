@@ -211,6 +211,7 @@ function initClassesBasedOnCookies() {
 // Reopening the page scrolls to the last flagged verse on that page.
 
 var PASSUK_FLAGS_KEY = 'passukFlags';
+var PASSUK_NOTICE_KEY = 'passukBookmarkNoticeSeen';
 
 function currentPageKey() {
 	var href = window.location.href;
@@ -310,6 +311,51 @@ function togglePassukFlag(numEl, key, idx) {
 	if (navigator.vibrate) {
 		try { navigator.vibrate(20); } catch (e) {}
 	}
+}
+
+function dismissPassukBookmarkNotice() {
+	localStorage.setItem(PASSUK_NOTICE_KEY, '1');
+	var panel = document.getElementById('passukBookmarkNotice');
+	if (panel) panel.parentNode.removeChild(panel);
+	document.body.classList.remove('passukNoticeOpen');
+	document.documentElement.style.removeProperty('--passukNoticePad');
+}
+
+function maybeShowPassukBookmarkNotice() {
+	if (localStorage.getItem(PASSUK_NOTICE_KEY)) return;
+	if (!document.body.classList.contains('theBody') &&
+		!document.body.classList.contains('theBodyMain')) {
+		return;
+	}
+	if (document.getElementById('passukBookmarkNotice')) return;
+
+	var panel = document.createElement('div');
+	panel.id = 'passukBookmarkNotice';
+	panel.setAttribute('role', 'dialog');
+	panel.innerHTML =
+		"<div class='pbnTitle'>&#9873; סימניה / Bookmark / Signet</div>" +
+		"<div class='pbnBlock pbnHe'>" +
+		"<b>עברית:</b> הקש על מספר הפסוק (בצד ימין של שורת הפסוק) כדי לסמן היכן עצרת. " +
+		"בפתיחה מחדש של הדף יופיע דגל כחול ותיגלגל אוטומטית לפסוק האחרון שסימנת. הקש שוב על המספר כדי לבטל את הסימון." +
+		"</div>" +
+		"<div class='pbnBlock pbnEn'>" +
+		"<b>English:</b> Tap the verse number on the right of the Hebrew line to mark where you stopped. " +
+		"When you open this page again, a blue flag appears and the page scrolls to the last verse you marked. Tap the number again to clear the bookmark." +
+		"</div>" +
+		"<div class='pbnBlock pbnFr'>" +
+		"<b>Français&nbsp;:</b> Appuyez sur le numéro du verset à droite de la ligne hébraïque pour marquer où vous vous êtes arrêté. " +
+		"À la réouverture de cette page, un drapeau bleu s'affiche et la page défile jusqu'au dernier verset marqué. Appuyez à nouveau sur le numéro pour effacer le signet." +
+		"</div>" +
+		"<button type='button' class='pbnClose' onclick='dismissPassukBookmarkNotice()'>הבנתי / Got it / Compris</button>";
+	document.body.insertBefore(panel, document.body.firstChild);
+	document.body.classList.add('passukNoticeOpen');
+
+	function syncNoticePadding() {
+		var h = panel.offsetHeight;
+		document.documentElement.style.setProperty('--passukNoticePad', h + 'px');
+	}
+	syncNoticePadding();
+	window.addEventListener('resize', syncNoticePadding);
 }
 
 function hideShow(theClass, obj) {
@@ -1542,6 +1588,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (isIndexPage) {
 		initGlobalSearchUI();
 		restoreSearchOnIndexPage();
+		maybeShowPassukBookmarkNotice();
 	}
 
 	if (isParshaPage) {
@@ -1549,5 +1596,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		initZoomControls();
 		showSearchAliyotNav();
 		restoreSearchOnParshaPage();
+		maybeShowPassukBookmarkNotice();
 	}
 });

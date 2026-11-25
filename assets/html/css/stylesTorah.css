@@ -1599,7 +1599,7 @@ a {
     padding: 0;
 }
 
-/* Long-press target on the verse number, plus the bookmark flag. */
+/* Tap target on the verse number, plus the bookmark flag. */
 .passukNum {
     cursor: pointer;
     -webkit-user-select: none;
@@ -1610,15 +1610,76 @@ a {
 }
 
 .passukFlag {
-    color: #c0392b;
+    color: rgb(47, 109, 187);
     margin-left: 6px;
     font-size: 0.9em;
 }
 
 .passukMarked {
-    background: rgba(192, 57, 43, 0.14);
+    background: rgba(47, 109, 187, 0.16);
     border-radius: 6px;
     padding: 0 4px;
+}
+
+#passukBookmarkNotice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99998;
+    box-sizing: border-box;
+    padding: 12px 14px 14px;
+    background: linear-gradient(180deg, #e8f0fb 0%, #f4f8fd 100%);
+    border-bottom: 2px solid rgb(47, 109, 187);
+    box-shadow: 0 4px 14px rgba(42, 77, 112, 0.2);
+    font-size: 15px;
+    line-height: 1.55;
+    max-height: 55vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#passukBookmarkNotice .pbnTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(47, 109, 187);
+    margin-bottom: 10px;
+}
+
+#passukBookmarkNotice .pbnBlock {
+    margin-bottom: 10px;
+}
+
+#passukBookmarkNotice .pbnHe {
+    direction: rtl;
+    text-align: right;
+}
+
+#passukBookmarkNotice .pbnEn,
+#passukBookmarkNotice .pbnFr {
+    direction: ltr;
+    text-align: left;
+    color: #333;
+}
+
+#passukBookmarkNotice .pbnClose {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 12px auto 0;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(47, 109, 187);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+body.passukNoticeOpen {
+    padding-top: var(--passukNoticePad, 0px);
 }
 
 /* Trailing space so the fixed zoom controls cannot cover the bottom number
