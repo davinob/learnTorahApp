@@ -920,6 +920,131 @@ a {
 }
 
 
+/* ==================== MY FLAGS (index page) ==================== */
+
+#myFlagsBox {
+    margin: 0 auto 20px;
+    padding: 18px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #f0f6fd 0%, #e4edf8 100%);
+    border-radius: 16px;
+    border: 1.5px solid #b8cce3;
+    box-shadow: 0 4px 16px rgba(49, 86, 127, 0.08);
+    direction: rtl;
+    text-align: right;
+}
+
+.myFlagsTitle {
+    font-size: 26px;
+    font-weight: 700;
+    color: rgb(47, 109, 187);
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 1.35;
+}
+
+.myFlagsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.myFlagsItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    color: #2a4d70;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: right;
+    cursor: pointer;
+    direction: rtl;
+    box-shadow: 0 1px 4px rgba(42, 77, 112, 0.1);
+}
+
+.myFlagsItem:active {
+    background: #e8f0f8;
+}
+
+.myFlagsFlag {
+    color: rgb(47, 109, 187);
+    flex-shrink: 0;
+}
+
+.myFlagsEmpty {
+    font-size: 22px;
+    color: #5a7290;
+    text-align: center;
+    padding: 10px 4px;
+    line-height: 1.45;
+}
+
+.indexFooterCredits {
+    margin-top: 50px;
+    font-size: 20px;
+    color: #8aa4bf;
+}
+
+.indexFooterCredits a {
+    color: #8aa4bf;
+    text-decoration: none;
+    font-size: inherit;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.indexFooterTefila {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #31567f;
+    font-size: 24px;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+/* Home page — larger UI (980px viewport is scaled on phones). */
+.theBodyMain .accordion {
+    font-size: 28px;
+    padding: 20px 22px;
+}
+
+.theBodyMain .accordion::after {
+    font-size: 22px;
+}
+
+.theBodyMain .buttonInAccordion {
+    font-size: 26px;
+    padding: 18px 20px;
+}
+
+#globalSearchBox .gsTitle {
+    font-size: 28px;
+}
+
+#globalSearchBox #gsInput,
+#globalSearchBox .gsBtn {
+    font-size: 24px;
+}
+
+#globalSearchBox .sToggle,
+#globalSearchBox .sf {
+    font-size: 20px;
+}
+
+#globalSearchBox .gsCloseBtn {
+    font-size: 22px;
+}
+
 /* ==================== GLOBAL SEARCH (index page) ==================== */
 
 #globalSearchBox {
@@ -1755,5 +1880,51 @@ body.passukNoticeOpen {
         font-size: 36px;
         padding: 16px 24px;
         max-width: 90%;
+    }
+
+    .theBodyMain .accordion {
+        font-size: 40px;
+        padding: 22px 24px;
+    }
+
+    .theBodyMain .accordion::after {
+        font-size: 30px;
+    }
+
+    .theBodyMain .buttonInAccordion {
+        font-size: 36px;
+        padding: 22px 24px;
+    }
+
+    #globalSearchBox .gsTitle,
+    .myFlagsTitle {
+        font-size: 40px;
+    }
+
+    #globalSearchBox #gsInput,
+    #globalSearchBox .gsBtn {
+        font-size: 34px;
+    }
+
+    #globalSearchBox .sToggle,
+    #globalSearchBox .sf {
+        font-size: 30px;
+    }
+
+    .myFlagsItem {
+        font-size: 34px;
+        padding: 18px 20px;
+    }
+
+    .myFlagsEmpty {
+        font-size: 32px;
+    }
+
+    .indexFooterCredits {
+        font-size: 30px;
+    }
+
+    .indexFooterTefila {
+        font-size: 34px;
     }
 }
