@@ -329,6 +329,75 @@ function togglePassukFlag(numEl, key, idx) {
 	}
 }
 
+function passukFlagPageLabel(pageKey) {
+	var m = (pageKey || '').match(/^([^/]+)\/(\d+)\.html$/);
+	if (!m) return pageKey;
+	var folder = m[1];
+	var num = parseInt(m[2], 10);
+	var heb = parshaHebrew[folder] || folder;
+	if (num === 8) return heb + ' — הפטרה';
+	return heb + ' — קריאה ' + num;
+}
+
+function passukFlagSortKey(pageKey) {
+	var m = (pageKey || '').match(/^([^/]+)\/(\d+)\.html$/);
+	if (!m) return [9999, 99];
+	var fi = parshaFolders.indexOf(m[1]);
+	if (fi < 0) fi = 9998;
+	return [fi, parseInt(m[2], 10)];
+}
+
+function renderMyFlagsList() {
+	var listEl = document.getElementById('myFlagsList');
+	if (!listEl) return;
+
+	var all = loadPassukFlags();
+	var keys = Object.keys(all).filter(function (key) {
+		var arr = all[key];
+		return arr && arr.length > 0;
+	});
+	keys.sort(function (a, b) {
+		var ka = passukFlagSortKey(a);
+		var kb = passukFlagSortKey(b);
+		if (ka[0] !== kb[0]) return ka[0] - kb[0];
+		return ka[1] - kb[1];
+	});
+
+	if (!keys.length) {
+		listEl.innerHTML = "<div class='myFlagsEmpty'>אין סימניות שמורות — סמנו פסוק בדף הקריאה.</div>";
+		return;
+	}
+
+	var html = '';
+	for (var i = 0; i < keys.length; i++) {
+		var key = keys[i];
+		html += "<button type='button' class='myFlagsItem' onclick=\"window.location.replace('" +
+			key.replace(/'/g, '') + "')\">" +
+			"<span class='myFlagsFlag' aria-hidden='true'>&#9873;</span>" +
+			"<span class='myFlagsLabel'>" + passukFlagPageLabel(key) + '</span></button>';
+	}
+	listEl.innerHTML = html;
+}
+
+function initMyFlagsSection() {
+	if (!document.body.classList.contains('theBodyMain')) return;
+	if (document.getElementById('myFlagsBox')) {
+		renderMyFlagsList();
+		return;
+	}
+
+	var box = document.createElement('div');
+	box.id = 'myFlagsBox';
+	box.innerHTML =
+		"<div class='myFlagsTitle'>&#9873; הסימניות שלי / My flags / Mes signets</div>" +
+		"<div id='myFlagsList' class='myFlagsList'></div>";
+
+	var anchor = document.getElementById('globalSearchBox') ||
+		document.querySelector('.accordion');
+	document.body.insertBefore(box, anchor);
+	renderMyFlagsList();
+}
+
 function dismissPassukBookmarkNotice() {
 	localStorage.setItem(PASSUK_NOTICE_KEY, '1');
 	var panel = document.getElementById('passukBookmarkNotice');
@@ -1603,8 +1672,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (isIndexPage) {
 		initGlobalSearchUI();
+		initMyFlagsSection();
 		restoreSearchOnIndexPage();
 		maybeShowPassukBookmarkNotice();
+		window.addEventListener('pageshow', function () {
+			renderMyFlagsList();
+		});
 	}
 
 	if (isParshaPage) {
