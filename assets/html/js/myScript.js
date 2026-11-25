@@ -203,6 +203,149 @@ function initClassesBasedOnCookies() {
 		}
 	}
 	makeDisappearAppearDivsBasedOnClass("theContent", true);
+	initPassukFlags();
+}
+
+// ==================== PASUK BOOKMARKS ====================
+// Long-press a verse number (right side of the Hebrew line) to flag it.
+// Reopening the page scrolls to the last flagged verse on that page.
+
+var PASSUK_FLAGS_KEY = 'passukFlags';
+var PASSUK_LONG_PRESS_MS = 550;
+
+function currentPageKey() {
+	var href = window.location.href;
+	var markers = ['/html_content/', '/assets/html/'];
+	for (var i = 0; i < markers.length; i++) {
+		var idx = href.indexOf(markers[i]);
+		if (idx >= 0) return href.substring(idx + markers[i].length);
+	}
+	return href;
+}
+
+function loadPassukFlags() {
+	try {
+		return JSON.parse(localStorage.getItem(PASSUK_FLAGS_KEY)) || {};
+	} catch (e) {
+		return {};
+	}
+}
+
+function verseNumberEl(passuk) {
+	var ivrit = passuk.querySelector('.passukIvrit');
+	if (!ivrit) return null;
+	var spans = ivrit.querySelectorAll('span');
+	for (var i = 0; i < spans.length; i++) {
+		var style = (spans[i].getAttribute('style') || '').toLowerCase();
+		if (style.indexOf('47,109,187') >= 0 || style.indexOf('2f6dbb') >= 0) {
+			return spans[i];
+		}
+	}
+	return null;
+}
+
+function setPassukFlag(numEl, on) {
+	var flag = numEl.querySelector('.passukFlag');
+	if (on && !flag) {
+		flag = document.createElement('span');
+		flag.className = 'passukFlag';
+		flag.textContent = '\u2691';
+		flag.setAttribute('aria-hidden', 'true');
+		numEl.insertBefore(flag, numEl.firstChild);
+	} else if (!on && flag) {
+		flag.parentNode.removeChild(flag);
+	}
+	if (on) numEl.classList.add('passukMarked');
+	else numEl.classList.remove('passukMarked');
+}
+
+function initPassukFlags() {
+	var pesukim = document.querySelectorAll('.newPassuk');
+	if (!pesukim.length) return;
+
+	var key = currentPageKey();
+	var stored = loadPassukFlags()[key] || [];
+	var marked = {};
+	var i;
+	for (i = 0; i < stored.length; i++) marked[stored[i]] = true;
+
+	var lastEl = null;
+	for (i = 0; i < pesukim.length; i++) {
+		bindPassukFlag(pesukim[i], i, key, marked[i]);
+		if (marked[i]) lastEl = pesukim[i];
+	}
+
+	if (lastEl) {
+		setTimeout(function () {
+			lastEl.scrollIntoView({ block: 'start' });
+		}, 60);
+	}
+}
+
+function bindPassukFlag(passuk, idx, key, isMarked) {
+	var numEl = verseNumberEl(passuk);
+	if (!numEl || numEl.getAttribute('data-flag-bound')) return;
+	numEl.setAttribute('data-flag-bound', '1');
+	numEl.classList.add('passukNum');
+	if (isMarked) setPassukFlag(numEl, true);
+
+	var timer = null;
+	var startX = 0;
+	var startY = 0;
+
+	function cancel() {
+		if (timer) {
+			clearTimeout(timer);
+			timer = null;
+		}
+	}
+
+	function arm(x, y) {
+		cancel();
+		startX = x;
+		startY = y;
+		timer = setTimeout(function () {
+			timer = null;
+			togglePassukFlag(numEl, key, idx);
+		}, PASSUK_LONG_PRESS_MS);
+	}
+
+	numEl.addEventListener('touchstart', function (e) {
+		if (e.touches.length !== 1) return;
+		arm(e.touches[0].clientX, e.touches[0].clientY);
+	}, { passive: true });
+	numEl.addEventListener('touchmove', function (e) {
+		if (!timer || !e.touches.length) return;
+		if (Math.abs(e.touches[0].clientX - startX) > 12 ||
+			Math.abs(e.touches[0].clientY - startY) > 12) {
+			cancel();
+		}
+	}, { passive: true });
+	numEl.addEventListener('touchend', cancel);
+	numEl.addEventListener('touchcancel', cancel);
+	numEl.addEventListener('mousedown', function (e) {
+		if (e.button !== 0) return;
+		arm(e.clientX, e.clientY);
+	});
+	numEl.addEventListener('mouseup', cancel);
+	numEl.addEventListener('mouseleave', cancel);
+	numEl.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+}
+
+function togglePassukFlag(numEl, key, idx) {
+	var all = loadPassukFlags();
+	var list = all[key] ? all[key].slice() : [];
+	var pos = list.indexOf(idx);
+	if (pos >= 0) list.splice(pos, 1);
+	else list.push(idx);
+	list.sort(function (a, b) { return a - b; });
+	if (list.length) all[key] = list;
+	else delete all[key];
+	localStorage.setItem(PASSUK_FLAGS_KEY, JSON.stringify(all));
+	setPassukFlag(numEl, pos < 0);
+	if (navigator.vibrate) {
+		try { navigator.vibrate(20); } catch (e) {}
+	}
 }
 
 function hideShow(theClass, obj) {

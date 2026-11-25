@@ -1599,6 +1599,26 @@ a {
     padding: 0;
 }
 
+/* Long-press target on the verse number, plus the bookmark flag. */
+.passukNum {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.passukFlag {
+    color: #c0392b;
+    margin-left: 6px;
+    font-size: 0.9em;
+}
+
+.passukMarked {
+    background: rgba(192, 57, 43, 0.14);
+    border-radius: 6px;
+    padding: 0 4px;
+}
+
 /* Trailing space so the fixed zoom controls cannot cover the bottom number
    strip. `clear` is needed because the strip is floated. */
 .theBody::after {
