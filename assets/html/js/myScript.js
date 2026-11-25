@@ -207,11 +207,10 @@ function initClassesBasedOnCookies() {
 }
 
 // ==================== PASUK BOOKMARKS ====================
-// Long-press a verse number (right side of the Hebrew line) to flag it.
+// Tap a verse number (right side of the Hebrew line) to flag it.
 // Reopening the page scrolls to the last flagged verse on that page.
 
 var PASSUK_FLAGS_KEY = 'passukFlags';
-var PASSUK_LONG_PRESS_MS = 550;
 
 function currentPageKey() {
 	var href = window.location.href;
@@ -287,49 +286,14 @@ function bindPassukFlag(passuk, idx, key, isMarked) {
 	if (!numEl || numEl.getAttribute('data-flag-bound')) return;
 	numEl.setAttribute('data-flag-bound', '1');
 	numEl.classList.add('passukNum');
+	numEl.setAttribute('role', 'button');
 	if (isMarked) setPassukFlag(numEl, true);
 
-	var timer = null;
-	var startX = 0;
-	var startY = 0;
-
-	function cancel() {
-		if (timer) {
-			clearTimeout(timer);
-			timer = null;
-		}
-	}
-
-	function arm(x, y) {
-		cancel();
-		startX = x;
-		startY = y;
-		timer = setTimeout(function () {
-			timer = null;
-			togglePassukFlag(numEl, key, idx);
-		}, PASSUK_LONG_PRESS_MS);
-	}
-
-	numEl.addEventListener('touchstart', function (e) {
-		if (e.touches.length !== 1) return;
-		arm(e.touches[0].clientX, e.touches[0].clientY);
-	}, { passive: true });
-	numEl.addEventListener('touchmove', function (e) {
-		if (!timer || !e.touches.length) return;
-		if (Math.abs(e.touches[0].clientX - startX) > 12 ||
-			Math.abs(e.touches[0].clientY - startY) > 12) {
-			cancel();
-		}
-	}, { passive: true });
-	numEl.addEventListener('touchend', cancel);
-	numEl.addEventListener('touchcancel', cancel);
-	numEl.addEventListener('mousedown', function (e) {
-		if (e.button !== 0) return;
-		arm(e.clientX, e.clientY);
+	numEl.addEventListener('click', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		togglePassukFlag(numEl, key, idx);
 	});
-	numEl.addEventListener('mouseup', cancel);
-	numEl.addEventListener('mouseleave', cancel);
-	numEl.addEventListener('contextmenu', function (e) { e.preventDefault(); });
 }
 
 function togglePassukFlag(numEl, key, idx) {
